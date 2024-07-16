@@ -1,0 +1,9 @@
+.idea
+/vendor/
+/test/
+composer.phar
+composer.lock
+.openapi-generator-ignore
+.travis.yml
+git_push.sh
+phpunit.xml.dist
