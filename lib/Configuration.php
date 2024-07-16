@@ -141,7 +141,7 @@ class Configuration
      */
     public function getApiKey($apiKeyIdentifier) : string
     {
-        return isset($this->apiKeys[$apiKeyIdentifier]) ? $this->apiKeys[$apiKeyIdentifier] : null;
+        return isset($this->apiKeys[$apiKeyIdentifier]) ? $this->apiKeys[$apiKeyIdentifier] : '';
     }
 
     /**
@@ -167,7 +167,7 @@ class Configuration
      */
     public function getApiKeyPrefix($apiKeyIdentifier) : string
     {
-        return isset($this->apiKeyPrefixes[$apiKeyIdentifier]) ? $this->apiKeyPrefixes[$apiKeyIdentifier] : null;
+        return isset($this->apiKeyPrefixes[$apiKeyIdentifier]) ? $this->apiKeyPrefixes[$apiKeyIdentifier] : '';
     }
 
     /**
@@ -415,7 +415,7 @@ class Configuration
         $apiKey = $this->getApiKey($apiKeyIdentifier);
 
         if ($apiKey === null) {
-            return null;
+            return '';
         }
 
         if ($prefix === null) {

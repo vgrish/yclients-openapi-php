@@ -79,7 +79,7 @@ class HeaderSelector
     private function selectAcceptHeader($accept) : string
     {
         if (count($accept) === 0 || (count($accept) === 1 && $accept[0] === '')) {
-            return null;
+            return '';
         } elseif ($jsonAccept = preg_grep('~(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$~', $accept)) {
             return implode(',', $jsonAccept);
         } else {
