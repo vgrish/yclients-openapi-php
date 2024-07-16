@@ -27,8 +27,8 @@
 
 namespace Vgrish\YclientsOpenApi\Model;
 
-use \ArrayAccess;
-use \Vgrish\YclientsOpenApi\ObjectSerializer;
+use ArrayAccess;
+use Vgrish\YclientsOpenApi\ObjectSerializer;
 
 /**
  * ClientCreateRequest Class Doc Comment
@@ -40,7 +40,7 @@ use \Vgrish\YclientsOpenApi\ObjectSerializer;
  */
 class ClientCreateRequest implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -104,7 +104,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function openAPITypes()
+    public static function openAPITypes() : array
     {
         return self::$openAPITypes;
     }
@@ -114,7 +114,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function openAPIFormats()
+    public static function openAPIFormats() : array
     {
         return self::$openAPIFormats;
     }
@@ -201,7 +201,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function attributeMap()
+    public static function attributeMap() : array
     {
         return self::$attributeMap;
     }
@@ -211,7 +211,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function setters()
+    public static function setters() : array
     {
         return self::$setters;
     }
@@ -221,7 +221,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function getters()
+    public static function getters() : array
     {
         return self::$getters;
     }
@@ -231,14 +231,14 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function getModelName()
+    public function getModelName() : string
     {
         return self::$openAPIModelName;
     }
 
-    
 
-    
+
+
 
     /**
      * Associative array for storing property values
@@ -279,7 +279,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties()
+    public function listInvalidProperties() : array
     {
         $invalidProperties = [];
 
@@ -298,7 +298,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return bool True if all properties are valid
      */
-    public function valid()
+    public function valid() : bool
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -309,7 +309,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function getName()
+    public function getName() : string
     {
         return $this->container['name'];
     }
@@ -333,7 +333,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function getPhone()
+    public function getPhone() : string
     {
         return $this->container['phone'];
     }
@@ -357,7 +357,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getSurname()
+    public function getSurname() : ?string
     {
         return $this->container['surname'];
     }
@@ -381,7 +381,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getPatronymic()
+    public function getPatronymic() : ?string
     {
         return $this->container['patronymic'];
     }
@@ -405,7 +405,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getEmail()
+    public function getEmail() : ?string
     {
         return $this->container['email'];
     }
@@ -429,7 +429,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getSexId()
+    public function getSexId() : ?string
     {
         return $this->container['sex_id'];
     }
@@ -453,7 +453,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getImportanceId()
+    public function getImportanceId() : ?string
     {
         return $this->container['importance_id'];
     }
@@ -477,7 +477,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getDiscount()
+    public function getDiscount() : ?string
     {
         return $this->container['discount'];
     }
@@ -501,7 +501,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getCard()
+    public function getCard() : ?string
     {
         return $this->container['card'];
     }
@@ -525,7 +525,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getBirthDate()
+    public function getBirthDate() : ?string
     {
         return $this->container['birth_date'];
     }
@@ -549,7 +549,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getComment()
+    public function getComment() : ?string
     {
         return $this->container['comment'];
     }
@@ -573,7 +573,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getSpent()
+    public function getSpent() : ?string
     {
         return $this->container['spent'];
     }
@@ -597,7 +597,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getBalance()
+    public function getBalance() : ?string
     {
         return $this->container['balance'];
     }
@@ -621,7 +621,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getSmsCheck()
+    public function getSmsCheck() : ?string
     {
         return $this->container['sms_check'];
     }
@@ -645,7 +645,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getSmsNot()
+    public function getSmsNot() : ?string
     {
         return $this->container['sms_not'];
     }
@@ -669,7 +669,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return object|null
      */
-    public function getLabels()
+    public function getLabels() : ?object
     {
         return $this->container['labels'];
     }
@@ -693,7 +693,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return object|null
      */
-    public function getCustomFields()
+    public function getCustomFields() : ?object
     {
         return $this->container['custom_fields'];
     }
@@ -718,7 +718,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset) : bool
     {
         return isset($this->container[$offset]);
     }
@@ -730,7 +730,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset) : mixed
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
@@ -743,7 +743,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value) : void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -759,7 +759,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset) : void
     {
         unset($this->container[$offset]);
     }
@@ -769,7 +769,7 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -782,30 +782,29 @@ class ClientCreateRequest implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function toHeaderValue()
+    public function toHeaderValue() : string
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 
-	/**
+    /**
      * Gets array presentation of the object
      *
      * @return array
      */
-    public function toArray()
+    public function toArray() : array
     {
         $array = [];
         foreach ($this->container as $key => $value) {
-            if (is_a($value,ModelInterface::class)) {
+            if (is_a($value, ModelInterface::class)) {
                 $array[$key] = $value->toArray();
-            }
-            else {
+            } else {
                 $array[$key] = $value;
             }
         }
         return $array;
     }
-	
+
 }
 
 

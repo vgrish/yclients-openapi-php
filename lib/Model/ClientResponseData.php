@@ -27,8 +27,8 @@
 
 namespace Vgrish\YclientsOpenApi\Model;
 
-use \ArrayAccess;
-use \Vgrish\YclientsOpenApi\ObjectSerializer;
+use ArrayAccess;
+use Vgrish\YclientsOpenApi\ObjectSerializer;
 
 /**
  * ClientResponseData Class Doc Comment
@@ -40,7 +40,7 @@ use \Vgrish\YclientsOpenApi\ObjectSerializer;
  */
 class ClientResponseData implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -120,7 +120,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function openAPITypes()
+    public static function openAPITypes() : array
     {
         return self::$openAPITypes;
     }
@@ -130,7 +130,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function openAPIFormats()
+    public static function openAPIFormats() : array
     {
         return self::$openAPIFormats;
     }
@@ -241,7 +241,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function attributeMap()
+    public static function attributeMap() : array
     {
         return self::$attributeMap;
     }
@@ -251,7 +251,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function setters()
+    public static function setters() : array
     {
         return self::$setters;
     }
@@ -261,7 +261,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function getters()
+    public static function getters() : array
     {
         return self::$getters;
     }
@@ -271,14 +271,14 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function getModelName()
+    public function getModelName() : string
     {
         return self::$openAPIModelName;
     }
 
-    
 
-    
+
+
 
     /**
      * Associative array for storing property values
@@ -327,7 +327,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties()
+    public function listInvalidProperties() : array
     {
         $invalidProperties = [];
 
@@ -346,7 +346,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return bool True if all properties are valid
      */
-    public function valid()
+    public function valid() : bool
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -357,7 +357,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return int
      */
-    public function getId()
+    public function getId() : int
     {
         return $this->container['id'];
     }
@@ -381,7 +381,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function getName()
+    public function getName() : string
     {
         return $this->container['name'];
     }
@@ -405,7 +405,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getSurname()
+    public function getSurname() : ?string
     {
         return $this->container['surname'];
     }
@@ -429,7 +429,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getPatronymic()
+    public function getPatronymic() : ?string
     {
         return $this->container['patronymic'];
     }
@@ -453,7 +453,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getDisplayName()
+    public function getDisplayName() : ?string
     {
         return $this->container['display_name'];
     }
@@ -477,7 +477,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getPhone()
+    public function getPhone() : ?string
     {
         return $this->container['phone'];
     }
@@ -501,7 +501,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getEmail()
+    public function getEmail() : ?string
     {
         return $this->container['email'];
     }
@@ -525,7 +525,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getCard()
+    public function getCard() : ?string
     {
         return $this->container['card'];
     }
@@ -549,7 +549,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getBirthDate()
+    public function getBirthDate() : ?string
     {
         return $this->container['birth_date'];
     }
@@ -573,7 +573,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getComment()
+    public function getComment() : ?string
     {
         return $this->container['comment'];
     }
@@ -597,7 +597,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return int|null
      */
-    public function getDiscount()
+    public function getDiscount() : ?int
     {
         return $this->container['discount'];
     }
@@ -621,7 +621,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return int|null
      */
-    public function getVisits()
+    public function getVisits() : ?int
     {
         return $this->container['visits'];
     }
@@ -645,7 +645,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return int|null
      */
-    public function getSexId()
+    public function getSexId() : ?int
     {
         return $this->container['sex_id'];
     }
@@ -669,7 +669,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getSex()
+    public function getSex() : ?string
     {
         return $this->container['sex'];
     }
@@ -693,7 +693,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return int|null
      */
-    public function getSmsCheck()
+    public function getSmsCheck() : ?int
     {
         return $this->container['sms_check'];
     }
@@ -717,7 +717,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return int|null
      */
-    public function getSmsBot()
+    public function getSmsBot() : ?int
     {
         return $this->container['sms_bot'];
     }
@@ -741,7 +741,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return int|null
      */
-    public function getSmsNot()
+    public function getSmsNot() : ?int
     {
         return $this->container['sms_not'];
     }
@@ -765,7 +765,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return int|null
      */
-    public function getSpent()
+    public function getSpent() : ?int
     {
         return $this->container['spent'];
     }
@@ -789,7 +789,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return int|null
      */
-    public function getPaid()
+    public function getPaid() : ?int
     {
         return $this->container['paid'];
     }
@@ -813,7 +813,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return int|null
      */
-    public function getBalance()
+    public function getBalance() : ?int
     {
         return $this->container['balance'];
     }
@@ -837,7 +837,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return int|null
      */
-    public function getImportanceId()
+    public function getImportanceId() : ?int
     {
         return $this->container['importance_id'];
     }
@@ -861,7 +861,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getImportance()
+    public function getImportance() : ?string
     {
         return $this->container['importance'];
     }
@@ -885,7 +885,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return string[]|null
      */
-    public function getCategories()
+    public function getCategories() : ?array
     {
         return $this->container['categories'];
     }
@@ -909,7 +909,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getLastChangeDate()
+    public function getLastChangeDate() : ?string
     {
         return $this->container['last_change_date'];
     }
@@ -933,7 +933,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return object|null
      */
-    public function getCustomFields()
+    public function getCustomFields() : ?object
     {
         return $this->container['custom_fields'];
     }
@@ -958,7 +958,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset) : bool
     {
         return isset($this->container[$offset]);
     }
@@ -970,7 +970,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset) : mixed
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
@@ -983,7 +983,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value) : void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -999,7 +999,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset) : void
     {
         unset($this->container[$offset]);
     }
@@ -1009,7 +1009,7 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -1022,30 +1022,29 @@ class ClientResponseData implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function toHeaderValue()
+    public function toHeaderValue() : string
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 
-	/**
+    /**
      * Gets array presentation of the object
      *
      * @return array
      */
-    public function toArray()
+    public function toArray() : array
     {
         $array = [];
         foreach ($this->container as $key => $value) {
-            if (is_a($value,ModelInterface::class)) {
+            if (is_a($value, ModelInterface::class)) {
                 $array[$key] = $value->toArray();
-            }
-            else {
+            } else {
                 $array[$key] = $value;
             }
         }
         return $array;
     }
-	
+
 }
 
 

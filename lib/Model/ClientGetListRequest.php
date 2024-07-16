@@ -27,8 +27,8 @@
 
 namespace Vgrish\YclientsOpenApi\Model;
 
-use \ArrayAccess;
-use \Vgrish\YclientsOpenApi\ObjectSerializer;
+use ArrayAccess;
+use Vgrish\YclientsOpenApi\ObjectSerializer;
 
 /**
  * ClientGetListRequest Class Doc Comment
@@ -41,7 +41,7 @@ use \Vgrish\YclientsOpenApi\ObjectSerializer;
  */
 class ClientGetListRequest implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -85,7 +85,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function openAPITypes()
+    public static function openAPITypes() : array
     {
         return self::$openAPITypes;
     }
@@ -95,7 +95,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function openAPIFormats()
+    public static function openAPIFormats() : array
     {
         return self::$openAPIFormats;
     }
@@ -152,7 +152,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function attributeMap()
+    public static function attributeMap() : array
     {
         return self::$attributeMap;
     }
@@ -162,7 +162,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function setters()
+    public static function setters() : array
     {
         return self::$setters;
     }
@@ -172,7 +172,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function getters()
+    public static function getters() : array
     {
         return self::$getters;
     }
@@ -182,33 +182,33 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function getModelName()
+    public function getModelName() : string
     {
         return self::$openAPIModelName;
     }
 
-    const ORDER_BY_ID = 'id';
-    const ORDER_BY_NAME = 'name';
-    const ORDER_BY_PHONE = 'phone';
-    const ORDER_BY_EMAIL = 'email';
-    const ORDER_BY_DISCOUNT = 'discount';
-    const ORDER_BY_FIRST_VISIT_DATE = 'first_visit_date';
-    const ORDER_BY_LAST_VISIT_DATE = 'last_visit_date';
-    const ORDER_BY_SOLD_AMOUNT = 'sold_amount';
-    const ORDER_BY_VISITS_COUNT = 'visits_count';
-    const ORDER_BY_DIRECTION_ASC = 'ASC';
-    const ORDER_BY_DIRECTION_DESC = 'DESC';
-    const OPERATION__AND = 'AND';
-    const OPERATION__OR = 'OR';
-    
+    public const ORDER_BY_ID = 'id';
+    public const ORDER_BY_NAME = 'name';
+    public const ORDER_BY_PHONE = 'phone';
+    public const ORDER_BY_EMAIL = 'email';
+    public const ORDER_BY_DISCOUNT = 'discount';
+    public const ORDER_BY_FIRST_VISIT_DATE = 'first_visit_date';
+    public const ORDER_BY_LAST_VISIT_DATE = 'last_visit_date';
+    public const ORDER_BY_SOLD_AMOUNT = 'sold_amount';
+    public const ORDER_BY_VISITS_COUNT = 'visits_count';
+    public const ORDER_BY_DIRECTION_ASC = 'ASC';
+    public const ORDER_BY_DIRECTION_DESC = 'DESC';
+    public const OPERATION__AND = 'AND';
+    public const OPERATION__OR = 'OR';
 
-    
+
+
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getOrderByAllowableValues()
+    public function getOrderByAllowableValues() : array
     {
         return [
             self::ORDER_BY_ID,
@@ -222,33 +222,33 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
             self::ORDER_BY_VISITS_COUNT,
         ];
     }
-    
+
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getOrderByDirectionAllowableValues()
+    public function getOrderByDirectionAllowableValues() : array
     {
         return [
             self::ORDER_BY_DIRECTION_ASC,
             self::ORDER_BY_DIRECTION_DESC,
         ];
     }
-    
+
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getOperationAllowableValues()
+    public function getOperationAllowableValues() : array
     {
         return [
             self::OPERATION__AND,
             self::OPERATION__OR,
         ];
     }
-    
+
 
     /**
      * Associative array for storing property values
@@ -279,7 +279,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties()
+    public function listInvalidProperties() : array
     {
         $invalidProperties = [];
 
@@ -316,7 +316,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return bool True if all properties are valid
      */
-    public function valid()
+    public function valid() : bool
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -327,7 +327,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return float|null
      */
-    public function getPage()
+    public function getPage() : ?float
     {
         return $this->container['page'];
     }
@@ -351,7 +351,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return float|null
      */
-    public function getPageSize()
+    public function getPageSize() : ?float
     {
         return $this->container['page_size'];
     }
@@ -375,7 +375,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return string[]|null
      */
-    public function getFields()
+    public function getFields() : ?array
     {
         return $this->container['fields'];
     }
@@ -399,7 +399,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getOrderBy()
+    public function getOrderBy() : ?string
     {
         return $this->container['order_by'];
     }
@@ -432,7 +432,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getOrderByDirection()
+    public function getOrderByDirection() : ?string
     {
         return $this->container['order_by_direction'];
     }
@@ -465,7 +465,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return string|null
      */
-    public function getOperation()
+    public function getOperation() : ?string
     {
         return $this->container['operation'];
     }
@@ -498,7 +498,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return \Vgrish\YclientsOpenApi\Model\ClientGetListRequestFilters[]|null
      */
-    public function getFilters()
+    public function getFilters() : ?array
     {
         return $this->container['filters'];
     }
@@ -523,7 +523,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset) : bool
     {
         return isset($this->container[$offset]);
     }
@@ -535,7 +535,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset) : mixed
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
@@ -548,7 +548,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value) : void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -564,7 +564,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset) : void
     {
         unset($this->container[$offset]);
     }
@@ -574,7 +574,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -587,30 +587,29 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function toHeaderValue()
+    public function toHeaderValue() : string
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 
-	/**
+    /**
      * Gets array presentation of the object
      *
      * @return array
      */
-    public function toArray()
+    public function toArray() : array
     {
         $array = [];
         foreach ($this->container as $key => $value) {
-            if (is_a($value,ModelInterface::class)) {
+            if (is_a($value, ModelInterface::class)) {
                 $array[$key] = $value->toArray();
-            }
-            else {
+            } else {
                 $array[$key] = $value;
             }
         }
         return $array;
     }
-	
+
 }
 
 

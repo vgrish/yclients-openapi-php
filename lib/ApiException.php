@@ -27,7 +27,7 @@
 
 namespace Vgrish\YclientsOpenApi;
 
-use \Exception;
+use Exception;
 
 /**
  * ApiException Class Doc Comment
@@ -39,7 +39,6 @@ use \Exception;
  */
 class ApiException extends Exception
 {
-
     /**
      * The HTTP body of the server response either as Json or string.
      *
@@ -81,7 +80,7 @@ class ApiException extends Exception
      *
      * @return string[]|null HTTP response header
      */
-    public function getResponseHeaders()
+    public function getResponseHeaders() : ?array
     {
         return $this->responseHeaders;
     }
@@ -91,7 +90,7 @@ class ApiException extends Exception
      *
      * @return mixed HTTP body of the server response either as \stdClass or string
      */
-    public function getResponseBody()
+    public function getResponseBody() : mixed
     {
         return $this->responseBody;
     }
@@ -103,7 +102,7 @@ class ApiException extends Exception
      *
      * @return void
      */
-    public function setResponseObject($obj)
+    public function setResponseObject($obj) : void
     {
         $this->responseObject = $obj;
     }
@@ -113,7 +112,7 @@ class ApiException extends Exception
      *
      * @return mixed the deserialized response object
      */
-    public function getResponseObject()
+    public function getResponseObject() : mixed
     {
         return $this->responseObject;
     }

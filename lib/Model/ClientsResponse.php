@@ -27,8 +27,8 @@
 
 namespace Vgrish\YclientsOpenApi\Model;
 
-use \ArrayAccess;
-use \Vgrish\YclientsOpenApi\ObjectSerializer;
+use ArrayAccess;
+use Vgrish\YclientsOpenApi\ObjectSerializer;
 
 /**
  * ClientsResponse Class Doc Comment
@@ -40,7 +40,7 @@ use \Vgrish\YclientsOpenApi\ObjectSerializer;
  */
 class ClientsResponse implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -76,7 +76,7 @@ class ClientsResponse implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function openAPITypes()
+    public static function openAPITypes() : array
     {
         return self::$openAPITypes;
     }
@@ -86,7 +86,7 @@ class ClientsResponse implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function openAPIFormats()
+    public static function openAPIFormats() : array
     {
         return self::$openAPIFormats;
     }
@@ -131,7 +131,7 @@ class ClientsResponse implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function attributeMap()
+    public static function attributeMap() : array
     {
         return self::$attributeMap;
     }
@@ -141,7 +141,7 @@ class ClientsResponse implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function setters()
+    public static function setters() : array
     {
         return self::$setters;
     }
@@ -151,7 +151,7 @@ class ClientsResponse implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function getters()
+    public static function getters() : array
     {
         return self::$getters;
     }
@@ -161,14 +161,14 @@ class ClientsResponse implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function getModelName()
+    public function getModelName() : string
     {
         return self::$openAPIModelName;
     }
 
-    
 
-    
+
+
 
     /**
      * Associative array for storing property values
@@ -195,7 +195,7 @@ class ClientsResponse implements ModelInterface, ArrayAccess
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties()
+    public function listInvalidProperties() : array
     {
         $invalidProperties = [];
 
@@ -217,7 +217,7 @@ class ClientsResponse implements ModelInterface, ArrayAccess
      *
      * @return bool True if all properties are valid
      */
-    public function valid()
+    public function valid() : bool
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -228,7 +228,7 @@ class ClientsResponse implements ModelInterface, ArrayAccess
      *
      * @return bool
      */
-    public function getSuccess()
+    public function getSuccess() : bool
     {
         return $this->container['success'];
     }
@@ -252,7 +252,7 @@ class ClientsResponse implements ModelInterface, ArrayAccess
      *
      * @return \Vgrish\YclientsOpenApi\Model\ClientsResponseData[]
      */
-    public function getData()
+    public function getData() : array
     {
         return $this->container['data'];
     }
@@ -276,7 +276,7 @@ class ClientsResponse implements ModelInterface, ArrayAccess
      *
      * @return \Vgrish\YclientsOpenApi\Model\ClientsResponseMeta
      */
-    public function getMeta()
+    public function getMeta() : \Vgrish\YclientsOpenApi\Model\ClientsResponseMeta
     {
         return $this->container['meta'];
     }
@@ -301,7 +301,7 @@ class ClientsResponse implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset) : bool
     {
         return isset($this->container[$offset]);
     }
@@ -313,7 +313,7 @@ class ClientsResponse implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset) : mixed
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
@@ -326,7 +326,7 @@ class ClientsResponse implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value) : void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -342,7 +342,7 @@ class ClientsResponse implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset) : void
     {
         unset($this->container[$offset]);
     }
@@ -352,7 +352,7 @@ class ClientsResponse implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
@@ -365,30 +365,29 @@ class ClientsResponse implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function toHeaderValue()
+    public function toHeaderValue() : string
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 
-	/**
+    /**
      * Gets array presentation of the object
      *
      * @return array
      */
-    public function toArray()
+    public function toArray() : array
     {
         $array = [];
         foreach ($this->container as $key => $value) {
-            if (is_a($value,ModelInterface::class)) {
+            if (is_a($value, ModelInterface::class)) {
                 $array[$key] = $value->toArray();
-            }
-            else {
+            } else {
                 $array[$key] = $value;
             }
         }
         return $array;
     }
-	
+
 }
 
 

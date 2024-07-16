@@ -101,7 +101,7 @@ class AuthApi
      *
      * @return Host index
      */
-    public function getHostIndex()
+    public function getHostIndex() : Host
     {
         return $this->hostIndex;
     }
@@ -109,7 +109,7 @@ class AuthApi
     /**
      * @return Configuration
      */
-    public function getConfig()
+    public function getConfig() : Configuration
     {
         return $this->config;
     }
@@ -128,7 +128,7 @@ class AuthApi
      * @throws \InvalidArgumentException
      * @return \Vgrish\YclientsOpenApi\Model\AuthResponse
      */
-    public function authUser($accept, $content_type, $authorization, $auth_request = null)
+    public function authUser($accept, $content_type, $authorization, $auth_request = null) : \Vgrish\YclientsOpenApi\Model\AuthResponse
     {
         list($response) = $this->authUserWithHttpInfo($accept, $content_type, $authorization, $auth_request);
         return $response;
@@ -148,7 +148,7 @@ class AuthApi
      * @throws \InvalidArgumentException
      * @return array of \Vgrish\YclientsOpenApi\Model\AuthResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function authUserWithHttpInfo($accept, $content_type, $authorization, $auth_request = null)
+    public function authUserWithHttpInfo($accept, $content_type, $authorization, $auth_request = null) : array
     {
         $request = $this->authUserRequest($accept, $content_type, $authorization, $auth_request);
 
@@ -238,7 +238,7 @@ class AuthApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function authUserAsync($accept, $content_type, $authorization, $auth_request = null)
+    public function authUserAsync($accept, $content_type, $authorization, $auth_request = null) : \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->authUserAsyncWithHttpInfo($accept, $content_type, $authorization, $auth_request)
             ->then(
@@ -261,7 +261,7 @@ class AuthApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function authUserAsyncWithHttpInfo($accept, $content_type, $authorization, $auth_request = null)
+    public function authUserAsyncWithHttpInfo($accept, $content_type, $authorization, $auth_request = null) : \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Vgrish\YclientsOpenApi\Model\AuthResponse';
         $request = $this->authUserRequest($accept, $content_type, $authorization, $auth_request);
@@ -311,7 +311,7 @@ class AuthApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function authUserRequest($accept, $content_type, $authorization, $auth_request = null)
+    protected function authUserRequest($accept, $content_type, $authorization, $auth_request = null) : \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'accept' is set
         if ($accept === null || (is_array($accept) && count($accept) === 0)) {
@@ -427,7 +427,7 @@ class AuthApi
      * @throws \RuntimeException on file opening failure
      * @return array of http client options
      */
-    protected function createHttpClientOption()
+    protected function createHttpClientOption() : array
     {
         $options = [];
         if ($this->config->getDebug()) {

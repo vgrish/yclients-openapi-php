@@ -109,7 +109,7 @@ class ObjectSerializer
      *
      * @return string the sanitized filename
      */
-    public static function sanitizeFilename($filename)
+    public static function sanitizeFilename($filename) : string
     {
         if (preg_match("/.*[\/\\\\](.*)$/", $filename, $match)) {
             return $match[1];
@@ -126,7 +126,7 @@ class ObjectSerializer
      *
      * @return string the serialized object
      */
-    public static function toPathValue($value)
+    public static function toPathValue($value) : string
     {
         return rawurlencode(self::toString($value));
     }
@@ -141,7 +141,7 @@ class ObjectSerializer
      *
      * @return string the serialized object
      */
-    public static function toQueryValue($object)
+    public static function toQueryValue($object) : string
     {
         if (is_array($object)) {
             return implode(',', $object);
@@ -159,7 +159,7 @@ class ObjectSerializer
      *
      * @return string the header string
      */
-    public static function toHeaderValue($value)
+    public static function toHeaderValue($value) : string
     {
         if (method_exists($value, 'toHeaderValue')) {
             return $value->toHeaderValue();
@@ -177,7 +177,7 @@ class ObjectSerializer
      *
      * @return string the form string
      */
-    public static function toFormValue($value)
+    public static function toFormValue($value) : string
     {
         if ($value instanceof \SplFileObject) {
             return $value->getRealPath();
@@ -196,11 +196,11 @@ class ObjectSerializer
      *
      * @return string the header string
      */
-    public static function toString($value)
+    public static function toString($value) : string
     {
         if ($value instanceof \DateTime) { // datetime in ISO8601 format
             return $value->format(self::$dateTimeFormat);
-        } else if (is_bool($value)) {
+        } elseif (is_bool($value)) {
             return $value ? 'true' : 'false';
         } else {
             return $value;
@@ -217,7 +217,7 @@ class ObjectSerializer
      *
      * @return string
      */
-    public static function serializeCollection(array $collection, $style, $allowCollectionFormatMulti = false)
+    public static function serializeCollection(array $collection, $style, $allowCollectionFormatMulti = false) : string
     {
         if ($allowCollectionFormatMulti && ('multi' === $style)) {
             // http_build_query() almost does the job for us. We just

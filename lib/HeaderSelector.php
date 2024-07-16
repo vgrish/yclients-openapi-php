@@ -27,7 +27,7 @@
 
 namespace Vgrish\YclientsOpenApi;
 
-use \Exception;
+use Exception;
 
 /**
  * ApiException Class Doc Comment
@@ -39,13 +39,12 @@ use \Exception;
  */
 class HeaderSelector
 {
-
     /**
      * @param string[] $accept
      * @param string[] $contentTypes
      * @return array
      */
-    public function selectHeaders($accept, $contentTypes)
+    public function selectHeaders($accept, $contentTypes) : array
     {
         $headers = [];
 
@@ -62,7 +61,7 @@ class HeaderSelector
      * @param string[] $accept
      * @return array
      */
-    public function selectHeadersForMultipart($accept)
+    public function selectHeadersForMultipart($accept) : array
     {
         $headers = $this->selectHeaders($accept, []);
 
@@ -77,7 +76,7 @@ class HeaderSelector
      *
      * @return string Accept (e.g. application/json)
      */
-    private function selectAcceptHeader($accept)
+    private function selectAcceptHeader($accept) : string
     {
         if (count($accept) === 0 || (count($accept) === 1 && $accept[0] === '')) {
             return null;
@@ -95,7 +94,7 @@ class HeaderSelector
      *
      * @return string Content-Type (e.g. application/json)
      */
-    private function selectContentTypeHeader($contentType)
+    private function selectContentTypeHeader($contentType) : string
     {
         if (count($contentType) === 0 || (count($contentType) === 1 && $contentType[0] === '')) {
             return 'application/json';

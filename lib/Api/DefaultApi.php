@@ -101,7 +101,7 @@ class DefaultApi
      *
      * @return Host index
      */
-    public function getHostIndex()
+    public function getHostIndex() : Host
     {
         return $this->hostIndex;
     }
@@ -109,7 +109,7 @@ class DefaultApi
     /**
      * @return Configuration
      */
-    public function getConfig()
+    public function getConfig() : Configuration
     {
         return $this->config;
     }
@@ -128,7 +128,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Vgrish\YclientsOpenApi\Model\AuthResponse
      */
-    public function authUser($accept, $content_type, $authorization, $auth_request = null)
+    public function authUser($accept, $content_type, $authorization, $auth_request = null) : \Vgrish\YclientsOpenApi\Model\AuthResponse
     {
         list($response) = $this->authUserWithHttpInfo($accept, $content_type, $authorization, $auth_request);
         return $response;
@@ -148,7 +148,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Vgrish\YclientsOpenApi\Model\AuthResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function authUserWithHttpInfo($accept, $content_type, $authorization, $auth_request = null)
+    public function authUserWithHttpInfo($accept, $content_type, $authorization, $auth_request = null) : array
     {
         $request = $this->authUserRequest($accept, $content_type, $authorization, $auth_request);
 
@@ -238,7 +238,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function authUserAsync($accept, $content_type, $authorization, $auth_request = null)
+    public function authUserAsync($accept, $content_type, $authorization, $auth_request = null) : \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->authUserAsyncWithHttpInfo($accept, $content_type, $authorization, $auth_request)
             ->then(
@@ -261,7 +261,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function authUserAsyncWithHttpInfo($accept, $content_type, $authorization, $auth_request = null)
+    public function authUserAsyncWithHttpInfo($accept, $content_type, $authorization, $auth_request = null) : \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Vgrish\YclientsOpenApi\Model\AuthResponse';
         $request = $this->authUserRequest($accept, $content_type, $authorization, $auth_request);
@@ -311,7 +311,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function authUserRequest($accept, $content_type, $authorization, $auth_request = null)
+    protected function authUserRequest($accept, $content_type, $authorization, $auth_request = null) : \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'accept' is set
         if ($accept === null || (is_array($accept) && count($accept) === 0)) {
@@ -436,7 +436,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Vgrish\YclientsOpenApi\Model\ClientResponse
      */
-    public function clientCreate($company_id, $accept, $content_type, $authorization, $client_create_request = null)
+    public function clientCreate($company_id, $accept, $content_type, $authorization, $client_create_request = null) : \Vgrish\YclientsOpenApi\Model\ClientResponse
     {
         list($response) = $this->clientCreateWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_create_request);
         return $response;
@@ -457,7 +457,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Vgrish\YclientsOpenApi\Model\ClientResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientCreateWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_create_request = null)
+    public function clientCreateWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_create_request = null) : array
     {
         $request = $this->clientCreateRequest($company_id, $accept, $content_type, $authorization, $client_create_request);
 
@@ -548,7 +548,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientCreateAsync($company_id, $accept, $content_type, $authorization, $client_create_request = null)
+    public function clientCreateAsync($company_id, $accept, $content_type, $authorization, $client_create_request = null) : \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientCreateAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_create_request)
             ->then(
@@ -572,7 +572,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientCreateAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_create_request = null)
+    public function clientCreateAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_create_request = null) : \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Vgrish\YclientsOpenApi\Model\ClientResponse';
         $request = $this->clientCreateRequest($company_id, $accept, $content_type, $authorization, $client_create_request);
@@ -623,7 +623,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientCreateRequest($company_id, $accept, $content_type, $authorization, $client_create_request = null)
+    protected function clientCreateRequest($company_id, $accept, $content_type, $authorization, $client_create_request = null) : \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'company_id' is set
         if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
@@ -762,7 +762,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Vgrish\YclientsOpenApi\Model\ClientResponse
      */
-    public function clientGet($company_id, $id, $accept, $content_type, $authorization)
+    public function clientGet($company_id, $id, $accept, $content_type, $authorization) : \Vgrish\YclientsOpenApi\Model\ClientResponse
     {
         list($response) = $this->clientGetWithHttpInfo($company_id, $id, $accept, $content_type, $authorization);
         return $response;
@@ -783,7 +783,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Vgrish\YclientsOpenApi\Model\ClientResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetWithHttpInfo($company_id, $id, $accept, $content_type, $authorization)
+    public function clientGetWithHttpInfo($company_id, $id, $accept, $content_type, $authorization) : array
     {
         $request = $this->clientGetRequest($company_id, $id, $accept, $content_type, $authorization);
 
@@ -874,7 +874,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetAsync($company_id, $id, $accept, $content_type, $authorization)
+    public function clientGetAsync($company_id, $id, $accept, $content_type, $authorization) : \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetAsyncWithHttpInfo($company_id, $id, $accept, $content_type, $authorization)
             ->then(
@@ -898,7 +898,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetAsyncWithHttpInfo($company_id, $id, $accept, $content_type, $authorization)
+    public function clientGetAsyncWithHttpInfo($company_id, $id, $accept, $content_type, $authorization) : \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Vgrish\YclientsOpenApi\Model\ClientResponse';
         $request = $this->clientGetRequest($company_id, $id, $accept, $content_type, $authorization);
@@ -949,7 +949,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetRequest($company_id, $id, $accept, $content_type, $authorization)
+    protected function clientGetRequest($company_id, $id, $accept, $content_type, $authorization) : \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'company_id' is set
         if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
@@ -1099,7 +1099,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Vgrish\YclientsOpenApi\Model\ClientsResponse
      */
-    public function clientGetList($company_id, $accept, $content_type, $authorization, $client_get_list_request = null)
+    public function clientGetList($company_id, $accept, $content_type, $authorization, $client_get_list_request = null) : \Vgrish\YclientsOpenApi\Model\ClientsResponse
     {
         list($response) = $this->clientGetListWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_get_list_request);
         return $response;
@@ -1120,7 +1120,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Vgrish\YclientsOpenApi\Model\ClientsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetListWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_get_list_request = null)
+    public function clientGetListWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_get_list_request = null) : array
     {
         $request = $this->clientGetListRequest($company_id, $accept, $content_type, $authorization, $client_get_list_request);
 
@@ -1211,7 +1211,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetListAsync($company_id, $accept, $content_type, $authorization, $client_get_list_request = null)
+    public function clientGetListAsync($company_id, $accept, $content_type, $authorization, $client_get_list_request = null) : \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetListAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_get_list_request)
             ->then(
@@ -1235,7 +1235,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetListAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_get_list_request = null)
+    public function clientGetListAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_get_list_request = null) : \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Vgrish\YclientsOpenApi\Model\ClientsResponse';
         $request = $this->clientGetListRequest($company_id, $accept, $content_type, $authorization, $client_get_list_request);
@@ -1286,7 +1286,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetListRequest($company_id, $accept, $content_type, $authorization, $client_get_list_request = null)
+    protected function clientGetListRequest($company_id, $accept, $content_type, $authorization, $client_get_list_request = null) : \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'company_id' is set
         if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
@@ -1425,7 +1425,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Vgrish\YclientsOpenApi\Model\BaseResponse
      */
-    public function clientRemove($company_id, $id, $accept, $content_type, $authorization)
+    public function clientRemove($company_id, $id, $accept, $content_type, $authorization) : \Vgrish\YclientsOpenApi\Model\BaseResponse
     {
         list($response) = $this->clientRemoveWithHttpInfo($company_id, $id, $accept, $content_type, $authorization);
         return $response;
@@ -1446,7 +1446,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Vgrish\YclientsOpenApi\Model\BaseResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientRemoveWithHttpInfo($company_id, $id, $accept, $content_type, $authorization)
+    public function clientRemoveWithHttpInfo($company_id, $id, $accept, $content_type, $authorization) : array
     {
         $request = $this->clientRemoveRequest($company_id, $id, $accept, $content_type, $authorization);
 
@@ -1537,7 +1537,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientRemoveAsync($company_id, $id, $accept, $content_type, $authorization)
+    public function clientRemoveAsync($company_id, $id, $accept, $content_type, $authorization) : \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientRemoveAsyncWithHttpInfo($company_id, $id, $accept, $content_type, $authorization)
             ->then(
@@ -1561,7 +1561,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientRemoveAsyncWithHttpInfo($company_id, $id, $accept, $content_type, $authorization)
+    public function clientRemoveAsyncWithHttpInfo($company_id, $id, $accept, $content_type, $authorization) : \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Vgrish\YclientsOpenApi\Model\BaseResponse';
         $request = $this->clientRemoveRequest($company_id, $id, $accept, $content_type, $authorization);
@@ -1612,7 +1612,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientRemoveRequest($company_id, $id, $accept, $content_type, $authorization)
+    protected function clientRemoveRequest($company_id, $id, $accept, $content_type, $authorization) : \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'company_id' is set
         if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
@@ -1763,7 +1763,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Vgrish\YclientsOpenApi\Model\ClientResponse
      */
-    public function clientUpdate($company_id, $id, $accept, $content_type, $authorization, $client_update_request = null)
+    public function clientUpdate($company_id, $id, $accept, $content_type, $authorization, $client_update_request = null) : \Vgrish\YclientsOpenApi\Model\ClientResponse
     {
         list($response) = $this->clientUpdateWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, $client_update_request);
         return $response;
@@ -1785,7 +1785,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Vgrish\YclientsOpenApi\Model\ClientResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientUpdateWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, $client_update_request = null)
+    public function clientUpdateWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, $client_update_request = null) : array
     {
         $request = $this->clientUpdateRequest($company_id, $id, $accept, $content_type, $authorization, $client_update_request);
 
@@ -1877,7 +1877,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientUpdateAsync($company_id, $id, $accept, $content_type, $authorization, $client_update_request = null)
+    public function clientUpdateAsync($company_id, $id, $accept, $content_type, $authorization, $client_update_request = null) : \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientUpdateAsyncWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, $client_update_request)
             ->then(
@@ -1902,7 +1902,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientUpdateAsyncWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, $client_update_request = null)
+    public function clientUpdateAsyncWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, $client_update_request = null) : \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Vgrish\YclientsOpenApi\Model\ClientResponse';
         $request = $this->clientUpdateRequest($company_id, $id, $accept, $content_type, $authorization, $client_update_request);
@@ -1954,7 +1954,7 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientUpdateRequest($company_id, $id, $accept, $content_type, $authorization, $client_update_request = null)
+    protected function clientUpdateRequest($company_id, $id, $accept, $content_type, $authorization, $client_update_request = null) : \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'company_id' is set
         if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
@@ -2098,7 +2098,7 @@ class DefaultApi
      * @throws \RuntimeException on file opening failure
      * @return array of http client options
      */
-    protected function createHttpClientOption()
+    protected function createHttpClientOption() : array
     {
         $options = [];
         if ($this->config->getDebug()) {
