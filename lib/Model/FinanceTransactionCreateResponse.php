@@ -1,6 +1,6 @@
 <?php
 /**
- * BaseResponse
+ * FinanceTransactionCreateResponse
  *
  * @category Class
  * @package  Vgrish\YclientsOpenApi
@@ -31,14 +31,15 @@ use ArrayAccess;
 use Vgrish\YclientsOpenApi\ObjectSerializer;
 
 /**
- * BaseResponse Class Doc Comment
+ * FinanceTransactionCreateResponse Class Doc Comment
  *
  * @category Class
+ * @description finance.transaction.create.response
  * @package  Vgrish\YclientsOpenApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class BaseResponse implements ModelInterface, ArrayAccess
+class FinanceTransactionCreateResponse implements ModelInterface, ArrayAccess
 {
     public const DISCRIMINATOR = null;
 
@@ -47,7 +48,7 @@ class BaseResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BaseResponse';
+    protected static $openAPIModelName = 'finance_transaction_create_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +57,7 @@ class BaseResponse implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'success' => 'bool',
-        'data' => 'string',
+        'data' => '\Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse',
         'meta' => 'AnyOfMapArray'
     ];
 
@@ -247,9 +248,9 @@ class BaseResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return string
+     * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse
      */
-    public function getData() : string
+    public function getData() : \Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse
     {
         return $this->container['data'];
     }
@@ -257,7 +258,7 @@ class BaseResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param string $data data
+     * @param \Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse $data data
      *
      * @return $this
      */

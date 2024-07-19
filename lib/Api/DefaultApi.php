@@ -126,9 +126,9 @@ class DefaultApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\AuthResponse
+     * @return \Vgrish\YclientsOpenApi\Model\AuthUserResponse
      */
-    public function authUser($accept, $content_type, $authorization, $auth_request = null) : \Vgrish\YclientsOpenApi\Model\AuthResponse
+    public function authUser($accept, $content_type, $authorization, $auth_request = null) : \Vgrish\YclientsOpenApi\Model\AuthUserResponse
     {
         list($response) = $this->authUserWithHttpInfo($accept, $content_type, $authorization, $auth_request);
         return $response;
@@ -146,7 +146,7 @@ class DefaultApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\AuthResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Vgrish\YclientsOpenApi\Model\AuthUserResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function authUserWithHttpInfo($accept, $content_type, $authorization, $auth_request = null) : array
     {
@@ -183,20 +183,20 @@ class DefaultApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
-                    if ('\Vgrish\YclientsOpenApi\Model\AuthResponse' === '\SplFileObject') {
+                    if ('\Vgrish\YclientsOpenApi\Model\AuthUserResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\AuthResponse', []),
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\AuthUserResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Vgrish\YclientsOpenApi\Model\AuthResponse';
+            $returnType = '\Vgrish\YclientsOpenApi\Model\AuthUserResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -215,7 +215,7 @@ class DefaultApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\AuthResponse',
+                        '\Vgrish\YclientsOpenApi\Model\AuthUserResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -263,7 +263,7 @@ class DefaultApi
      */
     public function authUserAsyncWithHttpInfo($accept, $content_type, $authorization, $auth_request = null) : \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\AuthResponse';
+        $returnType = '\Vgrish\YclientsOpenApi\Model\AuthUserResponse';
         $request = $this->authUserRequest($accept, $content_type, $authorization, $auth_request);
 
         return $this->client
@@ -434,9 +434,9 @@ class DefaultApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\ClientResponse
+     * @return \Vgrish\YclientsOpenApi\Model\ClientCreateResponse
      */
-    public function clientCreate($company_id, $accept, $content_type, $authorization, $client_create_request = null) : \Vgrish\YclientsOpenApi\Model\ClientResponse
+    public function clientCreate($company_id, $accept, $content_type, $authorization, $client_create_request = null) : \Vgrish\YclientsOpenApi\Model\ClientCreateResponse
     {
         list($response) = $this->clientCreateWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_create_request);
         return $response;
@@ -455,7 +455,7 @@ class DefaultApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\ClientResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Vgrish\YclientsOpenApi\Model\ClientCreateResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function clientCreateWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_create_request = null) : array
     {
@@ -492,20 +492,20 @@ class DefaultApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
-                    if ('\Vgrish\YclientsOpenApi\Model\ClientResponse' === '\SplFileObject') {
+                    if ('\Vgrish\YclientsOpenApi\Model\ClientCreateResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\ClientResponse', []),
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\ClientCreateResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Vgrish\YclientsOpenApi\Model\ClientResponse';
+            $returnType = '\Vgrish\YclientsOpenApi\Model\ClientCreateResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -524,7 +524,7 @@ class DefaultApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\ClientResponse',
+                        '\Vgrish\YclientsOpenApi\Model\ClientCreateResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -574,7 +574,7 @@ class DefaultApi
      */
     public function clientCreateAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_create_request = null) : \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\ClientResponse';
+        $returnType = '\Vgrish\YclientsOpenApi\Model\ClientCreateResponse';
         $request = $this->clientCreateRequest($company_id, $accept, $content_type, $authorization, $client_create_request);
 
         return $this->client
@@ -760,9 +760,9 @@ class DefaultApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\ClientResponse
+     * @return \Vgrish\YclientsOpenApi\Model\ClientGetResponse
      */
-    public function clientGet($company_id, $id, $accept, $content_type, $authorization) : \Vgrish\YclientsOpenApi\Model\ClientResponse
+    public function clientGet($company_id, $id, $accept, $content_type, $authorization) : \Vgrish\YclientsOpenApi\Model\ClientGetResponse
     {
         list($response) = $this->clientGetWithHttpInfo($company_id, $id, $accept, $content_type, $authorization);
         return $response;
@@ -781,7 +781,7 @@ class DefaultApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\ClientResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Vgrish\YclientsOpenApi\Model\ClientGetResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function clientGetWithHttpInfo($company_id, $id, $accept, $content_type, $authorization) : array
     {
@@ -818,20 +818,20 @@ class DefaultApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Vgrish\YclientsOpenApi\Model\ClientResponse' === '\SplFileObject') {
+                    if ('\Vgrish\YclientsOpenApi\Model\ClientGetResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\ClientResponse', []),
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\ClientGetResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Vgrish\YclientsOpenApi\Model\ClientResponse';
+            $returnType = '\Vgrish\YclientsOpenApi\Model\ClientGetResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -850,7 +850,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\ClientResponse',
+                        '\Vgrish\YclientsOpenApi\Model\ClientGetResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -900,7 +900,7 @@ class DefaultApi
      */
     public function clientGetAsyncWithHttpInfo($company_id, $id, $accept, $content_type, $authorization) : \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\ClientResponse';
+        $returnType = '\Vgrish\YclientsOpenApi\Model\ClientGetResponse';
         $request = $this->clientGetRequest($company_id, $id, $accept, $content_type, $authorization);
 
         return $this->client
@@ -1097,9 +1097,9 @@ class DefaultApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\ClientsResponse
+     * @return \Vgrish\YclientsOpenApi\Model\ClientGetListResponse
      */
-    public function clientGetList($company_id, $accept, $content_type, $authorization, $client_get_list_request = null) : \Vgrish\YclientsOpenApi\Model\ClientsResponse
+    public function clientGetList($company_id, $accept, $content_type, $authorization, $client_get_list_request = null) : \Vgrish\YclientsOpenApi\Model\ClientGetListResponse
     {
         list($response) = $this->clientGetListWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_get_list_request);
         return $response;
@@ -1118,7 +1118,7 @@ class DefaultApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\ClientsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Vgrish\YclientsOpenApi\Model\ClientGetListResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function clientGetListWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_get_list_request = null) : array
     {
@@ -1155,20 +1155,20 @@ class DefaultApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Vgrish\YclientsOpenApi\Model\ClientsResponse' === '\SplFileObject') {
+                    if ('\Vgrish\YclientsOpenApi\Model\ClientGetListResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\ClientsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\ClientGetListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Vgrish\YclientsOpenApi\Model\ClientsResponse';
+            $returnType = '\Vgrish\YclientsOpenApi\Model\ClientGetListResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1187,7 +1187,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\ClientsResponse',
+                        '\Vgrish\YclientsOpenApi\Model\ClientGetListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1237,7 +1237,7 @@ class DefaultApi
      */
     public function clientGetListAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_get_list_request = null) : \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\ClientsResponse';
+        $returnType = '\Vgrish\YclientsOpenApi\Model\ClientGetListResponse';
         $request = $this->clientGetListRequest($company_id, $accept, $content_type, $authorization, $client_get_list_request);
 
         return $this->client
@@ -1423,9 +1423,9 @@ class DefaultApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\BaseResponse
+     * @return \Vgrish\YclientsOpenApi\Model\ClientRemoveResponse
      */
-    public function clientRemove($company_id, $id, $accept, $content_type, $authorization) : \Vgrish\YclientsOpenApi\Model\BaseResponse
+    public function clientRemove($company_id, $id, $accept, $content_type, $authorization) : \Vgrish\YclientsOpenApi\Model\ClientRemoveResponse
     {
         list($response) = $this->clientRemoveWithHttpInfo($company_id, $id, $accept, $content_type, $authorization);
         return $response;
@@ -1444,7 +1444,7 @@ class DefaultApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Vgrish\YclientsOpenApi\Model\ClientRemoveResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function clientRemoveWithHttpInfo($company_id, $id, $accept, $content_type, $authorization) : array
     {
@@ -1481,20 +1481,20 @@ class DefaultApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 204:
-                    if ('\Vgrish\YclientsOpenApi\Model\BaseResponse' === '\SplFileObject') {
+                    if ('\Vgrish\YclientsOpenApi\Model\ClientRemoveResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\BaseResponse', []),
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\ClientRemoveResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Vgrish\YclientsOpenApi\Model\BaseResponse';
+            $returnType = '\Vgrish\YclientsOpenApi\Model\ClientRemoveResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1513,7 +1513,7 @@ class DefaultApi
                 case 204:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\BaseResponse',
+                        '\Vgrish\YclientsOpenApi\Model\ClientRemoveResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1563,7 +1563,7 @@ class DefaultApi
      */
     public function clientRemoveAsyncWithHttpInfo($company_id, $id, $accept, $content_type, $authorization) : \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\BaseResponse';
+        $returnType = '\Vgrish\YclientsOpenApi\Model\ClientRemoveResponse';
         $request = $this->clientRemoveRequest($company_id, $id, $accept, $content_type, $authorization);
 
         return $this->client
@@ -1761,9 +1761,9 @@ class DefaultApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\ClientResponse
+     * @return \Vgrish\YclientsOpenApi\Model\ClientUpdateResponse
      */
-    public function clientUpdate($company_id, $id, $accept, $content_type, $authorization, $client_update_request = null) : \Vgrish\YclientsOpenApi\Model\ClientResponse
+    public function clientUpdate($company_id, $id, $accept, $content_type, $authorization, $client_update_request = null) : \Vgrish\YclientsOpenApi\Model\ClientUpdateResponse
     {
         list($response) = $this->clientUpdateWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, $client_update_request);
         return $response;
@@ -1783,7 +1783,7 @@ class DefaultApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\ClientResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Vgrish\YclientsOpenApi\Model\ClientUpdateResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function clientUpdateWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, $client_update_request = null) : array
     {
@@ -1820,20 +1820,20 @@ class DefaultApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Vgrish\YclientsOpenApi\Model\ClientResponse' === '\SplFileObject') {
+                    if ('\Vgrish\YclientsOpenApi\Model\ClientUpdateResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\ClientResponse', []),
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\ClientUpdateResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Vgrish\YclientsOpenApi\Model\ClientResponse';
+            $returnType = '\Vgrish\YclientsOpenApi\Model\ClientUpdateResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1852,7 +1852,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\ClientResponse',
+                        '\Vgrish\YclientsOpenApi\Model\ClientUpdateResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1904,7 +1904,7 @@ class DefaultApi
      */
     public function clientUpdateAsyncWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, $client_update_request = null) : \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\ClientResponse';
+        $returnType = '\Vgrish\YclientsOpenApi\Model\ClientUpdateResponse';
         $request = $this->clientUpdateRequest($company_id, $id, $accept, $content_type, $authorization, $client_update_request);
 
         return $this->client
@@ -2029,6 +2029,2227 @@ class DefaultApi
         $_tempBody = null;
         if (isset($client_update_request)) {
             $_tempBody = $client_update_request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/vnd.yclients.v2+json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation financeTransactionByVisitOrRecordGet
+     *
+     * Получение транзакций по ID визита или записи
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  float $record_id ID записи (optional)
+     * @param  float $visit_id ID визита (optional)
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse
+     */
+    public function financeTransactionByVisitOrRecordGet($company_id, $accept, $content_type, $authorization, $record_id = null, $visit_id = null) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse
+    {
+        list($response) = $this->financeTransactionByVisitOrRecordGetWithHttpInfo($company_id, $accept, $content_type, $authorization, $record_id, $visit_id);
+        return $response;
+    }
+
+    /**
+     * Operation financeTransactionByVisitOrRecordGetWithHttpInfo
+     *
+     * Получение транзакций по ID визита или записи
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  float $record_id ID записи (optional)
+     * @param  float $visit_id ID визита (optional)
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function financeTransactionByVisitOrRecordGetWithHttpInfo($company_id, $accept, $content_type, $authorization, $record_id = null, $visit_id = null) : array
+    {
+        $request = $this->financeTransactionByVisitOrRecordGetRequest($company_id, $accept, $content_type, $authorization, $record_id, $visit_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation financeTransactionByVisitOrRecordGetAsync
+     *
+     * Получение транзакций по ID визита или записи
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  float $record_id ID записи (optional)
+     * @param  float $visit_id ID визита (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function financeTransactionByVisitOrRecordGetAsync($company_id, $accept, $content_type, $authorization, $record_id = null, $visit_id = null) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->financeTransactionByVisitOrRecordGetAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $record_id, $visit_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation financeTransactionByVisitOrRecordGetAsyncWithHttpInfo
+     *
+     * Получение транзакций по ID визита или записи
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  float $record_id ID записи (optional)
+     * @param  float $visit_id ID визита (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function financeTransactionByVisitOrRecordGetAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $record_id = null, $visit_id = null) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse';
+        $request = $this->financeTransactionByVisitOrRecordGetRequest($company_id, $accept, $content_type, $authorization, $record_id, $visit_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'financeTransactionByVisitOrRecordGet'
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  float $record_id ID записи (optional)
+     * @param  float $visit_id ID визита (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function financeTransactionByVisitOrRecordGetRequest($company_id, $accept, $content_type, $authorization, $record_id = null, $visit_id = null) : \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling financeTransactionByVisitOrRecordGet'
+            );
+        }
+        // verify the required parameter 'accept' is set
+        if ($accept === null || (is_array($accept) && count($accept) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $accept when calling financeTransactionByVisitOrRecordGet'
+            );
+        }
+        // verify the required parameter 'content_type' is set
+        if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $content_type when calling financeTransactionByVisitOrRecordGet'
+            );
+        }
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling financeTransactionByVisitOrRecordGet'
+            );
+        }
+
+        $resourcePath = '/timetable/transactions/{company_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($record_id !== null) {
+            if('form' === 'form' && is_array($record_id)) {
+                foreach($record_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams['record_id'] = $record_id;
+            }
+        }
+        // query params
+        if ($visit_id !== null) {
+            if('form' === 'form' && is_array($visit_id)) {
+                foreach($visit_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams['visit_id'] = $visit_id;
+            }
+        }
+
+        // header params
+        if ($accept !== null) {
+            $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
+        }
+        // header params
+        if ($content_type !== null) {
+            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/vnd.yclients.v2+json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation financeTransactionCreate
+     *
+     * Создание финансовой транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types finance_transaction_request_data_types (optional)
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse
+     */
+    public function financeTransactionCreate($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse
+    {
+        list($response) = $this->financeTransactionCreateWithHttpInfo($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types);
+        return $response;
+    }
+
+    /**
+     * Operation financeTransactionCreateWithHttpInfo
+     *
+     * Создание финансовой транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types (optional)
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function financeTransactionCreateWithHttpInfo($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : array
+    {
+        $request = $this->financeTransactionCreateRequest($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation financeTransactionCreateAsync
+     *
+     * Создание финансовой транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function financeTransactionCreateAsync($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->financeTransactionCreateAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation financeTransactionCreateAsyncWithHttpInfo
+     *
+     * Создание финансовой транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function financeTransactionCreateAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse';
+        $request = $this->financeTransactionCreateRequest($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'financeTransactionCreate'
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function financeTransactionCreateRequest($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling financeTransactionCreate'
+            );
+        }
+        // verify the required parameter 'accept' is set
+        if ($accept === null || (is_array($accept) && count($accept) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $accept when calling financeTransactionCreate'
+            );
+        }
+        // verify the required parameter 'content_type' is set
+        if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $content_type when calling financeTransactionCreate'
+            );
+        }
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling financeTransactionCreate'
+            );
+        }
+
+        $resourcePath = '/finance_transactions/{company_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($accept !== null) {
+            $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
+        }
+        // header params
+        if ($content_type !== null) {
+            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($finance_transaction_request_data_types)) {
+            $_tempBody = $finance_transaction_request_data_types;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/vnd.yclients.v2+json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation financeTransactionGet
+     *
+     * Получение финансовой транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  float $transaction_id ID транзакции (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse
+     */
+    public function financeTransactionGet($company_id, $transaction_id, $accept, $content_type, $authorization) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse
+    {
+        list($response) = $this->financeTransactionGetWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization);
+        return $response;
+    }
+
+    /**
+     * Operation financeTransactionGetWithHttpInfo
+     *
+     * Получение финансовой транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  float $transaction_id ID транзакции (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function financeTransactionGetWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization) : array
+    {
+        $request = $this->financeTransactionGetRequest($company_id, $transaction_id, $accept, $content_type, $authorization);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation financeTransactionGetAsync
+     *
+     * Получение финансовой транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  float $transaction_id ID транзакции (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function financeTransactionGetAsync($company_id, $transaction_id, $accept, $content_type, $authorization) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->financeTransactionGetAsyncWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation financeTransactionGetAsyncWithHttpInfo
+     *
+     * Получение финансовой транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  float $transaction_id ID транзакции (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function financeTransactionGetAsyncWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse';
+        $request = $this->financeTransactionGetRequest($company_id, $transaction_id, $accept, $content_type, $authorization);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'financeTransactionGet'
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  float $transaction_id ID транзакции (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function financeTransactionGetRequest($company_id, $transaction_id, $accept, $content_type, $authorization) : \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling financeTransactionGet'
+            );
+        }
+        // verify the required parameter 'transaction_id' is set
+        if ($transaction_id === null || (is_array($transaction_id) && count($transaction_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $transaction_id when calling financeTransactionGet'
+            );
+        }
+        // verify the required parameter 'accept' is set
+        if ($accept === null || (is_array($accept) && count($accept) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $accept when calling financeTransactionGet'
+            );
+        }
+        // verify the required parameter 'content_type' is set
+        if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $content_type when calling financeTransactionGet'
+            );
+        }
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling financeTransactionGet'
+            );
+        }
+
+        $resourcePath = '/finance_transactions/{company_id}/{transaction_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($accept !== null) {
+            $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
+        }
+        // header params
+        if ($content_type !== null) {
+            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($transaction_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'transaction_id' . '}',
+                ObjectSerializer::toPathValue($transaction_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/vnd.yclients.v2+json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation financeTransactionGetList
+     *
+     * Получить транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  float $page Номер страницы (optional)
+     * @param  float $count Количество клиентов на странице (optional)
+     * @param  float $account_id ID кассы (optional)
+     * @param  float $supplier_id ID контрагента (optional)
+     * @param  float $client_id ID клиента (optional)
+     * @param  float $user_id ID пользователя (optional)
+     * @param  float $master_id ID сотрудника (optional)
+     * @param  float $type тип транзакции (optional)
+     * @param  float $real_money транзакция реальными деньгами (optional)
+     * @param  float $deleted была ли удалена транзакция (optional)
+     * @param  float $start_date дата начала периода (optional)
+     * @param  float $end_date дата окончания периода (optional)
+     * @param  float $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
+     * @param  float $document_id идентификатор документа (optional)
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionsResponse
+     */
+    public function financeTransactionGetList($company_id, $accept, $content_type, $authorization, $page = null, $count = null, $account_id = null, $supplier_id = null, $client_id = null, $user_id = null, $master_id = null, $type = null, $real_money = null, $deleted = null, $start_date = null, $end_date = null, $balance_is = null, $document_id = null) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionsResponse
+    {
+        list($response) = $this->financeTransactionGetListWithHttpInfo($company_id, $accept, $content_type, $authorization, $page, $count, $account_id, $supplier_id, $client_id, $user_id, $master_id, $type, $real_money, $deleted, $start_date, $end_date, $balance_is, $document_id);
+        return $response;
+    }
+
+    /**
+     * Operation financeTransactionGetListWithHttpInfo
+     *
+     * Получить транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  float $page Номер страницы (optional)
+     * @param  float $count Количество клиентов на странице (optional)
+     * @param  float $account_id ID кассы (optional)
+     * @param  float $supplier_id ID контрагента (optional)
+     * @param  float $client_id ID клиента (optional)
+     * @param  float $user_id ID пользователя (optional)
+     * @param  float $master_id ID сотрудника (optional)
+     * @param  float $type тип транзакции (optional)
+     * @param  float $real_money транзакция реальными деньгами (optional)
+     * @param  float $deleted была ли удалена транзакция (optional)
+     * @param  float $start_date дата начала периода (optional)
+     * @param  float $end_date дата окончания периода (optional)
+     * @param  float $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
+     * @param  float $document_id идентификатор документа (optional)
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Vgrish\YclientsOpenApi\Model\FinanceTransactionsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function financeTransactionGetListWithHttpInfo($company_id, $accept, $content_type, $authorization, $page = null, $count = null, $account_id = null, $supplier_id = null, $client_id = null, $user_id = null, $master_id = null, $type = null, $real_money = null, $deleted = null, $start_date = null, $end_date = null, $balance_is = null, $document_id = null) : array
+    {
+        $request = $this->financeTransactionGetListRequest($company_id, $accept, $content_type, $authorization, $page, $count, $account_id, $supplier_id, $client_id, $user_id, $master_id, $type, $real_money, $deleted, $start_date, $end_date, $balance_is, $document_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionsResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\FinanceTransactionsResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionsResponse';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Vgrish\YclientsOpenApi\Model\FinanceTransactionsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation financeTransactionGetListAsync
+     *
+     * Получить транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  float $page Номер страницы (optional)
+     * @param  float $count Количество клиентов на странице (optional)
+     * @param  float $account_id ID кассы (optional)
+     * @param  float $supplier_id ID контрагента (optional)
+     * @param  float $client_id ID клиента (optional)
+     * @param  float $user_id ID пользователя (optional)
+     * @param  float $master_id ID сотрудника (optional)
+     * @param  float $type тип транзакции (optional)
+     * @param  float $real_money транзакция реальными деньгами (optional)
+     * @param  float $deleted была ли удалена транзакция (optional)
+     * @param  float $start_date дата начала периода (optional)
+     * @param  float $end_date дата окончания периода (optional)
+     * @param  float $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
+     * @param  float $document_id идентификатор документа (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function financeTransactionGetListAsync($company_id, $accept, $content_type, $authorization, $page = null, $count = null, $account_id = null, $supplier_id = null, $client_id = null, $user_id = null, $master_id = null, $type = null, $real_money = null, $deleted = null, $start_date = null, $end_date = null, $balance_is = null, $document_id = null) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->financeTransactionGetListAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $page, $count, $account_id, $supplier_id, $client_id, $user_id, $master_id, $type, $real_money, $deleted, $start_date, $end_date, $balance_is, $document_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation financeTransactionGetListAsyncWithHttpInfo
+     *
+     * Получить транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  float $page Номер страницы (optional)
+     * @param  float $count Количество клиентов на странице (optional)
+     * @param  float $account_id ID кассы (optional)
+     * @param  float $supplier_id ID контрагента (optional)
+     * @param  float $client_id ID клиента (optional)
+     * @param  float $user_id ID пользователя (optional)
+     * @param  float $master_id ID сотрудника (optional)
+     * @param  float $type тип транзакции (optional)
+     * @param  float $real_money транзакция реальными деньгами (optional)
+     * @param  float $deleted была ли удалена транзакция (optional)
+     * @param  float $start_date дата начала периода (optional)
+     * @param  float $end_date дата окончания периода (optional)
+     * @param  float $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
+     * @param  float $document_id идентификатор документа (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function financeTransactionGetListAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $page = null, $count = null, $account_id = null, $supplier_id = null, $client_id = null, $user_id = null, $master_id = null, $type = null, $real_money = null, $deleted = null, $start_date = null, $end_date = null, $balance_is = null, $document_id = null) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionsResponse';
+        $request = $this->financeTransactionGetListRequest($company_id, $accept, $content_type, $authorization, $page, $count, $account_id, $supplier_id, $client_id, $user_id, $master_id, $type, $real_money, $deleted, $start_date, $end_date, $balance_is, $document_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'financeTransactionGetList'
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  float $page Номер страницы (optional)
+     * @param  float $count Количество клиентов на странице (optional)
+     * @param  float $account_id ID кассы (optional)
+     * @param  float $supplier_id ID контрагента (optional)
+     * @param  float $client_id ID клиента (optional)
+     * @param  float $user_id ID пользователя (optional)
+     * @param  float $master_id ID сотрудника (optional)
+     * @param  float $type тип транзакции (optional)
+     * @param  float $real_money транзакция реальными деньгами (optional)
+     * @param  float $deleted была ли удалена транзакция (optional)
+     * @param  float $start_date дата начала периода (optional)
+     * @param  float $end_date дата окончания периода (optional)
+     * @param  float $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
+     * @param  float $document_id идентификатор документа (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function financeTransactionGetListRequest($company_id, $accept, $content_type, $authorization, $page = null, $count = null, $account_id = null, $supplier_id = null, $client_id = null, $user_id = null, $master_id = null, $type = null, $real_money = null, $deleted = null, $start_date = null, $end_date = null, $balance_is = null, $document_id = null) : \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling financeTransactionGetList'
+            );
+        }
+        // verify the required parameter 'accept' is set
+        if ($accept === null || (is_array($accept) && count($accept) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $accept when calling financeTransactionGetList'
+            );
+        }
+        // verify the required parameter 'content_type' is set
+        if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $content_type when calling financeTransactionGetList'
+            );
+        }
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling financeTransactionGetList'
+            );
+        }
+
+        $resourcePath = '/transactions/{company_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($page !== null) {
+            if('form' === 'form' && is_array($page)) {
+                foreach($page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams['page'] = $page;
+            }
+        }
+        // query params
+        if ($count !== null) {
+            if('form' === 'form' && is_array($count)) {
+                foreach($count as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams['count'] = $count;
+            }
+        }
+        // query params
+        if ($account_id !== null) {
+            if('form' === 'form' && is_array($account_id)) {
+                foreach($account_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams['account_id'] = $account_id;
+            }
+        }
+        // query params
+        if ($supplier_id !== null) {
+            if('form' === 'form' && is_array($supplier_id)) {
+                foreach($supplier_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams['supplier_id'] = $supplier_id;
+            }
+        }
+        // query params
+        if ($client_id !== null) {
+            if('form' === 'form' && is_array($client_id)) {
+                foreach($client_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams['client_id'] = $client_id;
+            }
+        }
+        // query params
+        if ($user_id !== null) {
+            if('form' === 'form' && is_array($user_id)) {
+                foreach($user_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams['user_id'] = $user_id;
+            }
+        }
+        // query params
+        if ($master_id !== null) {
+            if('form' === 'form' && is_array($master_id)) {
+                foreach($master_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams['master_id'] = $master_id;
+            }
+        }
+        // query params
+        if ($type !== null) {
+            if('form' === 'form' && is_array($type)) {
+                foreach($type as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams['type'] = $type;
+            }
+        }
+        // query params
+        if ($real_money !== null) {
+            if('form' === 'form' && is_array($real_money)) {
+                foreach($real_money as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams['real_money'] = $real_money;
+            }
+        }
+        // query params
+        if ($deleted !== null) {
+            if('form' === 'form' && is_array($deleted)) {
+                foreach($deleted as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams['deleted'] = $deleted;
+            }
+        }
+        // query params
+        if ($start_date !== null) {
+            if('form' === 'form' && is_array($start_date)) {
+                foreach($start_date as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams['start_date'] = $start_date;
+            }
+        }
+        // query params
+        if ($end_date !== null) {
+            if('form' === 'form' && is_array($end_date)) {
+                foreach($end_date as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams['end_date'] = $end_date;
+            }
+        }
+        // query params
+        if ($balance_is !== null) {
+            if('form' === 'form' && is_array($balance_is)) {
+                foreach($balance_is as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams['balance_is'] = $balance_is;
+            }
+        }
+        // query params
+        if ($document_id !== null) {
+            if('form' === 'form' && is_array($document_id)) {
+                foreach($document_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams['document_id'] = $document_id;
+            }
+        }
+
+        // header params
+        if ($accept !== null) {
+            $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
+        }
+        // header params
+        if ($content_type !== null) {
+            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/vnd.yclients.v2+json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation financeTransactionRemove
+     *
+     * Удаление транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  float $transaction_id ID транзакции (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse
+     */
+    public function financeTransactionRemove($company_id, $transaction_id, $accept, $content_type, $authorization) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse
+    {
+        list($response) = $this->financeTransactionRemoveWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization);
+        return $response;
+    }
+
+    /**
+     * Operation financeTransactionRemoveWithHttpInfo
+     *
+     * Удаление транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  float $transaction_id ID транзакции (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function financeTransactionRemoveWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization) : array
+    {
+        $request = $this->financeTransactionRemoveRequest($company_id, $transaction_id, $accept, $content_type, $authorization);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 202:
+                    if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation financeTransactionRemoveAsync
+     *
+     * Удаление транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  float $transaction_id ID транзакции (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function financeTransactionRemoveAsync($company_id, $transaction_id, $accept, $content_type, $authorization) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->financeTransactionRemoveAsyncWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation financeTransactionRemoveAsyncWithHttpInfo
+     *
+     * Удаление транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  float $transaction_id ID транзакции (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function financeTransactionRemoveAsyncWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse';
+        $request = $this->financeTransactionRemoveRequest($company_id, $transaction_id, $accept, $content_type, $authorization);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'financeTransactionRemove'
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  float $transaction_id ID транзакции (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function financeTransactionRemoveRequest($company_id, $transaction_id, $accept, $content_type, $authorization) : \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling financeTransactionRemove'
+            );
+        }
+        // verify the required parameter 'transaction_id' is set
+        if ($transaction_id === null || (is_array($transaction_id) && count($transaction_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $transaction_id when calling financeTransactionRemove'
+            );
+        }
+        // verify the required parameter 'accept' is set
+        if ($accept === null || (is_array($accept) && count($accept) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $accept when calling financeTransactionRemove'
+            );
+        }
+        // verify the required parameter 'content_type' is set
+        if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $content_type when calling financeTransactionRemove'
+            );
+        }
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling financeTransactionRemove'
+            );
+        }
+
+        $resourcePath = '/finance_transactions/{company_id}/{transaction_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($accept !== null) {
+            $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
+        }
+        // header params
+        if ($content_type !== null) {
+            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($transaction_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'transaction_id' . '}',
+                ObjectSerializer::toPathValue($transaction_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/vnd.yclients.v2+json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation financeTransactionUpdate
+     *
+     * Обновление финансовой транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  float $transaction_id ID транзакции (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types finance_transaction_request_data_types (optional)
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse
+     */
+    public function financeTransactionUpdate($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse
+    {
+        list($response) = $this->financeTransactionUpdateWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types);
+        return $response;
+    }
+
+    /**
+     * Operation financeTransactionUpdateWithHttpInfo
+     *
+     * Обновление финансовой транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  float $transaction_id ID транзакции (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types (optional)
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function financeTransactionUpdateWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : array
+    {
+        $request = $this->financeTransactionUpdateRequest($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation financeTransactionUpdateAsync
+     *
+     * Обновление финансовой транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  float $transaction_id ID транзакции (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function financeTransactionUpdateAsync($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->financeTransactionUpdateAsyncWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation financeTransactionUpdateAsyncWithHttpInfo
+     *
+     * Обновление финансовой транзакции
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  float $transaction_id ID транзакции (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function financeTransactionUpdateAsyncWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse';
+        $request = $this->financeTransactionUpdateRequest($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'financeTransactionUpdate'
+     *
+     * @param  float $company_id ID компании (required)
+     * @param  float $transaction_id ID транзакции (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function financeTransactionUpdateRequest($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling financeTransactionUpdate'
+            );
+        }
+        // verify the required parameter 'transaction_id' is set
+        if ($transaction_id === null || (is_array($transaction_id) && count($transaction_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $transaction_id when calling financeTransactionUpdate'
+            );
+        }
+        // verify the required parameter 'accept' is set
+        if ($accept === null || (is_array($accept) && count($accept) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $accept when calling financeTransactionUpdate'
+            );
+        }
+        // verify the required parameter 'content_type' is set
+        if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $content_type when calling financeTransactionUpdate'
+            );
+        }
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling financeTransactionUpdate'
+            );
+        }
+
+        $resourcePath = '/finance_transactions/{company_id}/{transaction_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($accept !== null) {
+            $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
+        }
+        // header params
+        if ($content_type !== null) {
+            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($transaction_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'transaction_id' . '}',
+                ObjectSerializer::toPathValue($transaction_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($finance_transaction_request_data_types)) {
+            $_tempBody = $finance_transaction_request_data_types;
         }
 
         if ($multipart) {

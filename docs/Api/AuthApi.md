@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## authUser
 
-> \Vgrish\YclientsOpenApi\Model\AuthResponse authUser($accept, $content_type, $authorization, $auth_request)
+> \Vgrish\YclientsOpenApi\Model\AuthUserResponse authUser($accept, $content_type, $authorization, $auth_request)
 
 Авторизовать пользователя
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Vgrish\YclientsOpenApi\Model\AuthResponse**](../Model/AuthResponse.md)
+[**\Vgrish\YclientsOpenApi\Model\AuthUserResponse**](../Model/AuthUserResponse.md)
 
 ### Authorization
 

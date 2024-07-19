@@ -76,30 +76,50 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**clientGetList**](docs/Api/DefaultApi.md#clientgetlist) | **POST** /company/{company_id}/clients/search | Получить список клиентов
 *DefaultApi* | [**clientRemove**](docs/Api/DefaultApi.md#clientremove) | **DELETE** /client/{company_id}/{id} | Удалить клиента
 *DefaultApi* | [**clientUpdate**](docs/Api/DefaultApi.md#clientupdate) | **PUT** /client/{company_id}/{id} | Редактировать клиента
+*DefaultApi* | [**financeTransactionByVisitOrRecordGet**](docs/Api/DefaultApi.md#financetransactionbyvisitorrecordget) | **GET** /timetable/transactions/{company_id} | Получение транзакций по ID визита или записи
+*DefaultApi* | [**financeTransactionCreate**](docs/Api/DefaultApi.md#financetransactioncreate) | **POST** /finance_transactions/{company_id} | Создание финансовой транзакции
+*DefaultApi* | [**financeTransactionGet**](docs/Api/DefaultApi.md#financetransactionget) | **GET** /finance_transactions/{company_id}/{transaction_id} | Получение финансовой транзакции
+*DefaultApi* | [**financeTransactionGetList**](docs/Api/DefaultApi.md#financetransactiongetlist) | **GET** /transactions/{company_id} | Получить транзакции
+*DefaultApi* | [**financeTransactionRemove**](docs/Api/DefaultApi.md#financetransactionremove) | **DELETE** /finance_transactions/{company_id}/{transaction_id} | Удаление транзакции
+*DefaultApi* | [**financeTransactionUpdate**](docs/Api/DefaultApi.md#financetransactionupdate) | **PUT** /finance_transactions/{company_id}/{transaction_id} | Обновление финансовой транзакции
 *AuthApi* | [**authUser**](docs/Api/AuthApi.md#authuser) | **POST** /auth | Авторизовать пользователя
 *ClientApi* | [**clientCreate**](docs/Api/ClientApi.md#clientcreate) | **POST** /clients/{company_id} | Добавить клиента
 *ClientApi* | [**clientGet**](docs/Api/ClientApi.md#clientget) | **GET** /client/{company_id}/{id} | Получить клиента
 *ClientApi* | [**clientGetList**](docs/Api/ClientApi.md#clientgetlist) | **POST** /company/{company_id}/clients/search | Получить список клиентов
 *ClientApi* | [**clientRemove**](docs/Api/ClientApi.md#clientremove) | **DELETE** /client/{company_id}/{id} | Удалить клиента
 *ClientApi* | [**clientUpdate**](docs/Api/ClientApi.md#clientupdate) | **PUT** /client/{company_id}/{id} | Редактировать клиента
+*FinanceTransactionApi* | [**financeTransactionByVisitOrRecordGet**](docs/Api/FinanceTransactionApi.md#financetransactionbyvisitorrecordget) | **GET** /timetable/transactions/{company_id} | Получение транзакций по ID визита или записи
+*FinanceTransactionApi* | [**financeTransactionCreate**](docs/Api/FinanceTransactionApi.md#financetransactioncreate) | **POST** /finance_transactions/{company_id} | Создание финансовой транзакции
+*FinanceTransactionApi* | [**financeTransactionGet**](docs/Api/FinanceTransactionApi.md#financetransactionget) | **GET** /finance_transactions/{company_id}/{transaction_id} | Получение финансовой транзакции
+*FinanceTransactionApi* | [**financeTransactionGetList**](docs/Api/FinanceTransactionApi.md#financetransactiongetlist) | **GET** /transactions/{company_id} | Получить транзакции
+*FinanceTransactionApi* | [**financeTransactionRemove**](docs/Api/FinanceTransactionApi.md#financetransactionremove) | **DELETE** /finance_transactions/{company_id}/{transaction_id} | Удаление транзакции
+*FinanceTransactionApi* | [**financeTransactionUpdate**](docs/Api/FinanceTransactionApi.md#financetransactionupdate) | **PUT** /finance_transactions/{company_id}/{transaction_id} | Обновление финансовой транзакции
 
 
 ## Documentation For Models
 
  - [AuthRequest](docs/Model/AuthRequest.md)
  - [AuthResponse](docs/Model/AuthResponse.md)
- - [AuthResponseData](docs/Model/AuthResponseData.md)
+ - [AuthUserResponse](docs/Model/AuthUserResponse.md)
  - [BaseResponse](docs/Model/BaseResponse.md)
  - [ClientCreateRequest](docs/Model/ClientCreateRequest.md)
+ - [ClientCreateResponse](docs/Model/ClientCreateResponse.md)
  - [ClientGetListRequest](docs/Model/ClientGetListRequest.md)
  - [ClientGetListRequestFilters](docs/Model/ClientGetListRequestFilters.md)
  - [ClientGetListRequestState](docs/Model/ClientGetListRequestState.md)
+ - [ClientGetListResponse](docs/Model/ClientGetListResponse.md)
+ - [ClientGetResponse](docs/Model/ClientGetResponse.md)
+ - [ClientRemoveResponse](docs/Model/ClientRemoveResponse.md)
  - [ClientResponse](docs/Model/ClientResponse.md)
- - [ClientResponseData](docs/Model/ClientResponseData.md)
  - [ClientUpdateRequest](docs/Model/ClientUpdateRequest.md)
- - [ClientsResponse](docs/Model/ClientsResponse.md)
- - [ClientsResponseData](docs/Model/ClientsResponseData.md)
- - [ClientsResponseMeta](docs/Model/ClientsResponseMeta.md)
+ - [ClientUpdateResponse](docs/Model/ClientUpdateResponse.md)
+ - [FinanceTransactionByVisitOrRecordGetResponse](docs/Model/FinanceTransactionByVisitOrRecordGetResponse.md)
+ - [FinanceTransactionCreateResponse](docs/Model/FinanceTransactionCreateResponse.md)
+ - [FinanceTransactionRemoveResponse](docs/Model/FinanceTransactionRemoveResponse.md)
+ - [FinanceTransactionRequestDataTypes](docs/Model/FinanceTransactionRequestDataTypes.md)
+ - [FinanceTransactionResponse](docs/Model/FinanceTransactionResponse.md)
+ - [FinanceTransactionUpdateResponse](docs/Model/FinanceTransactionUpdateResponse.md)
+ - [FinanceTransactionsResponse](docs/Model/FinanceTransactionsResponse.md)
 
 
 ## Documentation For Authorization

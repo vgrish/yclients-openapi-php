@@ -1,13 +1,12 @@
-# # ClientsResponseData
+# # FinanceTransactionByVisitOrRecordGetResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | 
-**name** | **string** |  | [optional] 
-**phone** | **string** |  | [optional] 
-**email** | **string** |  | [optional] 
+**success** | **bool** |  | 
+**data** | [**\Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse**](FinanceTransactionResponse.md) |  | 
+**meta** | [**AnyOfMapArray**](AnyOfMapArray.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

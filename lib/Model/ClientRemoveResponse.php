@@ -1,6 +1,6 @@
 <?php
 /**
- * ClientsResponse
+ * ClientRemoveResponse
  *
  * @category Class
  * @package  Vgrish\YclientsOpenApi
@@ -31,14 +31,15 @@ use ArrayAccess;
 use Vgrish\YclientsOpenApi\ObjectSerializer;
 
 /**
- * ClientsResponse Class Doc Comment
+ * ClientRemoveResponse Class Doc Comment
  *
  * @category Class
+ * @description client.remove.response
  * @package  Vgrish\YclientsOpenApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ClientsResponse implements ModelInterface, ArrayAccess
+class ClientRemoveResponse implements ModelInterface, ArrayAccess
 {
     public const DISCRIMINATOR = null;
 
@@ -47,7 +48,7 @@ class ClientsResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ClientsResponse';
+    protected static $openAPIModelName = 'client_remove_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +57,8 @@ class ClientsResponse implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'success' => 'bool',
-        'data' => '\Vgrish\YclientsOpenApi\Model\ClientsResponseData[]',
-        'meta' => '\Vgrish\YclientsOpenApi\Model\ClientsResponseMeta'
+        'data' => 'string',
+        'meta' => 'AnyOfMapArray'
     ];
 
     /**
@@ -205,9 +206,6 @@ class ClientsResponse implements ModelInterface, ArrayAccess
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
         }
-        if ($this->container['meta'] === null) {
-            $invalidProperties[] = "'meta' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -250,9 +248,9 @@ class ClientsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Vgrish\YclientsOpenApi\Model\ClientsResponseData[]
+     * @return string
      */
-    public function getData() : array
+    public function getData() : string
     {
         return $this->container['data'];
     }
@@ -260,7 +258,7 @@ class ClientsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Vgrish\YclientsOpenApi\Model\ClientsResponseData[] $data data
+     * @param string $data data
      *
      * @return $this
      */
@@ -274,9 +272,9 @@ class ClientsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets meta
      *
-     * @return \Vgrish\YclientsOpenApi\Model\ClientsResponseMeta
+     * @return AnyOfMapArray|null
      */
-    public function getMeta() : \Vgrish\YclientsOpenApi\Model\ClientsResponseMeta
+    public function getMeta() : ?AnyOfMapArray
     {
         return $this->container['meta'];
     }
@@ -284,7 +282,7 @@ class ClientsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets meta
      *
-     * @param \Vgrish\YclientsOpenApi\Model\ClientsResponseMeta $meta meta
+     * @param AnyOfMapArray|null $meta meta
      *
      * @return $this
      */

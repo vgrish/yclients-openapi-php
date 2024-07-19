@@ -1,4 +1,4 @@
-# # BaseResponse
+# # ClientRemoveResponse
 
 ## Properties
 

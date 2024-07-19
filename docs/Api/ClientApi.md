@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## clientCreate
 
-> \Vgrish\YclientsOpenApi\Model\ClientResponse clientCreate($company_id, $accept, $content_type, $authorization, $client_create_request)
+> \Vgrish\YclientsOpenApi\Model\ClientCreateResponse clientCreate($company_id, $accept, $content_type, $authorization, $client_create_request)
 
 Добавить клиента
 
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Vgrish\YclientsOpenApi\Model\ClientResponse**](../Model/ClientResponse.md)
+[**\Vgrish\YclientsOpenApi\Model\ClientCreateResponse**](../Model/ClientCreateResponse.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ No authorization required
 
 ## clientGet
 
-> \Vgrish\YclientsOpenApi\Model\ClientResponse clientGet($company_id, $id, $accept, $content_type, $authorization)
+> \Vgrish\YclientsOpenApi\Model\ClientGetResponse clientGet($company_id, $id, $accept, $content_type, $authorization)
 
 Получить клиента
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Vgrish\YclientsOpenApi\Model\ClientResponse**](../Model/ClientResponse.md)
+[**\Vgrish\YclientsOpenApi\Model\ClientGetResponse**](../Model/ClientGetResponse.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ No authorization required
 
 ## clientGetList
 
-> \Vgrish\YclientsOpenApi\Model\ClientsResponse clientGetList($company_id, $accept, $content_type, $authorization, $client_get_list_request)
+> \Vgrish\YclientsOpenApi\Model\ClientGetListResponse clientGetList($company_id, $accept, $content_type, $authorization, $client_get_list_request)
 
 Получить список клиентов
 
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Vgrish\YclientsOpenApi\Model\ClientsResponse**](../Model/ClientsResponse.md)
+[**\Vgrish\YclientsOpenApi\Model\ClientGetListResponse**](../Model/ClientGetListResponse.md)
 
 ### Authorization
 
@@ -202,7 +202,7 @@ No authorization required
 
 ## clientRemove
 
-> \Vgrish\YclientsOpenApi\Model\BaseResponse clientRemove($company_id, $id, $accept, $content_type, $authorization)
+> \Vgrish\YclientsOpenApi\Model\ClientRemoveResponse clientRemove($company_id, $id, $accept, $content_type, $authorization)
 
 Удалить клиента
 
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Vgrish\YclientsOpenApi\Model\BaseResponse**](../Model/BaseResponse.md)
+[**\Vgrish\YclientsOpenApi\Model\ClientRemoveResponse**](../Model/ClientRemoveResponse.md)
 
 ### Authorization
 
@@ -264,7 +264,7 @@ No authorization required
 
 ## clientUpdate
 
-> \Vgrish\YclientsOpenApi\Model\ClientResponse clientUpdate($company_id, $id, $accept, $content_type, $authorization, $client_update_request)
+> \Vgrish\YclientsOpenApi\Model\ClientUpdateResponse clientUpdate($company_id, $id, $accept, $content_type, $authorization, $client_update_request)
 
 Редактировать клиента
 
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Vgrish\YclientsOpenApi\Model\ClientResponse**](../Model/ClientResponse.md)
+[**\Vgrish\YclientsOpenApi\Model\ClientUpdateResponse**](../Model/ClientUpdateResponse.md)
 
 ### Authorization
 

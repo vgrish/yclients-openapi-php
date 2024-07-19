@@ -55,9 +55,15 @@ class AuthResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'success' => 'bool',
-        'data' => '\Vgrish\YclientsOpenApi\Model\AuthResponseData',
-        'meta' => 'string[]'
+        'id' => 'int',
+        'user_token' => 'string',
+        'name' => 'string',
+        'phone' => 'string',
+        'login' => 'string',
+        'email' => 'string',
+        'avatar' => 'string',
+        'is_approved' => 'bool',
+        'is_email_confirmed' => 'bool'
     ];
 
     /**
@@ -66,9 +72,15 @@ class AuthResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'success' => null,
-        'data' => null,
-        'meta' => null
+        'id' => null,
+        'user_token' => null,
+        'name' => null,
+        'phone' => null,
+        'login' => null,
+        'email' => null,
+        'avatar' => null,
+        'is_approved' => null,
+        'is_email_confirmed' => null
     ];
 
     /**
@@ -98,9 +110,15 @@ class AuthResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'success' => 'success',
-        'data' => 'data',
-        'meta' => 'meta'
+        'id' => 'id',
+        'user_token' => 'user_token',
+        'name' => 'name',
+        'phone' => 'phone',
+        'login' => 'login',
+        'email' => 'email',
+        'avatar' => 'avatar',
+        'is_approved' => 'is_approved',
+        'is_email_confirmed' => 'is_email_confirmed'
     ];
 
     /**
@@ -109,9 +127,15 @@ class AuthResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'success' => 'setSuccess',
-        'data' => 'setData',
-        'meta' => 'setMeta'
+        'id' => 'setId',
+        'user_token' => 'setUserToken',
+        'name' => 'setName',
+        'phone' => 'setPhone',
+        'login' => 'setLogin',
+        'email' => 'setEmail',
+        'avatar' => 'setAvatar',
+        'is_approved' => 'setIsApproved',
+        'is_email_confirmed' => 'setIsEmailConfirmed'
     ];
 
     /**
@@ -120,9 +144,15 @@ class AuthResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'success' => 'getSuccess',
-        'data' => 'getData',
-        'meta' => 'getMeta'
+        'id' => 'getId',
+        'user_token' => 'getUserToken',
+        'name' => 'getName',
+        'phone' => 'getPhone',
+        'login' => 'getLogin',
+        'email' => 'getEmail',
+        'avatar' => 'getAvatar',
+        'is_approved' => 'getIsApproved',
+        'is_email_confirmed' => 'getIsEmailConfirmed'
     ];
 
     /**
@@ -185,9 +215,15 @@ class AuthResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['meta'] = isset($data['meta']) ? $data['meta'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['user_token'] = isset($data['user_token']) ? $data['user_token'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
+        $this->container['login'] = isset($data['login']) ? $data['login'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['avatar'] = isset($data['avatar']) ? $data['avatar'] : null;
+        $this->container['is_approved'] = isset($data['is_approved']) ? $data['is_approved'] : null;
+        $this->container['is_email_confirmed'] = isset($data['is_email_confirmed']) ? $data['is_email_confirmed'] : null;
     }
 
     /**
@@ -197,16 +233,13 @@ class AuthResponse implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties() : array
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['success'] === null) {
-            $invalidProperties[] = "'success' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
-        if ($this->container['meta'] === null) {
-            $invalidProperties[] = "'meta' can't be null";
+        if ($this->container['user_token'] === null) {
+            $invalidProperties[] = "'user_token' can't be null";
         }
         return $invalidProperties;
     }
@@ -224,73 +257,217 @@ class AuthResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets success
+     * Gets id
      *
-     * @return bool
+     * @return int
      */
-    public function getSuccess() : bool
+    public function getId() : int
     {
-        return $this->container['success'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets success
+     * Sets id
      *
-     * @param bool $success success
+     * @param int $id ID клиента
      *
      * @return $this
      */
-    public function setSuccess($success)
+    public function setId($id)
     {
-        $this->container['success'] = $success;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets data
+     * Gets user_token
      *
-     * @return \Vgrish\YclientsOpenApi\Model\AuthResponseData
+     * @return string
      */
-    public function getData() : \Vgrish\YclientsOpenApi\Model\AuthResponseData
+    public function getUserToken() : string
     {
-        return $this->container['data'];
+        return $this->container['user_token'];
     }
 
     /**
-     * Sets data
+     * Sets user_token
      *
-     * @param \Vgrish\YclientsOpenApi\Model\AuthResponseData $data data
+     * @param string $user_token User_token пользователя
      *
      * @return $this
      */
-    public function setData($data)
+    public function setUserToken($user_token)
     {
-        $this->container['data'] = $data;
+        $this->container['user_token'] = $user_token;
 
         return $this;
     }
 
     /**
-     * Gets meta
+     * Gets name
      *
-     * @return string[]
+     * @return string|null
      */
-    public function getMeta() : array
+    public function getName() : ?string
     {
-        return $this->container['meta'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets meta
+     * Sets name
      *
-     * @param string[] $meta meta
+     * @param string|null $name Имя пользователя
      *
      * @return $this
      */
-    public function setMeta($meta)
+    public function setName($name)
     {
-        $this->container['meta'] = $meta;
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone
+     *
+     * @return string|null
+     */
+    public function getPhone() : ?string
+    {
+        return $this->container['phone'];
+    }
+
+    /**
+     * Sets phone
+     *
+     * @param string|null $phone Телефон пользователя
+     *
+     * @return $this
+     */
+    public function setPhone($phone)
+    {
+        $this->container['phone'] = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets login
+     *
+     * @return string|null
+     */
+    public function getLogin() : ?string
+    {
+        return $this->container['login'];
+    }
+
+    /**
+     * Sets login
+     *
+     * @param string|null $login Логин пользователя
+     *
+     * @return $this
+     */
+    public function setLogin($login)
+    {
+        $this->container['login'] = $login;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string|null
+     */
+    public function getEmail() : ?string
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string|null $email Почтовый адрес пользователя
+     *
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets avatar
+     *
+     * @return string|null
+     */
+    public function getAvatar() : ?string
+    {
+        return $this->container['avatar'];
+    }
+
+    /**
+     * Sets avatar
+     *
+     * @param string|null $avatar Путь к файлу аватарки пользователя
+     *
+     * @return $this
+     */
+    public function setAvatar($avatar)
+    {
+        $this->container['avatar'] = $avatar;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_approved
+     *
+     * @return bool|null
+     */
+    public function getIsApproved() : ?bool
+    {
+        return $this->container['is_approved'];
+    }
+
+    /**
+     * Sets is_approved
+     *
+     * @param bool|null $is_approved Подтвержден ли пользователь в системе
+     *
+     * @return $this
+     */
+    public function setIsApproved($is_approved)
+    {
+        $this->container['is_approved'] = $is_approved;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_email_confirmed
+     *
+     * @return bool|null
+     */
+    public function getIsEmailConfirmed() : ?bool
+    {
+        return $this->container['is_email_confirmed'];
+    }
+
+    /**
+     * Sets is_email_confirmed
+     *
+     * @param bool|null $is_email_confirmed Подтвержден ли email пользователя в системе
+     *
+     * @return $this
+     */
+    public function setIsEmailConfirmed($is_email_confirmed)
+    {
+        $this->container['is_email_confirmed'] = $is_email_confirmed;
 
         return $this;
     }

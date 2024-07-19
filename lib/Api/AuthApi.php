@@ -126,9 +126,9 @@ class AuthApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\AuthResponse
+     * @return \Vgrish\YclientsOpenApi\Model\AuthUserResponse
      */
-    public function authUser($accept, $content_type, $authorization, $auth_request = null) : \Vgrish\YclientsOpenApi\Model\AuthResponse
+    public function authUser($accept, $content_type, $authorization, $auth_request = null) : \Vgrish\YclientsOpenApi\Model\AuthUserResponse
     {
         list($response) = $this->authUserWithHttpInfo($accept, $content_type, $authorization, $auth_request);
         return $response;
@@ -146,7 +146,7 @@ class AuthApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\AuthResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Vgrish\YclientsOpenApi\Model\AuthUserResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function authUserWithHttpInfo($accept, $content_type, $authorization, $auth_request = null) : array
     {
@@ -183,20 +183,20 @@ class AuthApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
-                    if ('\Vgrish\YclientsOpenApi\Model\AuthResponse' === '\SplFileObject') {
+                    if ('\Vgrish\YclientsOpenApi\Model\AuthUserResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\AuthResponse', []),
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\AuthUserResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Vgrish\YclientsOpenApi\Model\AuthResponse';
+            $returnType = '\Vgrish\YclientsOpenApi\Model\AuthUserResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -215,7 +215,7 @@ class AuthApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\AuthResponse',
+                        '\Vgrish\YclientsOpenApi\Model\AuthUserResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -263,7 +263,7 @@ class AuthApi
      */
     public function authUserAsyncWithHttpInfo($accept, $content_type, $authorization, $auth_request = null) : \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\AuthResponse';
+        $returnType = '\Vgrish\YclientsOpenApi\Model\AuthUserResponse';
         $request = $this->authUserRequest($accept, $content_type, $authorization, $auth_request);
 
         return $this->client

@@ -1,6 +1,6 @@
 <?php
 /**
- * ClientsResponseMeta
+ * FinanceTransactionRemoveResponse
  *
  * @category Class
  * @package  Vgrish\YclientsOpenApi
@@ -31,14 +31,15 @@ use ArrayAccess;
 use Vgrish\YclientsOpenApi\ObjectSerializer;
 
 /**
- * ClientsResponseMeta Class Doc Comment
+ * FinanceTransactionRemoveResponse Class Doc Comment
  *
  * @category Class
+ * @description finance.transaction.remove.response
  * @package  Vgrish\YclientsOpenApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ClientsResponseMeta implements ModelInterface, ArrayAccess
+class FinanceTransactionRemoveResponse implements ModelInterface, ArrayAccess
 {
     public const DISCRIMINATOR = null;
 
@@ -47,7 +48,7 @@ class ClientsResponseMeta implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ClientsResponse_meta';
+    protected static $openAPIModelName = 'finance_transaction_remove_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,7 +56,9 @@ class ClientsResponseMeta implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'total_count' => 'int'
+        'success' => 'bool',
+        'data' => 'string',
+        'meta' => 'AnyOfMapArray'
     ];
 
     /**
@@ -64,7 +67,9 @@ class ClientsResponseMeta implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'total_count' => null
+        'success' => null,
+        'data' => null,
+        'meta' => null
     ];
 
     /**
@@ -94,7 +99,9 @@ class ClientsResponseMeta implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'total_count' => 'total_count'
+        'success' => 'success',
+        'data' => 'data',
+        'meta' => 'meta'
     ];
 
     /**
@@ -103,7 +110,9 @@ class ClientsResponseMeta implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'total_count' => 'setTotalCount'
+        'success' => 'setSuccess',
+        'data' => 'setData',
+        'meta' => 'setMeta'
     ];
 
     /**
@@ -112,7 +121,9 @@ class ClientsResponseMeta implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'total_count' => 'getTotalCount'
+        'success' => 'getSuccess',
+        'data' => 'getData',
+        'meta' => 'getMeta'
     ];
 
     /**
@@ -175,7 +186,9 @@ class ClientsResponseMeta implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['meta'] = isset($data['meta']) ? $data['meta'] : null;
     }
 
     /**
@@ -187,6 +200,12 @@ class ClientsResponseMeta implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['success'] === null) {
+            $invalidProperties[] = "'success' can't be null";
+        }
+        if ($this->container['data'] === null) {
+            $invalidProperties[] = "'data' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -203,25 +222,73 @@ class ClientsResponseMeta implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets total_count
+     * Gets success
      *
-     * @return int|null
+     * @return bool
      */
-    public function getTotalCount() : ?int
+    public function getSuccess() : bool
     {
-        return $this->container['total_count'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets total_count
+     * Sets success
      *
-     * @param int|null $total_count total_count
+     * @param bool $success success
      *
      * @return $this
      */
-    public function setTotalCount($total_count)
+    public function setSuccess($success)
     {
-        $this->container['total_count'] = $total_count;
+        $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets data
+     *
+     * @return string
+     */
+    public function getData() : string
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param string $data data
+     *
+     * @return $this
+     */
+    public function setData($data)
+    {
+        $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets meta
+     *
+     * @return AnyOfMapArray|null
+     */
+    public function getMeta() : ?AnyOfMapArray
+    {
+        return $this->container['meta'];
+    }
+
+    /**
+     * Sets meta
+     *
+     * @param AnyOfMapArray|null $meta meta
+     *
+     * @return $this
+     */
+    public function setMeta($meta)
+    {
+        $this->container['meta'] = $meta;
 
         return $this;
     }

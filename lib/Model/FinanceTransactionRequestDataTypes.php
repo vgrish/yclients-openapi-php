@@ -1,6 +1,6 @@
 <?php
 /**
- * BaseResponse
+ * FinanceTransactionRequestDataTypes
  *
  * @category Class
  * @package  Vgrish\YclientsOpenApi
@@ -31,14 +31,15 @@ use ArrayAccess;
 use Vgrish\YclientsOpenApi\ObjectSerializer;
 
 /**
- * BaseResponse Class Doc Comment
+ * FinanceTransactionRequestDataTypes Class Doc Comment
  *
  * @category Class
+ * @description Root Type for finance_transaction_request_data_types, Создание финансовой транзакции
  * @package  Vgrish\YclientsOpenApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class BaseResponse implements ModelInterface, ArrayAccess
+class FinanceTransactionRequestDataTypes implements ModelInterface, ArrayAccess
 {
     public const DISCRIMINATOR = null;
 
@@ -47,7 +48,7 @@ class BaseResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BaseResponse';
+    protected static $openAPIModelName = 'FinanceTransactionRequestDataTypes';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,9 +56,14 @@ class BaseResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'success' => 'bool',
-        'data' => 'string',
-        'meta' => 'AnyOfMapArray'
+        'expense_id' => 'float',
+        'amount' => 'float',
+        'account_id' => 'float',
+        'client_id' => 'float',
+        'supplier_id' => 'float',
+        'master_id' => 'float',
+        'comment' => 'float',
+        'date' => '\DateTime'
     ];
 
     /**
@@ -66,9 +72,14 @@ class BaseResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'success' => null,
-        'data' => null,
-        'meta' => null
+        'expense_id' => null,
+        'amount' => 'float',
+        'account_id' => null,
+        'client_id' => null,
+        'supplier_id' => null,
+        'master_id' => null,
+        'comment' => null,
+        'date' => 'date-time'
     ];
 
     /**
@@ -98,9 +109,14 @@ class BaseResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'success' => 'success',
-        'data' => 'data',
-        'meta' => 'meta'
+        'expense_id' => 'expense_id',
+        'amount' => 'amount',
+        'account_id' => 'account_id',
+        'client_id' => 'client_id',
+        'supplier_id' => 'supplier_id',
+        'master_id' => 'master_id',
+        'comment' => 'comment',
+        'date' => 'date'
     ];
 
     /**
@@ -109,9 +125,14 @@ class BaseResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'success' => 'setSuccess',
-        'data' => 'setData',
-        'meta' => 'setMeta'
+        'expense_id' => 'setExpenseId',
+        'amount' => 'setAmount',
+        'account_id' => 'setAccountId',
+        'client_id' => 'setClientId',
+        'supplier_id' => 'setSupplierId',
+        'master_id' => 'setMasterId',
+        'comment' => 'setComment',
+        'date' => 'setDate'
     ];
 
     /**
@@ -120,9 +141,14 @@ class BaseResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'success' => 'getSuccess',
-        'data' => 'getData',
-        'meta' => 'getMeta'
+        'expense_id' => 'getExpenseId',
+        'amount' => 'getAmount',
+        'account_id' => 'getAccountId',
+        'client_id' => 'getClientId',
+        'supplier_id' => 'getSupplierId',
+        'master_id' => 'getMasterId',
+        'comment' => 'getComment',
+        'date' => 'getDate'
     ];
 
     /**
@@ -185,9 +211,14 @@ class BaseResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['meta'] = isset($data['meta']) ? $data['meta'] : null;
+        $this->container['expense_id'] = isset($data['expense_id']) ? $data['expense_id'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
+        $this->container['supplier_id'] = isset($data['supplier_id']) ? $data['supplier_id'] : null;
+        $this->container['master_id'] = isset($data['master_id']) ? $data['master_id'] : null;
+        $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;
+        $this->container['date'] = isset($data['date']) ? $data['date'] : null;
     }
 
     /**
@@ -199,12 +230,6 @@ class BaseResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['success'] === null) {
-            $invalidProperties[] = "'success' can't be null";
-        }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -221,73 +246,193 @@ class BaseResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets success
+     * Gets expense_id
      *
-     * @return bool
+     * @return float|null
      */
-    public function getSuccess() : bool
+    public function getExpenseId() : ?float
     {
-        return $this->container['success'];
+        return $this->container['expense_id'];
     }
 
     /**
-     * Sets success
+     * Sets expense_id
      *
-     * @param bool $success success
+     * @param float|null $expense_id Статья платежа
      *
      * @return $this
      */
-    public function setSuccess($success)
+    public function setExpenseId($expense_id)
     {
-        $this->container['success'] = $success;
+        $this->container['expense_id'] = $expense_id;
 
         return $this;
     }
 
     /**
-     * Gets data
+     * Gets amount
      *
-     * @return string
+     * @return float|null
      */
-    public function getData() : string
+    public function getAmount() : ?float
     {
-        return $this->container['data'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets data
+     * Sets amount
      *
-     * @param string $data data
+     * @param float|null $amount Сумма транзакции
      *
      * @return $this
      */
-    public function setData($data)
+    public function setAmount($amount)
     {
-        $this->container['data'] = $data;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
 
     /**
-     * Gets meta
+     * Gets account_id
      *
-     * @return AnyOfMapArray|null
+     * @return float|null
      */
-    public function getMeta() : ?AnyOfMapArray
+    public function getAccountId() : ?float
     {
-        return $this->container['meta'];
+        return $this->container['account_id'];
     }
 
     /**
-     * Sets meta
+     * Sets account_id
      *
-     * @param AnyOfMapArray|null $meta meta
+     * @param float|null $account_id Идентификатор кассы
      *
      * @return $this
      */
-    public function setMeta($meta)
+    public function setAccountId($account_id)
     {
-        $this->container['meta'] = $meta;
+        $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_id
+     *
+     * @return float|null
+     */
+    public function getClientId() : ?float
+    {
+        return $this->container['client_id'];
+    }
+
+    /**
+     * Sets client_id
+     *
+     * @param float|null $client_id Идентификатор клиента
+     *
+     * @return $this
+     */
+    public function setClientId($client_id)
+    {
+        $this->container['client_id'] = $client_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets supplier_id
+     *
+     * @return float|null
+     */
+    public function getSupplierId() : ?float
+    {
+        return $this->container['supplier_id'];
+    }
+
+    /**
+     * Sets supplier_id
+     *
+     * @param float|null $supplier_id Идентификатор контрагента
+     *
+     * @return $this
+     */
+    public function setSupplierId($supplier_id)
+    {
+        $this->container['supplier_id'] = $supplier_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets master_id
+     *
+     * @return float|null
+     */
+    public function getMasterId() : ?float
+    {
+        return $this->container['master_id'];
+    }
+
+    /**
+     * Sets master_id
+     *
+     * @param float|null $master_id Идентификатор сотрудника
+     *
+     * @return $this
+     */
+    public function setMasterId($master_id)
+    {
+        $this->container['master_id'] = $master_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets comment
+     *
+     * @return float|null
+     */
+    public function getComment() : ?float
+    {
+        return $this->container['comment'];
+    }
+
+    /**
+     * Sets comment
+     *
+     * @param float|null $comment Комментарий
+     *
+     * @return $this
+     */
+    public function setComment($comment)
+    {
+        $this->container['comment'] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Gets date
+     *
+     * @return \DateTime|null
+     */
+    public function getDate() : ?\DateTime
+    {
+        return $this->container['date'];
+    }
+
+    /**
+     * Sets date
+     *
+     * @param \DateTime|null $date Дата создания транзакции
+     *
+     * @return $this
+     */
+    public function setDate($date)
+    {
+        $this->container['date'] = $date;
 
         return $this;
     }

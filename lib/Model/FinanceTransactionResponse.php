@@ -1,6 +1,6 @@
 <?php
 /**
- * ClientsResponseData
+ * FinanceTransactionResponse
  *
  * @category Class
  * @package  Vgrish\YclientsOpenApi
@@ -31,14 +31,15 @@ use ArrayAccess;
 use Vgrish\YclientsOpenApi\ObjectSerializer;
 
 /**
- * ClientsResponseData Class Doc Comment
+ * FinanceTransactionResponse Class Doc Comment
  *
  * @category Class
+ * @description finance.transaction.response
  * @package  Vgrish\YclientsOpenApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ClientsResponseData implements ModelInterface, ArrayAccess
+class FinanceTransactionResponse implements ModelInterface, ArrayAccess
 {
     public const DISCRIMINATOR = null;
 
@@ -47,7 +48,7 @@ class ClientsResponseData implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ClientsResponse_data';
+    protected static $openAPIModelName = 'finance_transaction_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,10 +56,9 @@ class ClientsResponseData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'name' => 'string',
-        'phone' => 'string',
-        'email' => 'string'
+        'success' => 'bool',
+        'data' => '\Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse',
+        'meta' => 'AnyOfMapArray'
     ];
 
     /**
@@ -67,10 +67,9 @@ class ClientsResponseData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'phone' => null,
-        'email' => null
+        'success' => null,
+        'data' => null,
+        'meta' => null
     ];
 
     /**
@@ -100,10 +99,9 @@ class ClientsResponseData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'phone' => 'phone',
-        'email' => 'email'
+        'success' => 'success',
+        'data' => 'data',
+        'meta' => 'meta'
     ];
 
     /**
@@ -112,10 +110,9 @@ class ClientsResponseData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'phone' => 'setPhone',
-        'email' => 'setEmail'
+        'success' => 'setSuccess',
+        'data' => 'setData',
+        'meta' => 'setMeta'
     ];
 
     /**
@@ -124,10 +121,9 @@ class ClientsResponseData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'phone' => 'getPhone',
-        'email' => 'getEmail'
+        'success' => 'getSuccess',
+        'data' => 'getData',
+        'meta' => 'getMeta'
     ];
 
     /**
@@ -190,10 +186,9 @@ class ClientsResponseData implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['meta'] = isset($data['meta']) ? $data['meta'] : null;
     }
 
     /**
@@ -205,8 +200,11 @@ class ClientsResponseData implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['success'] === null) {
+            $invalidProperties[] = "'success' can't be null";
+        }
+        if ($this->container['data'] === null) {
+            $invalidProperties[] = "'data' can't be null";
         }
         return $invalidProperties;
     }
@@ -224,97 +222,73 @@ class ClientsResponseData implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets success
      *
-     * @return int
+     * @return bool
      */
-    public function getId() : int
+    public function getSuccess() : bool
     {
-        return $this->container['id'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets id
+     * Sets success
      *
-     * @param int $id id
+     * @param bool $success success
      *
      * @return $this
      */
-    public function setId($id)
+    public function setSuccess($success)
     {
-        $this->container['id'] = $id;
+        $this->container['success'] = $success;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets data
      *
-     * @return string|null
+     * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse
      */
-    public function getName() : ?string
+    public function getData() : \Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse
     {
-        return $this->container['name'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets name
+     * Sets data
      *
-     * @param string|null $name name
+     * @param \Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse $data data
      *
      * @return $this
      */
-    public function setName($name)
+    public function setData($data)
     {
-        $this->container['name'] = $name;
+        $this->container['data'] = $data;
 
         return $this;
     }
 
     /**
-     * Gets phone
+     * Gets meta
      *
-     * @return string|null
+     * @return AnyOfMapArray|null
      */
-    public function getPhone() : ?string
+    public function getMeta() : ?AnyOfMapArray
     {
-        return $this->container['phone'];
+        return $this->container['meta'];
     }
 
     /**
-     * Sets phone
+     * Sets meta
      *
-     * @param string|null $phone phone
+     * @param AnyOfMapArray|null $meta meta
      *
      * @return $this
      */
-    public function setPhone($phone)
+    public function setMeta($meta)
     {
-        $this->container['phone'] = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string|null
-     */
-    public function getEmail() : ?string
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string|null $email email
-     *
-     * @return $this
-     */
-    public function setEmail($email)
-    {
-        $this->container['email'] = $email;
+        $this->container['meta'] = $meta;
 
         return $this;
     }
