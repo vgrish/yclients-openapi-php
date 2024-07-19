@@ -34,7 +34,6 @@ use Vgrish\YclientsOpenApi\ObjectSerializer;
  * FinanceTransactionResponse Class Doc Comment
  *
  * @category Class
- * @description finance.transaction.response
  * @package  Vgrish\YclientsOpenApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -48,7 +47,7 @@ class FinanceTransactionResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'finance_transaction_response';
+    protected static $openAPIModelName = 'FinanceTransactionResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,9 +55,21 @@ class FinanceTransactionResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'success' => 'bool',
-        'data' => '\Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse',
-        'meta' => 'AnyOfMapArray'
+        'id' => 'int',
+        'document_id' => 'int',
+        'date' => '\DateTime',
+        'amount' => 'float',
+        'comment' => 'string',
+        'last_change_date' => '\DateTime',
+        'record_id' => 'int',
+        'visit_id' => 'int',
+        'sold_item_id' => 'int',
+        'sold_item_type' => 'string',
+        'expense' => 'map[string,object]',
+        'master' => 'AnyOfMapArray',
+        'supplier' => 'AnyOfMapArray',
+        'account' => 'map[string,object]',
+        'client' => 'map[string,object]'
     ];
 
     /**
@@ -67,9 +78,21 @@ class FinanceTransactionResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'success' => null,
-        'data' => null,
-        'meta' => null
+        'id' => null,
+        'document_id' => null,
+        'date' => 'date-time',
+        'amount' => 'float',
+        'comment' => null,
+        'last_change_date' => 'date-time',
+        'record_id' => null,
+        'visit_id' => null,
+        'sold_item_id' => null,
+        'sold_item_type' => null,
+        'expense' => null,
+        'master' => null,
+        'supplier' => null,
+        'account' => null,
+        'client' => null
     ];
 
     /**
@@ -99,9 +122,21 @@ class FinanceTransactionResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'success' => 'success',
-        'data' => 'data',
-        'meta' => 'meta'
+        'id' => 'id',
+        'document_id' => 'document_id',
+        'date' => 'date',
+        'amount' => 'amount',
+        'comment' => 'comment',
+        'last_change_date' => 'last_change_date',
+        'record_id' => 'record_id',
+        'visit_id' => 'visit_id',
+        'sold_item_id' => 'sold_item_id',
+        'sold_item_type' => 'sold_item_type',
+        'expense' => 'expense',
+        'master' => 'master',
+        'supplier' => 'supplier',
+        'account' => 'account',
+        'client' => 'client'
     ];
 
     /**
@@ -110,9 +145,21 @@ class FinanceTransactionResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'success' => 'setSuccess',
-        'data' => 'setData',
-        'meta' => 'setMeta'
+        'id' => 'setId',
+        'document_id' => 'setDocumentId',
+        'date' => 'setDate',
+        'amount' => 'setAmount',
+        'comment' => 'setComment',
+        'last_change_date' => 'setLastChangeDate',
+        'record_id' => 'setRecordId',
+        'visit_id' => 'setVisitId',
+        'sold_item_id' => 'setSoldItemId',
+        'sold_item_type' => 'setSoldItemType',
+        'expense' => 'setExpense',
+        'master' => 'setMaster',
+        'supplier' => 'setSupplier',
+        'account' => 'setAccount',
+        'client' => 'setClient'
     ];
 
     /**
@@ -121,9 +168,21 @@ class FinanceTransactionResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'success' => 'getSuccess',
-        'data' => 'getData',
-        'meta' => 'getMeta'
+        'id' => 'getId',
+        'document_id' => 'getDocumentId',
+        'date' => 'getDate',
+        'amount' => 'getAmount',
+        'comment' => 'getComment',
+        'last_change_date' => 'getLastChangeDate',
+        'record_id' => 'getRecordId',
+        'visit_id' => 'getVisitId',
+        'sold_item_id' => 'getSoldItemId',
+        'sold_item_type' => 'getSoldItemType',
+        'expense' => 'getExpense',
+        'master' => 'getMaster',
+        'supplier' => 'getSupplier',
+        'account' => 'getAccount',
+        'client' => 'getClient'
     ];
 
     /**
@@ -186,9 +245,21 @@ class FinanceTransactionResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['meta'] = isset($data['meta']) ? $data['meta'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['document_id'] = isset($data['document_id']) ? $data['document_id'] : null;
+        $this->container['date'] = isset($data['date']) ? $data['date'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;
+        $this->container['last_change_date'] = isset($data['last_change_date']) ? $data['last_change_date'] : null;
+        $this->container['record_id'] = isset($data['record_id']) ? $data['record_id'] : null;
+        $this->container['visit_id'] = isset($data['visit_id']) ? $data['visit_id'] : null;
+        $this->container['sold_item_id'] = isset($data['sold_item_id']) ? $data['sold_item_id'] : null;
+        $this->container['sold_item_type'] = isset($data['sold_item_type']) ? $data['sold_item_type'] : null;
+        $this->container['expense'] = isset($data['expense']) ? $data['expense'] : null;
+        $this->container['master'] = isset($data['master']) ? $data['master'] : null;
+        $this->container['supplier'] = isset($data['supplier']) ? $data['supplier'] : null;
+        $this->container['account'] = isset($data['account']) ? $data['account'] : null;
+        $this->container['client'] = isset($data['client']) ? $data['client'] : null;
     }
 
     /**
@@ -200,11 +271,11 @@ class FinanceTransactionResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['success'] === null) {
-            $invalidProperties[] = "'success' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
+        if ($this->container['document_id'] === null) {
+            $invalidProperties[] = "'document_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -222,73 +293,361 @@ class FinanceTransactionResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets success
+     * Gets id
      *
-     * @return bool
+     * @return int
      */
-    public function getSuccess() : bool
+    public function getId() : int
     {
-        return $this->container['success'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets success
+     * Sets id
      *
-     * @param bool $success success
+     * @param int $id Идентификатор транзакции
      *
      * @return $this
      */
-    public function setSuccess($success)
+    public function setId($id)
     {
-        $this->container['success'] = $success;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets data
+     * Gets document_id
      *
-     * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse
+     * @return int
      */
-    public function getData() : \Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse
+    public function getDocumentId() : int
     {
-        return $this->container['data'];
+        return $this->container['document_id'];
     }
 
     /**
-     * Sets data
+     * Sets document_id
      *
-     * @param \Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse $data data
+     * @param int $document_id Идентификатор документа
      *
      * @return $this
      */
-    public function setData($data)
+    public function setDocumentId($document_id)
     {
-        $this->container['data'] = $data;
+        $this->container['document_id'] = $document_id;
 
         return $this;
     }
 
     /**
-     * Gets meta
+     * Gets date
+     *
+     * @return \DateTime|null
+     */
+    public function getDate() : ?\DateTime
+    {
+        return $this->container['date'];
+    }
+
+    /**
+     * Sets date
+     *
+     * @param \DateTime|null $date Дата создания транзакции
+     *
+     * @return $this
+     */
+    public function setDate($date)
+    {
+        $this->container['date'] = $date;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount
+     *
+     * @return float|null
+     */
+    public function getAmount() : ?float
+    {
+        return $this->container['amount'];
+    }
+
+    /**
+     * Sets amount
+     *
+     * @param float|null $amount Сумма транзакции
+     *
+     * @return $this
+     */
+    public function setAmount($amount)
+    {
+        $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets comment
+     *
+     * @return string|null
+     */
+    public function getComment() : ?string
+    {
+        return $this->container['comment'];
+    }
+
+    /**
+     * Sets comment
+     *
+     * @param string|null $comment Комментарий
+     *
+     * @return $this
+     */
+    public function setComment($comment)
+    {
+        $this->container['comment'] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_change_date
+     *
+     * @return \DateTime|null
+     */
+    public function getLastChangeDate() : ?\DateTime
+    {
+        return $this->container['last_change_date'];
+    }
+
+    /**
+     * Sets last_change_date
+     *
+     * @param \DateTime|null $last_change_date Дата последнего изменения
+     *
+     * @return $this
+     */
+    public function setLastChangeDate($last_change_date)
+    {
+        $this->container['last_change_date'] = $last_change_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets record_id
+     *
+     * @return int|null
+     */
+    public function getRecordId() : ?int
+    {
+        return $this->container['record_id'];
+    }
+
+    /**
+     * Sets record_id
+     *
+     * @param int|null $record_id Идентификатор записи
+     *
+     * @return $this
+     */
+    public function setRecordId($record_id)
+    {
+        $this->container['record_id'] = $record_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets visit_id
+     *
+     * @return int|null
+     */
+    public function getVisitId() : ?int
+    {
+        return $this->container['visit_id'];
+    }
+
+    /**
+     * Sets visit_id
+     *
+     * @param int|null $visit_id Идентификатор визита
+     *
+     * @return $this
+     */
+    public function setVisitId($visit_id)
+    {
+        $this->container['visit_id'] = $visit_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets sold_item_id
+     *
+     * @return int|null
+     */
+    public function getSoldItemId() : ?int
+    {
+        return $this->container['sold_item_id'];
+    }
+
+    /**
+     * Sets sold_item_id
+     *
+     * @param int|null $sold_item_id Идентификатор проданного товара/услуги
+     *
+     * @return $this
+     */
+    public function setSoldItemId($sold_item_id)
+    {
+        $this->container['sold_item_id'] = $sold_item_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets sold_item_type
+     *
+     * @return string|null
+     */
+    public function getSoldItemType() : ?string
+    {
+        return $this->container['sold_item_type'];
+    }
+
+    /**
+     * Sets sold_item_type
+     *
+     * @param string|null $sold_item_type Тип сущности продаджи (товар/услуга)
+     *
+     * @return $this
+     */
+    public function setSoldItemType($sold_item_type)
+    {
+        $this->container['sold_item_type'] = $sold_item_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets expense
+     *
+     * @return map[string,object]|null
+     */
+    public function getExpense()
+    {
+        return $this->container['expense'];
+    }
+
+    /**
+     * Sets expense
+     *
+     * @param map[string,object]|null $expense Тип платежа
+     *
+     * @return $this
+     */
+    public function setExpense($expense)
+    {
+        $this->container['expense'] = $expense;
+
+        return $this;
+    }
+
+    /**
+     * Gets master
      *
      * @return AnyOfMapArray|null
      */
-    public function getMeta() : ?AnyOfMapArray
+    public function getMaster() : ?AnyOfMapArray
     {
-        return $this->container['meta'];
+        return $this->container['master'];
     }
 
     /**
-     * Sets meta
+     * Sets master
      *
-     * @param AnyOfMapArray|null $meta meta
+     * @param AnyOfMapArray|null $master Мастер
      *
      * @return $this
      */
-    public function setMeta($meta)
+    public function setMaster($master)
     {
-        $this->container['meta'] = $meta;
+        $this->container['master'] = $master;
+
+        return $this;
+    }
+
+    /**
+     * Gets supplier
+     *
+     * @return AnyOfMapArray|null
+     */
+    public function getSupplier() : ?AnyOfMapArray
+    {
+        return $this->container['supplier'];
+    }
+
+    /**
+     * Sets supplier
+     *
+     * @param AnyOfMapArray|null $supplier Контрагент
+     *
+     * @return $this
+     */
+    public function setSupplier($supplier)
+    {
+        $this->container['supplier'] = $supplier;
+
+        return $this;
+    }
+
+    /**
+     * Gets account
+     *
+     * @return map[string,object]|null
+     */
+    public function getAccount()
+    {
+        return $this->container['account'];
+    }
+
+    /**
+     * Sets account
+     *
+     * @param map[string,object]|null $account Касса
+     *
+     * @return $this
+     */
+    public function setAccount($account)
+    {
+        $this->container['account'] = $account;
+
+        return $this;
+    }
+
+    /**
+     * Gets client
+     *
+     * @return map[string,object]|null
+     */
+    public function getClient()
+    {
+        return $this->container['client'];
+    }
+
+    /**
+     * Sets client
+     *
+     * @param map[string,object]|null $client Клиент
+     *
+     * @return $this
+     */
+    public function setClient($client)
+    {
+        $this->container['client'] = $client;
 
         return $this;
     }

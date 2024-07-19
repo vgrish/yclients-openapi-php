@@ -1,6 +1,6 @@
 <?php
 /**
- * FinanceTransactionsResponse
+ * FinanceTransactionGetListResponse
  *
  * @category Class
  * @package  Vgrish\YclientsOpenApi
@@ -31,15 +31,15 @@ use ArrayAccess;
 use Vgrish\YclientsOpenApi\ObjectSerializer;
 
 /**
- * FinanceTransactionsResponse Class Doc Comment
+ * FinanceTransactionGetListResponse Class Doc Comment
  *
  * @category Class
- * @description finance.transactions.response
+ * @description finance.transaction.get.list.response
  * @package  Vgrish\YclientsOpenApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class FinanceTransactionsResponse implements ModelInterface, ArrayAccess
+class FinanceTransactionGetListResponse implements ModelInterface, ArrayAccess
 {
     public const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class FinanceTransactionsResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'finance_transactions_response';
+    protected static $openAPIModelName = 'finance_transaction_get_list_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -2779,9 +2779,9 @@ class DefaultApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse
+     * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse
      */
-    public function financeTransactionGet($company_id, $transaction_id, $accept, $content_type, $authorization) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse
+    public function financeTransactionGet($company_id, $transaction_id, $accept, $content_type, $authorization) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse
     {
         list($response) = $this->financeTransactionGetWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization);
         return $response;
@@ -2800,7 +2800,7 @@ class DefaultApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function financeTransactionGetWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization) : array
     {
@@ -2837,20 +2837,20 @@ class DefaultApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse' === '\SplFileObject') {
+                    if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse', []),
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse';
+            $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2869,7 +2869,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse',
+                        '\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2919,7 +2919,7 @@ class DefaultApi
      */
     public function financeTransactionGetAsyncWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization) : \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse';
+        $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse';
         $request = $this->financeTransactionGetRequest($company_id, $transaction_id, $accept, $content_type, $authorization);
 
         return $this->client
@@ -3129,9 +3129,9 @@ class DefaultApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionsResponse
+     * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse
      */
-    public function financeTransactionGetList($company_id, $accept, $content_type, $authorization, $page = null, $count = null, $account_id = null, $supplier_id = null, $client_id = null, $user_id = null, $master_id = null, $type = null, $real_money = null, $deleted = null, $start_date = null, $end_date = null, $balance_is = null, $document_id = null) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionsResponse
+    public function financeTransactionGetList($company_id, $accept, $content_type, $authorization, $page = null, $count = null, $account_id = null, $supplier_id = null, $client_id = null, $user_id = null, $master_id = null, $type = null, $real_money = null, $deleted = null, $start_date = null, $end_date = null, $balance_is = null, $document_id = null) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse
     {
         list($response) = $this->financeTransactionGetListWithHttpInfo($company_id, $accept, $content_type, $authorization, $page, $count, $account_id, $supplier_id, $client_id, $user_id, $master_id, $type, $real_money, $deleted, $start_date, $end_date, $balance_is, $document_id);
         return $response;
@@ -3163,7 +3163,7 @@ class DefaultApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\FinanceTransactionsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function financeTransactionGetListWithHttpInfo($company_id, $accept, $content_type, $authorization, $page = null, $count = null, $account_id = null, $supplier_id = null, $client_id = null, $user_id = null, $master_id = null, $type = null, $real_money = null, $deleted = null, $start_date = null, $end_date = null, $balance_is = null, $document_id = null) : array
     {
@@ -3200,20 +3200,20 @@ class DefaultApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionsResponse' === '\SplFileObject') {
+                    if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\FinanceTransactionsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionsResponse';
+            $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3232,7 +3232,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\FinanceTransactionsResponse',
+                        '\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3308,7 +3308,7 @@ class DefaultApi
      */
     public function financeTransactionGetListAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $page = null, $count = null, $account_id = null, $supplier_id = null, $client_id = null, $user_id = null, $master_id = null, $type = null, $real_money = null, $deleted = null, $start_date = null, $end_date = null, $balance_is = null, $document_id = null) : \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionsResponse';
+        $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse';
         $request = $this->financeTransactionGetListRequest($company_id, $accept, $content_type, $authorization, $page, $count, $account_id, $supplier_id, $client_id, $user_id, $master_id, $type, $real_money, $deleted, $start_date, $end_date, $balance_is, $document_id);
 
         return $this->client

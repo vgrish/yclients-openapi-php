@@ -115,11 +115,12 @@ Class | Method | HTTP request | Description
  - [ClientUpdateResponse](docs/Model/ClientUpdateResponse.md)
  - [FinanceTransactionByVisitOrRecordGetResponse](docs/Model/FinanceTransactionByVisitOrRecordGetResponse.md)
  - [FinanceTransactionCreateResponse](docs/Model/FinanceTransactionCreateResponse.md)
+ - [FinanceTransactionGetListResponse](docs/Model/FinanceTransactionGetListResponse.md)
+ - [FinanceTransactionGetResponse](docs/Model/FinanceTransactionGetResponse.md)
  - [FinanceTransactionRemoveResponse](docs/Model/FinanceTransactionRemoveResponse.md)
  - [FinanceTransactionRequestDataTypes](docs/Model/FinanceTransactionRequestDataTypes.md)
  - [FinanceTransactionResponse](docs/Model/FinanceTransactionResponse.md)
  - [FinanceTransactionUpdateResponse](docs/Model/FinanceTransactionUpdateResponse.md)
- - [FinanceTransactionsResponse](docs/Model/FinanceTransactionsResponse.md)
 
 
 ## Documentation For Authorization

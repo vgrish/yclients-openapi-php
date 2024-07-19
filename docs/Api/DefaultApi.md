@@ -523,7 +523,7 @@ No authorization required
 
 ## financeTransactionGet
 
-> \Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse financeTransactionGet($company_id, $transaction_id, $accept, $content_type, $authorization)
+> \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse financeTransactionGet($company_id, $transaction_id, $accept, $content_type, $authorization)
 
 Получение финансовой транзакции
 
@@ -567,7 +567,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse**](../Model/FinanceTransactionResponse.md)
+[**\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse**](../Model/FinanceTransactionGetResponse.md)
 
 ### Authorization
 
@@ -585,7 +585,7 @@ No authorization required
 
 ## financeTransactionGetList
 
-> \Vgrish\YclientsOpenApi\Model\FinanceTransactionsResponse financeTransactionGetList($company_id, $accept, $content_type, $authorization, $page, $count, $account_id, $supplier_id, $client_id, $user_id, $master_id, $type, $real_money, $deleted, $start_date, $end_date, $balance_is, $document_id)
+> \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse financeTransactionGetList($company_id, $accept, $content_type, $authorization, $page, $count, $account_id, $supplier_id, $client_id, $user_id, $master_id, $type, $real_money, $deleted, $start_date, $end_date, $balance_is, $document_id)
 
 Получить транзакции
 
@@ -655,7 +655,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Vgrish\YclientsOpenApi\Model\FinanceTransactionsResponse**](../Model/FinanceTransactionsResponse.md)
+[**\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse**](../Model/FinanceTransactionGetListResponse.md)
 
 ### Authorization
 
