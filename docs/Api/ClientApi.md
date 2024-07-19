@@ -1,6 +1,6 @@
 # Vgrish\YclientsOpenApi\ClientApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.yclients.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
