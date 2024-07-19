@@ -56,8 +56,8 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'page' => 'float',
-        'page_size' => 'float',
+        'page' => 'int',
+        'page_size' => 'int',
         'fields' => 'string[]',
         'order_by' => 'string',
         'order_by_direction' => 'string',
@@ -325,9 +325,9 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
     /**
      * Gets page
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getPage() : ?float
+    public function getPage() : ?int
     {
         return $this->container['page'];
     }
@@ -335,7 +335,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
     /**
      * Sets page
      *
-     * @param float|null $page Номер страница
+     * @param int|null $page Номер страница
      *
      * @return $this
      */
@@ -349,9 +349,9 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
     /**
      * Gets page_size
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getPageSize() : ?float
+    public function getPageSize() : ?int
     {
         return $this->container['page_size'];
     }
@@ -359,7 +359,7 @@ class ClientGetListRequest implements ModelInterface, ArrayAccess
     /**
      * Sets page_size
      *
-     * @param float|null $page_size Количество выводимых строк на странице. Максимум 200. (По умолчанию 25)
+     * @param int|null $page_size Количество выводимых строк на странице. Максимум 200. (По умолчанию 25)
      *
      * @return $this
      */

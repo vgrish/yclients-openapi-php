@@ -19,8 +19,8 @@ Name | Type | Description | Notes
 **balance** | **string** |  | [optional] 
 **sms_check** | **string** |  | [optional] 
 **sms_not** | **string** |  | [optional] 
-**labels** | [**object**](.md) |  | [optional] 
-**custom_fields** | [**object**](.md) |  | [optional] 
+**labels** | **map[string,object]** |  | [optional] 
+**custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

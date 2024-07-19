@@ -119,7 +119,7 @@ class ClientApi
      *
      * Добавить клиента
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -140,7 +140,7 @@ class ClientApi
      *
      * Добавить клиента
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -232,7 +232,7 @@ class ClientApi
      *
      * Добавить клиента
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -256,7 +256,7 @@ class ClientApi
      *
      * Добавить клиента
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -307,7 +307,7 @@ class ClientApi
     /**
      * Create request for operation 'clientCreate'
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -445,8 +445,8 @@ class ClientApi
      *
      * Получить клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -466,8 +466,8 @@ class ClientApi
      *
      * Получить клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -558,8 +558,8 @@ class ClientApi
      *
      * Получить клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -582,8 +582,8 @@ class ClientApi
      *
      * Получить клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -633,8 +633,8 @@ class ClientApi
     /**
      * Create request for operation 'clientGet'
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1108,8 +1108,8 @@ class ClientApi
      *
      * Удалить клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1129,8 +1129,8 @@ class ClientApi
      *
      * Удалить клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1221,8 +1221,8 @@ class ClientApi
      *
      * Удалить клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1245,8 +1245,8 @@ class ClientApi
      *
      * Удалить клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1296,8 +1296,8 @@ class ClientApi
     /**
      * Create request for operation 'clientRemove'
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1445,8 +1445,8 @@ class ClientApi
      *
      * Редактировать клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1467,8 +1467,8 @@ class ClientApi
      *
      * Редактировать клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1560,8 +1560,8 @@ class ClientApi
      *
      * Редактировать клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1585,8 +1585,8 @@ class ClientApi
      *
      * Редактировать клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1637,8 +1637,8 @@ class ClientApi
     /**
      * Create request for operation 'clientUpdate'
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)

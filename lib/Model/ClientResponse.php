@@ -79,7 +79,7 @@ class ClientResponse implements ModelInterface, ArrayAccess
         'importance' => 'string',
         'categories' => 'string[]',
         'last_change_date' => 'string',
-        'custom_fields' => 'object'
+        'custom_fields' => 'map[string,object]'
     ];
 
     /**
@@ -931,9 +931,9 @@ class ClientResponse implements ModelInterface, ArrayAccess
     /**
      * Gets custom_fields
      *
-     * @return object|null
+     * @return map[string,object]|null
      */
-    public function getCustomFields() : ?object
+    public function getCustomFields()
     {
         return $this->container['custom_fields'];
     }
@@ -941,7 +941,7 @@ class ClientResponse implements ModelInterface, ArrayAccess
     /**
      * Sets custom_fields
      *
-     * @param object|null $custom_fields Массив дополнительных полей клиента в виде пар \"api-key\": \"value\"
+     * @param map[string,object]|null $custom_fields Массив дополнительных полей клиента в виде пар \"api-key\": \"value\"
      *
      * @return $this
      */

@@ -30,7 +30,7 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\ClientApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$company_id = 3.4; // float | ID компании
+$company_id = 56; // int | ID компании
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
@@ -50,7 +50,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **float**| ID компании |
+ **company_id** | **int**| ID компании |
  **accept** | **string**| e.g. application/vnd.yclients.v2+json |
  **content_type** | **string**| application/json |
  **authorization** | **string**| Bearer partner_token, User user_token |
@@ -94,8 +94,8 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\ClientApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$company_id = 'company_id_example'; // string | ID компании
-$id = 'id_example'; // string | ID клиента
+$company_id = 56; // int | ID компании
+$id = 56; // int | ID клиента
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = application/json; // string | application/json
 $authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
@@ -114,8 +114,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **string**| ID компании |
- **id** | **string**| ID клиента |
+ **company_id** | **int**| ID компании |
+ **id** | **int**| ID клиента |
  **accept** | **string**| e.g. application/vnd.yclients.v2+json |
  **content_type** | **string**| application/json |
  **authorization** | **string**| Bearer partner_token, User user_token |
@@ -218,8 +218,8 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\ClientApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$company_id = 'company_id_example'; // string | ID компании
-$id = 'id_example'; // string | ID клиента
+$company_id = 56; // int | ID компании
+$id = 56; // int | ID клиента
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
@@ -238,8 +238,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **string**| ID компании |
- **id** | **string**| ID клиента |
+ **company_id** | **int**| ID компании |
+ **id** | **int**| ID клиента |
  **accept** | **string**| e.g. application/vnd.yclients.v2+json |
  **content_type** | **string**| application/json |
  **authorization** | **string**| Bearer partner_token, User user_token |
@@ -280,8 +280,8 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\ClientApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$company_id = 'company_id_example'; // string | ID компании
-$id = 'id_example'; // string | ID клиента
+$company_id = 56; // int | ID компании
+$id = 56; // int | ID клиента
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
@@ -301,8 +301,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **string**| ID компании |
- **id** | **string**| ID клиента |
+ **company_id** | **int**| ID компании |
+ **id** | **int**| ID клиента |
  **accept** | **string**| e.g. application/vnd.yclients.v2+json |
  **content_type** | **string**| application/json |
  **authorization** | **string**| Bearer partner_token, User user_token |

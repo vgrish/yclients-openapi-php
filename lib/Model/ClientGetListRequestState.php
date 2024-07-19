@@ -56,7 +56,7 @@ class ClientGetListRequestState implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'value' => 'float[]'
+        'value' => 'string[]'
     ];
 
     /**
@@ -206,7 +206,7 @@ class ClientGetListRequestState implements ModelInterface, ArrayAccess
     /**
      * Gets value
      *
-     * @return float[]|null
+     * @return string[]|null
      */
     public function getValue() : ?array
     {
@@ -216,7 +216,7 @@ class ClientGetListRequestState implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param float[]|null $value value
+     * @param string[]|null $value value
      *
      * @return $this
      */

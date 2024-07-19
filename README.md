@@ -114,11 +114,11 @@ Class | Method | HTTP request | Description
  - [ClientUpdateRequest](docs/Model/ClientUpdateRequest.md)
  - [ClientUpdateResponse](docs/Model/ClientUpdateResponse.md)
  - [FinanceTransactionByVisitOrRecordGetResponse](docs/Model/FinanceTransactionByVisitOrRecordGetResponse.md)
+ - [FinanceTransactionCreateRequest](docs/Model/FinanceTransactionCreateRequest.md)
  - [FinanceTransactionCreateResponse](docs/Model/FinanceTransactionCreateResponse.md)
  - [FinanceTransactionGetListResponse](docs/Model/FinanceTransactionGetListResponse.md)
  - [FinanceTransactionGetResponse](docs/Model/FinanceTransactionGetResponse.md)
  - [FinanceTransactionRemoveResponse](docs/Model/FinanceTransactionRemoveResponse.md)
- - [FinanceTransactionRequestDataTypes](docs/Model/FinanceTransactionRequestDataTypes.md)
  - [FinanceTransactionResponse](docs/Model/FinanceTransactionResponse.md)
  - [FinanceTransactionUpdateResponse](docs/Model/FinanceTransactionUpdateResponse.md)
 

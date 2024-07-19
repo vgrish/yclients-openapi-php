@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **importance** | **string** |  | [optional] 
 **categories** | **string[]** |  | [optional] 
 **last_change_date** | **string** |  | [optional] 
-**custom_fields** | [**object**](.md) | Массив дополнительных полей клиента в виде пар \&quot;api-key\&quot;: \&quot;value\&quot; | [optional] 
+**custom_fields** | **map[string,object]** | Массив дополнительных полей клиента в виде пар \&quot;api-key\&quot;: \&quot;value\&quot; | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

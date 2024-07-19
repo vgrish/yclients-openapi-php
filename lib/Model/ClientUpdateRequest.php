@@ -70,8 +70,8 @@ class ClientUpdateRequest implements ModelInterface, ArrayAccess
         'balance' => 'string',
         'sms_check' => 'string',
         'sms_not' => 'string',
-        'labels' => 'object',
-        'custom_fields' => 'object'
+        'labels' => 'map[string,object]',
+        'custom_fields' => 'map[string,object]'
     ];
 
     /**
@@ -667,9 +667,9 @@ class ClientUpdateRequest implements ModelInterface, ArrayAccess
     /**
      * Gets labels
      *
-     * @return object|null
+     * @return map[string,object]|null
      */
-    public function getLabels() : ?object
+    public function getLabels()
     {
         return $this->container['labels'];
     }
@@ -677,7 +677,7 @@ class ClientUpdateRequest implements ModelInterface, ArrayAccess
     /**
      * Sets labels
      *
-     * @param object|null $labels labels
+     * @param map[string,object]|null $labels labels
      *
      * @return $this
      */
@@ -691,9 +691,9 @@ class ClientUpdateRequest implements ModelInterface, ArrayAccess
     /**
      * Gets custom_fields
      *
-     * @return object|null
+     * @return map[string,object]|null
      */
-    public function getCustomFields() : ?object
+    public function getCustomFields()
     {
         return $this->container['custom_fields'];
     }
@@ -701,7 +701,7 @@ class ClientUpdateRequest implements ModelInterface, ArrayAccess
     /**
      * Sets custom_fields
      *
-     * @param object|null $custom_fields custom_fields
+     * @param map[string,object]|null $custom_fields custom_fields
      *
      * @return $this
      */

@@ -426,7 +426,7 @@ class DefaultApi
      *
      * Добавить клиента
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -447,7 +447,7 @@ class DefaultApi
      *
      * Добавить клиента
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -539,7 +539,7 @@ class DefaultApi
      *
      * Добавить клиента
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -563,7 +563,7 @@ class DefaultApi
      *
      * Добавить клиента
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -614,7 +614,7 @@ class DefaultApi
     /**
      * Create request for operation 'clientCreate'
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -752,8 +752,8 @@ class DefaultApi
      *
      * Получить клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -773,8 +773,8 @@ class DefaultApi
      *
      * Получить клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -865,8 +865,8 @@ class DefaultApi
      *
      * Получить клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -889,8 +889,8 @@ class DefaultApi
      *
      * Получить клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -940,8 +940,8 @@ class DefaultApi
     /**
      * Create request for operation 'clientGet'
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1415,8 +1415,8 @@ class DefaultApi
      *
      * Удалить клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1436,8 +1436,8 @@ class DefaultApi
      *
      * Удалить клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1528,8 +1528,8 @@ class DefaultApi
      *
      * Удалить клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1552,8 +1552,8 @@ class DefaultApi
      *
      * Удалить клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1603,8 +1603,8 @@ class DefaultApi
     /**
      * Create request for operation 'clientRemove'
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1752,8 +1752,8 @@ class DefaultApi
      *
      * Редактировать клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1774,8 +1774,8 @@ class DefaultApi
      *
      * Редактировать клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1867,8 +1867,8 @@ class DefaultApi
      *
      * Редактировать клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1892,8 +1892,8 @@ class DefaultApi
      *
      * Редактировать клиента
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -1944,8 +1944,8 @@ class DefaultApi
     /**
      * Create request for operation 'clientUpdate'
      *
-     * @param  string $company_id ID компании (required)
-     * @param  string $id ID клиента (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $id ID клиента (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -2097,12 +2097,12 @@ class DefaultApi
      *
      * Получение транзакций по ID визита или записи
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  float $record_id ID записи (optional)
-     * @param  float $visit_id ID визита (optional)
+     * @param  int $record_id ID записи (optional)
+     * @param  int $visit_id ID визита (optional)
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2119,12 +2119,12 @@ class DefaultApi
      *
      * Получение транзакций по ID визита или записи
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  float $record_id ID записи (optional)
-     * @param  float $visit_id ID визита (optional)
+     * @param  int $record_id ID записи (optional)
+     * @param  int $visit_id ID визита (optional)
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2212,12 +2212,12 @@ class DefaultApi
      *
      * Получение транзакций по ID визита или записи
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  float $record_id ID записи (optional)
-     * @param  float $visit_id ID визита (optional)
+     * @param  int $record_id ID записи (optional)
+     * @param  int $visit_id ID визита (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2237,12 +2237,12 @@ class DefaultApi
      *
      * Получение транзакций по ID визита или записи
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  float $record_id ID записи (optional)
-     * @param  float $visit_id ID визита (optional)
+     * @param  int $record_id ID записи (optional)
+     * @param  int $visit_id ID визита (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2289,12 +2289,12 @@ class DefaultApi
     /**
      * Create request for operation 'financeTransactionByVisitOrRecordGet'
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  float $record_id ID записи (optional)
-     * @param  float $visit_id ID визита (optional)
+     * @param  int $record_id ID записи (optional)
+     * @param  int $visit_id ID визита (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2445,19 +2445,19 @@ class DefaultApi
      *
      * Создание финансовой транзакции
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types finance_transaction_request_data_types (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request finance_transaction_create_request (optional)
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse
      */
-    public function financeTransactionCreate($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse
+    public function financeTransactionCreate($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse
     {
-        list($response) = $this->financeTransactionCreateWithHttpInfo($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types);
+        list($response) = $this->financeTransactionCreateWithHttpInfo($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request);
         return $response;
     }
 
@@ -2466,19 +2466,19 @@ class DefaultApi
      *
      * Создание финансовой транзакции
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request (optional)
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function financeTransactionCreateWithHttpInfo($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : array
+    public function financeTransactionCreateWithHttpInfo($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null) : array
     {
-        $request = $this->financeTransactionCreateRequest($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types);
+        $request = $this->financeTransactionCreateRequest($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2558,18 +2558,18 @@ class DefaultApi
      *
      * Создание финансовой транзакции
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function financeTransactionCreateAsync($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : \GuzzleHttp\Promise\PromiseInterface
+    public function financeTransactionCreateAsync($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null) : \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->financeTransactionCreateAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types)
+        return $this->financeTransactionCreateAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2582,19 +2582,19 @@ class DefaultApi
      *
      * Создание финансовой транзакции
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function financeTransactionCreateAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : \GuzzleHttp\Promise\PromiseInterface
+    public function financeTransactionCreateAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null) : \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse';
-        $request = $this->financeTransactionCreateRequest($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types);
+        $request = $this->financeTransactionCreateRequest($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2633,16 +2633,16 @@ class DefaultApi
     /**
      * Create request for operation 'financeTransactionCreate'
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function financeTransactionCreateRequest($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : \GuzzleHttp\Psr7\Request
+    protected function financeTransactionCreateRequest($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null) : \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'company_id' is set
         if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
@@ -2701,8 +2701,8 @@ class DefaultApi
 
         // body params
         $_tempBody = null;
-        if (isset($finance_transaction_request_data_types)) {
-            $_tempBody = $finance_transaction_request_data_types;
+        if (isset($finance_transaction_create_request)) {
+            $_tempBody = $finance_transaction_create_request;
         }
 
         if ($multipart) {
@@ -2771,8 +2771,8 @@ class DefaultApi
      *
      * Получение финансовой транзакции
      *
-     * @param  float $company_id ID компании (required)
-     * @param  float $transaction_id ID транзакции (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $transaction_id ID транзакции (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -2792,8 +2792,8 @@ class DefaultApi
      *
      * Получение финансовой транзакции
      *
-     * @param  float $company_id ID компании (required)
-     * @param  float $transaction_id ID транзакции (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $transaction_id ID транзакции (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -2884,8 +2884,8 @@ class DefaultApi
      *
      * Получение финансовой транзакции
      *
-     * @param  float $company_id ID компании (required)
-     * @param  float $transaction_id ID транзакции (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $transaction_id ID транзакции (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -2908,8 +2908,8 @@ class DefaultApi
      *
      * Получение финансовой транзакции
      *
-     * @param  float $company_id ID компании (required)
-     * @param  float $transaction_id ID транзакции (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $transaction_id ID транзакции (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -2959,8 +2959,8 @@ class DefaultApi
     /**
      * Create request for operation 'financeTransactionGet'
      *
-     * @param  float $company_id ID компании (required)
-     * @param  float $transaction_id ID транзакции (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $transaction_id ID транзакции (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -3108,24 +3108,24 @@ class DefaultApi
      *
      * Получить транзакции
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  float $page Номер страницы (optional)
-     * @param  float $count Количество клиентов на странице (optional)
-     * @param  float $account_id ID кассы (optional)
-     * @param  float $supplier_id ID контрагента (optional)
-     * @param  float $client_id ID клиента (optional)
-     * @param  float $user_id ID пользователя (optional)
-     * @param  float $master_id ID сотрудника (optional)
-     * @param  float $type тип транзакции (optional)
-     * @param  float $real_money транзакция реальными деньгами (optional)
-     * @param  float $deleted была ли удалена транзакция (optional)
-     * @param  float $start_date дата начала периода (optional)
-     * @param  float $end_date дата окончания периода (optional)
-     * @param  float $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
-     * @param  float $document_id идентификатор документа (optional)
+     * @param  int $page Номер страницы (optional)
+     * @param  int $count Количество клиентов на странице (optional)
+     * @param  int $account_id ID кассы (optional)
+     * @param  int $supplier_id ID контрагента (optional)
+     * @param  int $client_id ID клиента (optional)
+     * @param  int $user_id ID пользователя (optional)
+     * @param  int $master_id ID сотрудника (optional)
+     * @param  int $type тип транзакции (optional)
+     * @param  int $real_money транзакция реальными деньгами (optional)
+     * @param  int $deleted была ли удалена транзакция (optional)
+     * @param  string $start_date дата начала периода (optional)
+     * @param  string $end_date дата окончания периода (optional)
+     * @param  int $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
+     * @param  int $document_id идентификатор документа (optional)
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3142,24 +3142,24 @@ class DefaultApi
      *
      * Получить транзакции
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  float $page Номер страницы (optional)
-     * @param  float $count Количество клиентов на странице (optional)
-     * @param  float $account_id ID кассы (optional)
-     * @param  float $supplier_id ID контрагента (optional)
-     * @param  float $client_id ID клиента (optional)
-     * @param  float $user_id ID пользователя (optional)
-     * @param  float $master_id ID сотрудника (optional)
-     * @param  float $type тип транзакции (optional)
-     * @param  float $real_money транзакция реальными деньгами (optional)
-     * @param  float $deleted была ли удалена транзакция (optional)
-     * @param  float $start_date дата начала периода (optional)
-     * @param  float $end_date дата окончания периода (optional)
-     * @param  float $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
-     * @param  float $document_id идентификатор документа (optional)
+     * @param  int $page Номер страницы (optional)
+     * @param  int $count Количество клиентов на странице (optional)
+     * @param  int $account_id ID кассы (optional)
+     * @param  int $supplier_id ID контрагента (optional)
+     * @param  int $client_id ID клиента (optional)
+     * @param  int $user_id ID пользователя (optional)
+     * @param  int $master_id ID сотрудника (optional)
+     * @param  int $type тип транзакции (optional)
+     * @param  int $real_money транзакция реальными деньгами (optional)
+     * @param  int $deleted была ли удалена транзакция (optional)
+     * @param  string $start_date дата начала периода (optional)
+     * @param  string $end_date дата окончания периода (optional)
+     * @param  int $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
+     * @param  int $document_id идентификатор документа (optional)
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3247,24 +3247,24 @@ class DefaultApi
      *
      * Получить транзакции
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  float $page Номер страницы (optional)
-     * @param  float $count Количество клиентов на странице (optional)
-     * @param  float $account_id ID кассы (optional)
-     * @param  float $supplier_id ID контрагента (optional)
-     * @param  float $client_id ID клиента (optional)
-     * @param  float $user_id ID пользователя (optional)
-     * @param  float $master_id ID сотрудника (optional)
-     * @param  float $type тип транзакции (optional)
-     * @param  float $real_money транзакция реальными деньгами (optional)
-     * @param  float $deleted была ли удалена транзакция (optional)
-     * @param  float $start_date дата начала периода (optional)
-     * @param  float $end_date дата окончания периода (optional)
-     * @param  float $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
-     * @param  float $document_id идентификатор документа (optional)
+     * @param  int $page Номер страницы (optional)
+     * @param  int $count Количество клиентов на странице (optional)
+     * @param  int $account_id ID кассы (optional)
+     * @param  int $supplier_id ID контрагента (optional)
+     * @param  int $client_id ID клиента (optional)
+     * @param  int $user_id ID пользователя (optional)
+     * @param  int $master_id ID сотрудника (optional)
+     * @param  int $type тип транзакции (optional)
+     * @param  int $real_money транзакция реальными деньгами (optional)
+     * @param  int $deleted была ли удалена транзакция (optional)
+     * @param  string $start_date дата начала периода (optional)
+     * @param  string $end_date дата окончания периода (optional)
+     * @param  int $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
+     * @param  int $document_id идентификатор документа (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3284,24 +3284,24 @@ class DefaultApi
      *
      * Получить транзакции
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  float $page Номер страницы (optional)
-     * @param  float $count Количество клиентов на странице (optional)
-     * @param  float $account_id ID кассы (optional)
-     * @param  float $supplier_id ID контрагента (optional)
-     * @param  float $client_id ID клиента (optional)
-     * @param  float $user_id ID пользователя (optional)
-     * @param  float $master_id ID сотрудника (optional)
-     * @param  float $type тип транзакции (optional)
-     * @param  float $real_money транзакция реальными деньгами (optional)
-     * @param  float $deleted была ли удалена транзакция (optional)
-     * @param  float $start_date дата начала периода (optional)
-     * @param  float $end_date дата окончания периода (optional)
-     * @param  float $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
-     * @param  float $document_id идентификатор документа (optional)
+     * @param  int $page Номер страницы (optional)
+     * @param  int $count Количество клиентов на странице (optional)
+     * @param  int $account_id ID кассы (optional)
+     * @param  int $supplier_id ID контрагента (optional)
+     * @param  int $client_id ID клиента (optional)
+     * @param  int $user_id ID пользователя (optional)
+     * @param  int $master_id ID сотрудника (optional)
+     * @param  int $type тип транзакции (optional)
+     * @param  int $real_money транзакция реальными деньгами (optional)
+     * @param  int $deleted была ли удалена транзакция (optional)
+     * @param  string $start_date дата начала периода (optional)
+     * @param  string $end_date дата окончания периода (optional)
+     * @param  int $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
+     * @param  int $document_id идентификатор документа (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3348,24 +3348,24 @@ class DefaultApi
     /**
      * Create request for operation 'financeTransactionGetList'
      *
-     * @param  float $company_id ID компании (required)
+     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  float $page Номер страницы (optional)
-     * @param  float $count Количество клиентов на странице (optional)
-     * @param  float $account_id ID кассы (optional)
-     * @param  float $supplier_id ID контрагента (optional)
-     * @param  float $client_id ID клиента (optional)
-     * @param  float $user_id ID пользователя (optional)
-     * @param  float $master_id ID сотрудника (optional)
-     * @param  float $type тип транзакции (optional)
-     * @param  float $real_money транзакция реальными деньгами (optional)
-     * @param  float $deleted была ли удалена транзакция (optional)
-     * @param  float $start_date дата начала периода (optional)
-     * @param  float $end_date дата окончания периода (optional)
-     * @param  float $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
-     * @param  float $document_id идентификатор документа (optional)
+     * @param  int $page Номер страницы (optional)
+     * @param  int $count Количество клиентов на странице (optional)
+     * @param  int $account_id ID кассы (optional)
+     * @param  int $supplier_id ID контрагента (optional)
+     * @param  int $client_id ID клиента (optional)
+     * @param  int $user_id ID пользователя (optional)
+     * @param  int $master_id ID сотрудника (optional)
+     * @param  int $type тип транзакции (optional)
+     * @param  int $real_money транзакция реальными деньгами (optional)
+     * @param  int $deleted была ли удалена транзакция (optional)
+     * @param  string $start_date дата начала периода (optional)
+     * @param  string $end_date дата окончания периода (optional)
+     * @param  int $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
+     * @param  int $document_id идентификатор документа (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3636,8 +3636,8 @@ class DefaultApi
      *
      * Удаление транзакции
      *
-     * @param  float $company_id ID компании (required)
-     * @param  float $transaction_id ID транзакции (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $transaction_id ID транзакции (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -3657,8 +3657,8 @@ class DefaultApi
      *
      * Удаление транзакции
      *
-     * @param  float $company_id ID компании (required)
-     * @param  float $transaction_id ID транзакции (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $transaction_id ID транзакции (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -3749,8 +3749,8 @@ class DefaultApi
      *
      * Удаление транзакции
      *
-     * @param  float $company_id ID компании (required)
-     * @param  float $transaction_id ID транзакции (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $transaction_id ID транзакции (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -3773,8 +3773,8 @@ class DefaultApi
      *
      * Удаление транзакции
      *
-     * @param  float $company_id ID компании (required)
-     * @param  float $transaction_id ID транзакции (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $transaction_id ID транзакции (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -3824,8 +3824,8 @@ class DefaultApi
     /**
      * Create request for operation 'financeTransactionRemove'
      *
-     * @param  float $company_id ID компании (required)
-     * @param  float $transaction_id ID транзакции (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $transaction_id ID транзакции (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
@@ -3973,20 +3973,20 @@ class DefaultApi
      *
      * Обновление финансовой транзакции
      *
-     * @param  float $company_id ID компании (required)
-     * @param  float $transaction_id ID транзакции (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $transaction_id ID транзакции (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types finance_transaction_request_data_types (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request finance_transaction_create_request (optional)
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse
      */
-    public function financeTransactionUpdate($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse
+    public function financeTransactionUpdate($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse
     {
-        list($response) = $this->financeTransactionUpdateWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types);
+        list($response) = $this->financeTransactionUpdateWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request);
         return $response;
     }
 
@@ -3995,20 +3995,20 @@ class DefaultApi
      *
      * Обновление финансовой транзакции
      *
-     * @param  float $company_id ID компании (required)
-     * @param  float $transaction_id ID транзакции (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $transaction_id ID транзакции (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request (optional)
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function financeTransactionUpdateWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : array
+    public function financeTransactionUpdateWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null) : array
     {
-        $request = $this->financeTransactionUpdateRequest($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types);
+        $request = $this->financeTransactionUpdateRequest($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4088,19 +4088,19 @@ class DefaultApi
      *
      * Обновление финансовой транзакции
      *
-     * @param  float $company_id ID компании (required)
-     * @param  float $transaction_id ID транзакции (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $transaction_id ID транзакции (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function financeTransactionUpdateAsync($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : \GuzzleHttp\Promise\PromiseInterface
+    public function financeTransactionUpdateAsync($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null) : \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->financeTransactionUpdateAsyncWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types)
+        return $this->financeTransactionUpdateAsyncWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4113,20 +4113,20 @@ class DefaultApi
      *
      * Обновление финансовой транзакции
      *
-     * @param  float $company_id ID компании (required)
-     * @param  float $transaction_id ID транзакции (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $transaction_id ID транзакции (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function financeTransactionUpdateAsyncWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : \GuzzleHttp\Promise\PromiseInterface
+    public function financeTransactionUpdateAsyncWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null) : \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse';
-        $request = $this->financeTransactionUpdateRequest($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types);
+        $request = $this->financeTransactionUpdateRequest($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4165,17 +4165,17 @@ class DefaultApi
     /**
      * Create request for operation 'financeTransactionUpdate'
      *
-     * @param  float $company_id ID компании (required)
-     * @param  float $transaction_id ID транзакции (required)
+     * @param  int $company_id ID компании (required)
+     * @param  int $transaction_id ID транзакции (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes $finance_transaction_request_data_types (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function financeTransactionUpdateRequest($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types = null) : \GuzzleHttp\Psr7\Request
+    protected function financeTransactionUpdateRequest($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null) : \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'company_id' is set
         if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
@@ -4248,8 +4248,8 @@ class DefaultApi
 
         // body params
         $_tempBody = null;
-        if (isset($finance_transaction_request_data_types)) {
-            $_tempBody = $finance_transaction_request_data_types;
+        if (isset($finance_transaction_create_request)) {
+            $_tempBody = $finance_transaction_create_request;
         }
 
         if ($multipart) {

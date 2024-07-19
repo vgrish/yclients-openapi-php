@@ -31,12 +31,12 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\FinanceTransactionApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$company_id = 3.4; // float | ID компании
+$company_id = 56; // int | ID компании
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
-$record_id = 0; // float | ID записи
-$visit_id = 0; // float | ID визита
+$record_id = 0; // int | ID записи
+$visit_id = 0; // int | ID визита
 
 try {
     $result = $apiInstance->financeTransactionByVisitOrRecordGet($company_id, $accept, $content_type, $authorization, $record_id, $visit_id);
@@ -52,12 +52,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **float**| ID компании |
+ **company_id** | **int**| ID компании |
  **accept** | **string**| e.g. application/vnd.yclients.v2+json |
  **content_type** | **string**| application/json |
  **authorization** | **string**| Bearer partner_token, User user_token |
- **record_id** | **float**| ID записи | [optional]
- **visit_id** | **float**| ID визита | [optional]
+ **record_id** | **int**| ID записи | [optional]
+ **visit_id** | **int**| ID визита | [optional]
 
 ### Return type
 
@@ -79,7 +79,7 @@ No authorization required
 
 ## financeTransactionCreate
 
-> \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse financeTransactionCreate($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types)
+> \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse financeTransactionCreate($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request)
 
 Создание финансовой транзакции
 
@@ -95,14 +95,14 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\FinanceTransactionApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$company_id = 3.4; // float | ID компании
+$company_id = 56; // int | ID компании
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
-$finance_transaction_request_data_types = {"expense_id":2640,"amount":100,"account_id":39105,"client_id":4240788,"supplier_id":0,"master_id":0,"comment":"Transaction comment","date":"2023-01-01 10:00:00"}; // \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes | 
+$finance_transaction_create_request = {"expense_id":2640,"amount":100,"account_id":39105,"client_id":4240788,"supplier_id":0,"master_id":0,"comment":"Transaction comment","date":"2023-01-01 10:00:00"}; // \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest | 
 
 try {
-    $result = $apiInstance->financeTransactionCreate($company_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types);
+    $result = $apiInstance->financeTransactionCreate($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FinanceTransactionApi->financeTransactionCreate: ', $e->getMessage(), PHP_EOL;
@@ -115,11 +115,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **float**| ID компании |
+ **company_id** | **int**| ID компании |
  **accept** | **string**| e.g. application/vnd.yclients.v2+json |
  **content_type** | **string**| application/json |
  **authorization** | **string**| Bearer partner_token, User user_token |
- **finance_transaction_request_data_types** | [**\Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes**](../Model/FinanceTransactionRequestDataTypes.md)|  | [optional]
+ **finance_transaction_create_request** | [**\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest**](../Model/FinanceTransactionCreateRequest.md)|  | [optional]
 
 ### Return type
 
@@ -157,8 +157,8 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\FinanceTransactionApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$company_id = 3.4; // float | ID компании
-$transaction_id = 3.4; // float | ID транзакции
+$company_id = 56; // int | ID компании
+$transaction_id = 56; // int | ID транзакции
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
@@ -177,8 +177,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **float**| ID компании |
- **transaction_id** | **float**| ID транзакции |
+ **company_id** | **int**| ID компании |
+ **transaction_id** | **int**| ID транзакции |
  **accept** | **string**| e.g. application/vnd.yclients.v2+json |
  **content_type** | **string**| application/json |
  **authorization** | **string**| Bearer partner_token, User user_token |
@@ -219,24 +219,24 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\FinanceTransactionApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$company_id = 3.4; // float | ID компании
+$company_id = 56; // int | ID компании
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
-$page = 1; // float | Номер страницы
-$count = 50; // float | Количество клиентов на странице
-$account_id = 0; // float | ID кассы
-$supplier_id = 0; // float | ID контрагента
-$client_id = 0; // float | ID клиента
-$user_id = 0; // float | ID пользователя
-$master_id = 0; // float | ID сотрудника
-$type = 0; // float | тип транзакции
-$real_money = 0; // float | транзакция реальными деньгами
-$deleted = 0; // float | была ли удалена транзакция
-$start_date = 2023-01-01; // float | дата начала периода
-$end_date = 2023-03-01; // float | дата окончания периода
-$balance_is = 0; // float | 0 - любой баланс, 1 - положительный, 2 - оттрицательный
-$document_id = 0; // float | идентификатор документа
+$page = 1; // int | Номер страницы
+$count = 50; // int | Количество клиентов на странице
+$account_id = 0; // int | ID кассы
+$supplier_id = 0; // int | ID контрагента
+$client_id = 0; // int | ID клиента
+$user_id = 0; // int | ID пользователя
+$master_id = 0; // int | ID сотрудника
+$type = 0; // int | тип транзакции
+$real_money = 0; // int | транзакция реальными деньгами
+$deleted = 0; // int | была ли удалена транзакция
+$start_date = 2023-01-01; // string | дата начала периода
+$end_date = 2023-03-01; // string | дата окончания периода
+$balance_is = 0; // int | 0 - любой баланс, 1 - положительный, 2 - оттрицательный
+$document_id = 0; // int | идентификатор документа
 
 try {
     $result = $apiInstance->financeTransactionGetList($company_id, $accept, $content_type, $authorization, $page, $count, $account_id, $supplier_id, $client_id, $user_id, $master_id, $type, $real_money, $deleted, $start_date, $end_date, $balance_is, $document_id);
@@ -252,24 +252,24 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **float**| ID компании |
+ **company_id** | **int**| ID компании |
  **accept** | **string**| e.g. application/vnd.yclients.v2+json |
  **content_type** | **string**| application/json |
  **authorization** | **string**| Bearer partner_token, User user_token |
- **page** | **float**| Номер страницы | [optional]
- **count** | **float**| Количество клиентов на странице | [optional]
- **account_id** | **float**| ID кассы | [optional]
- **supplier_id** | **float**| ID контрагента | [optional]
- **client_id** | **float**| ID клиента | [optional]
- **user_id** | **float**| ID пользователя | [optional]
- **master_id** | **float**| ID сотрудника | [optional]
- **type** | **float**| тип транзакции | [optional]
- **real_money** | **float**| транзакция реальными деньгами | [optional]
- **deleted** | **float**| была ли удалена транзакция | [optional]
- **start_date** | **float**| дата начала периода | [optional]
- **end_date** | **float**| дата окончания периода | [optional]
- **balance_is** | **float**| 0 - любой баланс, 1 - положительный, 2 - оттрицательный | [optional]
- **document_id** | **float**| идентификатор документа | [optional]
+ **page** | **int**| Номер страницы | [optional]
+ **count** | **int**| Количество клиентов на странице | [optional]
+ **account_id** | **int**| ID кассы | [optional]
+ **supplier_id** | **int**| ID контрагента | [optional]
+ **client_id** | **int**| ID клиента | [optional]
+ **user_id** | **int**| ID пользователя | [optional]
+ **master_id** | **int**| ID сотрудника | [optional]
+ **type** | **int**| тип транзакции | [optional]
+ **real_money** | **int**| транзакция реальными деньгами | [optional]
+ **deleted** | **int**| была ли удалена транзакция | [optional]
+ **start_date** | **string**| дата начала периода | [optional]
+ **end_date** | **string**| дата окончания периода | [optional]
+ **balance_is** | **int**| 0 - любой баланс, 1 - положительный, 2 - оттрицательный | [optional]
+ **document_id** | **int**| идентификатор документа | [optional]
 
 ### Return type
 
@@ -307,8 +307,8 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\FinanceTransactionApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$company_id = 3.4; // float | ID компании
-$transaction_id = 3.4; // float | ID транзакции
+$company_id = 56; // int | ID компании
+$transaction_id = 56; // int | ID транзакции
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
@@ -327,8 +327,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **float**| ID компании |
- **transaction_id** | **float**| ID транзакции |
+ **company_id** | **int**| ID компании |
+ **transaction_id** | **int**| ID транзакции |
  **accept** | **string**| e.g. application/vnd.yclients.v2+json |
  **content_type** | **string**| application/json |
  **authorization** | **string**| Bearer partner_token, User user_token |
@@ -353,7 +353,7 @@ No authorization required
 
 ## financeTransactionUpdate
 
-> \Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse financeTransactionUpdate($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types)
+> \Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse financeTransactionUpdate($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request)
 
 Обновление финансовой транзакции
 
@@ -369,15 +369,15 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\FinanceTransactionApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$company_id = 3.4; // float | ID компании
-$transaction_id = 3.4; // float | ID транзакции
+$company_id = 56; // int | ID компании
+$transaction_id = 56; // int | ID транзакции
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
-$finance_transaction_request_data_types = new \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes(); // \Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes | 
+$finance_transaction_create_request = new \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest(); // \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest | 
 
 try {
-    $result = $apiInstance->financeTransactionUpdate($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_request_data_types);
+    $result = $apiInstance->financeTransactionUpdate($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FinanceTransactionApi->financeTransactionUpdate: ', $e->getMessage(), PHP_EOL;
@@ -390,12 +390,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **float**| ID компании |
- **transaction_id** | **float**| ID транзакции |
+ **company_id** | **int**| ID компании |
+ **transaction_id** | **int**| ID транзакции |
  **accept** | **string**| e.g. application/vnd.yclients.v2+json |
  **content_type** | **string**| application/json |
  **authorization** | **string**| Bearer partner_token, User user_token |
- **finance_transaction_request_data_types** | [**\Vgrish\YclientsOpenApi\Model\FinanceTransactionRequestDataTypes**](../Model/FinanceTransactionRequestDataTypes.md)|  | [optional]
+ **finance_transaction_create_request** | [**\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest**](../Model/FinanceTransactionCreateRequest.md)|  | [optional]
 
 ### Return type
 
