@@ -1,16 +1,17 @@
 # Vgrish\YclientsOpenApi\AuthApi
 
-All URIs are relative to *https://api.yclients.com/api/v1*
+All URIs are relative to *https://api.yclients.com/api/v1*, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**authUser**](AuthApi.md#authUser) | **POST** /auth | Авторизовать пользователя
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**authUser()**](AuthApi.md#authUser) | **POST** /auth | Авторизовать пользователя |
 
 
+## `authUser()`
 
-## authUser
-
-> \Vgrish\YclientsOpenApi\Model\AuthUserResponse authUser($accept, $content_type, $authorization, $auth_request)
+```php
+authUser($accept, $content_type, $authorization, $auth_request): \Vgrish\YclientsOpenApi\Model\AuthUserResponse
+```
 
 Авторизовать пользователя
 
@@ -23,6 +24,7 @@ Method | HTTP request | Description
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+
 $apiInstance = new Vgrish\YclientsOpenApi\Api\AuthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
@@ -31,7 +33,7 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\AuthApi(
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}}; // string | Bearer partner_token
-$auth_request = {"login":"{{login}}","password":"{{password}}"}; // \Vgrish\YclientsOpenApi\Model\AuthRequest | 
+$auth_request = {"login":"{{login}}","password":"{{password}}"}; // \Vgrish\YclientsOpenApi\Model\AuthRequest
 
 try {
     $result = $apiInstance->authUser($accept, $content_type, $authorization, $auth_request);
@@ -39,18 +41,16 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling AuthApi->authUser: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accept** | **string**| e.g. application/vnd.yclients.v2+json |
- **content_type** | **string**| application/json |
- **authorization** | **string**| Bearer partner_token |
- **auth_request** | [**\Vgrish\YclientsOpenApi\Model\AuthRequest**](../Model/AuthRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
+| **content_type** | **string**| application/json | |
+| **authorization** | **string**| Bearer partner_token | |
+| **auth_request** | [**\Vgrish\YclientsOpenApi\Model\AuthRequest**](../Model/AuthRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -62,10 +62,9 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

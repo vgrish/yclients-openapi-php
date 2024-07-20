@@ -4,10 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**success** | **bool** |  | 
-**data** | [**\Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse[]**](FinanceTransactionResponse.md) |  | 
-**meta** | [**AnyOfMapArray**](AnyOfMapArray.md) |  | [optional] 
+**success** | **bool** | Статус успешности выполнения |
+**data** | [**\Vgrish\YclientsOpenApi\Model\FinanceTransactionResponse[]**](FinanceTransactionResponse.md) |  |
+**meta** | **map[string,object]** | Метаданные | [optional]
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

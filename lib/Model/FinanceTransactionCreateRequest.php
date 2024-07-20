@@ -1,6 +1,6 @@
 <?php
 /**
- * AuthUserResponse
+ * FinanceTransactionCreateRequest
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use ArrayAccess;
 use Vgrish\YclientsOpenApi\ObjectSerializer;
 
 /**
- * AuthUserResponse Class Doc Comment
+ * FinanceTransactionCreateRequest Class Doc Comment
  *
  * @category Class
- * @description auth.user.response
+ * @description Создание финансовой транзакции
  * @package  Vgrish\YclientsOpenApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AuthUserResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class FinanceTransactionCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class AuthUserResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'auth_user_response';
+    protected static $openAPIModelName = 'FinanceTransactionCreateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,14 @@ class AuthUserResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'success' => 'bool',
-        'data' => '\Vgrish\YclientsOpenApi\Model\AuthResponse',
-        'meta' => 'map[string,object]'
+        'expense_id' => 'int',
+        'amount' => 'float',
+        'account_id' => 'int',
+        'client_id' => 'int',
+        'supplier_id' => 'int',
+        'master_id' => 'int',
+        'comment' => 'string',
+        'date' => '\DateTime'
     ];
 
     /**
@@ -71,9 +76,14 @@ class AuthUserResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'success' => null,
-        'data' => null,
-        'meta' => null
+        'expense_id' => null,
+        'amount' => 'float',
+        'account_id' => null,
+        'client_id' => null,
+        'supplier_id' => null,
+        'master_id' => null,
+        'comment' => null,
+        'date' => 'date-time'
     ];
 
     /**
@@ -82,9 +92,14 @@ class AuthUserResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'success' => false,
-        'data' => false,
-        'meta' => false
+        'expense_id' => false,
+        'amount' => false,
+        'account_id' => false,
+        'client_id' => false,
+        'supplier_id' => false,
+        'master_id' => false,
+        'comment' => false,
+        'date' => false
     ];
 
     /**
@@ -173,9 +188,14 @@ class AuthUserResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'success' => 'success',
-        'data' => 'data',
-        'meta' => 'meta'
+        'expense_id' => 'expense_id',
+        'amount' => 'amount',
+        'account_id' => 'account_id',
+        'client_id' => 'client_id',
+        'supplier_id' => 'supplier_id',
+        'master_id' => 'master_id',
+        'comment' => 'comment',
+        'date' => 'date'
     ];
 
     /**
@@ -184,9 +204,14 @@ class AuthUserResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'success' => 'setSuccess',
-        'data' => 'setData',
-        'meta' => 'setMeta'
+        'expense_id' => 'setExpenseId',
+        'amount' => 'setAmount',
+        'account_id' => 'setAccountId',
+        'client_id' => 'setClientId',
+        'supplier_id' => 'setSupplierId',
+        'master_id' => 'setMasterId',
+        'comment' => 'setComment',
+        'date' => 'setDate'
     ];
 
     /**
@@ -195,9 +220,14 @@ class AuthUserResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'success' => 'getSuccess',
-        'data' => 'getData',
-        'meta' => 'getMeta'
+        'expense_id' => 'getExpenseId',
+        'amount' => 'getAmount',
+        'account_id' => 'getAccountId',
+        'client_id' => 'getClientId',
+        'supplier_id' => 'getSupplierId',
+        'master_id' => 'getMasterId',
+        'comment' => 'getComment',
+        'date' => 'getDate'
     ];
 
     /**
@@ -257,9 +287,14 @@ class AuthUserResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('success', $data ?? [], null);
-        $this->setIfExists('data', $data ?? [], null);
-        $this->setIfExists('meta', $data ?? [], null);
+        $this->setIfExists('expense_id', $data ?? [], null);
+        $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('account_id', $data ?? [], null);
+        $this->setIfExists('client_id', $data ?? [], null);
+        $this->setIfExists('supplier_id', $data ?? [], null);
+        $this->setIfExists('master_id', $data ?? [], null);
+        $this->setIfExists('comment', $data ?? [], null);
+        $this->setIfExists('date', $data ?? [], null);
     }
 
     /**
@@ -289,12 +324,6 @@ class AuthUserResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['success'] === null) {
-            $invalidProperties[] = "'success' can't be null";
-        }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -311,82 +340,217 @@ class AuthUserResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets success
+     * Gets expense_id
      *
-     * @return bool
+     * @return int|null
      */
-    public function getSuccess() : bool
+    public function getExpenseId() : ?int
     {
-        return $this->container['success'];
+        return $this->container['expense_id'];
     }
 
     /**
-     * Sets success
+     * Sets expense_id
      *
-     * @param bool $success Статус успешности выполнения
+     * @param int|null $expense_id Статья платежа
      *
      * @return self
      */
-    public function setSuccess($success) : self
+    public function setExpenseId($expense_id) : self
     {
-        if (is_null($success)) {
-            throw new \InvalidArgumentException('non-nullable success cannot be null');
+        if (is_null($expense_id)) {
+            throw new \InvalidArgumentException('non-nullable expense_id cannot be null');
         }
-        $this->container['success'] = $success;
+        $this->container['expense_id'] = $expense_id;
 
         return $this;
     }
 
     /**
-     * Gets data
+     * Gets amount
      *
-     * @return \Vgrish\YclientsOpenApi\Model\AuthResponse
+     * @return float|null
      */
-    public function getData() : \Vgrish\YclientsOpenApi\Model\AuthResponse
+    public function getAmount() : ?float
     {
-        return $this->container['data'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets data
+     * Sets amount
      *
-     * @param \Vgrish\YclientsOpenApi\Model\AuthResponse $data data
+     * @param float|null $amount Сумма транзакции
      *
      * @return self
      */
-    public function setData($data) : self
+    public function setAmount($amount) : self
     {
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        if (is_null($amount)) {
+            throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
-        $this->container['data'] = $data;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
 
     /**
-     * Gets meta
+     * Gets account_id
      *
-     * @return map[string,object]|null
+     * @return int|null
      */
-    public function getMeta()
+    public function getAccountId() : ?int
     {
-        return $this->container['meta'];
+        return $this->container['account_id'];
     }
 
     /**
-     * Sets meta
+     * Sets account_id
      *
-     * @param map[string,object]|null $meta Метаданные
+     * @param int|null $account_id Идентификатор кассы
      *
      * @return self
      */
-    public function setMeta($meta) : self
+    public function setAccountId($account_id) : self
     {
-        if (is_null($meta)) {
-            throw new \InvalidArgumentException('non-nullable meta cannot be null');
+        if (is_null($account_id)) {
+            throw new \InvalidArgumentException('non-nullable account_id cannot be null');
         }
-        $this->container['meta'] = $meta;
+        $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_id
+     *
+     * @return int|null
+     */
+    public function getClientId() : ?int
+    {
+        return $this->container['client_id'];
+    }
+
+    /**
+     * Sets client_id
+     *
+     * @param int|null $client_id Идентификатор клиента
+     *
+     * @return self
+     */
+    public function setClientId($client_id) : self
+    {
+        if (is_null($client_id)) {
+            throw new \InvalidArgumentException('non-nullable client_id cannot be null');
+        }
+        $this->container['client_id'] = $client_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets supplier_id
+     *
+     * @return int|null
+     */
+    public function getSupplierId() : ?int
+    {
+        return $this->container['supplier_id'];
+    }
+
+    /**
+     * Sets supplier_id
+     *
+     * @param int|null $supplier_id Идентификатор контрагента
+     *
+     * @return self
+     */
+    public function setSupplierId($supplier_id) : self
+    {
+        if (is_null($supplier_id)) {
+            throw new \InvalidArgumentException('non-nullable supplier_id cannot be null');
+        }
+        $this->container['supplier_id'] = $supplier_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets master_id
+     *
+     * @return int|null
+     */
+    public function getMasterId() : ?int
+    {
+        return $this->container['master_id'];
+    }
+
+    /**
+     * Sets master_id
+     *
+     * @param int|null $master_id Идентификатор сотрудника
+     *
+     * @return self
+     */
+    public function setMasterId($master_id) : self
+    {
+        if (is_null($master_id)) {
+            throw new \InvalidArgumentException('non-nullable master_id cannot be null');
+        }
+        $this->container['master_id'] = $master_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets comment
+     *
+     * @return string|null
+     */
+    public function getComment() : ?string
+    {
+        return $this->container['comment'];
+    }
+
+    /**
+     * Sets comment
+     *
+     * @param string|null $comment Комментарий
+     *
+     * @return self
+     */
+    public function setComment($comment) : self
+    {
+        if (is_null($comment)) {
+            throw new \InvalidArgumentException('non-nullable comment cannot be null');
+        }
+        $this->container['comment'] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Gets date
+     *
+     * @return \DateTime|null
+     */
+    public function getDate() : ?\DateTime
+    {
+        return $this->container['date'];
+    }
+
+    /**
+     * Sets date
+     *
+     * @param \DateTime|null $date Дата создания транзакции
+     *
+     * @return self
+     */
+    public function setDate($date) : self
+    {
+        if (is_null($date)) {
+            throw new \InvalidArgumentException('non-nullable date cannot be null');
+        }
+        $this->container['date'] = $date;
 
         return $this;
     }

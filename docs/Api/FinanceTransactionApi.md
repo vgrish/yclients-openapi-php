@@ -1,21 +1,22 @@
 # Vgrish\YclientsOpenApi\FinanceTransactionApi
 
-All URIs are relative to *https://api.yclients.com/api/v1*
+All URIs are relative to *https://api.yclients.com/api/v1*, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**financeTransactionByVisitOrRecordGet**](FinanceTransactionApi.md#financeTransactionByVisitOrRecordGet) | **GET** /timetable/transactions/{company_id} | Получение транзакций по ID визита или записи
-[**financeTransactionCreate**](FinanceTransactionApi.md#financeTransactionCreate) | **POST** /finance_transactions/{company_id} | Создание финансовой транзакции
-[**financeTransactionGet**](FinanceTransactionApi.md#financeTransactionGet) | **GET** /finance_transactions/{company_id}/{transaction_id} | Получение финансовой транзакции
-[**financeTransactionGetList**](FinanceTransactionApi.md#financeTransactionGetList) | **GET** /transactions/{company_id} | Получить транзакции
-[**financeTransactionRemove**](FinanceTransactionApi.md#financeTransactionRemove) | **DELETE** /finance_transactions/{company_id}/{transaction_id} | Удаление транзакции
-[**financeTransactionUpdate**](FinanceTransactionApi.md#financeTransactionUpdate) | **PUT** /finance_transactions/{company_id}/{transaction_id} | Обновление финансовой транзакции
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**financeTransactionByVisitOrRecordGet()**](FinanceTransactionApi.md#financeTransactionByVisitOrRecordGet) | **GET** /timetable/transactions/{company_id} | Получение транзакций по ID визита или записи |
+| [**financeTransactionCreate()**](FinanceTransactionApi.md#financeTransactionCreate) | **POST** /finance_transactions/{company_id} | Создание финансовой транзакции |
+| [**financeTransactionGet()**](FinanceTransactionApi.md#financeTransactionGet) | **GET** /finance_transactions/{company_id}/{transaction_id} | Получение финансовой транзакции |
+| [**financeTransactionGetList()**](FinanceTransactionApi.md#financeTransactionGetList) | **GET** /transactions/{company_id} | Получить транзакции |
+| [**financeTransactionRemove()**](FinanceTransactionApi.md#financeTransactionRemove) | **DELETE** /finance_transactions/{company_id}/{transaction_id} | Удаление транзакции |
+| [**financeTransactionUpdate()**](FinanceTransactionApi.md#financeTransactionUpdate) | **PUT** /finance_transactions/{company_id}/{transaction_id} | Обновление финансовой транзакции |
 
 
+## `financeTransactionByVisitOrRecordGet()`
 
-## financeTransactionByVisitOrRecordGet
-
-> \Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse financeTransactionByVisitOrRecordGet($company_id, $accept, $content_type, $authorization, $record_id, $visit_id)
+```php
+financeTransactionByVisitOrRecordGet($company_id, $accept, $content_type, $authorization, $record_id, $visit_id): \Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse
+```
 
 Получение транзакций по ID визита или записи
 
@@ -24,6 +25,7 @@ Method | HTTP request | Description
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new Vgrish\YclientsOpenApi\Api\FinanceTransactionApi(
@@ -44,20 +46,18 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FinanceTransactionApi->financeTransactionByVisitOrRecordGet: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| ID компании |
- **accept** | **string**| e.g. application/vnd.yclients.v2+json |
- **content_type** | **string**| application/json |
- **authorization** | **string**| Bearer partner_token, User user_token |
- **record_id** | **int**| ID записи | [optional]
- **visit_id** | **int**| ID визита | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| ID компании | |
+| **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
+| **content_type** | **string**| application/json | |
+| **authorization** | **string**| Bearer partner_token, User user_token | |
+| **record_id** | **int**| ID записи | [optional] |
+| **visit_id** | **int**| ID визита | [optional] |
 
 ### Return type
 
@@ -70,16 +70,17 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `financeTransactionCreate()`
 
-## financeTransactionCreate
-
-> \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse financeTransactionCreate($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request)
+```php
+financeTransactionCreate($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request): \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse
+```
 
 Создание финансовой транзакции
 
@@ -88,6 +89,7 @@ No authorization required
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new Vgrish\YclientsOpenApi\Api\FinanceTransactionApi(
@@ -99,7 +101,7 @@ $company_id = 56; // int | ID компании
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
-$finance_transaction_create_request = {"expense_id":2640,"amount":100,"account_id":39105,"client_id":4240788,"supplier_id":0,"master_id":0,"comment":"Transaction comment","date":"2023-01-01 10:00:00"}; // \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest | 
+$finance_transaction_create_request = {"expense_id":2640,"amount":100,"account_id":39105,"client_id":4240788,"supplier_id":0,"master_id":0,"comment":"Transaction comment","date":"2023-01-01 10:00:00"}; // \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest
 
 try {
     $result = $apiInstance->financeTransactionCreate($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request);
@@ -107,19 +109,17 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FinanceTransactionApi->financeTransactionCreate: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| ID компании |
- **accept** | **string**| e.g. application/vnd.yclients.v2+json |
- **content_type** | **string**| application/json |
- **authorization** | **string**| Bearer partner_token, User user_token |
- **finance_transaction_create_request** | [**\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest**](../Model/FinanceTransactionCreateRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| ID компании | |
+| **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
+| **content_type** | **string**| application/json | |
+| **authorization** | **string**| Bearer partner_token, User user_token | |
+| **finance_transaction_create_request** | [**\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest**](../Model/FinanceTransactionCreateRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -131,17 +131,18 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `financeTransactionGet()`
 
-## financeTransactionGet
-
-> \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse financeTransactionGet($company_id, $transaction_id, $accept, $content_type, $authorization)
+```php
+financeTransactionGet($company_id, $transaction_id, $accept, $content_type, $authorization): \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse
+```
 
 Получение финансовой транзакции
 
@@ -150,6 +151,7 @@ No authorization required
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new Vgrish\YclientsOpenApi\Api\FinanceTransactionApi(
@@ -169,19 +171,17 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FinanceTransactionApi->financeTransactionGet: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| ID компании |
- **transaction_id** | **int**| ID транзакции |
- **accept** | **string**| e.g. application/vnd.yclients.v2+json |
- **content_type** | **string**| application/json |
- **authorization** | **string**| Bearer partner_token, User user_token |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| ID компании | |
+| **transaction_id** | **int**| ID транзакции | |
+| **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
+| **content_type** | **string**| application/json | |
+| **authorization** | **string**| Bearer partner_token, User user_token | |
 
 ### Return type
 
@@ -194,16 +194,17 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `financeTransactionGetList()`
 
-## financeTransactionGetList
-
-> \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse financeTransactionGetList($company_id, $accept, $content_type, $authorization, $page, $count, $account_id, $supplier_id, $client_id, $user_id, $master_id, $type, $real_money, $deleted, $start_date, $end_date, $balance_is, $document_id)
+```php
+financeTransactionGetList($company_id, $accept, $content_type, $authorization, $page, $count, $account_id, $supplier_id, $client_id, $user_id, $master_id, $type, $real_money, $deleted, $start_date, $end_date, $balance_is, $document_id): \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse
+```
 
 Получить транзакции
 
@@ -212,6 +213,7 @@ No authorization required
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new Vgrish\YclientsOpenApi\Api\FinanceTransactionApi(
@@ -244,32 +246,30 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FinanceTransactionApi->financeTransactionGetList: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| ID компании |
- **accept** | **string**| e.g. application/vnd.yclients.v2+json |
- **content_type** | **string**| application/json |
- **authorization** | **string**| Bearer partner_token, User user_token |
- **page** | **int**| Номер страницы | [optional]
- **count** | **int**| Количество клиентов на странице | [optional]
- **account_id** | **int**| ID кассы | [optional]
- **supplier_id** | **int**| ID контрагента | [optional]
- **client_id** | **int**| ID клиента | [optional]
- **user_id** | **int**| ID пользователя | [optional]
- **master_id** | **int**| ID сотрудника | [optional]
- **type** | **int**| тип транзакции | [optional]
- **real_money** | **int**| транзакция реальными деньгами | [optional]
- **deleted** | **int**| была ли удалена транзакция | [optional]
- **start_date** | **string**| дата начала периода | [optional]
- **end_date** | **string**| дата окончания периода | [optional]
- **balance_is** | **int**| 0 - любой баланс, 1 - положительный, 2 - оттрицательный | [optional]
- **document_id** | **int**| идентификатор документа | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| ID компании | |
+| **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
+| **content_type** | **string**| application/json | |
+| **authorization** | **string**| Bearer partner_token, User user_token | |
+| **page** | **int**| Номер страницы | [optional] |
+| **count** | **int**| Количество клиентов на странице | [optional] |
+| **account_id** | **int**| ID кассы | [optional] |
+| **supplier_id** | **int**| ID контрагента | [optional] |
+| **client_id** | **int**| ID клиента | [optional] |
+| **user_id** | **int**| ID пользователя | [optional] |
+| **master_id** | **int**| ID сотрудника | [optional] |
+| **type** | **int**| тип транзакции | [optional] |
+| **real_money** | **int**| транзакция реальными деньгами | [optional] |
+| **deleted** | **int**| была ли удалена транзакция | [optional] |
+| **start_date** | **string**| дата начала периода | [optional] |
+| **end_date** | **string**| дата окончания периода | [optional] |
+| **balance_is** | **int**| 0 - любой баланс, 1 - положительный, 2 - оттрицательный | [optional] |
+| **document_id** | **int**| идентификатор документа | [optional] |
 
 ### Return type
 
@@ -282,16 +282,17 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `financeTransactionRemove()`
 
-## financeTransactionRemove
-
-> \Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse financeTransactionRemove($company_id, $transaction_id, $accept, $content_type, $authorization)
+```php
+financeTransactionRemove($company_id, $transaction_id, $accept, $content_type, $authorization): \Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse
+```
 
 Удаление транзакции
 
@@ -300,6 +301,7 @@ No authorization required
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new Vgrish\YclientsOpenApi\Api\FinanceTransactionApi(
@@ -319,19 +321,17 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FinanceTransactionApi->financeTransactionRemove: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| ID компании |
- **transaction_id** | **int**| ID транзакции |
- **accept** | **string**| e.g. application/vnd.yclients.v2+json |
- **content_type** | **string**| application/json |
- **authorization** | **string**| Bearer partner_token, User user_token |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| ID компании | |
+| **transaction_id** | **int**| ID транзакции | |
+| **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
+| **content_type** | **string**| application/json | |
+| **authorization** | **string**| Bearer partner_token, User user_token | |
 
 ### Return type
 
@@ -344,16 +344,17 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `financeTransactionUpdate()`
 
-## financeTransactionUpdate
-
-> \Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse financeTransactionUpdate($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request)
+```php
+financeTransactionUpdate($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request): \Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse
+```
 
 Обновление финансовой транзакции
 
@@ -362,6 +363,7 @@ No authorization required
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new Vgrish\YclientsOpenApi\Api\FinanceTransactionApi(
@@ -374,7 +376,7 @@ $transaction_id = 56; // int | ID транзакции
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
-$finance_transaction_create_request = new \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest(); // \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest | 
+$finance_transaction_create_request = new \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest(); // \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest
 
 try {
     $result = $apiInstance->financeTransactionUpdate($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request);
@@ -382,20 +384,18 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FinanceTransactionApi->financeTransactionUpdate: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **int**| ID компании |
- **transaction_id** | **int**| ID транзакции |
- **accept** | **string**| e.g. application/vnd.yclients.v2+json |
- **content_type** | **string**| application/json |
- **authorization** | **string**| Bearer partner_token, User user_token |
- **finance_transaction_create_request** | [**\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest**](../Model/FinanceTransactionCreateRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| ID компании | |
+| **transaction_id** | **int**| ID транзакции | |
+| **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
+| **content_type** | **string**| application/json | |
+| **authorization** | **string**| Bearer partner_token, User user_token | |
+| **finance_transaction_create_request** | [**\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest**](../Model/FinanceTransactionCreateRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -407,10 +407,9 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-
