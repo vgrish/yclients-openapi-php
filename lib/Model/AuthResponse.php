@@ -76,7 +76,7 @@ class AuthResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int32',
         'user_token' => null,
         'name' => null,
         'phone' => null,

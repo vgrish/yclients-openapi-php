@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **sms_not** | **int** | 1 - Исключить клиента из SMS рассылок, 0 - не исключать | [optional]
 **spent** | **int** | Сколько потратил средств в компании на момент добавления | [optional]
 **paid** | **int** |  | [optional]
-**balance** | **int** | Баланс клиента | [optional]
+**balance** | **float** | Баланс клиента | [optional]
 **importance_id** | **int** | Класс важности клиента (0 - нет, 1 - бронза, 2 - серебро, 3 - золото) | [optional]
 **importance** | **string** |  | [optional]
 **categories** | **string[]** |  | [optional]

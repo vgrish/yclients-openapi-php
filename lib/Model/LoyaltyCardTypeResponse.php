@@ -73,9 +73,9 @@ class LoyaltyCardTypeResponse implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int32',
         'title' => null,
-        'salon_group_id' => null,
+        'salon_group_id' => 'int32',
         'service_item_type' => null,
         'good_item_type' => null,
         'salon_group' => null

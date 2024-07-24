@@ -92,11 +92,11 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int32',
         'title' => null,
-        'country_id' => null,
+        'country_id' => 'int32',
         'country' => null,
-        'city_id' => null,
+        'city_id' => 'int32',
         'city' => null,
         'timezone_name' => null,
         'address' => null,
@@ -109,8 +109,8 @@ class CompanyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'active_staff_count' => null,
         'next_slot' => 'date-time',
         'group_priority' => 'int32',
-        'push_notification_phone_confirm' => null,
-        'main_group_id' => null,
+        'push_notification_phone_confirm' => 'int32',
+        'main_group_id' => 'int32',
         'main_group' => null,
         'groups' => null,
         'bookforms' => null,

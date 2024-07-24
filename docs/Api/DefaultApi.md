@@ -487,15 +487,15 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$id = {{company_id}}; // float | Идентификатор компании, информацию о которой нужно получить.
+$id = {{company_id}}; // int | Идентификатор компании, информацию о которой нужно получить.
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
-$my = 1; // float | Только для авторизованного пользователя. Если нужны дополнительные данные по компании, на управление которой пользователь имеет права
-$for_booking = 1; // float | Показать дату и время ближайшего свободного сеанса в компании (ISO8601).
-$show_groups = 1; // float | Включить в объект компании список сетей в которые входит эта компания
-$show_bookforms = 1; // float | Показать виджеты онлайн-записи компании
-$bookform_id = 19203; // float | Показать адрес виджета онлайн-записи с указанным идентификатором
+$my = 1; // int | Только для авторизованного пользователя. Если нужны дополнительные данные по компании, на управление которой пользователь имеет права
+$for_booking = 1; // int | Показать дату и время ближайшего свободного сеанса в компании (ISO8601).
+$show_groups = 1; // int | Включить в объект компании список сетей в которые входит эта компания
+$show_bookforms = 1; // int | Показать виджеты онлайн-записи компании
+$bookform_id = 19203; // int | Показать адрес виджета онлайн-записи с указанным идентификатором
 
 try {
     $result = $apiInstance->companyGet($id, $accept, $content_type, $authorization, $my, $for_booking, $show_groups, $show_bookforms, $bookform_id);
@@ -509,15 +509,15 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **float**| Идентификатор компании, информацию о которой нужно получить. | |
+| **id** | **int**| Идентификатор компании, информацию о которой нужно получить. | |
 | **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
 | **content_type** | **string**| application/json | |
 | **authorization** | **string**| Bearer partner_token, User user_token | |
-| **my** | **float**| Только для авторизованного пользователя. Если нужны дополнительные данные по компании, на управление которой пользователь имеет права | [optional] |
-| **for_booking** | **float**| Показать дату и время ближайшего свободного сеанса в компании (ISO8601). | [optional] |
-| **show_groups** | **float**| Включить в объект компании список сетей в которые входит эта компания | [optional] |
-| **show_bookforms** | **float**| Показать виджеты онлайн-записи компании | [optional] |
-| **bookform_id** | **float**| Показать адрес виджета онлайн-записи с указанным идентификатором | [optional] |
+| **my** | **int**| Только для авторизованного пользователя. Если нужны дополнительные данные по компании, на управление которой пользователь имеет права | [optional] |
+| **for_booking** | **int**| Показать дату и время ближайшего свободного сеанса в компании (ISO8601). | [optional] |
+| **show_groups** | **int**| Включить в объект компании список сетей в которые входит эта компания | [optional] |
+| **show_bookforms** | **int**| Показать виджеты онлайн-записи компании | [optional] |
+| **bookform_id** | **int**| Показать адрес виджета онлайн-записи с указанным идентификатором | [optional] |
 
 ### Return type
 
@@ -562,27 +562,27 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\DefaultApi(
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
-$id = 4564; // float | ID компании. Фильтр по идентификатору компании
-$group_id = 83; // float | ID сети компаний. Фильтр по идентификатору сети компаний _Default: 83_
-$my = 1; // float | Только для авторизованного пользователя. Если нужно компании, на управление которыми пользователь имеет права
-$active = 1; // float | Если нужно получить только компании с активной лицензией и доступным бронированием
-$moderated = 1; // float | Если нужно получить только прошедшие модерацию компании, чей контент проверен для публикации
-$for_booking = 1; // float | Показать дату и время ближайшего свободного сеанса в компании (ISO8601)
-$show_groups = 1; // float | Включить в объект компании список сетей в которые входит эта компания
-$city_id = 2; // float | Поиск по ID города ([метод получения городов](#cities))
-$show_bookforms = 1; // float | Включить в объект компании виджеты онлайн-записи
-$vk_api_id = 2; // float | Поиск виджеты онлайн-записи по vk_api_id. Параметр работает при showBookforms=1
-$min_id = 1000; // float | Минимальный ID компании
-$show_deleted = 1; // float | Включить в список удалённые компании
-$hide_record_type_single = 1; // float | Не показывать салоны с индивидуальной записью
-$hide_record_type_activity = 1; // float | Не показывать салоны с групповой записью
-$hide_record_type_mixed = 1; // float | Не показывать салоны со смешанной записью
-$business_group_id = 1; // float | Идентификатор группы бизнеса. Фильтр по группе бизнеса
-$business_type_id = 1; // float | Идентификатор сферы бизнеса. Фильтр по сфере бизнеса
-$yandex = 1; // float | Фильтр по синхронизации данных компании с партнерскими площадкам
+$id = 4564; // int | ID компании. Фильтр по идентификатору компании
+$group_id = 83; // int | ID сети компаний. Фильтр по идентификатору сети компаний _Default: 83_
+$my = 1; // int | Только для авторизованного пользователя. Если нужно компании, на управление которыми пользователь имеет права
+$active = 1; // int | Если нужно получить только компании с активной лицензией и доступным бронированием
+$moderated = 1; // int | Если нужно получить только прошедшие модерацию компании, чей контент проверен для публикации
+$for_booking = 1; // int | Показать дату и время ближайшего свободного сеанса в компании (ISO8601)
+$show_groups = 1; // int | Включить в объект компании список сетей в которые входит эта компания
+$city_id = 2; // int | Поиск по ID города ([метод получения городов](#cities))
+$show_bookforms = 1; // int | Включить в объект компании виджеты онлайн-записи
+$vk_api_id = 2; // int | Поиск виджеты онлайн-записи по vk_api_id. Параметр работает при showBookforms=1
+$min_id = 1000; // int | Минимальный ID компании
+$show_deleted = 1; // int | Включить в список удалённые компании
+$hide_record_type_single = 1; // int | Не показывать салоны с индивидуальной записью
+$hide_record_type_activity = 1; // int | Не показывать салоны с групповой записью
+$hide_record_type_mixed = 1; // int | Не показывать салоны со смешанной записью
+$business_group_id = 1; // int | Идентификатор группы бизнеса. Фильтр по группе бизнеса
+$business_type_id = 1; // int | Идентификатор сферы бизнеса. Фильтр по сфере бизнеса
+$yandex = 1; // int | Фильтр по синхронизации данных компании с партнерскими площадкам
 $include = ["staff","positions"]; // string[] | Включить в объект компании дополнительные данные
-$count = 3.4; // float | Количество компаний на странице
-$page = 3.4; // float | Номер страницы
+$count = 56; // int | Количество компаний на странице
+$page = 56; // int | Номер страницы
 
 try {
     $result = $apiInstance->companyGetList($accept, $content_type, $authorization, $id, $group_id, $my, $active, $moderated, $for_booking, $show_groups, $city_id, $show_bookforms, $vk_api_id, $min_id, $show_deleted, $hide_record_type_single, $hide_record_type_activity, $hide_record_type_mixed, $business_group_id, $business_type_id, $yandex, $include, $count, $page);
@@ -599,27 +599,27 @@ try {
 | **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
 | **content_type** | **string**| application/json | |
 | **authorization** | **string**| Bearer partner_token, User user_token | |
-| **id** | **float**| ID компании. Фильтр по идентификатору компании | [optional] |
-| **group_id** | **float**| ID сети компаний. Фильтр по идентификатору сети компаний _Default: 83_ | [optional] |
-| **my** | **float**| Только для авторизованного пользователя. Если нужно компании, на управление которыми пользователь имеет права | [optional] |
-| **active** | **float**| Если нужно получить только компании с активной лицензией и доступным бронированием | [optional] |
-| **moderated** | **float**| Если нужно получить только прошедшие модерацию компании, чей контент проверен для публикации | [optional] |
-| **for_booking** | **float**| Показать дату и время ближайшего свободного сеанса в компании (ISO8601) | [optional] |
-| **show_groups** | **float**| Включить в объект компании список сетей в которые входит эта компания | [optional] |
-| **city_id** | **float**| Поиск по ID города ([метод получения городов](#cities)) | [optional] |
-| **show_bookforms** | **float**| Включить в объект компании виджеты онлайн-записи | [optional] |
-| **vk_api_id** | **float**| Поиск виджеты онлайн-записи по vk_api_id. Параметр работает при showBookforms&#x3D;1 | [optional] |
-| **min_id** | **float**| Минимальный ID компании | [optional] |
-| **show_deleted** | **float**| Включить в список удалённые компании | [optional] |
-| **hide_record_type_single** | **float**| Не показывать салоны с индивидуальной записью | [optional] |
-| **hide_record_type_activity** | **float**| Не показывать салоны с групповой записью | [optional] |
-| **hide_record_type_mixed** | **float**| Не показывать салоны со смешанной записью | [optional] |
-| **business_group_id** | **float**| Идентификатор группы бизнеса. Фильтр по группе бизнеса | [optional] |
-| **business_type_id** | **float**| Идентификатор сферы бизнеса. Фильтр по сфере бизнеса | [optional] |
-| **yandex** | **float**| Фильтр по синхронизации данных компании с партнерскими площадкам | [optional] |
+| **id** | **int**| ID компании. Фильтр по идентификатору компании | [optional] |
+| **group_id** | **int**| ID сети компаний. Фильтр по идентификатору сети компаний _Default: 83_ | [optional] |
+| **my** | **int**| Только для авторизованного пользователя. Если нужно компании, на управление которыми пользователь имеет права | [optional] |
+| **active** | **int**| Если нужно получить только компании с активной лицензией и доступным бронированием | [optional] |
+| **moderated** | **int**| Если нужно получить только прошедшие модерацию компании, чей контент проверен для публикации | [optional] |
+| **for_booking** | **int**| Показать дату и время ближайшего свободного сеанса в компании (ISO8601) | [optional] |
+| **show_groups** | **int**| Включить в объект компании список сетей в которые входит эта компания | [optional] |
+| **city_id** | **int**| Поиск по ID города ([метод получения городов](#cities)) | [optional] |
+| **show_bookforms** | **int**| Включить в объект компании виджеты онлайн-записи | [optional] |
+| **vk_api_id** | **int**| Поиск виджеты онлайн-записи по vk_api_id. Параметр работает при showBookforms&#x3D;1 | [optional] |
+| **min_id** | **int**| Минимальный ID компании | [optional] |
+| **show_deleted** | **int**| Включить в список удалённые компании | [optional] |
+| **hide_record_type_single** | **int**| Не показывать салоны с индивидуальной записью | [optional] |
+| **hide_record_type_activity** | **int**| Не показывать салоны с групповой записью | [optional] |
+| **hide_record_type_mixed** | **int**| Не показывать салоны со смешанной записью | [optional] |
+| **business_group_id** | **int**| Идентификатор группы бизнеса. Фильтр по группе бизнеса | [optional] |
+| **business_type_id** | **int**| Идентификатор сферы бизнеса. Фильтр по сфере бизнеса | [optional] |
+| **yandex** | **int**| Фильтр по синхронизации данных компании с партнерскими площадкам | [optional] |
 | **include** | [**string[]**](../Model/string.md)| Включить в объект компании дополнительные данные | [optional] |
-| **count** | **float**| Количество компаний на странице | [optional] |
-| **page** | **float**| Номер страницы | [optional] |
+| **count** | **int**| Количество компаний на странице | [optional] |
+| **page** | **int**| Номер страницы | [optional] |
 
 ### Return type
 

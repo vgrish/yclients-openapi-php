@@ -76,7 +76,7 @@ class ClientResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'sms_not' => 'int',
         'spent' => 'int',
         'paid' => 'int',
-        'balance' => 'int',
+        'balance' => 'float',
         'importance_id' => 'int',
         'importance' => 'string',
         'categories' => 'string[]',
@@ -92,7 +92,7 @@ class ClientResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'id' => 'int32',
         'name' => null,
         'surname' => null,
         'patronymic' => null,
@@ -111,7 +111,7 @@ class ClientResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'sms_not' => null,
         'spent' => null,
         'paid' => null,
-        'balance' => null,
+        'balance' => 'float',
         'importance_id' => null,
         'importance' => null,
         'categories' => null,
@@ -979,9 +979,9 @@ class ClientResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets balance
      *
-     * @return int|null
+     * @return float|null
      */
-    public function getBalance() : ?int
+    public function getBalance() : ?float
     {
         return $this->container['balance'];
     }
@@ -989,7 +989,7 @@ class ClientResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets balance
      *
-     * @param int|null $balance Баланс клиента
+     * @param float|null $balance Баланс клиента
      *
      * @return self
      */
