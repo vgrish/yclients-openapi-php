@@ -1,0 +1,4589 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Yclients",
+    "description": "yclients-openapi-php package for YCLIENTS generated based on the openapi schema",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "company"
+    },
+    {
+      "name": "client"
+    },
+    {
+      "name": "auth"
+    },
+    {
+      "name": "loyalty.card"
+    },
+    {
+      "name": "loyalty.transaction"
+    }
+  ],
+  "paths": {
+    "/companies": {
+      "get": {
+        "summary": "Получить список компаний",
+        "deprecated": false,
+        "description": "Получить список с данными о компаниях",
+        "operationId": "company.get.list",
+        "tags": [
+          "company"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "ID компании. Фильтр по идентификатору компании",
+            "required": false,
+            "example": "4564",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "group_id",
+            "in": "query",
+            "description": "ID сети компаний. Фильтр по идентификатору сети компаний _Default: 83_",
+            "required": false,
+            "example": "83",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "my",
+            "in": "query",
+            "description": "Только для авторизованного пользователя. Если нужно компании, на управление которыми пользователь имеет права",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "Если нужно получить только компании с активной лицензией и доступным бронированием",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "moderated",
+            "in": "query",
+            "description": "Если нужно получить только прошедшие модерацию компании, чей контент проверен для публикации",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "forBooking",
+            "in": "query",
+            "description": "Показать дату и время ближайшего свободного сеанса в компании (ISO8601)",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "show_groups",
+            "in": "query",
+            "description": "Включить в объект компании список сетей в которые входит эта компания",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "city_id",
+            "in": "query",
+            "description": "Поиск по ID города ([метод получения городов](#cities))",
+            "required": false,
+            "example": "2",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "showBookforms",
+            "in": "query",
+            "description": "Включить в объект компании виджеты онлайн-записи",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "vk_api_id",
+            "in": "query",
+            "description": "Поиск виджеты онлайн-записи по vk_api_id. Параметр работает при showBookforms=1",
+            "required": false,
+            "example": "2",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "min_id",
+            "in": "query",
+            "description": "Минимальный ID компании",
+            "required": false,
+            "example": "1000",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "show_deleted",
+            "in": "query",
+            "description": "Включить в список удалённые компании",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "hide_record_type_single",
+            "in": "query",
+            "description": "Не показывать салоны с индивидуальной записью",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "hide_record_type_activity",
+            "in": "query",
+            "description": "Не показывать салоны с групповой записью",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "hide_record_type_mixed",
+            "in": "query",
+            "description": "Не показывать салоны со смешанной записью",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "business_group_id",
+            "in": "query",
+            "description": "Идентификатор группы бизнеса. Фильтр по группе бизнеса",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "business_type_id",
+            "in": "query",
+            "description": "Идентификатор сферы бизнеса. Фильтр по сфере бизнеса",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "yandex",
+            "in": "query",
+            "description": "Фильтр по синхронизации данных компании с партнерскими площадкам",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Включить в объект компании дополнительные данные",
+            "required": false,
+            "example": [
+              "staff",
+              "positions"
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "staff",
+                  "positions",
+                  "accounts",
+                  "storages",
+                  "expenses"
+                ]
+              }
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "Количество компаний на странице",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Номер страницы",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "e.g. application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token, User user_token",
+            "required": true,
+            "example": "Bearer {{partner_token}},User {{user_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Статус успешности выполнения"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/company.response"
+                      },
+                      "description": "Данные"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "additionalProperties": true,
+                      "description": "Метаданные"
+                    }
+                  },
+                  "title": "company.get.list.response",
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "Создать компанию",
+        "deprecated": false,
+        "description": "Создать новую компанию.",
+        "operationId": "company.create",
+        "tags": [
+          "company"
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "e.g. application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token, User user_token",
+            "required": true,
+            "example": "Bearer {{partner_token}},User {{user_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/company.create.request"
+              },
+              "example": {
+                "title": "Новая компания",
+                "country_id": 1,
+                "city_id": 2,
+                "address": "Талалихина, д. 1, к. 2",
+                "site": "new-company.ru",
+                "coordinate_lat": "55.835662",
+                "coordinate_lot": "37.778218",
+                "business_type_id": 1,
+                "short_descr": "Салон красоты"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Статус успешности выполнения"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/company.response"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "additionalProperties": true,
+                      "description": "Метаданные"
+                    }
+                  },
+                  "title": "company.create.response",
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/company/{company_id}/clients/search": {
+      "post": {
+        "summary": "Получить список клиентов",
+        "deprecated": false,
+        "description": "",
+        "operationId": "client.get.list",
+        "tags": [
+          "client"
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "description": "ID компании",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token, User user_token",
+            "required": true,
+            "example": "Bearer {{partner_token}},User {{user_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/client.get.list.request"
+              },
+              "example": {
+                "page": 1,
+                "page_size": 3,
+                "fields": [
+                  "id",
+                  "name"
+                ],
+                "order_by": "name",
+                "order_by_direction": "desc",
+                "operation": "AND",
+                "filters": [
+                  {
+                    "type": "id",
+                    "state": {
+                      "value": [
+                        1,
+                        2,
+                        3
+                      ]
+                    }
+                  },
+                  {
+                    "type": "sold_amount",
+                    "state": {
+                      "from": 0,
+                      "to": 100.77
+                    }
+                  },
+                  {
+                    "type": "quick_search",
+                    "state": {
+                      "value": "Иван"
+                    }
+                  },
+                  {
+                    "type": "importance",
+                    "state": {
+                      "value": [
+                        0,
+                        1,
+                        2,
+                        3
+                      ]
+                    }
+                  },
+                  {
+                    "type": "has_mobile_app",
+                    "state": {
+                      "value": true
+                    }
+                  },
+                  {
+                    "type": "category",
+                    "state": {
+                      "value": [
+                        1,
+                        7
+                      ]
+                    }
+                  },
+                  {
+                    "type": "has_passteam_card",
+                    "state": {
+                      "value": true
+                    }
+                  },
+                  {
+                    "type": "passteam_card_ids",
+                    "state": {
+                      "value": [
+                        "111122223333aaaabbbbcccc"
+                      ]
+                    }
+                  },
+                  {
+                    "type": "birthday",
+                    "state": {
+                      "from": "2000-01-01",
+                      "to": "2000-01-01"
+                    }
+                  },
+                  {
+                    "type": "gender",
+                    "state": {
+                      "value": [
+                        0,
+                        1,
+                        2
+                      ]
+                    }
+                  },
+                  {
+                    "type": "record",
+                    "state": {
+                      "staff": {
+                        "value": [
+                          1,
+                          2
+                        ]
+                      },
+                      "service": {
+                        "value": [
+                          2,
+                          3
+                        ]
+                      },
+                      "service_category": {
+                        "value": [
+                          4,
+                          5
+                        ]
+                      },
+                      "status": {
+                        "value": [
+                          1
+                        ]
+                      },
+                      "created": {
+                        "from": "2020-01-01",
+                        "to": "2020-05-01"
+                      },
+                      "records_count": {
+                        "from": 1,
+                        "to": 99999
+                      },
+                      "sold_amount": {
+                        "from": 1.001,
+                        "to": 99999.09
+                      }
+                    }
+                  },
+                  {
+                    "type": "client",
+                    "state": {
+                      "id": {
+                        "value": [
+                          1,
+                          2,
+                          3
+                        ]
+                      },
+                      "birthday": {
+                        "from": "2000-01-01",
+                        "to": "2000-03-01"
+                      }
+                    }
+                  },
+                  {
+                    "type": "sale",
+                    "state": {
+                      "abonement_balance": {
+                        "from": 2,
+                        "to": 3
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Статус успешности выполнения"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/client.response"
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "additionalProperties": true,
+                      "description": "Метаданные"
+                    }
+                  },
+                  "title": "client.get.list.response",
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "success": true,
+                      "data": [
+                        {
+                          "name": "Петров",
+                          "id": 2
+                        },
+                        {
+                          "name": "Сидоров",
+                          "id": 3
+                        },
+                        {
+                          "name": "Иванов",
+                          "id": 1
+                        }
+                      ],
+                      "meta": {
+                        "total_count": 908
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/auth": {
+      "post": {
+        "summary": "Авторизовать пользователя",
+        "deprecated": false,
+        "description": "При смене пароля пользователем его API-ключ изменится и потребуется новая авторизация\r\n\r\n| Атрибут  | Тип | Описание |\r\n| ------------- | ------------- | ------------- |\r\n| login  | string  | В качестве логина может быть использован номер телефона пользователя в формате 79161234567 или его Email |\r\n| password  | string  | Пароль пользователя |",
+        "operationId": "auth.user",
+        "tags": [
+          "auth"
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "e.g. application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token",
+            "required": true,
+            "example": "Bearer {{partner_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/auth.user.request"
+              },
+              "example": {
+                "login": "{{login}}",
+                "password": "{{password}}"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Статус успешности выполнения"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/auth.response"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "additionalProperties": true,
+                      "description": "Метаданные"
+                    }
+                  },
+                  "title": "auth.user.response",
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "success": true,
+                      "data": {
+                        "id": 29733917,
+                        "user_token": "Test client",
+                        "name": "",
+                        "phone": "79990008000",
+                        "login": "login",
+                        "email": "Katrina.Dibbert88@hotmail.com",
+                        "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/669.jpg",
+                        "is_approved": true,
+                        "is_email_confirmed": false
+                      },
+                      "meta": []
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/loyalty/card_types/salon/{company_id}": {
+      "get": {
+        "summary": "Получить список типов карт доступных в филиале",
+        "deprecated": false,
+        "description": "Возвращает список типов карт, которые действуют для данного филиала.\r\n\r\nАтрибуты и их описания соответсвуют методу \"Коллекция типов карт доступных клиенту\", описанному выше.",
+        "operationId": "loyalty.card.type.byCompanyId.get.list",
+        "tags": [
+          "loyalty.card"
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "description": "ID компании",
+            "required": true,
+            "example": "{{company_id}}",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "e.g. application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token, User user_token",
+            "required": true,
+            "example": "Bearer {{partner_token}},User {{user_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Статус успешности выполнения"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/loyalty.card.type.response"
+                      },
+                      "description": "Данные"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "additionalProperties": true,
+                      "description": "Метаданные"
+                    }
+                  },
+                  "title": "loyalty.card.type.byCompanyId.get.list.response",
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "id": 10992,
+                      "title": "Кэшбек",
+                      "salon_group_id": 145071,
+                      "salon_group": {
+                        "id": 145071,
+                        "title": "Сеть 1"
+                      }
+                    }
+                  },
+                  "2": {
+                    "summary": "Success",
+                    "value": {
+                      "id": 8230,
+                      "title": "Реферальная программа",
+                      "salon_group_id": 145071,
+                      "salon_group": {
+                        "id": 145071,
+                        "title": "Сеть 1"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/loyalty/cards/{phone}/{chain_id}/{company_id}": {
+      "get": {
+        "summary": "Получить список карт клиента по номеру телефона",
+        "deprecated": false,
+        "description": "Возвращает список карт клиента с программами, которые активны в данном салоне\r\n\r\n| Атрибут        | Тип    | Описание|\r\n|----------------|--------|--------------------------------------------------------------------------------------------------------------|\r\n| id             | int    | Идентификатор карты лояльности                                                                                  |\r\n| balance        | decimal| Баланс карты лояльности                                                                                        |\r\n| paid_amount    | decimal| Сумма \"Оплачено\" |\r\n| sold_amount    | decimal| Сумма \"Продано\"                                                                                        |\r\n| visits_count   | int    | Количество визитов                                                                     |\r\n| number         | string | Номер карты |\r\n| type_id        | int    | Идентификатор типа карты лояльности                                                                               |\r\n| salon_group_id | int    | Идентификатор сети, где создана карта                                                                    |\r\n| type           | object | Объект, содержащий в себе поля \"id\" и \"title\": идентификатор типа карты и название типа карты, соотвественно\r\n| salon_group    | object | Объект, содержащий в себе поля \"id\" и \"title\": идентификатор сети, где создан тип карты и название этой сети                                                                                        |\r\n| programs       | array  | Массив с информацией об акциях, привязанных к карте лояльности                                                                     |\r\n| rules          | array  | Массив с информацией о правилах, настроенных в акции |\r\n\r\nМассив programs состоит из объектов со следующими полями:\r\n\r\n| Атрибут         | Тип    | Описание                             |\r\n|-----------------|--------|--------------------------------------|\r\n| id              | int    | Идентификатор акции                  |\r\n| title           | string | Название акции                       |\r\n| loyalty_type_id | int    | Идентификатор типа акции             |\r\n| item_type_id    | int    | Начисляется ли кэшбек от товаров     |\r\n| value_unit_id   | int    | Поле \"Бонус\". Скидка % или Фикс. сумма                                     |\r\n| group_id        | int    | Идентифкатор сети, где создана акция |\r\n| loyalty_type    | object | Объект с информацией о акции         |\r\n\r\n\r\nМассив rules состоит из объектов со следующими полями:\r\n\r\n| Атрибут            | Тип    | Описание                                         |\r\n|--------------------|--------|--------------------------------------------------|\r\n| id                 | int    | Идентификатор правила                            |\r\n| loyalty_program_id | int    | Идентификатор акции, к которой привязано правило |\r\n| loyalty_type_id    | int    | Идентификатор типа акции                         |\r\n| value              | decimal| Значение от которого сработает правило           |",
+        "operationId": "loyalty.card.byClientPhone.get.list",
+        "tags": [
+          "loyalty.card"
+        ],
+        "parameters": [
+          {
+            "name": "phone",
+            "in": "path",
+            "description": "Номер телефона клиента в формате 70001234567",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "chain_id",
+            "in": "path",
+            "description": "ID сети",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "company_id",
+            "in": "path",
+            "description": "ID филиала",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "e.g. application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token, User user_token",
+            "required": true,
+            "example": "Bearer {{partner_token}},User {{user_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Статус успешности выполнения"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/loyalty.card.response"
+                      },
+                      "description": "Данные"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "additionalProperties": true,
+                      "description": "Метаданные"
+                    }
+                  },
+                  "title": "loyalty.card.byClientPhone.get.list.response",
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "id": 9210520,
+                      "balance": 100,
+                      "points": 0,
+                      "paid_amount": 1000,
+                      "sold_amount": 1000,
+                      "visits_count": 1,
+                      "number": 14507109210520,
+                      "type_id": 10992,
+                      "salon_group_id": 145071,
+                      "type": {
+                        "id": 10992,
+                        "title": "5+2",
+                        "salon_group_id": 145071
+                      },
+                      "salon_group": {
+                        "id": 145071,
+                        "title": "Сеть тесто1."
+                      },
+                      "programs": [
+                        {
+                          "id": 18005,
+                          "title": "5+2",
+                          "value": 0,
+                          "loyalty_type_id": 13,
+                          "item_type_id": 3,
+                          "value_unit_id": 1,
+                          "group_id": 145071,
+                          "loyalty_type": {
+                            "id": 13,
+                            "title": "Скидка по заданному количеству накопленных услуг",
+                            "is_discount": true,
+                            "is_cashback": false,
+                            "is_static": false,
+                            "is_accumulative": false
+                          },
+                          "rules": [
+                            {
+                              "id": 72803,
+                              "loyalty_program_id": 18005,
+                              "loyalty_type_id": 13,
+                              "value": 20,
+                              "parameter": 0
+                            },
+                            {
+                              "id": 72804,
+                              "loyalty_program_id": 18005,
+                              "loyalty_type_id": 13,
+                              "value": 10,
+                              "parameter": 0
+                            },
+                            {
+                              "id": 72805,
+                              "loyalty_program_id": 18005,
+                              "loyalty_type_id": 13,
+                              "value": 100,
+                              "parameter": 0
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/company/{id}/": {
+      "get": {
+        "summary": "Получить компанию",
+        "deprecated": false,
+        "description": "Получение данных о компании.",
+        "operationId": "company.get",
+        "tags": [
+          "company"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор компании, информацию о которой нужно получить.",
+            "required": true,
+            "example": "{{company_id}}",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "my",
+            "in": "query",
+            "description": "Только для авторизованного пользователя. Если нужны дополнительные данные по компании, на управление которой пользователь имеет права",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "forBooking",
+            "in": "query",
+            "description": "Показать дату и время ближайшего свободного сеанса в компании (ISO8601).",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "show_groups",
+            "in": "query",
+            "description": "Включить в объект компании список сетей в которые входит эта компания",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "showBookforms",
+            "in": "query",
+            "description": "Показать виджеты онлайн-записи компании",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "bookform_id",
+            "in": "query",
+            "description": "Показать адрес виджета онлайн-записи с указанным идентификатором",
+            "required": false,
+            "example": "19203",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "e.g. application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token, User user_token",
+            "required": true,
+            "example": "Bearer {{partner_token}},User {{user_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Статус успешности выполнения"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/company.response"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "additionalProperties": true,
+                      "description": "Метаданные"
+                    }
+                  },
+                  "title": "company.get.response",
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "put": {
+        "summary": "Изменить компанию",
+        "deprecated": false,
+        "description": "Изменение данных о компании.",
+        "operationId": "company.update",
+        "tags": [
+          "company"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор компании",
+            "required": true,
+            "example": "{{company_id}}",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "e.g. application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token, User user_token",
+            "required": true,
+            "example": "Bearer {{partner_token}},User {{user_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/company.update.request"
+              },
+              "example": {
+                "title": "Новая компания",
+                "country": "Россия",
+                "city": "Москва",
+                "address": "Большой Саввинский пер., д. 4",
+                "zip": "119435",
+                "phones": [
+                  "79876543210",
+                  "79876543211"
+                ],
+                "social": {
+                  "vk": "vk.com/newcompany"
+                },
+                "site": "new-company.ru",
+                "coordinate_lat": 55.735662,
+                "coordinate_lon": 37.678218,
+                "description": "Самая <strong>Новая компания</strong> на рынке",
+                "business_type_id": 1,
+                "short_descr": "Салон красоты"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Статус успешности выполнения"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/company.response"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "additionalProperties": true,
+                      "description": "Метаданные"
+                    }
+                  },
+                  "title": "company.update.response",
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "Удалить компанию",
+        "deprecated": false,
+        "description": "Удаление компании.",
+        "operationId": "company.remove",
+        "tags": [
+          "company"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор компании",
+            "required": true,
+            "example": "37532",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "e.g. application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token, User user_token",
+            "required": true,
+            "example": "Bearer {{partner_token}},User {{user_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "string",
+                    "integer",
+                    "boolean",
+                    "array",
+                    "object",
+                    "number",
+                    "null"
+                  ],
+                  "title": "company.remove.response"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/clients/{company_id}": {
+      "post": {
+        "summary": "Добавить клиента",
+        "deprecated": false,
+        "description": "",
+        "operationId": "client.create",
+        "tags": [
+          "client"
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "description": "ID компании",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "e.g. application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token, User user_token",
+            "required": true,
+            "example": "Bearer {{partner_token}},User {{user_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Имя клиента"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "description": "Телефон клиента"
+                  },
+                  "surname": {
+                    "type": "string"
+                  },
+                  "patronymic": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "sex_id": {
+                    "type": "string"
+                  },
+                  "importance_id": {
+                    "type": "string"
+                  },
+                  "discount": {
+                    "type": "string"
+                  },
+                  "card": {
+                    "type": "string"
+                  },
+                  "birth_date": {
+                    "type": "string"
+                  },
+                  "comment": {
+                    "type": "string"
+                  },
+                  "spent": {
+                    "type": "string"
+                  },
+                  "balance": {
+                    "type": "string"
+                  },
+                  "sms_check": {
+                    "type": "string"
+                  },
+                  "sms_not": {
+                    "type": "string"
+                  },
+                  "labels": {
+                    "type": "object",
+                    "properties": {}
+                  },
+                  "custom_fields": {
+                    "type": "object",
+                    "properties": {}
+                  }
+                },
+                "required": [
+                  "name",
+                  "phone"
+                ],
+                "$ref": "#/components/schemas/client.create.request"
+              },
+              "example": {
+                "name": "<string>",
+                "phone": "<string>",
+                "surname": "<string>",
+                "patronymic": "<string>",
+                "email": "<string>",
+                "sex_id": "<number>",
+                "importance_id": "<number>",
+                "discount": "<number>",
+                "card": "<string>",
+                "birth_date": "<string>",
+                "comment": "<string>",
+                "spent": "<number>",
+                "balance": "<number>",
+                "sms_check": "<number>",
+                "sms_not": "<number>",
+                "categories": {},
+                "custom_fields": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Статус успешности выполнения"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/client.response"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "additionalProperties": true,
+                      "description": "Метаданные"
+                    }
+                  },
+                  "title": "client.create.response",
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "success": true,
+                      "data": {
+                        "id": 1121412,
+                        "name": "Василий",
+                        "surname": "Сонов",
+                        "patronymic": "Васильевич",
+                        "phone": 79211234567,
+                        "email": "123456789@gmail.com",
+                        "categories": [],
+                        "sex": "Мужской",
+                        "sex_id": 1,
+                        "discount": 15,
+                        "importance_id": 1,
+                        "importance": "Бронза",
+                        "card": "555888666",
+                        "birth_date": "2010-01-01",
+                        "comment": "кидает понты",
+                        "sms_check": 0,
+                        "sms_not": 0,
+                        "spent": 1000,
+                        "balance": -1200,
+                        "visits": 0,
+                        "last_change_date": "2020-05-01T12:00:00+0400",
+                        "custom_fields": {
+                          "key-1": "value-1"
+                        }
+                      },
+                      "meta": []
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/loyalty/client_cards/{client_id}": {
+      "get": {
+        "summary": "Получить список карт клиента по ID",
+        "deprecated": false,
+        "description": "Возвращает список карт клиента с программами, которые активны в данном салоне\r\n\r\nАтрибуты в ответе на запрос полностью совпадают с методом \"Получить список выданных карт по номеру телефона\", описанным выше",
+        "operationId": "loyalty.card.byClientId.get.list",
+        "tags": [
+          "loyalty.card"
+        ],
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "path",
+            "description": "ID клиента",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "e.g. application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token, User user_token",
+            "required": true,
+            "example": "Bearer {{partner_token}},User {{user_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Статус успешности выполнения"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/loyalty.card.response"
+                      },
+                      "description": "Данные"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "additionalProperties": true,
+                      "description": "Метаданные"
+                    }
+                  },
+                  "title": "loyalty.card.byClientId.get.list.response",
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "id": 9210520,
+                      "balance": 100,
+                      "points": 0,
+                      "paid_amount": 1000,
+                      "sold_amount": 1000,
+                      "visits_count": 1,
+                      "number": 14507109210520,
+                      "type_id": 10992,
+                      "salon_group_id": 145071,
+                      "type": {
+                        "id": 10992,
+                        "title": "5+2",
+                        "salon_group_id": 145071
+                      },
+                      "salon_group": {
+                        "id": 145071,
+                        "title": "Сеть тесто1."
+                      },
+                      "programs": [
+                        {
+                          "id": 18005,
+                          "title": "5+2",
+                          "value": 0,
+                          "loyalty_type_id": 13,
+                          "item_type_id": 3,
+                          "value_unit_id": 1,
+                          "group_id": 145071,
+                          "loyalty_type": {
+                            "id": 13,
+                            "title": "Скидка по заданному количеству накопленных услуг",
+                            "is_discount": true,
+                            "is_cashback": false,
+                            "is_static": false,
+                            "is_accumulative": false
+                          },
+                          "rules": [
+                            {
+                              "id": 72803,
+                              "loyalty_program_id": 18005,
+                              "loyalty_type_id": 13,
+                              "value": 20,
+                              "parameter": 0
+                            },
+                            {
+                              "id": 72804,
+                              "loyalty_program_id": 18005,
+                              "loyalty_type_id": 13,
+                              "value": 10,
+                              "parameter": 0
+                            },
+                            {
+                              "id": 72805,
+                              "loyalty_program_id": 18005,
+                              "loyalty_type_id": 13,
+                              "value": 100,
+                              "parameter": 0
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/loyalty/cards/{company_id}": {
+      "post": {
+        "summary": "Выдать карту лояльности",
+        "deprecated": false,
+        "description": "| Атрибут              | Тип    | Описание                                     |\r\n|----------------------|--------|----------------------------------------------|\r\n| loyalty_card_number  | number | Номер карты лояльности                       |\r\n| loyalty_card_type_id | number | Идентификатор типа карты лояльности          |\r\n| phone                | number | Номер телефона клиента в формате 70001234567 |",
+        "operationId": "loyalty.card.create",
+        "tags": [
+          "loyalty.card"
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "description": "ID филиала",
+            "required": true,
+            "example": "{{company_id}}",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "e.g. application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token, User user_token",
+            "required": true,
+            "example": "Bearer {{partner_token}},User {{user_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/loyalty.card.create.request"
+              },
+              "example": {
+                "loyalty_card_number": 9090909,
+                "loyalty_card_type_id": "8230",
+                "phone": 79091552422
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Статус успешности выполнения"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/loyalty.card.response"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "additionalProperties": true,
+                      "description": "Метаданные"
+                    }
+                  },
+                  "title": "loyalty.card.create.response",
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "id": 9250498,
+                      "balance": 0,
+                      "points": 0,
+                      "paid_amount": 16300,
+                      "sold_amount": 19320,
+                      "visits_count": 5,
+                      "number": "01010101",
+                      "type_id": 8230,
+                      "salon_group_id": 145071,
+                      "type": {
+                        "id": 8230,
+                        "title": "кешмеш",
+                        "salon_group_id": 145071
+                      },
+                      "salon_group": {
+                        "id": 145071,
+                        "title": "Сеть тесто1."
+                      },
+                      "programs": [
+                        {
+                          "id": 12720,
+                          "title": "накопительный кэш оплачено",
+                          "value": 10,
+                          "loyalty_type_id": 7,
+                          "item_type_id": 0,
+                          "value_unit_id": 1,
+                          "group_id": 145071,
+                          "loyalty_type": {
+                            "id": 7,
+                            "title": "Накопительный кэшбэк (оплачено)",
+                            "is_discount": false,
+                            "is_cashback": true,
+                            "is_static": false,
+                            "is_accumulative": true
+                          },
+                          "rules": [
+                            {
+                              "id": 71149,
+                              "loyalty_program_id": 12720,
+                              "loyalty_type_id": 7,
+                              "value": 10,
+                              "parameter": 100
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/chain/{chain_id}/loyalty/transactions": {
+      "get": {
+        "summary": "Получить список транзакций лояльности в сети",
+        "deprecated": false,
+        "description": "",
+        "operationId": "loyalty.transaction.get.list",
+        "tags": [
+          "loyalty.transaction"
+        ],
+        "parameters": [
+          {
+            "name": "chain_id",
+            "in": "path",
+            "description": "Идентификатор сети",
+            "required": true,
+            "example": "{{chain_id}}",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "created_after",
+            "in": "query",
+            "description": "Дата начала выборки в формате Y-m-d",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "created_before",
+            "in": "query",
+            "description": "Дата окончания выборки в формате Y-m-d",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "types",
+            "in": "query",
+            "description": "Типы транзакций лояльности, включенные в выборку: 1 - Скидка по акции, 2 - Начисление по программе лояльности, 3 - Списание с карты лояльности, 4 - Начисление по реферальной программе, 5 - Ручное пополнение, 6 - Ручное списание, 7 - Списание просроченных баллов, 8 - Списание с сертификата, 9 - Использование абонемента, 10 - Перерасчет стоимости по абонементу, 11 - Списание с личного счета",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6",
+                  "7",
+                  "8",
+                  "9",
+                  "10",
+                  "11"
+                ]
+              }
+            }
+          },
+          {
+            "name": "company_ids",
+            "in": "query",
+            "description": "Идентификаторы филиалов транзакций лояльности, включенные в выборку",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          },
+          {
+            "name": "visit_ids",
+            "in": "query",
+            "description": "Идентификаторы визитов транзакций лояльности, включенные в выборку",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Страница выборки",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "Количество результатов на одной странице выборки",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "e.g. application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token, User user_token",
+            "required": true,
+            "example": "Bearer {{partner_token}},User {{user_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Статус успешности выполнения"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/loyalty.transaction.response"
+                      },
+                      "description": "Данные"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "additionalProperties": true,
+                      "description": "Метаданные"
+                    }
+                  },
+                  "title": "loyalty.transaction.get.list.response",
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/loyalty/cards/{company_id}/{card_id}": {
+      "delete": {
+        "summary": "Удалить карту  лояльности",
+        "deprecated": false,
+        "description": "",
+        "operationId": "loyalty.card.remove",
+        "tags": [
+          "loyalty.card"
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "description": "ID филиала",
+            "required": true,
+            "example": "{{company_id}}",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "card_id",
+            "in": "path",
+            "description": "ID карты лояльности",
+            "required": true,
+            "example": "{{client_loyalty_card_id}}",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "e.g. application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token, User user_token",
+            "required": true,
+            "example": "Bearer {{partner_token}},User {{user_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {},
+                  "title": "loyalty.card.remove.response"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/chain/{chain_id}/loyalty/card_types": {
+      "get": {
+        "summary": "Получить список типов карт, доступных в сети",
+        "deprecated": false,
+        "description": "",
+        "operationId": "loyalty.card.type.byChainId.get.list",
+        "tags": [
+          "loyalty.card"
+        ],
+        "parameters": [
+          {
+            "name": "chain_id",
+            "in": "path",
+            "description": "Идентификатор сети",
+            "required": true,
+            "example": "{{chain_id}}",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "e.g. application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token, User user_token",
+            "required": true,
+            "example": "Bearer {{partner_token}},User {{user_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Статус успешности выполнения"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/loyalty.card.type.response"
+                      },
+                      "description": "Данные"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "additionalProperties": true,
+                      "description": "Метаданные"
+                    }
+                  },
+                  "title": "loyalty.card.type.byChainId.get.list.response",
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/client/{company_id}/{id}": {
+      "get": {
+        "summary": "Получить клиента",
+        "deprecated": false,
+        "description": "company_id: ID компании\nclient_id: ID клиента",
+        "operationId": "client.get",
+        "tags": [
+          "client"
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "description": "ID компании",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID клиента",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "e.g. application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "application/json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token, User user_token",
+            "required": true,
+            "example": "Bearer {{partner_token}},User {{user_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Статус успешности выполнения"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/client.response"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "additionalProperties": true,
+                      "description": "Метаданные"
+                    }
+                  },
+                  "title": "client.get.response",
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "success": true,
+                      "data": {
+                        "id": 16,
+                        "name": "Василий",
+                        "surname": "Сонов",
+                        "patronymic": "Васильевич",
+                        "phone": 79112345679,
+                        "email": "",
+                        "categories": [],
+                        "sex": "Неизвестно",
+                        "discount": 0,
+                        "importance": "Без класса важности",
+                        "card": "",
+                        "birth_date": 0,
+                        "comment": "",
+                        "sms_check": 0,
+                        "sms_not": 0,
+                        "spent": 0,
+                        "balance": 0,
+                        "visits": 3,
+                        "last_change_date": "2020-03-01T12:00:00+0400",
+                        "custom_fields": []
+                      },
+                      "meta": []
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "put": {
+        "summary": "Редактировать клиента",
+        "deprecated": false,
+        "description": "",
+        "operationId": "client.update",
+        "tags": [
+          "client"
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "description": "ID компании",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID клиента",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "e.g. application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token, User user_token",
+            "required": true,
+            "example": "Bearer {{partner_token}},User {{user_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Имя клиента"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "description": "Телефон клиента"
+                  },
+                  "surname": {
+                    "type": "string"
+                  },
+                  "patronymic": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "sex_id": {
+                    "type": "string"
+                  },
+                  "importance_id": {
+                    "type": "string"
+                  },
+                  "discount": {
+                    "type": "string"
+                  },
+                  "card": {
+                    "type": "string"
+                  },
+                  "birth_date": {
+                    "type": "string"
+                  },
+                  "comment": {
+                    "type": "string"
+                  },
+                  "spent": {
+                    "type": "string"
+                  },
+                  "balance": {
+                    "type": "string"
+                  },
+                  "sms_check": {
+                    "type": "string"
+                  },
+                  "sms_not": {
+                    "type": "string"
+                  },
+                  "labels": {
+                    "type": "object",
+                    "properties": {}
+                  },
+                  "custom_fields": {
+                    "type": "object",
+                    "properties": {}
+                  }
+                },
+                "required": [
+                  "name",
+                  "phone"
+                ],
+                "$ref": "#/components/schemas/client.update.request"
+              },
+              "example": {
+                "name": "<string>",
+                "phone": "<string>",
+                "surname": "<string>",
+                "patronymic": "<string>",
+                "email": "<string>",
+                "sex_id": "<number>",
+                "importance_id": "<number>",
+                "discount": "<number>",
+                "card": "<string>",
+                "birth_date": "<string>",
+                "comment": "<string>",
+                "spent": "<number>",
+                "balance": "<number>",
+                "sms_check": "<number>",
+                "sms_not": "<number>",
+                "labels": {},
+                "custom_fields": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Статус успешности выполнения"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/client.response"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "additionalProperties": true,
+                      "description": "Метаданные"
+                    }
+                  },
+                  "title": "client.update.response",
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "success": true,
+                      "data": {
+                        "id": 1121412,
+                        "name": "Василий",
+                        "surname": "Сонов",
+                        "patronymic": "Васильевич",
+                        "phone": 79211234567,
+                        "email": "123456789@gmail.com",
+                        "categories": [],
+                        "sex": "Мужской",
+                        "sex_id": 1,
+                        "discount": 15,
+                        "importance_id": 1,
+                        "importance": "Бронза",
+                        "card": "555888666",
+                        "birth_date": "2010-01-01",
+                        "comment": "кидает понты",
+                        "sms_check": 0,
+                        "sms_not": 0,
+                        "spent": 1000,
+                        "balance": -1200,
+                        "visits": 0,
+                        "last_change_date": "2020-06-01T12:00:00+0400",
+                        "custom_fields": {
+                          "key-1": "value-1"
+                        }
+                      },
+                      "meta": []
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "Удалить клиента",
+        "deprecated": false,
+        "description": "",
+        "operationId": "client.remove",
+        "tags": [
+          "client"
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "description": "ID компании",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID клиента",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "e.g. application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token, User user_token",
+            "required": true,
+            "example": "Bearer {{partner_token}},User {{user_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "string",
+                    "integer",
+                    "boolean",
+                    "array",
+                    "object",
+                    "number",
+                    "null"
+                  ],
+                  "title": "client.remove.response"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/company/{company_id}/loyalty/cards/{card_id}/manual_transaction": {
+      "post": {
+        "summary": "Ручное списание/пополнение карты лояльности в компании",
+        "deprecated": false,
+        "description": "Ручное списание/пополнение карты лояльности в компании",
+        "operationId": "loyalty.card.transaction.create",
+        "tags": [
+          "loyalty.card"
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "description": "Идентификатор филиала.",
+            "required": true,
+            "example": "{{company_id}}",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "card_id",
+            "in": "path",
+            "description": "ID карты лояльности",
+            "required": true,
+            "example": "{{client_loyalty_card_id}}",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "e.g. application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token, User user_token",
+            "required": true,
+            "example": "Bearer {{partner_token}},User {{user_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/loyalty.transaction.create.request"
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Статус успешности выполнения"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/loyalty.card.response"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "additionalProperties": true,
+                      "description": "Метаданные"
+                    }
+                  },
+                  "title": "loyalty.card.transaction.create.response",
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/loyalty/card_types/client/{company_id}/{phone}": {
+      "get": {
+        "summary": "Получить список типов карт доступных для выдачи клиенту",
+        "deprecated": false,
+        "description": "Возвращает список типов карт, которые доступны для выдачи клиенту салона.\r\n\r\n| Атрибут        | Тип    | Описание                                                                                                     |\r\n|----------------|--------|--------------------------------------------------------------------------------------------------------------|\r\n| id             | int    | Идентификатор типа карты                                                                                     |\r\n| title          | string | Название типа карты                                                                                          |\r\n| salon_group_id | int    | Идентификатор сети, где создан тип карты                                                                     |\r\n| salon_group    | object | Объект, содержащий в себе поля \"id\" и \"title\": идентификатор сети, где создан тип карты и название этой сети |",
+        "operationId": "loyalty.card.type.byClientPhone.get.list",
+        "tags": [
+          "loyalty.card"
+        ],
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "description": "ID компании",
+            "required": true,
+            "example": "{{company_id}}",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "phone",
+            "in": "path",
+            "description": "Номер телефона клиента",
+            "required": true,
+            "example": "{{client_phone}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "e.g. application/vnd.yclients.v2+json",
+            "required": true,
+            "example": "application/vnd.yclients.v2+json",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "application/json",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer partner_token, User user_token",
+            "required": true,
+            "example": "Bearer {{partner_token}},User {{user_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Статус успешности выполнения"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/loyalty.card.type.response"
+                      },
+                      "description": "Данные"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "total_count": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      },
+                      "additionalProperties": true,
+                      "description": "Метаданные"
+                    }
+                  },
+                  "title": "loyalty.card.type.byClientPhone.get.list.response",
+                  "required": [
+                    "success",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "id": 10992,
+                      "title": "Кэшбек",
+                      "salon_group_id": 145071,
+                      "salon_group": {
+                        "id": 145071,
+                        "title": "Сеть 1"
+                      }
+                    }
+                  },
+                  "2": {
+                    "summary": "Success",
+                    "value": {
+                      "id": 8230,
+                      "title": "Реферальная программа",
+                      "salon_group_id": 145071,
+                      "salon_group": {
+                        "id": 145071,
+                        "title": "Сеть 1"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "loyalty.transaction.create.request": {
+        "required": [
+          "amount"
+        ],
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "description": "Сумма списания/пополнения. Положительная для пополнения, отрицательная для списания.",
+            "examples": [
+              100.5
+            ],
+            "format": "float"
+          },
+          "title": {
+            "type": "string",
+            "description": "Примечание к транзакции."
+          }
+        }
+      },
+      "client.update.request": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Имя клиента"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Телефон клиента"
+          },
+          "surname": {
+            "type": "string"
+          },
+          "patronymic": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "sex_id": {
+            "type": "string"
+          },
+          "importance_id": {
+            "type": "string"
+          },
+          "discount": {
+            "type": "string"
+          },
+          "card": {
+            "type": "string"
+          },
+          "birth_date": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "spent": {
+            "type": "string"
+          },
+          "balance": {
+            "type": "string"
+          },
+          "sms_check": {
+            "type": "string"
+          },
+          "sms_not": {
+            "type": "string"
+          },
+          "labels": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          },
+          "custom_fields": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        "required": [
+          "name",
+          "phone"
+        ]
+      },
+      "loyalty.transaction.response": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Идентификатор транзакции",
+            "format": "int32"
+          },
+          "visit_id": {
+            "type": "integer",
+            "description": "Идентификатор визита",
+            "format": "int32"
+          },
+          "status_id": {
+            "type": "integer",
+            "description": "Идентификатор статуса транзакции",
+            "format": "int32"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Сумма оплаты лояльностью",
+            "format": "double"
+          },
+          "type_id": {
+            "type": "integer",
+            "description": "Тип транзакции лояльности",
+            "format": "int32"
+          },
+          "card_id": {
+            "type": "integer",
+            "description": "Идентификатор карты лояльности",
+            "format": "int32"
+          },
+          "program_id": {
+            "type": "integer",
+            "description": "Идентификатор программы лояльности",
+            "format": "int32"
+          },
+          "certificate_id": {
+            "type": "integer",
+            "description": "Идентификатор сертификата",
+            "format": "int32"
+          },
+          "abonement_id": {
+            "type": "integer",
+            "description": "Идентификатор абонемента",
+            "format": "int32"
+          },
+          "salon_group_id": {
+            "type": "integer",
+            "description": "ID сети салонов, в рамках лояльности которой была создана данная транзакция",
+            "format": "int32"
+          },
+          "item_id": {
+            "type": "integer",
+            "description": "Идентификатор позиции в заказе, если транзакция связана с продажей товара или услуги",
+            "format": "int32"
+          },
+          "item_type_id": {
+            "type": "integer",
+            "description": "Тип позиции в заказе, к которой относится данная транзакция (1 Оказание услуги, 7 Продажа товара), если применимо",
+            "format": "int32"
+          },
+          "item_record_id": {
+            "type": "integer",
+            "description": "ID записи к которой относится позиция в заказе, если применимо",
+            "format": "int32"
+          },
+          "goods_transaction_id": {
+            "type": "integer",
+            "description": "ID транзакции продажи товара",
+            "format": "int32"
+          },
+          "services_transaction_id": {
+            "type": "integer",
+            "description": "ID транзакции оказания услуг",
+            "format": "int32"
+          },
+          "is_discount": {
+            "type": "boolean"
+          },
+          "is_loyalty_withdraw": {
+            "type": "boolean"
+          },
+          "type": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": true
+      },
+      "loyalty.card.create.request": {
+        "type": "object",
+        "properties": {
+          "loyalty_card_number": {
+            "type": "integer",
+            "description": "Номер карты лояльности"
+          },
+          "loyalty_card_type_id": {
+            "type": "integer",
+            "description": "Идентификатор типа карты лояльности"
+          },
+          "phone": {
+            "type": "integer",
+            "description": "Номер телефона клиента в формате 70001234567"
+          }
+        },
+        "description": "Выдать карту лояльности",
+        "examples": [
+          {
+            "loyalty_card_number": 9090909,
+            "loyalty_card_type_id": "8230",
+            "phone": 79091552422
+          }
+        ]
+      },
+      "company.update.request": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Название компании"
+          },
+          "country_id": {
+            "type": "integer",
+            "description": "Идентификатор страны (приоритетнее параметра country)"
+          },
+          "country": {
+            "type": "string",
+            "description": "Страна"
+          },
+          "city_id": {
+            "type": "integer",
+            "description": "Идентификатор города (приоритетнее параметра city)"
+          },
+          "city": {
+            "type": "string",
+            "description": "Город"
+          },
+          "address": {
+            "type": "string",
+            "description": "Адрес компании"
+          },
+          "zip": {
+            "type": "string",
+            "description": "Индекс"
+          },
+          "phones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Телефоны"
+          },
+          "social": {
+            "type": "object",
+            "properties": {
+              "telegram": {
+                "type": "string",
+                "description": "Telegram"
+              },
+              "instagram": {
+                "type": "string",
+                "description": "Instagram"
+              },
+              "vk": {
+                "type": "string",
+                "description": "Вконтакте"
+              },
+              "facebook": {
+                "type": "string",
+                "description": "Facebook"
+              },
+              "viber": {
+                "type": "string",
+                "description": "Viber"
+              },
+              "whatsapp": {
+                "type": "string",
+                "description": "WhatsApp"
+              }
+            },
+            "description": "Социальные сети компании",
+            "additionalProperties": true
+          },
+          "site": {
+            "type": "string",
+            "description": "Сайт компании"
+          },
+          "coordinate_lat": {
+            "type": "string",
+            "description": "Широта"
+          },
+          "coordinate_lon": {
+            "type": "string",
+            "description": "Долгота"
+          },
+          "description": {
+            "type": "string",
+            "description": "Описание",
+            "format": "html"
+          },
+          "business_type_id": {
+            "type": "integer",
+            "description": "Сфера бизнеса"
+          },
+          "short_descr": {
+            "type": "string",
+            "description": "Категория бизнеса"
+          }
+        },
+        "description": "Изменить компанию",
+        "examples": [
+          {
+            "title": "Новая компания",
+            "country": "Россия",
+            "city": "Москва",
+            "address": "Большой Саввинский пер., д. 4",
+            "zip": "119435",
+            "phones": [
+              "79876543210",
+              "79876543211"
+            ],
+            "social": {
+              "vk": "vk.com/newcompany"
+            },
+            "site": "new-company.ru",
+            "coordinate_lat": 55.735662,
+            "coordinate_lon": 37.678218,
+            "description": "Самая <strong>Новая компания</strong> на рынке",
+            "business_type_id": 1,
+            "short_descr": "Салон красоты"
+          }
+        ],
+        "additionalProperties": true
+      },
+      "client.create.request": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Имя клиента"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Телефон клиента"
+          },
+          "surname": {
+            "type": "string"
+          },
+          "patronymic": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "sex_id": {
+            "type": "string"
+          },
+          "importance_id": {
+            "type": "string"
+          },
+          "discount": {
+            "type": "string"
+          },
+          "card": {
+            "type": "string"
+          },
+          "birth_date": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "spent": {
+            "type": "string"
+          },
+          "balance": {
+            "type": "string"
+          },
+          "sms_check": {
+            "type": "string"
+          },
+          "sms_not": {
+            "type": "string"
+          },
+          "labels": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          },
+          "custom_fields": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": true
+          }
+        },
+        "required": [
+          "name",
+          "phone"
+        ]
+      },
+      "loyalty.card.response": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Идентификатор карты лояльности",
+            "format": "int32"
+          },
+          "balance": {
+            "type": "number",
+            "description": "Баланс карты лояльности",
+            "format": "float"
+          },
+          "points": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paid_amount": {
+            "type": "number",
+            "description": "Сумма \"Оплачено\"",
+            "format": "float"
+          },
+          "sold_amount": {
+            "type": "number",
+            "description": "Сумма \"Продано\"",
+            "format": "float"
+          },
+          "visits_count": {
+            "type": "integer",
+            "description": "Количество визитов",
+            "format": "int32"
+          },
+          "number": {
+            "type": "string",
+            "description": "Номер карты"
+          },
+          "type_id": {
+            "type": "integer",
+            "description": "Идентификатор типа карты лояльности",
+            "format": "int32"
+          },
+          "salon_group_id": {
+            "type": "integer",
+            "description": "Идентификатор сети, где создана карта",
+            "format": "int32"
+          },
+          "type": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "title": {
+                "type": "string"
+              },
+              "salon_group_id": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "description": "Объект, содержащий в себе поля \"id\" и \"title\": идентификатор типа карты и название типа карты, соотвественно",
+            "additionalProperties": true
+          },
+          "salon_group": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "description": "Объект, содержащий в себе поля \"id\" и \"title\": идентификатор сети, где создан тип карты и название этой сети",
+            "additionalProperties": true
+          },
+          "programs": {
+            "type": "array",
+            "description": "Массив с информацией об акциях, привязанных к карте лояльности",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Идентификатор акции",
+                  "format": "int32"
+                },
+                "title": {
+                  "type": "string",
+                  "description": "Название акции"
+                },
+                "value": {
+                  "type": "integer",
+                  "description": "Значение, от которого сработает правило",
+                  "format": "int32"
+                },
+                "loyalty_type_id": {
+                  "type": "integer",
+                  "description": "Идентификатор типа акции",
+                  "format": "int32"
+                },
+                "item_type_id": {
+                  "type": "integer",
+                  "description": "Начисляется ли кэшбек от товаров",
+                  "format": "int32"
+                },
+                "value_unit_id": {
+                  "type": "integer",
+                  "description": "Поле \"Бонус\". Скидка % или Фикс. сумма",
+                  "format": "int32"
+                },
+                "group_id": {
+                  "type": "integer",
+                  "description": "Идентификатор сети, где создана акция",
+                  "format": "int32"
+                },
+                "loyalty_type": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Идентификатор типа акции",
+                      "format": "int32"
+                    },
+                    "title": {
+                      "type": "string",
+                      "description": "Название типа акции"
+                    },
+                    "is_discount": {
+                      "type": "boolean",
+                      "description": "Скидка"
+                    },
+                    "is_cashback": {
+                      "type": "boolean",
+                      "description": "Кэшбэк"
+                    },
+                    "is_static": {
+                      "type": "boolean",
+                      "description": "Фиксированная скидка"
+                    },
+                    "is_accumulative": {
+                      "type": "boolean",
+                      "description": "Накопительная скидка"
+                    }
+                  },
+                  "description": "Объект с информацией о акции",
+                  "additionalProperties": true
+                },
+                "rules": {
+                  "type": "array",
+                  "description": "Массив с информацией о правилах, настроенных в акции",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "Идентификатор правила",
+                        "format": "int32"
+                      },
+                      "loyalty_program_id": {
+                        "type": "integer",
+                        "description": "Идентификатор акции, к которой привязано правило",
+                        "format": "int32"
+                      },
+                      "loyalty_type_id": {
+                        "type": "integer",
+                        "description": "Идентификатор типа акции",
+                        "format": "int32"
+                      },
+                      "value": {
+                        "type": "integer",
+                        "description": "Значение от которого сработает правило",
+                        "format": "int32"
+                      },
+                      "parameter": {
+                        "type": "integer",
+                        "format": "int32"
+                      }
+                    },
+                    "additionalProperties": true
+                  }
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "description": "Получить список карт клиента",
+        "examples": [
+          {
+            "id": 9210520,
+            "balance": 100,
+            "points": 0,
+            "paid_amount": 1000,
+            "sold_amount": 1000,
+            "visits_count": 1,
+            "number": 14507109210520,
+            "type_id": 10992,
+            "salon_group_id": 145071,
+            "type": {
+              "id": 10992,
+              "title": "5+2",
+              "salon_group_id": 145071
+            },
+            "salon_group": {
+              "id": 145071,
+              "title": "Сеть тесто1."
+            },
+            "programs": [
+              {
+                "id": 18005,
+                "title": "5+2",
+                "value": 0,
+                "loyalty_type_id": 13,
+                "item_type_id": 3,
+                "value_unit_id": 1,
+                "group_id": 145071,
+                "loyalty_type": {
+                  "id": 13,
+                  "title": "Скидка по заданному количеству накопленных услуг",
+                  "is_discount": true,
+                  "is_cashback": false,
+                  "is_static": false,
+                  "is_accumulative": false
+                },
+                "rules": [
+                  {
+                    "id": 72803,
+                    "loyalty_program_id": 18005,
+                    "loyalty_type_id": 13,
+                    "value": 20,
+                    "parameter": 0
+                  },
+                  {
+                    "id": 72804,
+                    "loyalty_program_id": 18005,
+                    "loyalty_type_id": 13,
+                    "value": 10,
+                    "parameter": 0
+                  },
+                  {
+                    "id": 72805,
+                    "loyalty_program_id": 18005,
+                    "loyalty_type_id": 13,
+                    "value": 100,
+                    "parameter": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "company.create.request": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Название компании"
+          },
+          "country_id": {
+            "type": "integer",
+            "description": "Идентификатор страны, в которой расположена копания ([метод получения стран](#countries))"
+          },
+          "city_id": {
+            "type": "integer",
+            "description": "Идентификатор города, в котором расположена компания ([метод получения городов](#cities))"
+          },
+          "address": {
+            "type": "string",
+            "description": "Адрес компании"
+          },
+          "site": {
+            "type": "string",
+            "description": "Сайт компании"
+          },
+          "coordinate_lat": {
+            "type": "string",
+            "description": "Широта"
+          },
+          "coordinate_lot": {
+            "type": "string",
+            "description": "Долгота"
+          },
+          "business_type_id": {
+            "type": "integer",
+            "description": "Сфера бизнеса"
+          },
+          "short_descr": {
+            "type": "string",
+            "description": "Категория компании"
+          }
+        },
+        "description": "Создать компанию"
+      },
+      "loyalty.card.type.response": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Идентификатор типа карты",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "description": "Название типа карты"
+          },
+          "salon_group_id": {
+            "type": "integer",
+            "description": "Идентификатор сети, где создан тип карты",
+            "format": "int32"
+          },
+          "service_item_type": {
+            "type": "string"
+          },
+          "good_item_type": {
+            "type": "string"
+          },
+          "salon_group": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "Идентификатор сети, где создан тип карты",
+                "format": "int32"
+              },
+              "title": {
+                "type": "string",
+                "description": "Название сети, где создан тип карты"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "salon_group_id"
+        ],
+        "additionalProperties": true
+      },
+      "auth.response": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "ID клиента",
+            "format": "int32"
+          },
+          "user_token": {
+            "type": "string",
+            "description": "User_token пользователя"
+          },
+          "name": {
+            "type": "string",
+            "description": "Имя пользователя"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Телефон пользователя"
+          },
+          "login": {
+            "type": "string",
+            "description": "Логин пользователя"
+          },
+          "email": {
+            "type": "string",
+            "description": "Почтовый адрес пользователя"
+          },
+          "avatar": {
+            "type": "string",
+            "description": "Путь к файлу аватарки пользователя"
+          },
+          "is_approved": {
+            "type": "boolean",
+            "description": "Подтвержден ли пользователь в системе"
+          },
+          "is_email_confirmed": {
+            "type": "boolean",
+            "description": "Подтвержден ли email пользователя в системе"
+          }
+        },
+        "required": [
+          "id",
+          "user_token"
+        ],
+        "additionalProperties": true
+      },
+      "auth.user.request": {
+        "required": [
+          "login",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "description": "Номер телефона или Email"
+          },
+          "password": {
+            "type": "string",
+            "description": "Пароль"
+          }
+        },
+        "description": "Авторизация пользователя",
+        "examples": [
+          {
+            "login": "testuser@yclients.com",
+            "password": "testpass"
+          }
+        ]
+      },
+      "client.response": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "ID клиента",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "description": "Имя клиента"
+          },
+          "surname": {
+            "type": "string",
+            "description": "Фамилия клиента"
+          },
+          "patronymic": {
+            "type": "string",
+            "description": "Отчество клиента"
+          },
+          "display_name": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Телефон клиента"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email клиента"
+          },
+          "card": {
+            "type": "string",
+            "description": "Номер карты клиента"
+          },
+          "birth_date": {
+            "type": "string",
+            "description": "Дата рождения клиента в формате yyyy-mm-dd"
+          },
+          "comment": {
+            "type": "string",
+            "description": "Комментарий"
+          },
+          "discount": {
+            "type": "integer",
+            "description": "Скидка клиента"
+          },
+          "visits": {
+            "type": "integer"
+          },
+          "sex_id": {
+            "type": "integer",
+            "description": "Пол клиента (1 - мужской, 2 - женский, 0 - не известен)"
+          },
+          "sex": {
+            "type": "string"
+          },
+          "sms_check": {
+            "type": "integer",
+            "description": "1 - Поздравлять с Днем Рождения по SMS, 0 - не поздравлять"
+          },
+          "sms_bot": {
+            "type": "integer"
+          },
+          "sms_not": {
+            "type": "integer",
+            "description": "1 - Исключить клиента из SMS рассылок, 0 - не исключать"
+          },
+          "spent": {
+            "type": "integer",
+            "description": "Сколько потратил средств в компании на момент добавления"
+          },
+          "paid": {
+            "type": "integer"
+          },
+          "balance": {
+            "type": "number",
+            "description": "Баланс клиента",
+            "format": "float"
+          },
+          "importance_id": {
+            "type": "integer",
+            "description": "Класс важности клиента (0 - нет, 1 - бронза, 2 - серебро, 3 - золото)"
+          },
+          "importance": {
+            "type": "string"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "last_change_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "custom_fields": {
+            "type": "object",
+            "properties": {},
+            "description": "Массив дополнительных полей клиента в виде пар \"api-key\": \"value\"",
+            "additionalProperties": true
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "additionalProperties": true
+      },
+      "client.get.list.request": {
+        "title": "",
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "Номер страница"
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "Количество выводимых строк на странице. Максимум 200. (По умолчанию 25)"
+          },
+          "fields": {
+            "type": "array",
+            "description": "Поля, которые нужно вернуть в ответе",
+            "items": {
+              "type": "string"
+            }
+          },
+          "order_by": {
+            "type": "string",
+            "description": "По какому полю сортировать",
+            "enum": [
+              "id",
+              "name",
+              "phone",
+              "email",
+              "discount",
+              "first_visit_date",
+              "last_visit_date",
+              "sold_amount",
+              "visits_count"
+            ]
+          },
+          "order_by_direction": {
+            "type": "string",
+            "description": "Как сортировать (по возрастанию / по убыванию)",
+            "enum": [
+              "ASC",
+              "DESC"
+            ]
+          },
+          "operation": {
+            "type": "string",
+            "description": "Тип операции",
+            "enum": [
+              "AND",
+              "OR"
+            ]
+          },
+          "filters": {
+            "type": "array",
+            "description": "Фильтры для поиска по клиентам",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "type": [
+                          "string",
+                          "integer",
+                          "boolean",
+                          "array",
+                          "object",
+                          "number",
+                          "null"
+                        ]
+                      }
+                    }
+                  },
+                  "description": "Тип фильтра"
+                }
+              }
+            }
+          }
+        },
+        "description": "Получить список клиентов",
+        "examples": [
+          {
+            "page": 1,
+            "page_size": 3,
+            "fields": [
+              "id",
+              "name"
+            ],
+            "order_by": "name",
+            "order_by_direction": "desc",
+            "operation": "AND",
+            "filters": [
+              {
+                "type": "id",
+                "state": {
+                  "value": [
+                    1,
+                    2,
+                    3
+                  ]
+                }
+              },
+              {
+                "type": "sold_amount",
+                "state": {
+                  "from": 0,
+                  "to": 100.77
+                }
+              },
+              {
+                "type": "quick_search",
+                "state": {
+                  "value": "Иван"
+                }
+              },
+              {
+                "type": "importance",
+                "state": {
+                  "value": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ]
+                }
+              },
+              {
+                "type": "has_mobile_app",
+                "state": {
+                  "value": true
+                }
+              },
+              {
+                "type": "category",
+                "state": {
+                  "value": [
+                    1,
+                    7
+                  ]
+                }
+              },
+              {
+                "type": "has_passteam_card",
+                "state": {
+                  "value": true
+                }
+              },
+              {
+                "type": "passteam_card_ids",
+                "state": {
+                  "value": [
+                    "111122223333aaaabbbbcccc"
+                  ]
+                }
+              },
+              {
+                "type": "birthday",
+                "state": {
+                  "from": "2000-01-01",
+                  "to": "2000-01-01"
+                }
+              },
+              {
+                "type": "gender",
+                "state": {
+                  "value": [
+                    0,
+                    1,
+                    2
+                  ]
+                }
+              },
+              {
+                "type": "record",
+                "state": {
+                  "staff": {
+                    "value": [
+                      1,
+                      2
+                    ]
+                  },
+                  "service": {
+                    "value": [
+                      2,
+                      3
+                    ]
+                  },
+                  "service_category": {
+                    "value": [
+                      4,
+                      5
+                    ]
+                  },
+                  "status": {
+                    "value": [
+                      1
+                    ]
+                  },
+                  "created": {
+                    "from": "2020-01-01",
+                    "to": "2020-05-01"
+                  },
+                  "records_count": {
+                    "from": 1,
+                    "to": 99999
+                  },
+                  "sold_amount": {
+                    "from": 1.001,
+                    "to": 99999.09
+                  }
+                }
+              },
+              {
+                "type": "client",
+                "state": {
+                  "id": {
+                    "value": [
+                      1,
+                      2,
+                      3
+                    ]
+                  },
+                  "birthday": {
+                    "from": "2000-01-01",
+                    "to": "2000-03-01"
+                  }
+                }
+              },
+              {
+                "type": "sale",
+                "state": {
+                  "abonement_balance": {
+                    "from": 2,
+                    "to": 3
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "company.response": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Идентификатор компании",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "description": "Название компании"
+          },
+          "country_id": {
+            "type": "integer",
+            "description": "Идентификатор страны, в которой расположена компания",
+            "format": "int32"
+          },
+          "country": {
+            "type": "string",
+            "description": "Название страны, в которой расположена компания"
+          },
+          "city_id": {
+            "type": "integer",
+            "description": "Идентификатор города, в котором расположена компания",
+            "format": "int32"
+          },
+          "city": {
+            "type": "string",
+            "description": "Название города, в котором расположена компания"
+          },
+          "timezone_name": {
+            "type": "string",
+            "description": "Наименование временной зоны, в которой расположена компания"
+          },
+          "address": {
+            "type": "string",
+            "description": "Адрес, по которому расположена компания"
+          },
+          "zip": {
+            "type": "string",
+            "description": "Индекс"
+          },
+          "social": {
+            "type": "object",
+            "properties": {
+              "telegram": {
+                "type": "string",
+                "description": "Telegram"
+              },
+              "instagram": {
+                "type": "string",
+                "description": "Instagram"
+              },
+              "vk": {
+                "type": "string",
+                "description": "Вконтакте"
+              },
+              "facebook": {
+                "type": "string",
+                "description": "Facebook"
+              },
+              "viber": {
+                "type": "string",
+                "description": "Viber"
+              },
+              "whatsapp": {
+                "type": "string",
+                "description": "WhatsApp"
+              }
+            },
+            "description": "Социальные сети компании",
+            "additionalProperties": true
+          },
+          "site": {
+            "type": "string",
+            "description": "Сайт компании"
+          },
+          "coordinate_lat": {
+            "type": "number",
+            "description": "Широта",
+            "format": "float"
+          },
+          "coordinate_lon": {
+            "type": "number",
+            "description": "Долгота",
+            "format": "float"
+          },
+          "phone_confirmation": {
+            "type": "boolean",
+            "description": "Нужно ли подтверждать телефон по смс, при бронировании"
+          },
+          "active_staff_count": {
+            "type": "integer",
+            "description": "Количество сотрудников, доступных для бронирования. Поле будет присутствовать только если передан GET параметр forBooking=1"
+          },
+          "next_slot": {
+            "type": "string",
+            "description": "Дата и время ближайшего свободного сеанса в компании (ISO8601). Поле будет присутствовать только если передан GET параметр forBooking=1",
+            "format": "date-time"
+          },
+          "group_priority": {
+            "type": "integer",
+            "description": "Чем больше приоритет, тем выше компания при выводе в списке филиалов сети",
+            "format": "int32"
+          },
+          "push_notification_phone_confirm": {
+            "type": "integer",
+            "description": "Подтверждать номер клиента для отправки push уведомлений",
+            "format": "int32"
+          },
+          "main_group_id": {
+            "type": "integer",
+            "description": "Идентификатор основной сети компании",
+            "format": "int32"
+          },
+          "main_group": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "ID",
+                "format": "int32"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "description": "Основная сеть компании",
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true
+          },
+          "groups": {
+            "type": "object",
+            "properties": {
+              "ID-1": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "Идентификатор сети _ID-1_",
+                    "format": "int32"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Наименование сети _ID-1_"
+                  }
+                },
+                "additionalProperties": true
+              },
+              "ID-2": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "Идентификатор сети _ID-2_",
+                    "format": "int32"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Наименование сети _ID-2_"
+                  }
+                },
+                "additionalProperties": true
+              }
+            },
+            "description": "Сети в которые входит компания. Поле будет присутствовать только если передан GET параметр show_groups=1",
+            "additionalProperties": true
+          },
+          "bookforms": {
+            "type": "array",
+            "description": "Виджеты онлайн-записи компании",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Идентификатор виджета",
+                  "format": "int32"
+                },
+                "title": {
+                  "type": "string",
+                  "description": "Наименование виджета"
+                },
+                "is_default": {
+                  "type": "integer",
+                  "description": "Признак виджета по-умолчанию",
+                  "format": "int32"
+                },
+                "url": {
+                  "type": "string",
+                  "description": "Ссылка на виджет"
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "online_sales_form_url": {
+            "type": "string",
+            "description": "Адрес виджета онлайн-записи. Поле будет присутствовать только если передан GET параметр bookform_id"
+          },
+          "access": {
+            "type": "object",
+            "properties": {},
+            "description": "Список прав. Поле будет присутствовать только если передан GET параметр my=1",
+            "additionalProperties": true
+          }
+        },
+        "description": "Объект с данными",
+        "additionalProperties": true
+      },
+      "base.response": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Статус успешности выполнения"
+          },
+          "data": {
+            "type": [
+              "string",
+              "integer",
+              "boolean",
+              "array",
+              "object",
+              "number",
+              "null"
+            ],
+            "description": "Данные"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "total_count": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "additionalProperties": true,
+            "description": "Метаданные"
+          }
+        },
+        "required": [
+          "success",
+          "data"
+        ]
+      }
+    },
+    "securitySchemes": {}
+  },
+  "servers": [
+    {
+      "url": "https://api.yclients.com/api/v1",
+      "description": "https://api.yclients.com/api/v1"
+    }
+  ]
+}
