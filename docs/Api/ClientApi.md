@@ -202,7 +202,7 @@ No authorization required
 ## `clientRemove()`
 
 ```php
-clientRemove($company_id, $id, $accept, $content_type, $authorization): \Vgrish\YclientsOpenApi\Model\ClientRemoveResponse
+clientRemove($company_id, $id, $accept, $content_type, $authorization): string
 ```
 
 Удалить клиента
@@ -246,7 +246,7 @@ try {
 
 ### Return type
 
-[**\Vgrish\YclientsOpenApi\Model\ClientRemoveResponse**](../Model/ClientRemoveResponse.md)
+**string**
 
 ### Authorization
 

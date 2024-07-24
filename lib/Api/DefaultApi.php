@@ -89,22 +89,46 @@ class DefaultApi
         'clientUpdate' => [
             'application/json',
         ],
-        'financeTransactionByVisitOrRecordGet' => [
+        'companyCreate' => [
             'application/json',
         ],
-        'financeTransactionCreate' => [
+        'companyGet' => [
             'application/json',
         ],
-        'financeTransactionGet' => [
+        'companyGetList' => [
             'application/json',
         ],
-        'financeTransactionGetList' => [
+        'companyRemove' => [
             'application/json',
         ],
-        'financeTransactionRemove' => [
+        'companyUpdate' => [
             'application/json',
         ],
-        'financeTransactionUpdate' => [
+        'loyaltyCardByClientIdGetList' => [
+            'application/json',
+        ],
+        'loyaltyCardByClientPhoneGetList' => [
+            'application/json',
+        ],
+        'loyaltyCardCreate' => [
+            'application/json',
+        ],
+        'loyaltyCardRemove' => [
+            'application/json',
+        ],
+        'loyaltyCardTransactionCreate' => [
+            'application/json',
+        ],
+        'loyaltyCardTypeByChainIdGetList' => [
+            'application/json',
+        ],
+        'loyaltyCardTypeByClientPhoneGetList' => [
+            'application/json',
+        ],
+        'loyaltyCardTypeByCompanyIdGetList' => [
+            'application/json',
+        ],
+        'loyaltyTransactionGetList' => [
             'application/json',
         ],
     ];
@@ -163,16 +187,16 @@ class DefaultApi
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\AuthRequest $auth_request auth_request (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\AuthUserRequest $auth_user_request auth_user_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authUser'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Vgrish\YclientsOpenApi\Model\AuthUserResponse
      */
-    public function authUser($accept, $content_type, $authorization, $auth_request = null, string $contentType = self::contentTypes['authUser'][0]) : \Vgrish\YclientsOpenApi\Model\AuthUserResponse
+    public function authUser($accept, $content_type, $authorization, $auth_user_request = null, string $contentType = self::contentTypes['authUser'][0]) : \Vgrish\YclientsOpenApi\Model\AuthUserResponse
     {
-        list($response) = $this->authUserWithHttpInfo($accept, $content_type, $authorization, $auth_request, $contentType);
+        list($response) = $this->authUserWithHttpInfo($accept, $content_type, $authorization, $auth_user_request, $contentType);
         return $response;
     }
 
@@ -184,16 +208,16 @@ class DefaultApi
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\AuthRequest $auth_request (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\AuthUserRequest $auth_user_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authUser'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Vgrish\YclientsOpenApi\Model\AuthUserResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function authUserWithHttpInfo($accept, $content_type, $authorization, $auth_request = null, string $contentType = self::contentTypes['authUser'][0]) : array
+    public function authUserWithHttpInfo($accept, $content_type, $authorization, $auth_user_request = null, string $contentType = self::contentTypes['authUser'][0]) : array
     {
-        $request = $this->authUserRequest($accept, $content_type, $authorization, $auth_request, $contentType);
+        $request = $this->authUserRequest($accept, $content_type, $authorization, $auth_user_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -311,15 +335,15 @@ class DefaultApi
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\AuthRequest $auth_request (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\AuthUserRequest $auth_user_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authUser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function authUserAsync($accept, $content_type, $authorization, $auth_request = null, string $contentType = self::contentTypes['authUser'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function authUserAsync($accept, $content_type, $authorization, $auth_user_request = null, string $contentType = self::contentTypes['authUser'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->authUserAsyncWithHttpInfo($accept, $content_type, $authorization, $auth_request, $contentType)
+        return $this->authUserAsyncWithHttpInfo($accept, $content_type, $authorization, $auth_user_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -335,16 +359,16 @@ class DefaultApi
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\AuthRequest $auth_request (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\AuthUserRequest $auth_user_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authUser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function authUserAsyncWithHttpInfo($accept, $content_type, $authorization, $auth_request = null, string $contentType = self::contentTypes['authUser'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function authUserAsyncWithHttpInfo($accept, $content_type, $authorization, $auth_user_request = null, string $contentType = self::contentTypes['authUser'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Vgrish\YclientsOpenApi\Model\AuthUserResponse';
-        $request = $this->authUserRequest($accept, $content_type, $authorization, $auth_request, $contentType);
+        $request = $this->authUserRequest($accept, $content_type, $authorization, $auth_user_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -388,13 +412,13 @@ class DefaultApi
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\AuthRequest $auth_request (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\AuthUserRequest $auth_user_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authUser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function authUserRequest($accept, $content_type, $authorization, $auth_request = null, string $contentType = self::contentTypes['authUser'][0]) : \GuzzleHttp\Psr7\Request
+    public function authUserRequest($accept, $content_type, $authorization, $auth_user_request = null, string $contentType = self::contentTypes['authUser'][0]) : \GuzzleHttp\Psr7\Request
     {
 
         // verify the required parameter 'accept' is set
@@ -450,12 +474,12 @@ class DefaultApi
         );
 
         // for model (json/xml)
-        if (isset($auth_request)) {
+        if (isset($auth_user_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($auth_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($auth_user_request));
             } else {
-                $httpBody = $auth_request;
+                $httpBody = $auth_user_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1628,9 +1652,9 @@ class DefaultApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\ClientRemoveResponse
+     * @return string
      */
-    public function clientRemove($company_id, $id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['clientRemove'][0]) : \Vgrish\YclientsOpenApi\Model\ClientRemoveResponse
+    public function clientRemove($company_id, $id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['clientRemove'][0]) : string
     {
         list($response) = $this->clientRemoveWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, $contentType);
         return $response;
@@ -1650,7 +1674,7 @@ class DefaultApi
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\ClientRemoveResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
     public function clientRemoveWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['clientRemove'][0]) : array
     {
@@ -1693,11 +1717,11 @@ class DefaultApi
 
             switch($statusCode) {
                 case 204:
-                    if ('\Vgrish\YclientsOpenApi\Model\ClientRemoveResponse' === '\SplFileObject') {
+                    if ('string' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Vgrish\YclientsOpenApi\Model\ClientRemoveResponse' !== 'string') {
+                        if ('string' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1715,13 +1739,13 @@ class DefaultApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\ClientRemoveResponse', []),
+                        ObjectSerializer::deserialize($content, 'string', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Vgrish\YclientsOpenApi\Model\ClientRemoveResponse';
+            $returnType = 'string';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1754,7 +1778,7 @@ class DefaultApi
                 case 204:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\ClientRemoveResponse',
+                        'string',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1806,7 +1830,7 @@ class DefaultApi
      */
     public function clientRemoveAsyncWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['clientRemove'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\ClientRemoveResponse';
+        $returnType = 'string';
         $request = $this->clientRemoveRequest($company_id, $id, $accept, $content_type, $authorization, $contentType);
 
         return $this->client
@@ -2378,48 +2402,44 @@ class DefaultApi
     }
 
     /**
-     * Operation financeTransactionByVisitOrRecordGet
+     * Operation companyCreate
      *
-     * Получение транзакций по ID визита или записи
+     * Создать компанию
      *
-     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  int $record_id ID записи (optional)
-     * @param  int $visit_id ID визита (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionByVisitOrRecordGet'] to see the possible values for this operation
+     * @param  \Vgrish\YclientsOpenApi\Model\CompanyCreateRequest $company_create_request company_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyCreate'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse
+     * @return \Vgrish\YclientsOpenApi\Model\CompanyCreateResponse
      */
-    public function financeTransactionByVisitOrRecordGet($company_id, $accept, $content_type, $authorization, $record_id = null, $visit_id = null, string $contentType = self::contentTypes['financeTransactionByVisitOrRecordGet'][0]) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse
+    public function companyCreate($accept, $content_type, $authorization, $company_create_request = null, string $contentType = self::contentTypes['companyCreate'][0]) : \Vgrish\YclientsOpenApi\Model\CompanyCreateResponse
     {
-        list($response) = $this->financeTransactionByVisitOrRecordGetWithHttpInfo($company_id, $accept, $content_type, $authorization, $record_id, $visit_id, $contentType);
+        list($response) = $this->companyCreateWithHttpInfo($accept, $content_type, $authorization, $company_create_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation financeTransactionByVisitOrRecordGetWithHttpInfo
+     * Operation companyCreateWithHttpInfo
      *
-     * Получение транзакций по ID визита или записи
+     * Создать компанию
      *
-     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  int $record_id ID записи (optional)
-     * @param  int $visit_id ID визита (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionByVisitOrRecordGet'] to see the possible values for this operation
+     * @param  \Vgrish\YclientsOpenApi\Model\CompanyCreateRequest $company_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyCreate'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Vgrish\YclientsOpenApi\Model\CompanyCreateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function financeTransactionByVisitOrRecordGetWithHttpInfo($company_id, $accept, $content_type, $authorization, $record_id = null, $visit_id = null, string $contentType = self::contentTypes['financeTransactionByVisitOrRecordGet'][0]) : array
+    public function companyCreateWithHttpInfo($accept, $content_type, $authorization, $company_create_request = null, string $contentType = self::contentTypes['companyCreate'][0]) : array
     {
-        $request = $this->financeTransactionByVisitOrRecordGetRequest($company_id, $accept, $content_type, $authorization, $record_id, $visit_id, $contentType);
+        $request = $this->companyCreateRequest($accept, $content_type, $authorization, $company_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2457,12 +2477,12 @@ class DefaultApi
             }
 
             switch($statusCode) {
-                case 200:
-                    if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse' === '\SplFileObject') {
+                case 201:
+                    if ('\Vgrish\YclientsOpenApi\Model\CompanyCreateResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse' !== 'string') {
+                        if ('\Vgrish\YclientsOpenApi\Model\CompanyCreateResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2480,13 +2500,13 @@ class DefaultApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse', []),
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\CompanyCreateResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse';
+            $returnType = '\Vgrish\YclientsOpenApi\Model\CompanyCreateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2516,10 +2536,10 @@ class DefaultApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
+                case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse',
+                        '\Vgrish\YclientsOpenApi\Model\CompanyCreateResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2530,24 +2550,22 @@ class DefaultApi
     }
 
     /**
-     * Operation financeTransactionByVisitOrRecordGetAsync
+     * Operation companyCreateAsync
      *
-     * Получение транзакций по ID визита или записи
+     * Создать компанию
      *
-     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  int $record_id ID записи (optional)
-     * @param  int $visit_id ID визита (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionByVisitOrRecordGet'] to see the possible values for this operation
+     * @param  \Vgrish\YclientsOpenApi\Model\CompanyCreateRequest $company_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function financeTransactionByVisitOrRecordGetAsync($company_id, $accept, $content_type, $authorization, $record_id = null, $visit_id = null, string $contentType = self::contentTypes['financeTransactionByVisitOrRecordGet'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyCreateAsync($accept, $content_type, $authorization, $company_create_request = null, string $contentType = self::contentTypes['companyCreate'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->financeTransactionByVisitOrRecordGetAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $record_id, $visit_id, $contentType)
+        return $this->companyCreateAsyncWithHttpInfo($accept, $content_type, $authorization, $company_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2556,25 +2574,23 @@ class DefaultApi
     }
 
     /**
-     * Operation financeTransactionByVisitOrRecordGetAsyncWithHttpInfo
+     * Operation companyCreateAsyncWithHttpInfo
      *
-     * Получение транзакций по ID визита или записи
+     * Создать компанию
      *
-     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  int $record_id ID записи (optional)
-     * @param  int $visit_id ID визита (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionByVisitOrRecordGet'] to see the possible values for this operation
+     * @param  \Vgrish\YclientsOpenApi\Model\CompanyCreateRequest $company_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function financeTransactionByVisitOrRecordGetAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $record_id = null, $visit_id = null, string $contentType = self::contentTypes['financeTransactionByVisitOrRecordGet'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyCreateAsyncWithHttpInfo($accept, $content_type, $authorization, $company_create_request = null, string $contentType = self::contentTypes['companyCreate'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse';
-        $request = $this->financeTransactionByVisitOrRecordGetRequest($company_id, $accept, $content_type, $authorization, $record_id, $visit_id, $contentType);
+        $returnType = '\Vgrish\YclientsOpenApi\Model\CompanyCreateResponse';
+        $request = $this->companyCreateRequest($accept, $content_type, $authorization, $company_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2613,433 +2629,44 @@ class DefaultApi
     }
 
     /**
-     * Create request for operation 'financeTransactionByVisitOrRecordGet'
+     * Create request for operation 'companyCreate'
      *
-     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  int $record_id ID записи (optional)
-     * @param  int $visit_id ID визита (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionByVisitOrRecordGet'] to see the possible values for this operation
+     * @param  \Vgrish\YclientsOpenApi\Model\CompanyCreateRequest $company_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function financeTransactionByVisitOrRecordGetRequest($company_id, $accept, $content_type, $authorization, $record_id = null, $visit_id = null, string $contentType = self::contentTypes['financeTransactionByVisitOrRecordGet'][0]) : \GuzzleHttp\Psr7\Request
+    public function companyCreateRequest($accept, $content_type, $authorization, $company_create_request = null, string $contentType = self::contentTypes['companyCreate'][0]) : \GuzzleHttp\Psr7\Request
     {
-
-        // verify the required parameter 'company_id' is set
-        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling financeTransactionByVisitOrRecordGet'
-            );
-        }
 
         // verify the required parameter 'accept' is set
         if ($accept === null || (is_array($accept) && count($accept) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $accept when calling financeTransactionByVisitOrRecordGet'
+                'Missing the required parameter $accept when calling companyCreate'
             );
         }
 
         // verify the required parameter 'content_type' is set
         if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $content_type when calling financeTransactionByVisitOrRecordGet'
+                'Missing the required parameter $content_type when calling companyCreate'
             );
         }
 
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling financeTransactionByVisitOrRecordGet'
+                'Missing the required parameter $authorization when calling companyCreate'
             );
         }
 
 
 
-
-        $resourcePath = '/timetable/transactions/{company_id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $record_id,
-            'record_id', // param base name
-            '', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $visit_id,
-            'visit_id', // param base name
-            '', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-        // header params
-        if ($accept !== null) {
-            $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
-        }
-        // header params
-        if ($content_type !== null) {
-            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
-        }
-        // header params
-        if ($authorization !== null) {
-            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
-        }
-
-        // path params
-        if ($company_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'company_id' . '}',
-                ObjectSerializer::toPathValue($company_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/vnd.yclients.v2+json'],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation financeTransactionCreate
-     *
-     * Создание финансовой транзакции
-     *
-     * @param  int $company_id ID компании (required)
-     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
-     * @param  string $content_type application/json (required)
-     * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request finance_transaction_create_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionCreate'] to see the possible values for this operation
-     *
-     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse
-     */
-    public function financeTransactionCreate($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null, string $contentType = self::contentTypes['financeTransactionCreate'][0]) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse
-    {
-        list($response) = $this->financeTransactionCreateWithHttpInfo($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation financeTransactionCreateWithHttpInfo
-     *
-     * Создание финансовой транзакции
-     *
-     * @param  int $company_id ID компании (required)
-     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
-     * @param  string $content_type application/json (required)
-     * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionCreate'] to see the possible values for this operation
-     *
-     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function financeTransactionCreateWithHttpInfo($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null, string $contentType = self::contentTypes['financeTransactionCreate'][0]) : array
-    {
-        $request = $this->financeTransactionCreateRequest($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation financeTransactionCreateAsync
-     *
-     * Создание финансовой транзакции
-     *
-     * @param  int $company_id ID компании (required)
-     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
-     * @param  string $content_type application/json (required)
-     * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionCreate'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function financeTransactionCreateAsync($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null, string $contentType = self::contentTypes['financeTransactionCreate'][0]) : \GuzzleHttp\Promise\PromiseInterface
-    {
-        return $this->financeTransactionCreateAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation financeTransactionCreateAsyncWithHttpInfo
-     *
-     * Создание финансовой транзакции
-     *
-     * @param  int $company_id ID компании (required)
-     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
-     * @param  string $content_type application/json (required)
-     * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionCreate'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function financeTransactionCreateAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null, string $contentType = self::contentTypes['financeTransactionCreate'][0]) : \GuzzleHttp\Promise\PromiseInterface
-    {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse';
-        $request = $this->financeTransactionCreateRequest($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'financeTransactionCreate'
-     *
-     * @param  int $company_id ID компании (required)
-     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
-     * @param  string $content_type application/json (required)
-     * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionCreate'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function financeTransactionCreateRequest($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null, string $contentType = self::contentTypes['financeTransactionCreate'][0]) : \GuzzleHttp\Psr7\Request
-    {
-
-        // verify the required parameter 'company_id' is set
-        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling financeTransactionCreate'
-            );
-        }
-
-        // verify the required parameter 'accept' is set
-        if ($accept === null || (is_array($accept) && count($accept) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $accept when calling financeTransactionCreate'
-            );
-        }
-
-        // verify the required parameter 'content_type' is set
-        if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $content_type when calling financeTransactionCreate'
-            );
-        }
-
-        // verify the required parameter 'authorization' is set
-        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling financeTransactionCreate'
-            );
-        }
-
-
-
-        $resourcePath = '/finance_transactions/{company_id}';
+        $resourcePath = '/companies';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3060,14 +2687,6 @@ class DefaultApi
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
-        // path params
-        if ($company_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'company_id' . '}',
-                ObjectSerializer::toPathValue($company_id),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3077,12 +2696,12 @@ class DefaultApi
         );
 
         // for model (json/xml)
-        if (isset($finance_transaction_create_request)) {
+        if (isset($company_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($finance_transaction_create_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($company_create_request));
             } else {
-                $httpBody = $finance_transaction_create_request;
+                $httpBody = $company_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -3131,46 +2750,54 @@ class DefaultApi
     }
 
     /**
-     * Operation financeTransactionGet
+     * Operation companyGet
      *
-     * Получение финансовой транзакции
+     * Получить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $transaction_id ID транзакции (required)
+     * @param  float $id Идентификатор компании, информацию о которой нужно получить. (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionGet'] to see the possible values for this operation
+     * @param  float $my Только для авторизованного пользователя. Если нужны дополнительные данные по компании, на управление которой пользователь имеет права (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601). (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $show_bookforms Показать виджеты онлайн-записи компании (optional)
+     * @param  float $bookform_id Показать адрес виджета онлайн-записи с указанным идентификатором (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGet'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse
+     * @return \Vgrish\YclientsOpenApi\Model\CompanyGetResponse
      */
-    public function financeTransactionGet($company_id, $transaction_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['financeTransactionGet'][0]) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse
+    public function companyGet($id, $accept, $content_type, $authorization, $my = null, $for_booking = null, $show_groups = null, $show_bookforms = null, $bookform_id = null, string $contentType = self::contentTypes['companyGet'][0]) : \Vgrish\YclientsOpenApi\Model\CompanyGetResponse
     {
-        list($response) = $this->financeTransactionGetWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $contentType);
+        list($response) = $this->companyGetWithHttpInfo($id, $accept, $content_type, $authorization, $my, $for_booking, $show_groups, $show_bookforms, $bookform_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation financeTransactionGetWithHttpInfo
+     * Operation companyGetWithHttpInfo
      *
-     * Получение финансовой транзакции
+     * Получить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $transaction_id ID транзакции (required)
+     * @param  float $id Идентификатор компании, информацию о которой нужно получить. (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionGet'] to see the possible values for this operation
+     * @param  float $my Только для авторизованного пользователя. Если нужны дополнительные данные по компании, на управление которой пользователь имеет права (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601). (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $show_bookforms Показать виджеты онлайн-записи компании (optional)
+     * @param  float $bookform_id Показать адрес виджета онлайн-записи с указанным идентификатором (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGet'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Vgrish\YclientsOpenApi\Model\CompanyGetResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function financeTransactionGetWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['financeTransactionGet'][0]) : array
+    public function companyGetWithHttpInfo($id, $accept, $content_type, $authorization, $my = null, $for_booking = null, $show_groups = null, $show_bookforms = null, $bookform_id = null, string $contentType = self::contentTypes['companyGet'][0]) : array
     {
-        $request = $this->financeTransactionGetRequest($company_id, $transaction_id, $accept, $content_type, $authorization, $contentType);
+        $request = $this->companyGetRequest($id, $accept, $content_type, $authorization, $my, $for_booking, $show_groups, $show_bookforms, $bookform_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3209,11 +2836,11 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse' === '\SplFileObject') {
+                    if ('\Vgrish\YclientsOpenApi\Model\CompanyGetResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse' !== 'string') {
+                        if ('\Vgrish\YclientsOpenApi\Model\CompanyGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3231,13 +2858,13 @@ class DefaultApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse', []),
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\CompanyGetResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse';
+            $returnType = '\Vgrish\YclientsOpenApi\Model\CompanyGetResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3270,7 +2897,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse',
+                        '\Vgrish\YclientsOpenApi\Model\CompanyGetResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3281,23 +2908,27 @@ class DefaultApi
     }
 
     /**
-     * Operation financeTransactionGetAsync
+     * Operation companyGetAsync
      *
-     * Получение финансовой транзакции
+     * Получить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $transaction_id ID транзакции (required)
+     * @param  float $id Идентификатор компании, информацию о которой нужно получить. (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionGet'] to see the possible values for this operation
+     * @param  float $my Только для авторизованного пользователя. Если нужны дополнительные данные по компании, на управление которой пользователь имеет права (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601). (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $show_bookforms Показать виджеты онлайн-записи компании (optional)
+     * @param  float $bookform_id Показать адрес виджета онлайн-записи с указанным идентификатором (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function financeTransactionGetAsync($company_id, $transaction_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['financeTransactionGet'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyGetAsync($id, $accept, $content_type, $authorization, $my = null, $for_booking = null, $show_groups = null, $show_bookforms = null, $bookform_id = null, string $contentType = self::contentTypes['companyGet'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->financeTransactionGetAsyncWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $contentType)
+        return $this->companyGetAsyncWithHttpInfo($id, $accept, $content_type, $authorization, $my, $for_booking, $show_groups, $show_bookforms, $bookform_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3306,24 +2937,28 @@ class DefaultApi
     }
 
     /**
-     * Operation financeTransactionGetAsyncWithHttpInfo
+     * Operation companyGetAsyncWithHttpInfo
      *
-     * Получение финансовой транзакции
+     * Получить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $transaction_id ID транзакции (required)
+     * @param  float $id Идентификатор компании, информацию о которой нужно получить. (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionGet'] to see the possible values for this operation
+     * @param  float $my Только для авторизованного пользователя. Если нужны дополнительные данные по компании, на управление которой пользователь имеет права (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601). (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $show_bookforms Показать виджеты онлайн-записи компании (optional)
+     * @param  float $bookform_id Показать адрес виджета онлайн-записи с указанным идентификатором (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function financeTransactionGetAsyncWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['financeTransactionGet'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyGetAsyncWithHttpInfo($id, $accept, $content_type, $authorization, $my = null, $for_booking = null, $show_groups = null, $show_bookforms = null, $bookform_id = null, string $contentType = self::contentTypes['companyGet'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse';
-        $request = $this->financeTransactionGetRequest($company_id, $transaction_id, $accept, $content_type, $authorization, $contentType);
+        $returnType = '\Vgrish\YclientsOpenApi\Model\CompanyGetResponse';
+        $request = $this->companyGetRequest($id, $accept, $content_type, $authorization, $my, $for_booking, $show_groups, $show_bookforms, $bookform_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3362,64 +2997,111 @@ class DefaultApi
     }
 
     /**
-     * Create request for operation 'financeTransactionGet'
+     * Create request for operation 'companyGet'
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $transaction_id ID транзакции (required)
+     * @param  float $id Идентификатор компании, информацию о которой нужно получить. (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionGet'] to see the possible values for this operation
+     * @param  float $my Только для авторизованного пользователя. Если нужны дополнительные данные по компании, на управление которой пользователь имеет права (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601). (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $show_bookforms Показать виджеты онлайн-записи компании (optional)
+     * @param  float $bookform_id Показать адрес виджета онлайн-записи с указанным идентификатором (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function financeTransactionGetRequest($company_id, $transaction_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['financeTransactionGet'][0]) : \GuzzleHttp\Psr7\Request
+    public function companyGetRequest($id, $accept, $content_type, $authorization, $my = null, $for_booking = null, $show_groups = null, $show_bookforms = null, $bookform_id = null, string $contentType = self::contentTypes['companyGet'][0]) : \GuzzleHttp\Psr7\Request
     {
 
-        // verify the required parameter 'company_id' is set
-        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling financeTransactionGet'
-            );
-        }
-
-        // verify the required parameter 'transaction_id' is set
-        if ($transaction_id === null || (is_array($transaction_id) && count($transaction_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $transaction_id when calling financeTransactionGet'
+                'Missing the required parameter $id when calling companyGet'
             );
         }
 
         // verify the required parameter 'accept' is set
         if ($accept === null || (is_array($accept) && count($accept) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $accept when calling financeTransactionGet'
+                'Missing the required parameter $accept when calling companyGet'
             );
         }
 
         // verify the required parameter 'content_type' is set
         if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $content_type when calling financeTransactionGet'
+                'Missing the required parameter $content_type when calling companyGet'
             );
         }
 
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling financeTransactionGet'
+                'Missing the required parameter $authorization when calling companyGet'
             );
         }
 
 
-        $resourcePath = '/finance_transactions/{company_id}/{transaction_id}';
+
+
+
+
+
+        $resourcePath = '/company/{id}/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $my,
+            'my', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $for_booking,
+            'forBooking', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_groups,
+            'show_groups', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_bookforms,
+            'showBookforms', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $bookform_id,
+            'bookform_id', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
         // header params
         if ($accept !== null) {
@@ -3435,18 +3117,10 @@ class DefaultApi
         }
 
         // path params
-        if ($company_id !== null) {
+        if ($id !== null) {
             $resourcePath = str_replace(
-                '{' . 'company_id' . '}',
-                ObjectSerializer::toPathValue($company_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($transaction_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'transaction_id' . '}',
-                ObjectSerializer::toPathValue($transaction_id),
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
                 $resourcePath
             );
         }
@@ -3506,72 +3180,84 @@ class DefaultApi
     }
 
     /**
-     * Operation financeTransactionGetList
+     * Operation companyGetList
      *
-     * Получить транзакции
+     * Получить список компаний
      *
-     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  int $page Номер страницы (optional)
-     * @param  int $count Количество клиентов на странице (optional)
-     * @param  int $account_id ID кассы (optional)
-     * @param  int $supplier_id ID контрагента (optional)
-     * @param  int $client_id ID клиента (optional)
-     * @param  int $user_id ID пользователя (optional)
-     * @param  int $master_id ID сотрудника (optional)
-     * @param  int $type тип транзакции (optional)
-     * @param  int $real_money транзакция реальными деньгами (optional)
-     * @param  int $deleted была ли удалена транзакция (optional)
-     * @param  string $start_date дата начала периода (optional)
-     * @param  string $end_date дата окончания периода (optional)
-     * @param  int $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
-     * @param  int $document_id идентификатор документа (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionGetList'] to see the possible values for this operation
+     * @param  float $id ID компании. Фильтр по идентификатору компании (optional)
+     * @param  float $group_id ID сети компаний. Фильтр по идентификатору сети компаний _Default: 83_ (optional)
+     * @param  float $my Только для авторизованного пользователя. Если нужно компании, на управление которыми пользователь имеет права (optional)
+     * @param  float $active Если нужно получить только компании с активной лицензией и доступным бронированием (optional)
+     * @param  float $moderated Если нужно получить только прошедшие модерацию компании, чей контент проверен для публикации (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601) (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $city_id Поиск по ID города ([метод получения городов](#cities)) (optional)
+     * @param  float $show_bookforms Включить в объект компании виджеты онлайн-записи (optional)
+     * @param  float $vk_api_id Поиск виджеты онлайн-записи по vk_api_id. Параметр работает при showBookforms&#x3D;1 (optional)
+     * @param  float $min_id Минимальный ID компании (optional)
+     * @param  float $show_deleted Включить в список удалённые компании (optional)
+     * @param  float $hide_record_type_single Не показывать салоны с индивидуальной записью (optional)
+     * @param  float $hide_record_type_activity Не показывать салоны с групповой записью (optional)
+     * @param  float $hide_record_type_mixed Не показывать салоны со смешанной записью (optional)
+     * @param  float $business_group_id Идентификатор группы бизнеса. Фильтр по группе бизнеса (optional)
+     * @param  float $business_type_id Идентификатор сферы бизнеса. Фильтр по сфере бизнеса (optional)
+     * @param  float $yandex Фильтр по синхронизации данных компании с партнерскими площадкам (optional)
+     * @param  string[] $include Включить в объект компании дополнительные данные (optional)
+     * @param  float $count Количество компаний на странице (optional)
+     * @param  float $page Номер страницы (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGetList'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse
+     * @return \Vgrish\YclientsOpenApi\Model\CompanyGetListResponse
      */
-    public function financeTransactionGetList($company_id, $accept, $content_type, $authorization, $page = null, $count = null, $account_id = null, $supplier_id = null, $client_id = null, $user_id = null, $master_id = null, $type = null, $real_money = null, $deleted = null, $start_date = null, $end_date = null, $balance_is = null, $document_id = null, string $contentType = self::contentTypes['financeTransactionGetList'][0]) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse
+    public function companyGetList($accept, $content_type, $authorization, $id = null, $group_id = null, $my = null, $active = null, $moderated = null, $for_booking = null, $show_groups = null, $city_id = null, $show_bookforms = null, $vk_api_id = null, $min_id = null, $show_deleted = null, $hide_record_type_single = null, $hide_record_type_activity = null, $hide_record_type_mixed = null, $business_group_id = null, $business_type_id = null, $yandex = null, $include = null, $count = null, $page = null, string $contentType = self::contentTypes['companyGetList'][0]) : \Vgrish\YclientsOpenApi\Model\CompanyGetListResponse
     {
-        list($response) = $this->financeTransactionGetListWithHttpInfo($company_id, $accept, $content_type, $authorization, $page, $count, $account_id, $supplier_id, $client_id, $user_id, $master_id, $type, $real_money, $deleted, $start_date, $end_date, $balance_is, $document_id, $contentType);
+        list($response) = $this->companyGetListWithHttpInfo($accept, $content_type, $authorization, $id, $group_id, $my, $active, $moderated, $for_booking, $show_groups, $city_id, $show_bookforms, $vk_api_id, $min_id, $show_deleted, $hide_record_type_single, $hide_record_type_activity, $hide_record_type_mixed, $business_group_id, $business_type_id, $yandex, $include, $count, $page, $contentType);
         return $response;
     }
 
     /**
-     * Operation financeTransactionGetListWithHttpInfo
+     * Operation companyGetListWithHttpInfo
      *
-     * Получить транзакции
+     * Получить список компаний
      *
-     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  int $page Номер страницы (optional)
-     * @param  int $count Количество клиентов на странице (optional)
-     * @param  int $account_id ID кассы (optional)
-     * @param  int $supplier_id ID контрагента (optional)
-     * @param  int $client_id ID клиента (optional)
-     * @param  int $user_id ID пользователя (optional)
-     * @param  int $master_id ID сотрудника (optional)
-     * @param  int $type тип транзакции (optional)
-     * @param  int $real_money транзакция реальными деньгами (optional)
-     * @param  int $deleted была ли удалена транзакция (optional)
-     * @param  string $start_date дата начала периода (optional)
-     * @param  string $end_date дата окончания периода (optional)
-     * @param  int $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
-     * @param  int $document_id идентификатор документа (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionGetList'] to see the possible values for this operation
+     * @param  float $id ID компании. Фильтр по идентификатору компании (optional)
+     * @param  float $group_id ID сети компаний. Фильтр по идентификатору сети компаний _Default: 83_ (optional)
+     * @param  float $my Только для авторизованного пользователя. Если нужно компании, на управление которыми пользователь имеет права (optional)
+     * @param  float $active Если нужно получить только компании с активной лицензией и доступным бронированием (optional)
+     * @param  float $moderated Если нужно получить только прошедшие модерацию компании, чей контент проверен для публикации (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601) (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $city_id Поиск по ID города ([метод получения городов](#cities)) (optional)
+     * @param  float $show_bookforms Включить в объект компании виджеты онлайн-записи (optional)
+     * @param  float $vk_api_id Поиск виджеты онлайн-записи по vk_api_id. Параметр работает при showBookforms&#x3D;1 (optional)
+     * @param  float $min_id Минимальный ID компании (optional)
+     * @param  float $show_deleted Включить в список удалённые компании (optional)
+     * @param  float $hide_record_type_single Не показывать салоны с индивидуальной записью (optional)
+     * @param  float $hide_record_type_activity Не показывать салоны с групповой записью (optional)
+     * @param  float $hide_record_type_mixed Не показывать салоны со смешанной записью (optional)
+     * @param  float $business_group_id Идентификатор группы бизнеса. Фильтр по группе бизнеса (optional)
+     * @param  float $business_type_id Идентификатор сферы бизнеса. Фильтр по сфере бизнеса (optional)
+     * @param  float $yandex Фильтр по синхронизации данных компании с партнерскими площадкам (optional)
+     * @param  string[] $include Включить в объект компании дополнительные данные (optional)
+     * @param  float $count Количество компаний на странице (optional)
+     * @param  float $page Номер страницы (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGetList'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Vgrish\YclientsOpenApi\Model\CompanyGetListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function financeTransactionGetListWithHttpInfo($company_id, $accept, $content_type, $authorization, $page = null, $count = null, $account_id = null, $supplier_id = null, $client_id = null, $user_id = null, $master_id = null, $type = null, $real_money = null, $deleted = null, $start_date = null, $end_date = null, $balance_is = null, $document_id = null, string $contentType = self::contentTypes['financeTransactionGetList'][0]) : array
+    public function companyGetListWithHttpInfo($accept, $content_type, $authorization, $id = null, $group_id = null, $my = null, $active = null, $moderated = null, $for_booking = null, $show_groups = null, $city_id = null, $show_bookforms = null, $vk_api_id = null, $min_id = null, $show_deleted = null, $hide_record_type_single = null, $hide_record_type_activity = null, $hide_record_type_mixed = null, $business_group_id = null, $business_type_id = null, $yandex = null, $include = null, $count = null, $page = null, string $contentType = self::contentTypes['companyGetList'][0]) : array
     {
-        $request = $this->financeTransactionGetListRequest($company_id, $accept, $content_type, $authorization, $page, $count, $account_id, $supplier_id, $client_id, $user_id, $master_id, $type, $real_money, $deleted, $start_date, $end_date, $balance_is, $document_id, $contentType);
+        $request = $this->companyGetListRequest($accept, $content_type, $authorization, $id, $group_id, $my, $active, $moderated, $for_booking, $show_groups, $city_id, $show_bookforms, $vk_api_id, $min_id, $show_deleted, $hide_record_type_single, $hide_record_type_activity, $hide_record_type_mixed, $business_group_id, $business_type_id, $yandex, $include, $count, $page, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3610,11 +3296,11 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse' === '\SplFileObject') {
+                    if ('\Vgrish\YclientsOpenApi\Model\CompanyGetListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse' !== 'string') {
+                        if ('\Vgrish\YclientsOpenApi\Model\CompanyGetListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3632,13 +3318,13 @@ class DefaultApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse', []),
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\CompanyGetListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse';
+            $returnType = '\Vgrish\YclientsOpenApi\Model\CompanyGetListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3671,7 +3357,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse',
+                        '\Vgrish\YclientsOpenApi\Model\CompanyGetListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3682,36 +3368,42 @@ class DefaultApi
     }
 
     /**
-     * Operation financeTransactionGetListAsync
+     * Operation companyGetListAsync
      *
-     * Получить транзакции
+     * Получить список компаний
      *
-     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  int $page Номер страницы (optional)
-     * @param  int $count Количество клиентов на странице (optional)
-     * @param  int $account_id ID кассы (optional)
-     * @param  int $supplier_id ID контрагента (optional)
-     * @param  int $client_id ID клиента (optional)
-     * @param  int $user_id ID пользователя (optional)
-     * @param  int $master_id ID сотрудника (optional)
-     * @param  int $type тип транзакции (optional)
-     * @param  int $real_money транзакция реальными деньгами (optional)
-     * @param  int $deleted была ли удалена транзакция (optional)
-     * @param  string $start_date дата начала периода (optional)
-     * @param  string $end_date дата окончания периода (optional)
-     * @param  int $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
-     * @param  int $document_id идентификатор документа (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionGetList'] to see the possible values for this operation
+     * @param  float $id ID компании. Фильтр по идентификатору компании (optional)
+     * @param  float $group_id ID сети компаний. Фильтр по идентификатору сети компаний _Default: 83_ (optional)
+     * @param  float $my Только для авторизованного пользователя. Если нужно компании, на управление которыми пользователь имеет права (optional)
+     * @param  float $active Если нужно получить только компании с активной лицензией и доступным бронированием (optional)
+     * @param  float $moderated Если нужно получить только прошедшие модерацию компании, чей контент проверен для публикации (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601) (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $city_id Поиск по ID города ([метод получения городов](#cities)) (optional)
+     * @param  float $show_bookforms Включить в объект компании виджеты онлайн-записи (optional)
+     * @param  float $vk_api_id Поиск виджеты онлайн-записи по vk_api_id. Параметр работает при showBookforms&#x3D;1 (optional)
+     * @param  float $min_id Минимальный ID компании (optional)
+     * @param  float $show_deleted Включить в список удалённые компании (optional)
+     * @param  float $hide_record_type_single Не показывать салоны с индивидуальной записью (optional)
+     * @param  float $hide_record_type_activity Не показывать салоны с групповой записью (optional)
+     * @param  float $hide_record_type_mixed Не показывать салоны со смешанной записью (optional)
+     * @param  float $business_group_id Идентификатор группы бизнеса. Фильтр по группе бизнеса (optional)
+     * @param  float $business_type_id Идентификатор сферы бизнеса. Фильтр по сфере бизнеса (optional)
+     * @param  float $yandex Фильтр по синхронизации данных компании с партнерскими площадкам (optional)
+     * @param  string[] $include Включить в объект компании дополнительные данные (optional)
+     * @param  float $count Количество компаний на странице (optional)
+     * @param  float $page Номер страницы (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGetList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function financeTransactionGetListAsync($company_id, $accept, $content_type, $authorization, $page = null, $count = null, $account_id = null, $supplier_id = null, $client_id = null, $user_id = null, $master_id = null, $type = null, $real_money = null, $deleted = null, $start_date = null, $end_date = null, $balance_is = null, $document_id = null, string $contentType = self::contentTypes['financeTransactionGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyGetListAsync($accept, $content_type, $authorization, $id = null, $group_id = null, $my = null, $active = null, $moderated = null, $for_booking = null, $show_groups = null, $city_id = null, $show_bookforms = null, $vk_api_id = null, $min_id = null, $show_deleted = null, $hide_record_type_single = null, $hide_record_type_activity = null, $hide_record_type_mixed = null, $business_group_id = null, $business_type_id = null, $yandex = null, $include = null, $count = null, $page = null, string $contentType = self::contentTypes['companyGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->financeTransactionGetListAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $page, $count, $account_id, $supplier_id, $client_id, $user_id, $master_id, $type, $real_money, $deleted, $start_date, $end_date, $balance_is, $document_id, $contentType)
+        return $this->companyGetListAsyncWithHttpInfo($accept, $content_type, $authorization, $id, $group_id, $my, $active, $moderated, $for_booking, $show_groups, $city_id, $show_bookforms, $vk_api_id, $min_id, $show_deleted, $hide_record_type_single, $hide_record_type_activity, $hide_record_type_mixed, $business_group_id, $business_type_id, $yandex, $include, $count, $page, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3720,37 +3412,43 @@ class DefaultApi
     }
 
     /**
-     * Operation financeTransactionGetListAsyncWithHttpInfo
+     * Operation companyGetListAsyncWithHttpInfo
      *
-     * Получить транзакции
+     * Получить список компаний
      *
-     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  int $page Номер страницы (optional)
-     * @param  int $count Количество клиентов на странице (optional)
-     * @param  int $account_id ID кассы (optional)
-     * @param  int $supplier_id ID контрагента (optional)
-     * @param  int $client_id ID клиента (optional)
-     * @param  int $user_id ID пользователя (optional)
-     * @param  int $master_id ID сотрудника (optional)
-     * @param  int $type тип транзакции (optional)
-     * @param  int $real_money транзакция реальными деньгами (optional)
-     * @param  int $deleted была ли удалена транзакция (optional)
-     * @param  string $start_date дата начала периода (optional)
-     * @param  string $end_date дата окончания периода (optional)
-     * @param  int $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
-     * @param  int $document_id идентификатор документа (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionGetList'] to see the possible values for this operation
+     * @param  float $id ID компании. Фильтр по идентификатору компании (optional)
+     * @param  float $group_id ID сети компаний. Фильтр по идентификатору сети компаний _Default: 83_ (optional)
+     * @param  float $my Только для авторизованного пользователя. Если нужно компании, на управление которыми пользователь имеет права (optional)
+     * @param  float $active Если нужно получить только компании с активной лицензией и доступным бронированием (optional)
+     * @param  float $moderated Если нужно получить только прошедшие модерацию компании, чей контент проверен для публикации (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601) (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $city_id Поиск по ID города ([метод получения городов](#cities)) (optional)
+     * @param  float $show_bookforms Включить в объект компании виджеты онлайн-записи (optional)
+     * @param  float $vk_api_id Поиск виджеты онлайн-записи по vk_api_id. Параметр работает при showBookforms&#x3D;1 (optional)
+     * @param  float $min_id Минимальный ID компании (optional)
+     * @param  float $show_deleted Включить в список удалённые компании (optional)
+     * @param  float $hide_record_type_single Не показывать салоны с индивидуальной записью (optional)
+     * @param  float $hide_record_type_activity Не показывать салоны с групповой записью (optional)
+     * @param  float $hide_record_type_mixed Не показывать салоны со смешанной записью (optional)
+     * @param  float $business_group_id Идентификатор группы бизнеса. Фильтр по группе бизнеса (optional)
+     * @param  float $business_type_id Идентификатор сферы бизнеса. Фильтр по сфере бизнеса (optional)
+     * @param  float $yandex Фильтр по синхронизации данных компании с партнерскими площадкам (optional)
+     * @param  string[] $include Включить в объект компании дополнительные данные (optional)
+     * @param  float $count Количество компаний на странице (optional)
+     * @param  float $page Номер страницы (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGetList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function financeTransactionGetListAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $page = null, $count = null, $account_id = null, $supplier_id = null, $client_id = null, $user_id = null, $master_id = null, $type = null, $real_money = null, $deleted = null, $start_date = null, $end_date = null, $balance_is = null, $document_id = null, string $contentType = self::contentTypes['financeTransactionGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyGetListAsyncWithHttpInfo($accept, $content_type, $authorization, $id = null, $group_id = null, $my = null, $active = null, $moderated = null, $for_booking = null, $show_groups = null, $city_id = null, $show_bookforms = null, $vk_api_id = null, $min_id = null, $show_deleted = null, $hide_record_type_single = null, $hide_record_type_activity = null, $hide_record_type_mixed = null, $business_group_id = null, $business_type_id = null, $yandex = null, $include = null, $count = null, $page = null, string $contentType = self::contentTypes['companyGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse';
-        $request = $this->financeTransactionGetListRequest($company_id, $accept, $content_type, $authorization, $page, $count, $account_id, $supplier_id, $client_id, $user_id, $master_id, $type, $real_money, $deleted, $start_date, $end_date, $balance_is, $document_id, $contentType);
+        $returnType = '\Vgrish\YclientsOpenApi\Model\CompanyGetListResponse';
+        $request = $this->companyGetListRequest($accept, $content_type, $authorization, $id, $group_id, $my, $active, $moderated, $for_booking, $show_groups, $city_id, $show_bookforms, $vk_api_id, $min_id, $show_deleted, $hide_record_type_single, $hide_record_type_activity, $hide_record_type_mixed, $business_group_id, $business_type_id, $yandex, $include, $count, $page, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3789,59 +3487,58 @@ class DefaultApi
     }
 
     /**
-     * Create request for operation 'financeTransactionGetList'
+     * Create request for operation 'companyGetList'
      *
-     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  int $page Номер страницы (optional)
-     * @param  int $count Количество клиентов на странице (optional)
-     * @param  int $account_id ID кассы (optional)
-     * @param  int $supplier_id ID контрагента (optional)
-     * @param  int $client_id ID клиента (optional)
-     * @param  int $user_id ID пользователя (optional)
-     * @param  int $master_id ID сотрудника (optional)
-     * @param  int $type тип транзакции (optional)
-     * @param  int $real_money транзакция реальными деньгами (optional)
-     * @param  int $deleted была ли удалена транзакция (optional)
-     * @param  string $start_date дата начала периода (optional)
-     * @param  string $end_date дата окончания периода (optional)
-     * @param  int $balance_is 0 - любой баланс, 1 - положительный, 2 - оттрицательный (optional)
-     * @param  int $document_id идентификатор документа (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionGetList'] to see the possible values for this operation
+     * @param  float $id ID компании. Фильтр по идентификатору компании (optional)
+     * @param  float $group_id ID сети компаний. Фильтр по идентификатору сети компаний _Default: 83_ (optional)
+     * @param  float $my Только для авторизованного пользователя. Если нужно компании, на управление которыми пользователь имеет права (optional)
+     * @param  float $active Если нужно получить только компании с активной лицензией и доступным бронированием (optional)
+     * @param  float $moderated Если нужно получить только прошедшие модерацию компании, чей контент проверен для публикации (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601) (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $city_id Поиск по ID города ([метод получения городов](#cities)) (optional)
+     * @param  float $show_bookforms Включить в объект компании виджеты онлайн-записи (optional)
+     * @param  float $vk_api_id Поиск виджеты онлайн-записи по vk_api_id. Параметр работает при showBookforms&#x3D;1 (optional)
+     * @param  float $min_id Минимальный ID компании (optional)
+     * @param  float $show_deleted Включить в список удалённые компании (optional)
+     * @param  float $hide_record_type_single Не показывать салоны с индивидуальной записью (optional)
+     * @param  float $hide_record_type_activity Не показывать салоны с групповой записью (optional)
+     * @param  float $hide_record_type_mixed Не показывать салоны со смешанной записью (optional)
+     * @param  float $business_group_id Идентификатор группы бизнеса. Фильтр по группе бизнеса (optional)
+     * @param  float $business_type_id Идентификатор сферы бизнеса. Фильтр по сфере бизнеса (optional)
+     * @param  float $yandex Фильтр по синхронизации данных компании с партнерскими площадкам (optional)
+     * @param  string[] $include Включить в объект компании дополнительные данные (optional)
+     * @param  float $count Количество компаний на странице (optional)
+     * @param  float $page Номер страницы (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGetList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function financeTransactionGetListRequest($company_id, $accept, $content_type, $authorization, $page = null, $count = null, $account_id = null, $supplier_id = null, $client_id = null, $user_id = null, $master_id = null, $type = null, $real_money = null, $deleted = null, $start_date = null, $end_date = null, $balance_is = null, $document_id = null, string $contentType = self::contentTypes['financeTransactionGetList'][0]) : \GuzzleHttp\Psr7\Request
+    public function companyGetListRequest($accept, $content_type, $authorization, $id = null, $group_id = null, $my = null, $active = null, $moderated = null, $for_booking = null, $show_groups = null, $city_id = null, $show_bookforms = null, $vk_api_id = null, $min_id = null, $show_deleted = null, $hide_record_type_single = null, $hide_record_type_activity = null, $hide_record_type_mixed = null, $business_group_id = null, $business_type_id = null, $yandex = null, $include = null, $count = null, $page = null, string $contentType = self::contentTypes['companyGetList'][0]) : \GuzzleHttp\Psr7\Request
     {
-
-        // verify the required parameter 'company_id' is set
-        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling financeTransactionGetList'
-            );
-        }
 
         // verify the required parameter 'accept' is set
         if ($accept === null || (is_array($accept) && count($accept) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $accept when calling financeTransactionGetList'
+                'Missing the required parameter $accept when calling companyGetList'
             );
         }
 
         // verify the required parameter 'content_type' is set
         if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $content_type when calling financeTransactionGetList'
+                'Missing the required parameter $content_type when calling companyGetList'
             );
         }
 
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling financeTransactionGetList'
+                'Missing the required parameter $authorization when calling companyGetList'
             );
         }
 
@@ -3860,7 +3557,14 @@ class DefaultApi
 
 
 
-        $resourcePath = '/transactions/{company_id}';
+
+
+
+
+
+
+
+        $resourcePath = '/companies';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3869,8 +3573,170 @@ class DefaultApi
 
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $page,
-            'page', // param base name
+            $id,
+            'id', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $group_id,
+            'group_id', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $my,
+            'my', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $active,
+            'active', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $moderated,
+            'moderated', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $for_booking,
+            'forBooking', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_groups,
+            'show_groups', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $city_id,
+            'city_id', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_bookforms,
+            'showBookforms', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $vk_api_id,
+            'vk_api_id', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_id,
+            'min_id', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_deleted,
+            'show_deleted', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $hide_record_type_single,
+            'hide_record_type_single', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $hide_record_type_activity,
+            'hide_record_type_activity', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $hide_record_type_mixed,
+            'hide_record_type_mixed', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $business_group_id,
+            'business_group_id', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $business_type_id,
+            'business_type_id', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $yandex,
+            'yandex', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include,
+            'include', // param base name
             '', // openApiType
             'form', // style
             true, // explode
@@ -3887,107 +3753,8 @@ class DefaultApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $account_id,
-            'account_id', // param base name
-            '', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $supplier_id,
-            'supplier_id', // param base name
-            '', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $client_id,
-            'client_id', // param base name
-            '', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $user_id,
-            'user_id', // param base name
-            '', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $master_id,
-            'master_id', // param base name
-            '', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $type,
-            'type', // param base name
-            '', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $real_money,
-            'real_money', // param base name
-            '', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $deleted,
-            'deleted', // param base name
-            '', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $start_date,
-            'start_date', // param base name
-            '', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $end_date,
-            'end_date', // param base name
-            '', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $balance_is,
-            'balance_is', // param base name
-            '', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $document_id,
-            'document_id', // param base name
+            $page,
+            'page', // param base name
             '', // openApiType
             'form', // style
             true, // explode
@@ -4007,14 +3774,6 @@ class DefaultApi
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
-        // path params
-        if ($company_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'company_id' . '}',
-                ObjectSerializer::toPathValue($company_id),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -4071,46 +3830,44 @@ class DefaultApi
     }
 
     /**
-     * Operation financeTransactionRemove
+     * Operation companyRemove
      *
-     * Удаление транзакции
+     * Удалить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $transaction_id ID транзакции (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionRemove'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyRemove'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse
+     * @return string
      */
-    public function financeTransactionRemove($company_id, $transaction_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['financeTransactionRemove'][0]) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse
+    public function companyRemove($id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['companyRemove'][0]) : string
     {
-        list($response) = $this->financeTransactionRemoveWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $contentType);
+        list($response) = $this->companyRemoveWithHttpInfo($id, $accept, $content_type, $authorization, $contentType);
         return $response;
     }
 
     /**
-     * Operation financeTransactionRemoveWithHttpInfo
+     * Operation companyRemoveWithHttpInfo
      *
-     * Удаление транзакции
+     * Удалить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $transaction_id ID транзакции (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionRemove'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyRemove'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function financeTransactionRemoveWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['financeTransactionRemove'][0]) : array
+    public function companyRemoveWithHttpInfo($id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['companyRemove'][0]) : array
     {
-        $request = $this->financeTransactionRemoveRequest($company_id, $transaction_id, $accept, $content_type, $authorization, $contentType);
+        $request = $this->companyRemoveRequest($id, $accept, $content_type, $authorization, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4149,11 +3906,11 @@ class DefaultApi
 
             switch($statusCode) {
                 case 202:
-                    if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse' === '\SplFileObject') {
+                    if ('string' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse' !== 'string') {
+                        if ('string' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -4171,13 +3928,13 @@ class DefaultApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse', []),
+                        ObjectSerializer::deserialize($content, 'string', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse';
+            $returnType = 'string';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4210,7 +3967,7 @@ class DefaultApi
                 case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse',
+                        'string',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4221,23 +3978,22 @@ class DefaultApi
     }
 
     /**
-     * Operation financeTransactionRemoveAsync
+     * Operation companyRemoveAsync
      *
-     * Удаление транзакции
+     * Удалить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $transaction_id ID транзакции (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionRemove'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyRemove'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function financeTransactionRemoveAsync($company_id, $transaction_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['financeTransactionRemove'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyRemoveAsync($id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['companyRemove'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->financeTransactionRemoveAsyncWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $contentType)
+        return $this->companyRemoveAsyncWithHttpInfo($id, $accept, $content_type, $authorization, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4246,24 +4002,23 @@ class DefaultApi
     }
 
     /**
-     * Operation financeTransactionRemoveAsyncWithHttpInfo
+     * Operation companyRemoveAsyncWithHttpInfo
      *
-     * Удаление транзакции
+     * Удалить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $transaction_id ID транзакции (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionRemove'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyRemove'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function financeTransactionRemoveAsyncWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['financeTransactionRemove'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyRemoveAsyncWithHttpInfo($id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['companyRemove'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse';
-        $request = $this->financeTransactionRemoveRequest($company_id, $transaction_id, $accept, $content_type, $authorization, $contentType);
+        $returnType = 'string';
+        $request = $this->companyRemoveRequest($id, $accept, $content_type, $authorization, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4302,58 +4057,50 @@ class DefaultApi
     }
 
     /**
-     * Create request for operation 'financeTransactionRemove'
+     * Create request for operation 'companyRemove'
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $transaction_id ID транзакции (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionRemove'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyRemove'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function financeTransactionRemoveRequest($company_id, $transaction_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['financeTransactionRemove'][0]) : \GuzzleHttp\Psr7\Request
+    public function companyRemoveRequest($id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['companyRemove'][0]) : \GuzzleHttp\Psr7\Request
     {
 
-        // verify the required parameter 'company_id' is set
-        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling financeTransactionRemove'
-            );
-        }
-
-        // verify the required parameter 'transaction_id' is set
-        if ($transaction_id === null || (is_array($transaction_id) && count($transaction_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $transaction_id when calling financeTransactionRemove'
+                'Missing the required parameter $id when calling companyRemove'
             );
         }
 
         // verify the required parameter 'accept' is set
         if ($accept === null || (is_array($accept) && count($accept) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $accept when calling financeTransactionRemove'
+                'Missing the required parameter $accept when calling companyRemove'
             );
         }
 
         // verify the required parameter 'content_type' is set
         if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $content_type when calling financeTransactionRemove'
+                'Missing the required parameter $content_type when calling companyRemove'
             );
         }
 
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling financeTransactionRemove'
+                'Missing the required parameter $authorization when calling companyRemove'
             );
         }
 
 
-        $resourcePath = '/finance_transactions/{company_id}/{transaction_id}';
+        $resourcePath = '/company/{id}/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4375,18 +4122,10 @@ class DefaultApi
         }
 
         // path params
-        if ($company_id !== null) {
+        if ($id !== null) {
             $resourcePath = str_replace(
-                '{' . 'company_id' . '}',
-                ObjectSerializer::toPathValue($company_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($transaction_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'transaction_id' . '}',
-                ObjectSerializer::toPathValue($transaction_id),
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
                 $resourcePath
             );
         }
@@ -4446,48 +4185,46 @@ class DefaultApi
     }
 
     /**
-     * Operation financeTransactionUpdate
+     * Operation companyUpdate
      *
-     * Обновление финансовой транзакции
+     * Изменить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $transaction_id ID транзакции (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request finance_transaction_create_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionUpdate'] to see the possible values for this operation
+     * @param  map[string,object] $request_body request_body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyUpdate'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse
+     * @return \Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse
      */
-    public function financeTransactionUpdate($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null, string $contentType = self::contentTypes['financeTransactionUpdate'][0]) : \Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse
+    public function companyUpdate($id, $accept, $content_type, $authorization, $request_body = null, string $contentType = self::contentTypes['companyUpdate'][0]) : \Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse
     {
-        list($response) = $this->financeTransactionUpdateWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request, $contentType);
+        list($response) = $this->companyUpdateWithHttpInfo($id, $accept, $content_type, $authorization, $request_body, $contentType);
         return $response;
     }
 
     /**
-     * Operation financeTransactionUpdateWithHttpInfo
+     * Operation companyUpdateWithHttpInfo
      *
-     * Обновление финансовой транзакции
+     * Изменить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $transaction_id ID транзакции (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionUpdate'] to see the possible values for this operation
+     * @param  map[string,object] $request_body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyUpdate'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function financeTransactionUpdateWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null, string $contentType = self::contentTypes['financeTransactionUpdate'][0]) : array
+    public function companyUpdateWithHttpInfo($id, $accept, $content_type, $authorization, $request_body = null, string $contentType = self::contentTypes['companyUpdate'][0]) : array
     {
-        $request = $this->financeTransactionUpdateRequest($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request, $contentType);
+        $request = $this->companyUpdateRequest($id, $accept, $content_type, $authorization, $request_body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4526,11 +4263,11 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse' === '\SplFileObject') {
+                    if ('\Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse' !== 'string') {
+                        if ('\Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -4548,13 +4285,13 @@ class DefaultApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse', []),
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse';
+            $returnType = '\Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4587,7 +4324,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse',
+                        '\Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4598,24 +4335,23 @@ class DefaultApi
     }
 
     /**
-     * Operation financeTransactionUpdateAsync
+     * Operation companyUpdateAsync
      *
-     * Обновление финансовой транзакции
+     * Изменить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $transaction_id ID транзакции (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionUpdate'] to see the possible values for this operation
+     * @param  map[string,object] $request_body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function financeTransactionUpdateAsync($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null, string $contentType = self::contentTypes['financeTransactionUpdate'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyUpdateAsync($id, $accept, $content_type, $authorization, $request_body = null, string $contentType = self::contentTypes['companyUpdate'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->financeTransactionUpdateAsyncWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request, $contentType)
+        return $this->companyUpdateAsyncWithHttpInfo($id, $accept, $content_type, $authorization, $request_body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4624,25 +4360,24 @@ class DefaultApi
     }
 
     /**
-     * Operation financeTransactionUpdateAsyncWithHttpInfo
+     * Operation companyUpdateAsyncWithHttpInfo
      *
-     * Обновление финансовой транзакции
+     * Изменить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $transaction_id ID транзакции (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionUpdate'] to see the possible values for this operation
+     * @param  map[string,object] $request_body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function financeTransactionUpdateAsyncWithHttpInfo($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null, string $contentType = self::contentTypes['financeTransactionUpdate'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyUpdateAsyncWithHttpInfo($id, $accept, $content_type, $authorization, $request_body = null, string $contentType = self::contentTypes['companyUpdate'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse';
-        $request = $this->financeTransactionUpdateRequest($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request, $contentType);
+        $returnType = '\Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse';
+        $request = $this->companyUpdateRequest($id, $accept, $content_type, $authorization, $request_body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4681,60 +4416,52 @@ class DefaultApi
     }
 
     /**
-     * Create request for operation 'financeTransactionUpdate'
+     * Create request for operation 'companyUpdate'
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $transaction_id ID транзакции (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest $finance_transaction_create_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['financeTransactionUpdate'] to see the possible values for this operation
+     * @param  map[string,object] $request_body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function financeTransactionUpdateRequest($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request = null, string $contentType = self::contentTypes['financeTransactionUpdate'][0]) : \GuzzleHttp\Psr7\Request
+    public function companyUpdateRequest($id, $accept, $content_type, $authorization, $request_body = null, string $contentType = self::contentTypes['companyUpdate'][0]) : \GuzzleHttp\Psr7\Request
     {
 
-        // verify the required parameter 'company_id' is set
-        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling financeTransactionUpdate'
-            );
-        }
-
-        // verify the required parameter 'transaction_id' is set
-        if ($transaction_id === null || (is_array($transaction_id) && count($transaction_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $transaction_id when calling financeTransactionUpdate'
+                'Missing the required parameter $id when calling companyUpdate'
             );
         }
 
         // verify the required parameter 'accept' is set
         if ($accept === null || (is_array($accept) && count($accept) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $accept when calling financeTransactionUpdate'
+                'Missing the required parameter $accept when calling companyUpdate'
             );
         }
 
         // verify the required parameter 'content_type' is set
         if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $content_type when calling financeTransactionUpdate'
+                'Missing the required parameter $content_type when calling companyUpdate'
             );
         }
 
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling financeTransactionUpdate'
+                'Missing the required parameter $authorization when calling companyUpdate'
             );
         }
 
 
 
-        $resourcePath = '/finance_transactions/{company_id}/{transaction_id}';
+        $resourcePath = '/company/{id}/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4756,18 +4483,10 @@ class DefaultApi
         }
 
         // path params
-        if ($company_id !== null) {
+        if ($id !== null) {
             $resourcePath = str_replace(
-                '{' . 'company_id' . '}',
-                ObjectSerializer::toPathValue($company_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($transaction_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'transaction_id' . '}',
-                ObjectSerializer::toPathValue($transaction_id),
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
                 $resourcePath
             );
         }
@@ -4780,12 +4499,12 @@ class DefaultApi
         );
 
         // for model (json/xml)
-        if (isset($finance_transaction_create_request)) {
+        if (isset($request_body)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($finance_transaction_create_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($request_body));
             } else {
-                $httpBody = $finance_transaction_create_request;
+                $httpBody = $request_body;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4827,6 +4546,3444 @@ class DefaultApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation loyaltyCardByClientIdGetList
+     *
+     * Получить список карт клиента по ID
+     *
+     * @param  int $client_id ID клиента (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardByClientIdGetList'] to see the possible values for this operation
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientIdGetListResponse
+     */
+    public function loyaltyCardByClientIdGetList($client_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardByClientIdGetList'][0]) : \Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientIdGetListResponse
+    {
+        list($response) = $this->loyaltyCardByClientIdGetListWithHttpInfo($client_id, $accept, $content_type, $authorization, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation loyaltyCardByClientIdGetListWithHttpInfo
+     *
+     * Получить список карт клиента по ID
+     *
+     * @param  int $client_id ID клиента (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardByClientIdGetList'] to see the possible values for this operation
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientIdGetListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function loyaltyCardByClientIdGetListWithHttpInfo($client_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardByClientIdGetList'][0]) : array
+    {
+        $request = $this->loyaltyCardByClientIdGetListRequest($client_id, $accept, $content_type, $authorization, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientIdGetListResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientIdGetListResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientIdGetListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientIdGetListResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientIdGetListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation loyaltyCardByClientIdGetListAsync
+     *
+     * Получить список карт клиента по ID
+     *
+     * @param  int $client_id ID клиента (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardByClientIdGetList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function loyaltyCardByClientIdGetListAsync($client_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardByClientIdGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->loyaltyCardByClientIdGetListAsyncWithHttpInfo($client_id, $accept, $content_type, $authorization, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation loyaltyCardByClientIdGetListAsyncWithHttpInfo
+     *
+     * Получить список карт клиента по ID
+     *
+     * @param  int $client_id ID клиента (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardByClientIdGetList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function loyaltyCardByClientIdGetListAsyncWithHttpInfo($client_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardByClientIdGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientIdGetListResponse';
+        $request = $this->loyaltyCardByClientIdGetListRequest($client_id, $accept, $content_type, $authorization, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'loyaltyCardByClientIdGetList'
+     *
+     * @param  int $client_id ID клиента (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardByClientIdGetList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function loyaltyCardByClientIdGetListRequest($client_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardByClientIdGetList'][0]) : \GuzzleHttp\Psr7\Request
+    {
+
+        // verify the required parameter 'client_id' is set
+        if ($client_id === null || (is_array($client_id) && count($client_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $client_id when calling loyaltyCardByClientIdGetList'
+            );
+        }
+
+        // verify the required parameter 'accept' is set
+        if ($accept === null || (is_array($accept) && count($accept) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $accept when calling loyaltyCardByClientIdGetList'
+            );
+        }
+
+        // verify the required parameter 'content_type' is set
+        if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $content_type when calling loyaltyCardByClientIdGetList'
+            );
+        }
+
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling loyaltyCardByClientIdGetList'
+            );
+        }
+
+
+        $resourcePath = '/loyalty/client_cards/{client_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($accept !== null) {
+            $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
+        }
+        // header params
+        if ($content_type !== null) {
+            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+
+        // path params
+        if ($client_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'client_id' . '}',
+                ObjectSerializer::toPathValue($client_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.yclients.v2+json'],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation loyaltyCardByClientPhoneGetList
+     *
+     * Получить список карт клиента по номеру телефона
+     *
+     * @param  string $phone Номер телефона клиента в формате 70001234567 (required)
+     * @param  int $chain_id ID сети (required)
+     * @param  int $company_id ID филиала (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardByClientPhoneGetList'] to see the possible values for this operation
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientPhoneGetListResponse
+     */
+    public function loyaltyCardByClientPhoneGetList($phone, $chain_id, $company_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardByClientPhoneGetList'][0]) : \Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientPhoneGetListResponse
+    {
+        list($response) = $this->loyaltyCardByClientPhoneGetListWithHttpInfo($phone, $chain_id, $company_id, $accept, $content_type, $authorization, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation loyaltyCardByClientPhoneGetListWithHttpInfo
+     *
+     * Получить список карт клиента по номеру телефона
+     *
+     * @param  string $phone Номер телефона клиента в формате 70001234567 (required)
+     * @param  int $chain_id ID сети (required)
+     * @param  int $company_id ID филиала (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardByClientPhoneGetList'] to see the possible values for this operation
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientPhoneGetListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function loyaltyCardByClientPhoneGetListWithHttpInfo($phone, $chain_id, $company_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardByClientPhoneGetList'][0]) : array
+    {
+        $request = $this->loyaltyCardByClientPhoneGetListRequest($phone, $chain_id, $company_id, $accept, $content_type, $authorization, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientPhoneGetListResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientPhoneGetListResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientPhoneGetListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientPhoneGetListResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientPhoneGetListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation loyaltyCardByClientPhoneGetListAsync
+     *
+     * Получить список карт клиента по номеру телефона
+     *
+     * @param  string $phone Номер телефона клиента в формате 70001234567 (required)
+     * @param  int $chain_id ID сети (required)
+     * @param  int $company_id ID филиала (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardByClientPhoneGetList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function loyaltyCardByClientPhoneGetListAsync($phone, $chain_id, $company_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardByClientPhoneGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->loyaltyCardByClientPhoneGetListAsyncWithHttpInfo($phone, $chain_id, $company_id, $accept, $content_type, $authorization, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation loyaltyCardByClientPhoneGetListAsyncWithHttpInfo
+     *
+     * Получить список карт клиента по номеру телефона
+     *
+     * @param  string $phone Номер телефона клиента в формате 70001234567 (required)
+     * @param  int $chain_id ID сети (required)
+     * @param  int $company_id ID филиала (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardByClientPhoneGetList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function loyaltyCardByClientPhoneGetListAsyncWithHttpInfo($phone, $chain_id, $company_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardByClientPhoneGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientPhoneGetListResponse';
+        $request = $this->loyaltyCardByClientPhoneGetListRequest($phone, $chain_id, $company_id, $accept, $content_type, $authorization, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'loyaltyCardByClientPhoneGetList'
+     *
+     * @param  string $phone Номер телефона клиента в формате 70001234567 (required)
+     * @param  int $chain_id ID сети (required)
+     * @param  int $company_id ID филиала (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardByClientPhoneGetList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function loyaltyCardByClientPhoneGetListRequest($phone, $chain_id, $company_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardByClientPhoneGetList'][0]) : \GuzzleHttp\Psr7\Request
+    {
+
+        // verify the required parameter 'phone' is set
+        if ($phone === null || (is_array($phone) && count($phone) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $phone when calling loyaltyCardByClientPhoneGetList'
+            );
+        }
+
+        // verify the required parameter 'chain_id' is set
+        if ($chain_id === null || (is_array($chain_id) && count($chain_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $chain_id when calling loyaltyCardByClientPhoneGetList'
+            );
+        }
+
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling loyaltyCardByClientPhoneGetList'
+            );
+        }
+
+        // verify the required parameter 'accept' is set
+        if ($accept === null || (is_array($accept) && count($accept) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $accept when calling loyaltyCardByClientPhoneGetList'
+            );
+        }
+
+        // verify the required parameter 'content_type' is set
+        if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $content_type when calling loyaltyCardByClientPhoneGetList'
+            );
+        }
+
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling loyaltyCardByClientPhoneGetList'
+            );
+        }
+
+
+        $resourcePath = '/loyalty/cards/{phone}/{chain_id}/{company_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($accept !== null) {
+            $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
+        }
+        // header params
+        if ($content_type !== null) {
+            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+
+        // path params
+        if ($phone !== null) {
+            $resourcePath = str_replace(
+                '{' . 'phone' . '}',
+                ObjectSerializer::toPathValue($phone),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($chain_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'chain_id' . '}',
+                ObjectSerializer::toPathValue($chain_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.yclients.v2+json'],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation loyaltyCardCreate
+     *
+     * Выдать карту лояльности
+     *
+     * @param  int $company_id ID филиала (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\LoyaltyCardCreateRequest $loyalty_card_create_request loyalty_card_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardCreate'] to see the possible values for this operation
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Vgrish\YclientsOpenApi\Model\LoyaltyCardCreateResponse
+     */
+    public function loyaltyCardCreate($company_id, $accept, $content_type, $authorization, $loyalty_card_create_request = null, string $contentType = self::contentTypes['loyaltyCardCreate'][0]) : \Vgrish\YclientsOpenApi\Model\LoyaltyCardCreateResponse
+    {
+        list($response) = $this->loyaltyCardCreateWithHttpInfo($company_id, $accept, $content_type, $authorization, $loyalty_card_create_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation loyaltyCardCreateWithHttpInfo
+     *
+     * Выдать карту лояльности
+     *
+     * @param  int $company_id ID филиала (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\LoyaltyCardCreateRequest $loyalty_card_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardCreate'] to see the possible values for this operation
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Vgrish\YclientsOpenApi\Model\LoyaltyCardCreateResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function loyaltyCardCreateWithHttpInfo($company_id, $accept, $content_type, $authorization, $loyalty_card_create_request = null, string $contentType = self::contentTypes['loyaltyCardCreate'][0]) : array
+    {
+        $request = $this->loyaltyCardCreateRequest($company_id, $accept, $content_type, $authorization, $loyalty_card_create_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Vgrish\YclientsOpenApi\Model\LoyaltyCardCreateResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Vgrish\YclientsOpenApi\Model\LoyaltyCardCreateResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\LoyaltyCardCreateResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Vgrish\YclientsOpenApi\Model\LoyaltyCardCreateResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Vgrish\YclientsOpenApi\Model\LoyaltyCardCreateResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation loyaltyCardCreateAsync
+     *
+     * Выдать карту лояльности
+     *
+     * @param  int $company_id ID филиала (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\LoyaltyCardCreateRequest $loyalty_card_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function loyaltyCardCreateAsync($company_id, $accept, $content_type, $authorization, $loyalty_card_create_request = null, string $contentType = self::contentTypes['loyaltyCardCreate'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->loyaltyCardCreateAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $loyalty_card_create_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation loyaltyCardCreateAsyncWithHttpInfo
+     *
+     * Выдать карту лояльности
+     *
+     * @param  int $company_id ID филиала (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\LoyaltyCardCreateRequest $loyalty_card_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function loyaltyCardCreateAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $loyalty_card_create_request = null, string $contentType = self::contentTypes['loyaltyCardCreate'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Vgrish\YclientsOpenApi\Model\LoyaltyCardCreateResponse';
+        $request = $this->loyaltyCardCreateRequest($company_id, $accept, $content_type, $authorization, $loyalty_card_create_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'loyaltyCardCreate'
+     *
+     * @param  int $company_id ID филиала (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\LoyaltyCardCreateRequest $loyalty_card_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function loyaltyCardCreateRequest($company_id, $accept, $content_type, $authorization, $loyalty_card_create_request = null, string $contentType = self::contentTypes['loyaltyCardCreate'][0]) : \GuzzleHttp\Psr7\Request
+    {
+
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling loyaltyCardCreate'
+            );
+        }
+
+        // verify the required parameter 'accept' is set
+        if ($accept === null || (is_array($accept) && count($accept) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $accept when calling loyaltyCardCreate'
+            );
+        }
+
+        // verify the required parameter 'content_type' is set
+        if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $content_type when calling loyaltyCardCreate'
+            );
+        }
+
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling loyaltyCardCreate'
+            );
+        }
+
+
+
+        $resourcePath = '/loyalty/cards/{company_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($accept !== null) {
+            $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
+        }
+        // header params
+        if ($content_type !== null) {
+            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.yclients.v2+json'],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($loyalty_card_create_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($loyalty_card_create_request));
+            } else {
+                $httpBody = $loyalty_card_create_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation loyaltyCardRemove
+     *
+     * Удалить карту  лояльности
+     *
+     * @param  int $company_id ID филиала (required)
+     * @param  int $card_id ID карты лояльности (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardRemove'] to see the possible values for this operation
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function loyaltyCardRemove($company_id, $card_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardRemove'][0]) : object
+    {
+        list($response) = $this->loyaltyCardRemoveWithHttpInfo($company_id, $card_id, $accept, $content_type, $authorization, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation loyaltyCardRemoveWithHttpInfo
+     *
+     * Удалить карту  лояльности
+     *
+     * @param  int $company_id ID филиала (required)
+     * @param  int $card_id ID карты лояльности (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardRemove'] to see the possible values for this operation
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function loyaltyCardRemoveWithHttpInfo($company_id, $card_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardRemove'][0]) : array
+    {
+        $request = $this->loyaltyCardRemoveRequest($company_id, $card_id, $accept, $content_type, $authorization, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 204:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('object' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 204:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation loyaltyCardRemoveAsync
+     *
+     * Удалить карту  лояльности
+     *
+     * @param  int $company_id ID филиала (required)
+     * @param  int $card_id ID карты лояльности (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardRemove'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function loyaltyCardRemoveAsync($company_id, $card_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardRemove'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->loyaltyCardRemoveAsyncWithHttpInfo($company_id, $card_id, $accept, $content_type, $authorization, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation loyaltyCardRemoveAsyncWithHttpInfo
+     *
+     * Удалить карту  лояльности
+     *
+     * @param  int $company_id ID филиала (required)
+     * @param  int $card_id ID карты лояльности (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardRemove'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function loyaltyCardRemoveAsyncWithHttpInfo($company_id, $card_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardRemove'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = 'object';
+        $request = $this->loyaltyCardRemoveRequest($company_id, $card_id, $accept, $content_type, $authorization, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'loyaltyCardRemove'
+     *
+     * @param  int $company_id ID филиала (required)
+     * @param  int $card_id ID карты лояльности (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardRemove'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function loyaltyCardRemoveRequest($company_id, $card_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardRemove'][0]) : \GuzzleHttp\Psr7\Request
+    {
+
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling loyaltyCardRemove'
+            );
+        }
+
+        // verify the required parameter 'card_id' is set
+        if ($card_id === null || (is_array($card_id) && count($card_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $card_id when calling loyaltyCardRemove'
+            );
+        }
+
+        // verify the required parameter 'accept' is set
+        if ($accept === null || (is_array($accept) && count($accept) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $accept when calling loyaltyCardRemove'
+            );
+        }
+
+        // verify the required parameter 'content_type' is set
+        if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $content_type when calling loyaltyCardRemove'
+            );
+        }
+
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling loyaltyCardRemove'
+            );
+        }
+
+
+        $resourcePath = '/loyalty/cards/{company_id}/{card_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($accept !== null) {
+            $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
+        }
+        // header params
+        if ($content_type !== null) {
+            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($card_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'card_id' . '}',
+                ObjectSerializer::toPathValue($card_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.yclients.v2+json'],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation loyaltyCardTransactionCreate
+     *
+     * Ручное списание/пополнение карты лояльности в компании
+     *
+     * @param  int $company_id Идентификатор филиала. (required)
+     * @param  int $card_id ID карты лояльности (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\LoyaltyTransactionCreateRequest $loyalty_transaction_create_request loyalty_transaction_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTransactionCreate'] to see the possible values for this operation
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Vgrish\YclientsOpenApi\Model\LoyaltyCardTransactionCreateResponse
+     */
+    public function loyaltyCardTransactionCreate($company_id, $card_id, $accept, $content_type, $authorization, $loyalty_transaction_create_request = null, string $contentType = self::contentTypes['loyaltyCardTransactionCreate'][0]) : \Vgrish\YclientsOpenApi\Model\LoyaltyCardTransactionCreateResponse
+    {
+        list($response) = $this->loyaltyCardTransactionCreateWithHttpInfo($company_id, $card_id, $accept, $content_type, $authorization, $loyalty_transaction_create_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation loyaltyCardTransactionCreateWithHttpInfo
+     *
+     * Ручное списание/пополнение карты лояльности в компании
+     *
+     * @param  int $company_id Идентификатор филиала. (required)
+     * @param  int $card_id ID карты лояльности (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\LoyaltyTransactionCreateRequest $loyalty_transaction_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTransactionCreate'] to see the possible values for this operation
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Vgrish\YclientsOpenApi\Model\LoyaltyCardTransactionCreateResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function loyaltyCardTransactionCreateWithHttpInfo($company_id, $card_id, $accept, $content_type, $authorization, $loyalty_transaction_create_request = null, string $contentType = self::contentTypes['loyaltyCardTransactionCreate'][0]) : array
+    {
+        $request = $this->loyaltyCardTransactionCreateRequest($company_id, $card_id, $accept, $content_type, $authorization, $loyalty_transaction_create_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Vgrish\YclientsOpenApi\Model\LoyaltyCardTransactionCreateResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Vgrish\YclientsOpenApi\Model\LoyaltyCardTransactionCreateResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\LoyaltyCardTransactionCreateResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Vgrish\YclientsOpenApi\Model\LoyaltyCardTransactionCreateResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Vgrish\YclientsOpenApi\Model\LoyaltyCardTransactionCreateResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation loyaltyCardTransactionCreateAsync
+     *
+     * Ручное списание/пополнение карты лояльности в компании
+     *
+     * @param  int $company_id Идентификатор филиала. (required)
+     * @param  int $card_id ID карты лояльности (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\LoyaltyTransactionCreateRequest $loyalty_transaction_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTransactionCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function loyaltyCardTransactionCreateAsync($company_id, $card_id, $accept, $content_type, $authorization, $loyalty_transaction_create_request = null, string $contentType = self::contentTypes['loyaltyCardTransactionCreate'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->loyaltyCardTransactionCreateAsyncWithHttpInfo($company_id, $card_id, $accept, $content_type, $authorization, $loyalty_transaction_create_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation loyaltyCardTransactionCreateAsyncWithHttpInfo
+     *
+     * Ручное списание/пополнение карты лояльности в компании
+     *
+     * @param  int $company_id Идентификатор филиала. (required)
+     * @param  int $card_id ID карты лояльности (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\LoyaltyTransactionCreateRequest $loyalty_transaction_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTransactionCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function loyaltyCardTransactionCreateAsyncWithHttpInfo($company_id, $card_id, $accept, $content_type, $authorization, $loyalty_transaction_create_request = null, string $contentType = self::contentTypes['loyaltyCardTransactionCreate'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Vgrish\YclientsOpenApi\Model\LoyaltyCardTransactionCreateResponse';
+        $request = $this->loyaltyCardTransactionCreateRequest($company_id, $card_id, $accept, $content_type, $authorization, $loyalty_transaction_create_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'loyaltyCardTransactionCreate'
+     *
+     * @param  int $company_id Идентификатор филиала. (required)
+     * @param  int $card_id ID карты лояльности (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  \Vgrish\YclientsOpenApi\Model\LoyaltyTransactionCreateRequest $loyalty_transaction_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTransactionCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function loyaltyCardTransactionCreateRequest($company_id, $card_id, $accept, $content_type, $authorization, $loyalty_transaction_create_request = null, string $contentType = self::contentTypes['loyaltyCardTransactionCreate'][0]) : \GuzzleHttp\Psr7\Request
+    {
+
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling loyaltyCardTransactionCreate'
+            );
+        }
+
+        // verify the required parameter 'card_id' is set
+        if ($card_id === null || (is_array($card_id) && count($card_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $card_id when calling loyaltyCardTransactionCreate'
+            );
+        }
+
+        // verify the required parameter 'accept' is set
+        if ($accept === null || (is_array($accept) && count($accept) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $accept when calling loyaltyCardTransactionCreate'
+            );
+        }
+
+        // verify the required parameter 'content_type' is set
+        if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $content_type when calling loyaltyCardTransactionCreate'
+            );
+        }
+
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling loyaltyCardTransactionCreate'
+            );
+        }
+
+
+
+        $resourcePath = '/company/{company_id}/loyalty/cards/{card_id}/manual_transaction';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($accept !== null) {
+            $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
+        }
+        // header params
+        if ($content_type !== null) {
+            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($card_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'card_id' . '}',
+                ObjectSerializer::toPathValue($card_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.yclients.v2+json'],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($loyalty_transaction_create_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($loyalty_transaction_create_request));
+            } else {
+                $httpBody = $loyalty_transaction_create_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation loyaltyCardTypeByChainIdGetList
+     *
+     * Получить список типов карт, доступных в сети
+     *
+     * @param  int $chain_id Идентификатор сети (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTypeByChainIdGetList'] to see the possible values for this operation
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByChainIdGetListResponse
+     */
+    public function loyaltyCardTypeByChainIdGetList($chain_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardTypeByChainIdGetList'][0]) : \Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByChainIdGetListResponse
+    {
+        list($response) = $this->loyaltyCardTypeByChainIdGetListWithHttpInfo($chain_id, $accept, $content_type, $authorization, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation loyaltyCardTypeByChainIdGetListWithHttpInfo
+     *
+     * Получить список типов карт, доступных в сети
+     *
+     * @param  int $chain_id Идентификатор сети (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTypeByChainIdGetList'] to see the possible values for this operation
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByChainIdGetListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function loyaltyCardTypeByChainIdGetListWithHttpInfo($chain_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardTypeByChainIdGetList'][0]) : array
+    {
+        $request = $this->loyaltyCardTypeByChainIdGetListRequest($chain_id, $accept, $content_type, $authorization, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByChainIdGetListResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByChainIdGetListResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByChainIdGetListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByChainIdGetListResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByChainIdGetListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation loyaltyCardTypeByChainIdGetListAsync
+     *
+     * Получить список типов карт, доступных в сети
+     *
+     * @param  int $chain_id Идентификатор сети (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTypeByChainIdGetList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function loyaltyCardTypeByChainIdGetListAsync($chain_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardTypeByChainIdGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->loyaltyCardTypeByChainIdGetListAsyncWithHttpInfo($chain_id, $accept, $content_type, $authorization, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation loyaltyCardTypeByChainIdGetListAsyncWithHttpInfo
+     *
+     * Получить список типов карт, доступных в сети
+     *
+     * @param  int $chain_id Идентификатор сети (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTypeByChainIdGetList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function loyaltyCardTypeByChainIdGetListAsyncWithHttpInfo($chain_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardTypeByChainIdGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByChainIdGetListResponse';
+        $request = $this->loyaltyCardTypeByChainIdGetListRequest($chain_id, $accept, $content_type, $authorization, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'loyaltyCardTypeByChainIdGetList'
+     *
+     * @param  int $chain_id Идентификатор сети (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTypeByChainIdGetList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function loyaltyCardTypeByChainIdGetListRequest($chain_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardTypeByChainIdGetList'][0]) : \GuzzleHttp\Psr7\Request
+    {
+
+        // verify the required parameter 'chain_id' is set
+        if ($chain_id === null || (is_array($chain_id) && count($chain_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $chain_id when calling loyaltyCardTypeByChainIdGetList'
+            );
+        }
+
+        // verify the required parameter 'accept' is set
+        if ($accept === null || (is_array($accept) && count($accept) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $accept when calling loyaltyCardTypeByChainIdGetList'
+            );
+        }
+
+        // verify the required parameter 'content_type' is set
+        if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $content_type when calling loyaltyCardTypeByChainIdGetList'
+            );
+        }
+
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling loyaltyCardTypeByChainIdGetList'
+            );
+        }
+
+
+        $resourcePath = '/chain/{chain_id}/loyalty/card_types';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($accept !== null) {
+            $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
+        }
+        // header params
+        if ($content_type !== null) {
+            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+
+        // path params
+        if ($chain_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'chain_id' . '}',
+                ObjectSerializer::toPathValue($chain_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.yclients.v2+json'],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation loyaltyCardTypeByClientPhoneGetList
+     *
+     * Получить список типов карт доступных для выдачи клиенту
+     *
+     * @param  int $company_id ID компании (required)
+     * @param  string $phone Номер телефона клиента (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTypeByClientPhoneGetList'] to see the possible values for this operation
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByClientPhoneGetListResponse
+     */
+    public function loyaltyCardTypeByClientPhoneGetList($company_id, $phone, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardTypeByClientPhoneGetList'][0]) : \Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByClientPhoneGetListResponse
+    {
+        list($response) = $this->loyaltyCardTypeByClientPhoneGetListWithHttpInfo($company_id, $phone, $accept, $content_type, $authorization, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation loyaltyCardTypeByClientPhoneGetListWithHttpInfo
+     *
+     * Получить список типов карт доступных для выдачи клиенту
+     *
+     * @param  int $company_id ID компании (required)
+     * @param  string $phone Номер телефона клиента (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTypeByClientPhoneGetList'] to see the possible values for this operation
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByClientPhoneGetListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function loyaltyCardTypeByClientPhoneGetListWithHttpInfo($company_id, $phone, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardTypeByClientPhoneGetList'][0]) : array
+    {
+        $request = $this->loyaltyCardTypeByClientPhoneGetListRequest($company_id, $phone, $accept, $content_type, $authorization, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByClientPhoneGetListResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByClientPhoneGetListResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByClientPhoneGetListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByClientPhoneGetListResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByClientPhoneGetListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation loyaltyCardTypeByClientPhoneGetListAsync
+     *
+     * Получить список типов карт доступных для выдачи клиенту
+     *
+     * @param  int $company_id ID компании (required)
+     * @param  string $phone Номер телефона клиента (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTypeByClientPhoneGetList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function loyaltyCardTypeByClientPhoneGetListAsync($company_id, $phone, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardTypeByClientPhoneGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->loyaltyCardTypeByClientPhoneGetListAsyncWithHttpInfo($company_id, $phone, $accept, $content_type, $authorization, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation loyaltyCardTypeByClientPhoneGetListAsyncWithHttpInfo
+     *
+     * Получить список типов карт доступных для выдачи клиенту
+     *
+     * @param  int $company_id ID компании (required)
+     * @param  string $phone Номер телефона клиента (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTypeByClientPhoneGetList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function loyaltyCardTypeByClientPhoneGetListAsyncWithHttpInfo($company_id, $phone, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardTypeByClientPhoneGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByClientPhoneGetListResponse';
+        $request = $this->loyaltyCardTypeByClientPhoneGetListRequest($company_id, $phone, $accept, $content_type, $authorization, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'loyaltyCardTypeByClientPhoneGetList'
+     *
+     * @param  int $company_id ID компании (required)
+     * @param  string $phone Номер телефона клиента (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTypeByClientPhoneGetList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function loyaltyCardTypeByClientPhoneGetListRequest($company_id, $phone, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardTypeByClientPhoneGetList'][0]) : \GuzzleHttp\Psr7\Request
+    {
+
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling loyaltyCardTypeByClientPhoneGetList'
+            );
+        }
+
+        // verify the required parameter 'phone' is set
+        if ($phone === null || (is_array($phone) && count($phone) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $phone when calling loyaltyCardTypeByClientPhoneGetList'
+            );
+        }
+
+        // verify the required parameter 'accept' is set
+        if ($accept === null || (is_array($accept) && count($accept) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $accept when calling loyaltyCardTypeByClientPhoneGetList'
+            );
+        }
+
+        // verify the required parameter 'content_type' is set
+        if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $content_type when calling loyaltyCardTypeByClientPhoneGetList'
+            );
+        }
+
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling loyaltyCardTypeByClientPhoneGetList'
+            );
+        }
+
+
+        $resourcePath = '/loyalty/card_types/client/{company_id}/{phone}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($accept !== null) {
+            $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
+        }
+        // header params
+        if ($content_type !== null) {
+            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($phone !== null) {
+            $resourcePath = str_replace(
+                '{' . 'phone' . '}',
+                ObjectSerializer::toPathValue($phone),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.yclients.v2+json'],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation loyaltyCardTypeByCompanyIdGetList
+     *
+     * Получить список типов карт доступных в филиале
+     *
+     * @param  int $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTypeByCompanyIdGetList'] to see the possible values for this operation
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByCompanyIdGetListResponse
+     */
+    public function loyaltyCardTypeByCompanyIdGetList($company_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardTypeByCompanyIdGetList'][0]) : \Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByCompanyIdGetListResponse
+    {
+        list($response) = $this->loyaltyCardTypeByCompanyIdGetListWithHttpInfo($company_id, $accept, $content_type, $authorization, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation loyaltyCardTypeByCompanyIdGetListWithHttpInfo
+     *
+     * Получить список типов карт доступных в филиале
+     *
+     * @param  int $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTypeByCompanyIdGetList'] to see the possible values for this operation
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByCompanyIdGetListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function loyaltyCardTypeByCompanyIdGetListWithHttpInfo($company_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardTypeByCompanyIdGetList'][0]) : array
+    {
+        $request = $this->loyaltyCardTypeByCompanyIdGetListRequest($company_id, $accept, $content_type, $authorization, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByCompanyIdGetListResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByCompanyIdGetListResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByCompanyIdGetListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByCompanyIdGetListResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByCompanyIdGetListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation loyaltyCardTypeByCompanyIdGetListAsync
+     *
+     * Получить список типов карт доступных в филиале
+     *
+     * @param  int $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTypeByCompanyIdGetList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function loyaltyCardTypeByCompanyIdGetListAsync($company_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardTypeByCompanyIdGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->loyaltyCardTypeByCompanyIdGetListAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation loyaltyCardTypeByCompanyIdGetListAsyncWithHttpInfo
+     *
+     * Получить список типов карт доступных в филиале
+     *
+     * @param  int $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTypeByCompanyIdGetList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function loyaltyCardTypeByCompanyIdGetListAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardTypeByCompanyIdGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByCompanyIdGetListResponse';
+        $request = $this->loyaltyCardTypeByCompanyIdGetListRequest($company_id, $accept, $content_type, $authorization, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'loyaltyCardTypeByCompanyIdGetList'
+     *
+     * @param  int $company_id ID компании (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyCardTypeByCompanyIdGetList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function loyaltyCardTypeByCompanyIdGetListRequest($company_id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['loyaltyCardTypeByCompanyIdGetList'][0]) : \GuzzleHttp\Psr7\Request
+    {
+
+        // verify the required parameter 'company_id' is set
+        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $company_id when calling loyaltyCardTypeByCompanyIdGetList'
+            );
+        }
+
+        // verify the required parameter 'accept' is set
+        if ($accept === null || (is_array($accept) && count($accept) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $accept when calling loyaltyCardTypeByCompanyIdGetList'
+            );
+        }
+
+        // verify the required parameter 'content_type' is set
+        if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $content_type when calling loyaltyCardTypeByCompanyIdGetList'
+            );
+        }
+
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling loyaltyCardTypeByCompanyIdGetList'
+            );
+        }
+
+
+        $resourcePath = '/loyalty/card_types/salon/{company_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($accept !== null) {
+            $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
+        }
+        // header params
+        if ($content_type !== null) {
+            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+
+        // path params
+        if ($company_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'company_id' . '}',
+                ObjectSerializer::toPathValue($company_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.yclients.v2+json'],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation loyaltyTransactionGetList
+     *
+     * Получить список транзакций лояльности в сети
+     *
+     * @param  int $chain_id Идентификатор сети (required)
+     * @param  \DateTime $created_after Дата начала выборки в формате Y-m-d (required)
+     * @param  \DateTime $created_before Дата окончания выборки в формате Y-m-d (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string[] $types Типы транзакций лояльности, включенные в выборку: 1 - Скидка по акции, 2 - Начисление по программе лояльности, 3 - Списание с карты лояльности, 4 - Начисление по реферальной программе, 5 - Ручное пополнение, 6 - Ручное списание, 7 - Списание просроченных баллов, 8 - Списание с сертификата, 9 - Использование абонемента, 10 - Перерасчет стоимости по абонементу, 11 - Списание с личного счета (optional)
+     * @param  int[] $company_ids Идентификаторы филиалов транзакций лояльности, включенные в выборку (optional)
+     * @param  int[] $visit_ids Идентификаторы визитов транзакций лояльности, включенные в выборку (optional)
+     * @param  int $page Страница выборки (optional)
+     * @param  int $count Количество результатов на одной странице выборки (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyTransactionGetList'] to see the possible values for this operation
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Vgrish\YclientsOpenApi\Model\LoyaltyTransactionGetListResponse
+     */
+    public function loyaltyTransactionGetList($chain_id, $created_after, $created_before, $accept, $content_type, $authorization, $types = null, $company_ids = null, $visit_ids = null, $page = null, $count = null, string $contentType = self::contentTypes['loyaltyTransactionGetList'][0]) : \Vgrish\YclientsOpenApi\Model\LoyaltyTransactionGetListResponse
+    {
+        list($response) = $this->loyaltyTransactionGetListWithHttpInfo($chain_id, $created_after, $created_before, $accept, $content_type, $authorization, $types, $company_ids, $visit_ids, $page, $count, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation loyaltyTransactionGetListWithHttpInfo
+     *
+     * Получить список транзакций лояльности в сети
+     *
+     * @param  int $chain_id Идентификатор сети (required)
+     * @param  \DateTime $created_after Дата начала выборки в формате Y-m-d (required)
+     * @param  \DateTime $created_before Дата окончания выборки в формате Y-m-d (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string[] $types Типы транзакций лояльности, включенные в выборку: 1 - Скидка по акции, 2 - Начисление по программе лояльности, 3 - Списание с карты лояльности, 4 - Начисление по реферальной программе, 5 - Ручное пополнение, 6 - Ручное списание, 7 - Списание просроченных баллов, 8 - Списание с сертификата, 9 - Использование абонемента, 10 - Перерасчет стоимости по абонементу, 11 - Списание с личного счета (optional)
+     * @param  int[] $company_ids Идентификаторы филиалов транзакций лояльности, включенные в выборку (optional)
+     * @param  int[] $visit_ids Идентификаторы визитов транзакций лояльности, включенные в выборку (optional)
+     * @param  int $page Страница выборки (optional)
+     * @param  int $count Количество результатов на одной странице выборки (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyTransactionGetList'] to see the possible values for this operation
+     *
+     * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Vgrish\YclientsOpenApi\Model\LoyaltyTransactionGetListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function loyaltyTransactionGetListWithHttpInfo($chain_id, $created_after, $created_before, $accept, $content_type, $authorization, $types = null, $company_ids = null, $visit_ids = null, $page = null, $count = null, string $contentType = self::contentTypes['loyaltyTransactionGetList'][0]) : array
+    {
+        $request = $this->loyaltyTransactionGetListRequest($chain_id, $created_after, $created_before, $accept, $content_type, $authorization, $types, $company_ids, $visit_ids, $page, $count, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Vgrish\YclientsOpenApi\Model\LoyaltyTransactionGetListResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Vgrish\YclientsOpenApi\Model\LoyaltyTransactionGetListResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\LoyaltyTransactionGetListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Vgrish\YclientsOpenApi\Model\LoyaltyTransactionGetListResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Vgrish\YclientsOpenApi\Model\LoyaltyTransactionGetListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation loyaltyTransactionGetListAsync
+     *
+     * Получить список транзакций лояльности в сети
+     *
+     * @param  int $chain_id Идентификатор сети (required)
+     * @param  \DateTime $created_after Дата начала выборки в формате Y-m-d (required)
+     * @param  \DateTime $created_before Дата окончания выборки в формате Y-m-d (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string[] $types Типы транзакций лояльности, включенные в выборку: 1 - Скидка по акции, 2 - Начисление по программе лояльности, 3 - Списание с карты лояльности, 4 - Начисление по реферальной программе, 5 - Ручное пополнение, 6 - Ручное списание, 7 - Списание просроченных баллов, 8 - Списание с сертификата, 9 - Использование абонемента, 10 - Перерасчет стоимости по абонементу, 11 - Списание с личного счета (optional)
+     * @param  int[] $company_ids Идентификаторы филиалов транзакций лояльности, включенные в выборку (optional)
+     * @param  int[] $visit_ids Идентификаторы визитов транзакций лояльности, включенные в выборку (optional)
+     * @param  int $page Страница выборки (optional)
+     * @param  int $count Количество результатов на одной странице выборки (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyTransactionGetList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function loyaltyTransactionGetListAsync($chain_id, $created_after, $created_before, $accept, $content_type, $authorization, $types = null, $company_ids = null, $visit_ids = null, $page = null, $count = null, string $contentType = self::contentTypes['loyaltyTransactionGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->loyaltyTransactionGetListAsyncWithHttpInfo($chain_id, $created_after, $created_before, $accept, $content_type, $authorization, $types, $company_ids, $visit_ids, $page, $count, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation loyaltyTransactionGetListAsyncWithHttpInfo
+     *
+     * Получить список транзакций лояльности в сети
+     *
+     * @param  int $chain_id Идентификатор сети (required)
+     * @param  \DateTime $created_after Дата начала выборки в формате Y-m-d (required)
+     * @param  \DateTime $created_before Дата окончания выборки в формате Y-m-d (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string[] $types Типы транзакций лояльности, включенные в выборку: 1 - Скидка по акции, 2 - Начисление по программе лояльности, 3 - Списание с карты лояльности, 4 - Начисление по реферальной программе, 5 - Ручное пополнение, 6 - Ручное списание, 7 - Списание просроченных баллов, 8 - Списание с сертификата, 9 - Использование абонемента, 10 - Перерасчет стоимости по абонементу, 11 - Списание с личного счета (optional)
+     * @param  int[] $company_ids Идентификаторы филиалов транзакций лояльности, включенные в выборку (optional)
+     * @param  int[] $visit_ids Идентификаторы визитов транзакций лояльности, включенные в выборку (optional)
+     * @param  int $page Страница выборки (optional)
+     * @param  int $count Количество результатов на одной странице выборки (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyTransactionGetList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function loyaltyTransactionGetListAsyncWithHttpInfo($chain_id, $created_after, $created_before, $accept, $content_type, $authorization, $types = null, $company_ids = null, $visit_ids = null, $page = null, $count = null, string $contentType = self::contentTypes['loyaltyTransactionGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Vgrish\YclientsOpenApi\Model\LoyaltyTransactionGetListResponse';
+        $request = $this->loyaltyTransactionGetListRequest($chain_id, $created_after, $created_before, $accept, $content_type, $authorization, $types, $company_ids, $visit_ids, $page, $count, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'loyaltyTransactionGetList'
+     *
+     * @param  int $chain_id Идентификатор сети (required)
+     * @param  \DateTime $created_after Дата начала выборки в формате Y-m-d (required)
+     * @param  \DateTime $created_before Дата окончания выборки в формате Y-m-d (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
+     * @param  string $content_type application/json (required)
+     * @param  string $authorization Bearer partner_token, User user_token (required)
+     * @param  string[] $types Типы транзакций лояльности, включенные в выборку: 1 - Скидка по акции, 2 - Начисление по программе лояльности, 3 - Списание с карты лояльности, 4 - Начисление по реферальной программе, 5 - Ручное пополнение, 6 - Ручное списание, 7 - Списание просроченных баллов, 8 - Списание с сертификата, 9 - Использование абонемента, 10 - Перерасчет стоимости по абонементу, 11 - Списание с личного счета (optional)
+     * @param  int[] $company_ids Идентификаторы филиалов транзакций лояльности, включенные в выборку (optional)
+     * @param  int[] $visit_ids Идентификаторы визитов транзакций лояльности, включенные в выборку (optional)
+     * @param  int $page Страница выборки (optional)
+     * @param  int $count Количество результатов на одной странице выборки (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['loyaltyTransactionGetList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function loyaltyTransactionGetListRequest($chain_id, $created_after, $created_before, $accept, $content_type, $authorization, $types = null, $company_ids = null, $visit_ids = null, $page = null, $count = null, string $contentType = self::contentTypes['loyaltyTransactionGetList'][0]) : \GuzzleHttp\Psr7\Request
+    {
+
+        // verify the required parameter 'chain_id' is set
+        if ($chain_id === null || (is_array($chain_id) && count($chain_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $chain_id when calling loyaltyTransactionGetList'
+            );
+        }
+
+        // verify the required parameter 'created_after' is set
+        if ($created_after === null || (is_array($created_after) && count($created_after) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $created_after when calling loyaltyTransactionGetList'
+            );
+        }
+
+        // verify the required parameter 'created_before' is set
+        if ($created_before === null || (is_array($created_before) && count($created_before) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $created_before when calling loyaltyTransactionGetList'
+            );
+        }
+
+        // verify the required parameter 'accept' is set
+        if ($accept === null || (is_array($accept) && count($accept) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $accept when calling loyaltyTransactionGetList'
+            );
+        }
+
+        // verify the required parameter 'content_type' is set
+        if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $content_type when calling loyaltyTransactionGetList'
+            );
+        }
+
+        // verify the required parameter 'authorization' is set
+        if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $authorization when calling loyaltyTransactionGetList'
+            );
+        }
+
+
+
+
+
+
+
+        $resourcePath = '/chain/{chain_id}/loyalty/transactions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $created_after,
+            'created_after', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $created_before,
+            'created_before', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $types,
+            'types', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $company_ids,
+            'company_ids', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $visit_ids,
+            'visit_ids', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $count,
+            'count', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($accept !== null) {
+            $headerParams['Accept'] = ObjectSerializer::toHeaderValue($accept);
+        }
+        // header params
+        if ($content_type !== null) {
+            $headerParams['Content-Type'] = ObjectSerializer::toHeaderValue($content_type);
+        }
+        // header params
+        if ($authorization !== null) {
+            $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
+        }
+
+        // path params
+        if ($chain_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'chain_id' . '}',
+                ObjectSerializer::toPathValue($chain_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.yclients.v2+json'],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

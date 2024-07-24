@@ -130,16 +130,16 @@ class AuthApi
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\AuthRequest $auth_request auth_request (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\AuthUserRequest $auth_user_request auth_user_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authUser'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Vgrish\YclientsOpenApi\Model\AuthUserResponse
      */
-    public function authUser($accept, $content_type, $authorization, $auth_request = null, string $contentType = self::contentTypes['authUser'][0]) : \Vgrish\YclientsOpenApi\Model\AuthUserResponse
+    public function authUser($accept, $content_type, $authorization, $auth_user_request = null, string $contentType = self::contentTypes['authUser'][0]) : \Vgrish\YclientsOpenApi\Model\AuthUserResponse
     {
-        list($response) = $this->authUserWithHttpInfo($accept, $content_type, $authorization, $auth_request, $contentType);
+        list($response) = $this->authUserWithHttpInfo($accept, $content_type, $authorization, $auth_user_request, $contentType);
         return $response;
     }
 
@@ -151,16 +151,16 @@ class AuthApi
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\AuthRequest $auth_request (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\AuthUserRequest $auth_user_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authUser'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Vgrish\YclientsOpenApi\Model\AuthUserResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function authUserWithHttpInfo($accept, $content_type, $authorization, $auth_request = null, string $contentType = self::contentTypes['authUser'][0]) : array
+    public function authUserWithHttpInfo($accept, $content_type, $authorization, $auth_user_request = null, string $contentType = self::contentTypes['authUser'][0]) : array
     {
-        $request = $this->authUserRequest($accept, $content_type, $authorization, $auth_request, $contentType);
+        $request = $this->authUserRequest($accept, $content_type, $authorization, $auth_user_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -278,15 +278,15 @@ class AuthApi
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\AuthRequest $auth_request (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\AuthUserRequest $auth_user_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authUser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function authUserAsync($accept, $content_type, $authorization, $auth_request = null, string $contentType = self::contentTypes['authUser'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function authUserAsync($accept, $content_type, $authorization, $auth_user_request = null, string $contentType = self::contentTypes['authUser'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->authUserAsyncWithHttpInfo($accept, $content_type, $authorization, $auth_request, $contentType)
+        return $this->authUserAsyncWithHttpInfo($accept, $content_type, $authorization, $auth_user_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -302,16 +302,16 @@ class AuthApi
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\AuthRequest $auth_request (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\AuthUserRequest $auth_user_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authUser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function authUserAsyncWithHttpInfo($accept, $content_type, $authorization, $auth_request = null, string $contentType = self::contentTypes['authUser'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function authUserAsyncWithHttpInfo($accept, $content_type, $authorization, $auth_user_request = null, string $contentType = self::contentTypes['authUser'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Vgrish\YclientsOpenApi\Model\AuthUserResponse';
-        $request = $this->authUserRequest($accept, $content_type, $authorization, $auth_request, $contentType);
+        $request = $this->authUserRequest($accept, $content_type, $authorization, $auth_user_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -355,13 +355,13 @@ class AuthApi
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\AuthRequest $auth_request (optional)
+     * @param  \Vgrish\YclientsOpenApi\Model\AuthUserRequest $auth_user_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authUser'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function authUserRequest($accept, $content_type, $authorization, $auth_request = null, string $contentType = self::contentTypes['authUser'][0]) : \GuzzleHttp\Psr7\Request
+    public function authUserRequest($accept, $content_type, $authorization, $auth_user_request = null, string $contentType = self::contentTypes['authUser'][0]) : \GuzzleHttp\Psr7\Request
     {
 
         // verify the required parameter 'accept' is set
@@ -417,12 +417,12 @@ class AuthApi
         );
 
         // for model (json/xml)
-        if (isset($auth_request)) {
+        if (isset($auth_user_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($auth_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($auth_user_request));
             } else {
-                $httpBody = $auth_request;
+                $httpBody = $auth_user_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

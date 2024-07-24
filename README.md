@@ -58,10 +58,10 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\DefaultApi(
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}}; // string | Bearer partner_token
-$auth_request = {"login":"{{login}}","password":"{{password}}"}; // \Vgrish\YclientsOpenApi\Model\AuthRequest
+$auth_user_request = {"login":"{{login}}","password":"{{password}}"}; // \Vgrish\YclientsOpenApi\Model\AuthUserRequest
 
 try {
-    $result = $apiInstance->authUser($accept, $content_type, $authorization, $auth_request);
+    $result = $apiInstance->authUser($accept, $content_type, $authorization, $auth_user_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->authUser: ', $e->getMessage(), PHP_EOL;
@@ -81,29 +81,45 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**clientGetList**](docs/Api/DefaultApi.md#clientgetlist) | **POST** /company/{company_id}/clients/search | Получить список клиентов
 *DefaultApi* | [**clientRemove**](docs/Api/DefaultApi.md#clientremove) | **DELETE** /client/{company_id}/{id} | Удалить клиента
 *DefaultApi* | [**clientUpdate**](docs/Api/DefaultApi.md#clientupdate) | **PUT** /client/{company_id}/{id} | Редактировать клиента
-*DefaultApi* | [**financeTransactionByVisitOrRecordGet**](docs/Api/DefaultApi.md#financetransactionbyvisitorrecordget) | **GET** /timetable/transactions/{company_id} | Получение транзакций по ID визита или записи
-*DefaultApi* | [**financeTransactionCreate**](docs/Api/DefaultApi.md#financetransactioncreate) | **POST** /finance_transactions/{company_id} | Создание финансовой транзакции
-*DefaultApi* | [**financeTransactionGet**](docs/Api/DefaultApi.md#financetransactionget) | **GET** /finance_transactions/{company_id}/{transaction_id} | Получение финансовой транзакции
-*DefaultApi* | [**financeTransactionGetList**](docs/Api/DefaultApi.md#financetransactiongetlist) | **GET** /transactions/{company_id} | Получить транзакции
-*DefaultApi* | [**financeTransactionRemove**](docs/Api/DefaultApi.md#financetransactionremove) | **DELETE** /finance_transactions/{company_id}/{transaction_id} | Удаление транзакции
-*DefaultApi* | [**financeTransactionUpdate**](docs/Api/DefaultApi.md#financetransactionupdate) | **PUT** /finance_transactions/{company_id}/{transaction_id} | Обновление финансовой транзакции
+*DefaultApi* | [**companyCreate**](docs/Api/DefaultApi.md#companycreate) | **POST** /companies | Создать компанию
+*DefaultApi* | [**companyGet**](docs/Api/DefaultApi.md#companyget) | **GET** /company/{id}/ | Получить компанию
+*DefaultApi* | [**companyGetList**](docs/Api/DefaultApi.md#companygetlist) | **GET** /companies | Получить список компаний
+*DefaultApi* | [**companyRemove**](docs/Api/DefaultApi.md#companyremove) | **DELETE** /company/{id}/ | Удалить компанию
+*DefaultApi* | [**companyUpdate**](docs/Api/DefaultApi.md#companyupdate) | **PUT** /company/{id}/ | Изменить компанию
+*DefaultApi* | [**loyaltyCardByClientIdGetList**](docs/Api/DefaultApi.md#loyaltycardbyclientidgetlist) | **GET** /loyalty/client_cards/{client_id} | Получить список карт клиента по ID
+*DefaultApi* | [**loyaltyCardByClientPhoneGetList**](docs/Api/DefaultApi.md#loyaltycardbyclientphonegetlist) | **GET** /loyalty/cards/{phone}/{chain_id}/{company_id} | Получить список карт клиента по номеру телефона
+*DefaultApi* | [**loyaltyCardCreate**](docs/Api/DefaultApi.md#loyaltycardcreate) | **POST** /loyalty/cards/{company_id} | Выдать карту лояльности
+*DefaultApi* | [**loyaltyCardRemove**](docs/Api/DefaultApi.md#loyaltycardremove) | **DELETE** /loyalty/cards/{company_id}/{card_id} | Удалить карту  лояльности
+*DefaultApi* | [**loyaltyCardTransactionCreate**](docs/Api/DefaultApi.md#loyaltycardtransactioncreate) | **POST** /company/{company_id}/loyalty/cards/{card_id}/manual_transaction | Ручное списание/пополнение карты лояльности в компании
+*DefaultApi* | [**loyaltyCardTypeByChainIdGetList**](docs/Api/DefaultApi.md#loyaltycardtypebychainidgetlist) | **GET** /chain/{chain_id}/loyalty/card_types | Получить список типов карт, доступных в сети
+*DefaultApi* | [**loyaltyCardTypeByClientPhoneGetList**](docs/Api/DefaultApi.md#loyaltycardtypebyclientphonegetlist) | **GET** /loyalty/card_types/client/{company_id}/{phone} | Получить список типов карт доступных для выдачи клиенту
+*DefaultApi* | [**loyaltyCardTypeByCompanyIdGetList**](docs/Api/DefaultApi.md#loyaltycardtypebycompanyidgetlist) | **GET** /loyalty/card_types/salon/{company_id} | Получить список типов карт доступных в филиале
+*DefaultApi* | [**loyaltyTransactionGetList**](docs/Api/DefaultApi.md#loyaltytransactiongetlist) | **GET** /chain/{chain_id}/loyalty/transactions | Получить список транзакций лояльности в сети
 *AuthApi* | [**authUser**](docs/Api/AuthApi.md#authuser) | **POST** /auth | Авторизовать пользователя
 *ClientApi* | [**clientCreate**](docs/Api/ClientApi.md#clientcreate) | **POST** /clients/{company_id} | Добавить клиента
 *ClientApi* | [**clientGet**](docs/Api/ClientApi.md#clientget) | **GET** /client/{company_id}/{id} | Получить клиента
 *ClientApi* | [**clientGetList**](docs/Api/ClientApi.md#clientgetlist) | **POST** /company/{company_id}/clients/search | Получить список клиентов
 *ClientApi* | [**clientRemove**](docs/Api/ClientApi.md#clientremove) | **DELETE** /client/{company_id}/{id} | Удалить клиента
 *ClientApi* | [**clientUpdate**](docs/Api/ClientApi.md#clientupdate) | **PUT** /client/{company_id}/{id} | Редактировать клиента
-*FinanceTransactionApi* | [**financeTransactionByVisitOrRecordGet**](docs/Api/FinanceTransactionApi.md#financetransactionbyvisitorrecordget) | **GET** /timetable/transactions/{company_id} | Получение транзакций по ID визита или записи
-*FinanceTransactionApi* | [**financeTransactionCreate**](docs/Api/FinanceTransactionApi.md#financetransactioncreate) | **POST** /finance_transactions/{company_id} | Создание финансовой транзакции
-*FinanceTransactionApi* | [**financeTransactionGet**](docs/Api/FinanceTransactionApi.md#financetransactionget) | **GET** /finance_transactions/{company_id}/{transaction_id} | Получение финансовой транзакции
-*FinanceTransactionApi* | [**financeTransactionGetList**](docs/Api/FinanceTransactionApi.md#financetransactiongetlist) | **GET** /transactions/{company_id} | Получить транзакции
-*FinanceTransactionApi* | [**financeTransactionRemove**](docs/Api/FinanceTransactionApi.md#financetransactionremove) | **DELETE** /finance_transactions/{company_id}/{transaction_id} | Удаление транзакции
-*FinanceTransactionApi* | [**financeTransactionUpdate**](docs/Api/FinanceTransactionApi.md#financetransactionupdate) | **PUT** /finance_transactions/{company_id}/{transaction_id} | Обновление финансовой транзакции
+*CompanyApi* | [**companyCreate**](docs/Api/CompanyApi.md#companycreate) | **POST** /companies | Создать компанию
+*CompanyApi* | [**companyGet**](docs/Api/CompanyApi.md#companyget) | **GET** /company/{id}/ | Получить компанию
+*CompanyApi* | [**companyGetList**](docs/Api/CompanyApi.md#companygetlist) | **GET** /companies | Получить список компаний
+*CompanyApi* | [**companyRemove**](docs/Api/CompanyApi.md#companyremove) | **DELETE** /company/{id}/ | Удалить компанию
+*CompanyApi* | [**companyUpdate**](docs/Api/CompanyApi.md#companyupdate) | **PUT** /company/{id}/ | Изменить компанию
+*LoyaltyCardApi* | [**loyaltyCardByClientIdGetList**](docs/Api/LoyaltyCardApi.md#loyaltycardbyclientidgetlist) | **GET** /loyalty/client_cards/{client_id} | Получить список карт клиента по ID
+*LoyaltyCardApi* | [**loyaltyCardByClientPhoneGetList**](docs/Api/LoyaltyCardApi.md#loyaltycardbyclientphonegetlist) | **GET** /loyalty/cards/{phone}/{chain_id}/{company_id} | Получить список карт клиента по номеру телефона
+*LoyaltyCardApi* | [**loyaltyCardCreate**](docs/Api/LoyaltyCardApi.md#loyaltycardcreate) | **POST** /loyalty/cards/{company_id} | Выдать карту лояльности
+*LoyaltyCardApi* | [**loyaltyCardRemove**](docs/Api/LoyaltyCardApi.md#loyaltycardremove) | **DELETE** /loyalty/cards/{company_id}/{card_id} | Удалить карту  лояльности
+*LoyaltyCardApi* | [**loyaltyCardTransactionCreate**](docs/Api/LoyaltyCardApi.md#loyaltycardtransactioncreate) | **POST** /company/{company_id}/loyalty/cards/{card_id}/manual_transaction | Ручное списание/пополнение карты лояльности в компании
+*LoyaltyCardApi* | [**loyaltyCardTypeByChainIdGetList**](docs/Api/LoyaltyCardApi.md#loyaltycardtypebychainidgetlist) | **GET** /chain/{chain_id}/loyalty/card_types | Получить список типов карт, доступных в сети
+*LoyaltyCardApi* | [**loyaltyCardTypeByClientPhoneGetList**](docs/Api/LoyaltyCardApi.md#loyaltycardtypebyclientphonegetlist) | **GET** /loyalty/card_types/client/{company_id}/{phone} | Получить список типов карт доступных для выдачи клиенту
+*LoyaltyCardApi* | [**loyaltyCardTypeByCompanyIdGetList**](docs/Api/LoyaltyCardApi.md#loyaltycardtypebycompanyidgetlist) | **GET** /loyalty/card_types/salon/{company_id} | Получить список типов карт доступных в филиале
+*LoyaltyTransactionApi* | [**loyaltyTransactionGetList**](docs/Api/LoyaltyTransactionApi.md#loyaltytransactiongetlist) | **GET** /chain/{chain_id}/loyalty/transactions | Получить список транзакций лояльности в сети
 
 ## Models
 
-- [AuthRequest](docs/Model/AuthRequest.md)
 - [AuthResponse](docs/Model/AuthResponse.md)
+- [AuthUserRequest](docs/Model/AuthUserRequest.md)
 - [AuthUserResponse](docs/Model/AuthUserResponse.md)
 - [BaseResponse](docs/Model/BaseResponse.md)
 - [ClientCreateRequest](docs/Model/ClientCreateRequest.md)
@@ -113,18 +129,29 @@ Class | Method | HTTP request | Description
 - [ClientGetListRequestState](docs/Model/ClientGetListRequestState.md)
 - [ClientGetListResponse](docs/Model/ClientGetListResponse.md)
 - [ClientGetResponse](docs/Model/ClientGetResponse.md)
-- [ClientRemoveResponse](docs/Model/ClientRemoveResponse.md)
 - [ClientResponse](docs/Model/ClientResponse.md)
 - [ClientUpdateRequest](docs/Model/ClientUpdateRequest.md)
 - [ClientUpdateResponse](docs/Model/ClientUpdateResponse.md)
-- [FinanceTransactionByVisitOrRecordGetResponse](docs/Model/FinanceTransactionByVisitOrRecordGetResponse.md)
-- [FinanceTransactionCreateRequest](docs/Model/FinanceTransactionCreateRequest.md)
-- [FinanceTransactionCreateResponse](docs/Model/FinanceTransactionCreateResponse.md)
-- [FinanceTransactionGetListResponse](docs/Model/FinanceTransactionGetListResponse.md)
-- [FinanceTransactionGetResponse](docs/Model/FinanceTransactionGetResponse.md)
-- [FinanceTransactionRemoveResponse](docs/Model/FinanceTransactionRemoveResponse.md)
-- [FinanceTransactionResponse](docs/Model/FinanceTransactionResponse.md)
-- [FinanceTransactionUpdateResponse](docs/Model/FinanceTransactionUpdateResponse.md)
+- [CompanyCreateRequest](docs/Model/CompanyCreateRequest.md)
+- [CompanyCreateResponse](docs/Model/CompanyCreateResponse.md)
+- [CompanyGetListResponse](docs/Model/CompanyGetListResponse.md)
+- [CompanyGetResponse](docs/Model/CompanyGetResponse.md)
+- [CompanyResponse](docs/Model/CompanyResponse.md)
+- [CompanyUpdateRequest](docs/Model/CompanyUpdateRequest.md)
+- [CompanyUpdateResponse](docs/Model/CompanyUpdateResponse.md)
+- [LoyaltyCardByClientIdGetListResponse](docs/Model/LoyaltyCardByClientIdGetListResponse.md)
+- [LoyaltyCardByClientPhoneGetListResponse](docs/Model/LoyaltyCardByClientPhoneGetListResponse.md)
+- [LoyaltyCardCreateRequest](docs/Model/LoyaltyCardCreateRequest.md)
+- [LoyaltyCardCreateResponse](docs/Model/LoyaltyCardCreateResponse.md)
+- [LoyaltyCardResponse](docs/Model/LoyaltyCardResponse.md)
+- [LoyaltyCardTransactionCreateResponse](docs/Model/LoyaltyCardTransactionCreateResponse.md)
+- [LoyaltyCardTypeByChainIdGetListResponse](docs/Model/LoyaltyCardTypeByChainIdGetListResponse.md)
+- [LoyaltyCardTypeByClientPhoneGetListResponse](docs/Model/LoyaltyCardTypeByClientPhoneGetListResponse.md)
+- [LoyaltyCardTypeByCompanyIdGetListResponse](docs/Model/LoyaltyCardTypeByCompanyIdGetListResponse.md)
+- [LoyaltyCardTypeResponse](docs/Model/LoyaltyCardTypeResponse.md)
+- [LoyaltyTransactionCreateRequest](docs/Model/LoyaltyTransactionCreateRequest.md)
+- [LoyaltyTransactionGetListResponse](docs/Model/LoyaltyTransactionGetListResponse.md)
+- [LoyaltyTransactionResponse](docs/Model/LoyaltyTransactionResponse.md)
 
 ## Authorization
 Endpoints do not require authorization.

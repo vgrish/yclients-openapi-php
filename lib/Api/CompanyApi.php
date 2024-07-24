@@ -1,6 +1,6 @@
 <?php
 /**
- * ClientApi
+ * CompanyApi
  * PHP version 7.4
  *
  * @category Class
@@ -40,14 +40,14 @@ use Vgrish\YclientsOpenApi\HeaderSelector;
 use Vgrish\YclientsOpenApi\ObjectSerializer;
 
 /**
- * ClientApi Class Doc Comment
+ * CompanyApi Class Doc Comment
  *
  * @category Class
  * @package  Vgrish\YclientsOpenApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ClientApi
+class CompanyApi
 {
     /**
      * @var ClientInterface
@@ -71,19 +71,19 @@ class ClientApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'clientCreate' => [
+        'companyCreate' => [
             'application/json',
         ],
-        'clientGet' => [
+        'companyGet' => [
             'application/json',
         ],
-        'clientGetList' => [
+        'companyGetList' => [
             'application/json',
         ],
-        'clientRemove' => [
+        'companyRemove' => [
             'application/json',
         ],
-        'clientUpdate' => [
+        'companyUpdate' => [
             'application/json',
         ],
     ];
@@ -135,46 +135,44 @@ class ClientApi
     }
 
     /**
-     * Operation clientCreate
+     * Operation companyCreate
      *
-     * Добавить клиента
+     * Создать компанию
      *
-     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\ClientCreateRequest $client_create_request client_create_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientCreate'] to see the possible values for this operation
+     * @param  \Vgrish\YclientsOpenApi\Model\CompanyCreateRequest $company_create_request company_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyCreate'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\ClientCreateResponse
+     * @return \Vgrish\YclientsOpenApi\Model\CompanyCreateResponse
      */
-    public function clientCreate($company_id, $accept, $content_type, $authorization, $client_create_request = null, string $contentType = self::contentTypes['clientCreate'][0]) : \Vgrish\YclientsOpenApi\Model\ClientCreateResponse
+    public function companyCreate($accept, $content_type, $authorization, $company_create_request = null, string $contentType = self::contentTypes['companyCreate'][0]) : \Vgrish\YclientsOpenApi\Model\CompanyCreateResponse
     {
-        list($response) = $this->clientCreateWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_create_request, $contentType);
+        list($response) = $this->companyCreateWithHttpInfo($accept, $content_type, $authorization, $company_create_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation clientCreateWithHttpInfo
+     * Operation companyCreateWithHttpInfo
      *
-     * Добавить клиента
+     * Создать компанию
      *
-     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\ClientCreateRequest $client_create_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientCreate'] to see the possible values for this operation
+     * @param  \Vgrish\YclientsOpenApi\Model\CompanyCreateRequest $company_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyCreate'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\ClientCreateResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Vgrish\YclientsOpenApi\Model\CompanyCreateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientCreateWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_create_request = null, string $contentType = self::contentTypes['clientCreate'][0]) : array
+    public function companyCreateWithHttpInfo($accept, $content_type, $authorization, $company_create_request = null, string $contentType = self::contentTypes['companyCreate'][0]) : array
     {
-        $request = $this->clientCreateRequest($company_id, $accept, $content_type, $authorization, $client_create_request, $contentType);
+        $request = $this->companyCreateRequest($accept, $content_type, $authorization, $company_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -213,11 +211,11 @@ class ClientApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\Vgrish\YclientsOpenApi\Model\ClientCreateResponse' === '\SplFileObject') {
+                    if ('\Vgrish\YclientsOpenApi\Model\CompanyCreateResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Vgrish\YclientsOpenApi\Model\ClientCreateResponse' !== 'string') {
+                        if ('\Vgrish\YclientsOpenApi\Model\CompanyCreateResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -235,13 +233,13 @@ class ClientApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\ClientCreateResponse', []),
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\CompanyCreateResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Vgrish\YclientsOpenApi\Model\ClientCreateResponse';
+            $returnType = '\Vgrish\YclientsOpenApi\Model\CompanyCreateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -274,7 +272,7 @@ class ClientApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\ClientCreateResponse',
+                        '\Vgrish\YclientsOpenApi\Model\CompanyCreateResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -285,23 +283,22 @@ class ClientApi
     }
 
     /**
-     * Operation clientCreateAsync
+     * Operation companyCreateAsync
      *
-     * Добавить клиента
+     * Создать компанию
      *
-     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\ClientCreateRequest $client_create_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientCreate'] to see the possible values for this operation
+     * @param  \Vgrish\YclientsOpenApi\Model\CompanyCreateRequest $company_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientCreateAsync($company_id, $accept, $content_type, $authorization, $client_create_request = null, string $contentType = self::contentTypes['clientCreate'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyCreateAsync($accept, $content_type, $authorization, $company_create_request = null, string $contentType = self::contentTypes['companyCreate'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->clientCreateAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_create_request, $contentType)
+        return $this->companyCreateAsyncWithHttpInfo($accept, $content_type, $authorization, $company_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -310,24 +307,23 @@ class ClientApi
     }
 
     /**
-     * Operation clientCreateAsyncWithHttpInfo
+     * Operation companyCreateAsyncWithHttpInfo
      *
-     * Добавить клиента
+     * Создать компанию
      *
-     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\ClientCreateRequest $client_create_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientCreate'] to see the possible values for this operation
+     * @param  \Vgrish\YclientsOpenApi\Model\CompanyCreateRequest $company_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientCreateAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_create_request = null, string $contentType = self::contentTypes['clientCreate'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyCreateAsyncWithHttpInfo($accept, $content_type, $authorization, $company_create_request = null, string $contentType = self::contentTypes['companyCreate'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\ClientCreateResponse';
-        $request = $this->clientCreateRequest($company_id, $accept, $content_type, $authorization, $client_create_request, $contentType);
+        $returnType = '\Vgrish\YclientsOpenApi\Model\CompanyCreateResponse';
+        $request = $this->companyCreateRequest($accept, $content_type, $authorization, $company_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -366,52 +362,44 @@ class ClientApi
     }
 
     /**
-     * Create request for operation 'clientCreate'
+     * Create request for operation 'companyCreate'
      *
-     * @param  int $company_id ID компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\ClientCreateRequest $client_create_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientCreate'] to see the possible values for this operation
+     * @param  \Vgrish\YclientsOpenApi\Model\CompanyCreateRequest $company_create_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function clientCreateRequest($company_id, $accept, $content_type, $authorization, $client_create_request = null, string $contentType = self::contentTypes['clientCreate'][0]) : \GuzzleHttp\Psr7\Request
+    public function companyCreateRequest($accept, $content_type, $authorization, $company_create_request = null, string $contentType = self::contentTypes['companyCreate'][0]) : \GuzzleHttp\Psr7\Request
     {
-
-        // verify the required parameter 'company_id' is set
-        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling clientCreate'
-            );
-        }
 
         // verify the required parameter 'accept' is set
         if ($accept === null || (is_array($accept) && count($accept) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $accept when calling clientCreate'
+                'Missing the required parameter $accept when calling companyCreate'
             );
         }
 
         // verify the required parameter 'content_type' is set
         if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $content_type when calling clientCreate'
+                'Missing the required parameter $content_type when calling companyCreate'
             );
         }
 
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling clientCreate'
+                'Missing the required parameter $authorization when calling companyCreate'
             );
         }
 
 
 
-        $resourcePath = '/clients/{company_id}';
+        $resourcePath = '/companies';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -432,14 +420,6 @@ class ClientApi
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
-        // path params
-        if ($company_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'company_id' . '}',
-                ObjectSerializer::toPathValue($company_id),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -449,12 +429,12 @@ class ClientApi
         );
 
         // for model (json/xml)
-        if (isset($client_create_request)) {
+        if (isset($company_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($client_create_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($company_create_request));
             } else {
-                $httpBody = $client_create_request;
+                $httpBody = $company_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -503,46 +483,54 @@ class ClientApi
     }
 
     /**
-     * Operation clientGet
+     * Operation companyGet
      *
-     * Получить клиента
+     * Получить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $id ID клиента (required)
+     * @param  float $id Идентификатор компании, информацию о которой нужно получить. (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientGet'] to see the possible values for this operation
+     * @param  float $my Только для авторизованного пользователя. Если нужны дополнительные данные по компании, на управление которой пользователь имеет права (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601). (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $show_bookforms Показать виджеты онлайн-записи компании (optional)
+     * @param  float $bookform_id Показать адрес виджета онлайн-записи с указанным идентификатором (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGet'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\ClientGetResponse
+     * @return \Vgrish\YclientsOpenApi\Model\CompanyGetResponse
      */
-    public function clientGet($company_id, $id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['clientGet'][0]) : \Vgrish\YclientsOpenApi\Model\ClientGetResponse
+    public function companyGet($id, $accept, $content_type, $authorization, $my = null, $for_booking = null, $show_groups = null, $show_bookforms = null, $bookform_id = null, string $contentType = self::contentTypes['companyGet'][0]) : \Vgrish\YclientsOpenApi\Model\CompanyGetResponse
     {
-        list($response) = $this->clientGetWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, $contentType);
+        list($response) = $this->companyGetWithHttpInfo($id, $accept, $content_type, $authorization, $my, $for_booking, $show_groups, $show_bookforms, $bookform_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation clientGetWithHttpInfo
+     * Operation companyGetWithHttpInfo
      *
-     * Получить клиента
+     * Получить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $id ID клиента (required)
+     * @param  float $id Идентификатор компании, информацию о которой нужно получить. (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientGet'] to see the possible values for this operation
+     * @param  float $my Только для авторизованного пользователя. Если нужны дополнительные данные по компании, на управление которой пользователь имеет права (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601). (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $show_bookforms Показать виджеты онлайн-записи компании (optional)
+     * @param  float $bookform_id Показать адрес виджета онлайн-записи с указанным идентификатором (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGet'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\ClientGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Vgrish\YclientsOpenApi\Model\CompanyGetResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['clientGet'][0]) : array
+    public function companyGetWithHttpInfo($id, $accept, $content_type, $authorization, $my = null, $for_booking = null, $show_groups = null, $show_bookforms = null, $bookform_id = null, string $contentType = self::contentTypes['companyGet'][0]) : array
     {
-        $request = $this->clientGetRequest($company_id, $id, $accept, $content_type, $authorization, $contentType);
+        $request = $this->companyGetRequest($id, $accept, $content_type, $authorization, $my, $for_booking, $show_groups, $show_bookforms, $bookform_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -581,11 +569,11 @@ class ClientApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Vgrish\YclientsOpenApi\Model\ClientGetResponse' === '\SplFileObject') {
+                    if ('\Vgrish\YclientsOpenApi\Model\CompanyGetResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Vgrish\YclientsOpenApi\Model\ClientGetResponse' !== 'string') {
+                        if ('\Vgrish\YclientsOpenApi\Model\CompanyGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -603,13 +591,13 @@ class ClientApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\ClientGetResponse', []),
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\CompanyGetResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Vgrish\YclientsOpenApi\Model\ClientGetResponse';
+            $returnType = '\Vgrish\YclientsOpenApi\Model\CompanyGetResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -642,7 +630,7 @@ class ClientApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\ClientGetResponse',
+                        '\Vgrish\YclientsOpenApi\Model\CompanyGetResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -653,23 +641,27 @@ class ClientApi
     }
 
     /**
-     * Operation clientGetAsync
+     * Operation companyGetAsync
      *
-     * Получить клиента
+     * Получить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $id ID клиента (required)
+     * @param  float $id Идентификатор компании, информацию о которой нужно получить. (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientGet'] to see the possible values for this operation
+     * @param  float $my Только для авторизованного пользователя. Если нужны дополнительные данные по компании, на управление которой пользователь имеет права (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601). (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $show_bookforms Показать виджеты онлайн-записи компании (optional)
+     * @param  float $bookform_id Показать адрес виджета онлайн-записи с указанным идентификатором (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetAsync($company_id, $id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['clientGet'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyGetAsync($id, $accept, $content_type, $authorization, $my = null, $for_booking = null, $show_groups = null, $show_bookforms = null, $bookform_id = null, string $contentType = self::contentTypes['companyGet'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->clientGetAsyncWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, $contentType)
+        return $this->companyGetAsyncWithHttpInfo($id, $accept, $content_type, $authorization, $my, $for_booking, $show_groups, $show_bookforms, $bookform_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -678,24 +670,28 @@ class ClientApi
     }
 
     /**
-     * Operation clientGetAsyncWithHttpInfo
+     * Operation companyGetAsyncWithHttpInfo
      *
-     * Получить клиента
+     * Получить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $id ID клиента (required)
+     * @param  float $id Идентификатор компании, информацию о которой нужно получить. (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientGet'] to see the possible values for this operation
+     * @param  float $my Только для авторизованного пользователя. Если нужны дополнительные данные по компании, на управление которой пользователь имеет права (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601). (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $show_bookforms Показать виджеты онлайн-записи компании (optional)
+     * @param  float $bookform_id Показать адрес виджета онлайн-записи с указанным идентификатором (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetAsyncWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['clientGet'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyGetAsyncWithHttpInfo($id, $accept, $content_type, $authorization, $my = null, $for_booking = null, $show_groups = null, $show_bookforms = null, $bookform_id = null, string $contentType = self::contentTypes['companyGet'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\ClientGetResponse';
-        $request = $this->clientGetRequest($company_id, $id, $accept, $content_type, $authorization, $contentType);
+        $returnType = '\Vgrish\YclientsOpenApi\Model\CompanyGetResponse';
+        $request = $this->companyGetRequest($id, $accept, $content_type, $authorization, $my, $for_booking, $show_groups, $show_bookforms, $bookform_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -734,64 +730,111 @@ class ClientApi
     }
 
     /**
-     * Create request for operation 'clientGet'
+     * Create request for operation 'companyGet'
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $id ID клиента (required)
+     * @param  float $id Идентификатор компании, информацию о которой нужно получить. (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientGet'] to see the possible values for this operation
+     * @param  float $my Только для авторизованного пользователя. Если нужны дополнительные данные по компании, на управление которой пользователь имеет права (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601). (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $show_bookforms Показать виджеты онлайн-записи компании (optional)
+     * @param  float $bookform_id Показать адрес виджета онлайн-записи с указанным идентификатором (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function clientGetRequest($company_id, $id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['clientGet'][0]) : \GuzzleHttp\Psr7\Request
+    public function companyGetRequest($id, $accept, $content_type, $authorization, $my = null, $for_booking = null, $show_groups = null, $show_bookforms = null, $bookform_id = null, string $contentType = self::contentTypes['companyGet'][0]) : \GuzzleHttp\Psr7\Request
     {
-
-        // verify the required parameter 'company_id' is set
-        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling clientGet'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling clientGet'
+                'Missing the required parameter $id when calling companyGet'
             );
         }
 
         // verify the required parameter 'accept' is set
         if ($accept === null || (is_array($accept) && count($accept) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $accept when calling clientGet'
+                'Missing the required parameter $accept when calling companyGet'
             );
         }
 
         // verify the required parameter 'content_type' is set
         if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $content_type when calling clientGet'
+                'Missing the required parameter $content_type when calling companyGet'
             );
         }
 
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling clientGet'
+                'Missing the required parameter $authorization when calling companyGet'
             );
         }
 
 
-        $resourcePath = '/client/{company_id}/{id}';
+
+
+
+
+
+        $resourcePath = '/company/{id}/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $my,
+            'my', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $for_booking,
+            'forBooking', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_groups,
+            'show_groups', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_bookforms,
+            'showBookforms', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $bookform_id,
+            'bookform_id', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
         // header params
         if ($accept !== null) {
@@ -806,14 +849,6 @@ class ClientApi
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
-        // path params
-        if ($company_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'company_id' . '}',
-                ObjectSerializer::toPathValue($company_id),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -878,46 +913,84 @@ class ClientApi
     }
 
     /**
-     * Operation clientGetList
+     * Operation companyGetList
      *
-     * Получить список клиентов
+     * Получить список компаний
      *
-     * @param  int $company_id ID компании (required)
-     * @param  string $accept application/vnd.yclients.v2+json (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\ClientGetListRequest $client_get_list_request client_get_list_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientGetList'] to see the possible values for this operation
+     * @param  float $id ID компании. Фильтр по идентификатору компании (optional)
+     * @param  float $group_id ID сети компаний. Фильтр по идентификатору сети компаний _Default: 83_ (optional)
+     * @param  float $my Только для авторизованного пользователя. Если нужно компании, на управление которыми пользователь имеет права (optional)
+     * @param  float $active Если нужно получить только компании с активной лицензией и доступным бронированием (optional)
+     * @param  float $moderated Если нужно получить только прошедшие модерацию компании, чей контент проверен для публикации (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601) (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $city_id Поиск по ID города ([метод получения городов](#cities)) (optional)
+     * @param  float $show_bookforms Включить в объект компании виджеты онлайн-записи (optional)
+     * @param  float $vk_api_id Поиск виджеты онлайн-записи по vk_api_id. Параметр работает при showBookforms&#x3D;1 (optional)
+     * @param  float $min_id Минимальный ID компании (optional)
+     * @param  float $show_deleted Включить в список удалённые компании (optional)
+     * @param  float $hide_record_type_single Не показывать салоны с индивидуальной записью (optional)
+     * @param  float $hide_record_type_activity Не показывать салоны с групповой записью (optional)
+     * @param  float $hide_record_type_mixed Не показывать салоны со смешанной записью (optional)
+     * @param  float $business_group_id Идентификатор группы бизнеса. Фильтр по группе бизнеса (optional)
+     * @param  float $business_type_id Идентификатор сферы бизнеса. Фильтр по сфере бизнеса (optional)
+     * @param  float $yandex Фильтр по синхронизации данных компании с партнерскими площадкам (optional)
+     * @param  string[] $include Включить в объект компании дополнительные данные (optional)
+     * @param  float $count Количество компаний на странице (optional)
+     * @param  float $page Номер страницы (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGetList'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\ClientGetListResponse
+     * @return \Vgrish\YclientsOpenApi\Model\CompanyGetListResponse
      */
-    public function clientGetList($company_id, $accept, $content_type, $authorization, $client_get_list_request = null, string $contentType = self::contentTypes['clientGetList'][0]) : \Vgrish\YclientsOpenApi\Model\ClientGetListResponse
+    public function companyGetList($accept, $content_type, $authorization, $id = null, $group_id = null, $my = null, $active = null, $moderated = null, $for_booking = null, $show_groups = null, $city_id = null, $show_bookforms = null, $vk_api_id = null, $min_id = null, $show_deleted = null, $hide_record_type_single = null, $hide_record_type_activity = null, $hide_record_type_mixed = null, $business_group_id = null, $business_type_id = null, $yandex = null, $include = null, $count = null, $page = null, string $contentType = self::contentTypes['companyGetList'][0]) : \Vgrish\YclientsOpenApi\Model\CompanyGetListResponse
     {
-        list($response) = $this->clientGetListWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_get_list_request, $contentType);
+        list($response) = $this->companyGetListWithHttpInfo($accept, $content_type, $authorization, $id, $group_id, $my, $active, $moderated, $for_booking, $show_groups, $city_id, $show_bookforms, $vk_api_id, $min_id, $show_deleted, $hide_record_type_single, $hide_record_type_activity, $hide_record_type_mixed, $business_group_id, $business_type_id, $yandex, $include, $count, $page, $contentType);
         return $response;
     }
 
     /**
-     * Operation clientGetListWithHttpInfo
+     * Operation companyGetListWithHttpInfo
      *
-     * Получить список клиентов
+     * Получить список компаний
      *
-     * @param  int $company_id ID компании (required)
-     * @param  string $accept application/vnd.yclients.v2+json (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\ClientGetListRequest $client_get_list_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientGetList'] to see the possible values for this operation
+     * @param  float $id ID компании. Фильтр по идентификатору компании (optional)
+     * @param  float $group_id ID сети компаний. Фильтр по идентификатору сети компаний _Default: 83_ (optional)
+     * @param  float $my Только для авторизованного пользователя. Если нужно компании, на управление которыми пользователь имеет права (optional)
+     * @param  float $active Если нужно получить только компании с активной лицензией и доступным бронированием (optional)
+     * @param  float $moderated Если нужно получить только прошедшие модерацию компании, чей контент проверен для публикации (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601) (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $city_id Поиск по ID города ([метод получения городов](#cities)) (optional)
+     * @param  float $show_bookforms Включить в объект компании виджеты онлайн-записи (optional)
+     * @param  float $vk_api_id Поиск виджеты онлайн-записи по vk_api_id. Параметр работает при showBookforms&#x3D;1 (optional)
+     * @param  float $min_id Минимальный ID компании (optional)
+     * @param  float $show_deleted Включить в список удалённые компании (optional)
+     * @param  float $hide_record_type_single Не показывать салоны с индивидуальной записью (optional)
+     * @param  float $hide_record_type_activity Не показывать салоны с групповой записью (optional)
+     * @param  float $hide_record_type_mixed Не показывать салоны со смешанной записью (optional)
+     * @param  float $business_group_id Идентификатор группы бизнеса. Фильтр по группе бизнеса (optional)
+     * @param  float $business_type_id Идентификатор сферы бизнеса. Фильтр по сфере бизнеса (optional)
+     * @param  float $yandex Фильтр по синхронизации данных компании с партнерскими площадкам (optional)
+     * @param  string[] $include Включить в объект компании дополнительные данные (optional)
+     * @param  float $count Количество компаний на странице (optional)
+     * @param  float $page Номер страницы (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGetList'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\ClientGetListResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Vgrish\YclientsOpenApi\Model\CompanyGetListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetListWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_get_list_request = null, string $contentType = self::contentTypes['clientGetList'][0]) : array
+    public function companyGetListWithHttpInfo($accept, $content_type, $authorization, $id = null, $group_id = null, $my = null, $active = null, $moderated = null, $for_booking = null, $show_groups = null, $city_id = null, $show_bookforms = null, $vk_api_id = null, $min_id = null, $show_deleted = null, $hide_record_type_single = null, $hide_record_type_activity = null, $hide_record_type_mixed = null, $business_group_id = null, $business_type_id = null, $yandex = null, $include = null, $count = null, $page = null, string $contentType = self::contentTypes['companyGetList'][0]) : array
     {
-        $request = $this->clientGetListRequest($company_id, $accept, $content_type, $authorization, $client_get_list_request, $contentType);
+        $request = $this->companyGetListRequest($accept, $content_type, $authorization, $id, $group_id, $my, $active, $moderated, $for_booking, $show_groups, $city_id, $show_bookforms, $vk_api_id, $min_id, $show_deleted, $hide_record_type_single, $hide_record_type_activity, $hide_record_type_mixed, $business_group_id, $business_type_id, $yandex, $include, $count, $page, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -956,11 +1029,11 @@ class ClientApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Vgrish\YclientsOpenApi\Model\ClientGetListResponse' === '\SplFileObject') {
+                    if ('\Vgrish\YclientsOpenApi\Model\CompanyGetListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Vgrish\YclientsOpenApi\Model\ClientGetListResponse' !== 'string') {
+                        if ('\Vgrish\YclientsOpenApi\Model\CompanyGetListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -978,13 +1051,13 @@ class ClientApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\ClientGetListResponse', []),
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\CompanyGetListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Vgrish\YclientsOpenApi\Model\ClientGetListResponse';
+            $returnType = '\Vgrish\YclientsOpenApi\Model\CompanyGetListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1017,7 +1090,7 @@ class ClientApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\ClientGetListResponse',
+                        '\Vgrish\YclientsOpenApi\Model\CompanyGetListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1028,23 +1101,42 @@ class ClientApi
     }
 
     /**
-     * Operation clientGetListAsync
+     * Operation companyGetListAsync
      *
-     * Получить список клиентов
+     * Получить список компаний
      *
-     * @param  int $company_id ID компании (required)
-     * @param  string $accept application/vnd.yclients.v2+json (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\ClientGetListRequest $client_get_list_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientGetList'] to see the possible values for this operation
+     * @param  float $id ID компании. Фильтр по идентификатору компании (optional)
+     * @param  float $group_id ID сети компаний. Фильтр по идентификатору сети компаний _Default: 83_ (optional)
+     * @param  float $my Только для авторизованного пользователя. Если нужно компании, на управление которыми пользователь имеет права (optional)
+     * @param  float $active Если нужно получить только компании с активной лицензией и доступным бронированием (optional)
+     * @param  float $moderated Если нужно получить только прошедшие модерацию компании, чей контент проверен для публикации (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601) (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $city_id Поиск по ID города ([метод получения городов](#cities)) (optional)
+     * @param  float $show_bookforms Включить в объект компании виджеты онлайн-записи (optional)
+     * @param  float $vk_api_id Поиск виджеты онлайн-записи по vk_api_id. Параметр работает при showBookforms&#x3D;1 (optional)
+     * @param  float $min_id Минимальный ID компании (optional)
+     * @param  float $show_deleted Включить в список удалённые компании (optional)
+     * @param  float $hide_record_type_single Не показывать салоны с индивидуальной записью (optional)
+     * @param  float $hide_record_type_activity Не показывать салоны с групповой записью (optional)
+     * @param  float $hide_record_type_mixed Не показывать салоны со смешанной записью (optional)
+     * @param  float $business_group_id Идентификатор группы бизнеса. Фильтр по группе бизнеса (optional)
+     * @param  float $business_type_id Идентификатор сферы бизнеса. Фильтр по сфере бизнеса (optional)
+     * @param  float $yandex Фильтр по синхронизации данных компании с партнерскими площадкам (optional)
+     * @param  string[] $include Включить в объект компании дополнительные данные (optional)
+     * @param  float $count Количество компаний на странице (optional)
+     * @param  float $page Номер страницы (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGetList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetListAsync($company_id, $accept, $content_type, $authorization, $client_get_list_request = null, string $contentType = self::contentTypes['clientGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyGetListAsync($accept, $content_type, $authorization, $id = null, $group_id = null, $my = null, $active = null, $moderated = null, $for_booking = null, $show_groups = null, $city_id = null, $show_bookforms = null, $vk_api_id = null, $min_id = null, $show_deleted = null, $hide_record_type_single = null, $hide_record_type_activity = null, $hide_record_type_mixed = null, $business_group_id = null, $business_type_id = null, $yandex = null, $include = null, $count = null, $page = null, string $contentType = self::contentTypes['companyGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->clientGetListAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_get_list_request, $contentType)
+        return $this->companyGetListAsyncWithHttpInfo($accept, $content_type, $authorization, $id, $group_id, $my, $active, $moderated, $for_booking, $show_groups, $city_id, $show_bookforms, $vk_api_id, $min_id, $show_deleted, $hide_record_type_single, $hide_record_type_activity, $hide_record_type_mixed, $business_group_id, $business_type_id, $yandex, $include, $count, $page, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1053,24 +1145,43 @@ class ClientApi
     }
 
     /**
-     * Operation clientGetListAsyncWithHttpInfo
+     * Operation companyGetListAsyncWithHttpInfo
      *
-     * Получить список клиентов
+     * Получить список компаний
      *
-     * @param  int $company_id ID компании (required)
-     * @param  string $accept application/vnd.yclients.v2+json (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\ClientGetListRequest $client_get_list_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientGetList'] to see the possible values for this operation
+     * @param  float $id ID компании. Фильтр по идентификатору компании (optional)
+     * @param  float $group_id ID сети компаний. Фильтр по идентификатору сети компаний _Default: 83_ (optional)
+     * @param  float $my Только для авторизованного пользователя. Если нужно компании, на управление которыми пользователь имеет права (optional)
+     * @param  float $active Если нужно получить только компании с активной лицензией и доступным бронированием (optional)
+     * @param  float $moderated Если нужно получить только прошедшие модерацию компании, чей контент проверен для публикации (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601) (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $city_id Поиск по ID города ([метод получения городов](#cities)) (optional)
+     * @param  float $show_bookforms Включить в объект компании виджеты онлайн-записи (optional)
+     * @param  float $vk_api_id Поиск виджеты онлайн-записи по vk_api_id. Параметр работает при showBookforms&#x3D;1 (optional)
+     * @param  float $min_id Минимальный ID компании (optional)
+     * @param  float $show_deleted Включить в список удалённые компании (optional)
+     * @param  float $hide_record_type_single Не показывать салоны с индивидуальной записью (optional)
+     * @param  float $hide_record_type_activity Не показывать салоны с групповой записью (optional)
+     * @param  float $hide_record_type_mixed Не показывать салоны со смешанной записью (optional)
+     * @param  float $business_group_id Идентификатор группы бизнеса. Фильтр по группе бизнеса (optional)
+     * @param  float $business_type_id Идентификатор сферы бизнеса. Фильтр по сфере бизнеса (optional)
+     * @param  float $yandex Фильтр по синхронизации данных компании с партнерскими площадкам (optional)
+     * @param  string[] $include Включить в объект компании дополнительные данные (optional)
+     * @param  float $count Количество компаний на странице (optional)
+     * @param  float $page Номер страницы (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGetList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetListAsyncWithHttpInfo($company_id, $accept, $content_type, $authorization, $client_get_list_request = null, string $contentType = self::contentTypes['clientGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyGetListAsyncWithHttpInfo($accept, $content_type, $authorization, $id = null, $group_id = null, $my = null, $active = null, $moderated = null, $for_booking = null, $show_groups = null, $city_id = null, $show_bookforms = null, $vk_api_id = null, $min_id = null, $show_deleted = null, $hide_record_type_single = null, $hide_record_type_activity = null, $hide_record_type_mixed = null, $business_group_id = null, $business_type_id = null, $yandex = null, $include = null, $count = null, $page = null, string $contentType = self::contentTypes['companyGetList'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\ClientGetListResponse';
-        $request = $this->clientGetListRequest($company_id, $accept, $content_type, $authorization, $client_get_list_request, $contentType);
+        $returnType = '\Vgrish\YclientsOpenApi\Model\CompanyGetListResponse';
+        $request = $this->companyGetListRequest($accept, $content_type, $authorization, $id, $group_id, $my, $active, $moderated, $for_booking, $show_groups, $city_id, $show_bookforms, $vk_api_id, $min_id, $show_deleted, $hide_record_type_single, $hide_record_type_activity, $hide_record_type_mixed, $business_group_id, $business_type_id, $yandex, $include, $count, $page, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1109,58 +1220,279 @@ class ClientApi
     }
 
     /**
-     * Create request for operation 'clientGetList'
+     * Create request for operation 'companyGetList'
      *
-     * @param  int $company_id ID компании (required)
-     * @param  string $accept application/vnd.yclients.v2+json (required)
+     * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\ClientGetListRequest $client_get_list_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientGetList'] to see the possible values for this operation
+     * @param  float $id ID компании. Фильтр по идентификатору компании (optional)
+     * @param  float $group_id ID сети компаний. Фильтр по идентификатору сети компаний _Default: 83_ (optional)
+     * @param  float $my Только для авторизованного пользователя. Если нужно компании, на управление которыми пользователь имеет права (optional)
+     * @param  float $active Если нужно получить только компании с активной лицензией и доступным бронированием (optional)
+     * @param  float $moderated Если нужно получить только прошедшие модерацию компании, чей контент проверен для публикации (optional)
+     * @param  float $for_booking Показать дату и время ближайшего свободного сеанса в компании (ISO8601) (optional)
+     * @param  float $show_groups Включить в объект компании список сетей в которые входит эта компания (optional)
+     * @param  float $city_id Поиск по ID города ([метод получения городов](#cities)) (optional)
+     * @param  float $show_bookforms Включить в объект компании виджеты онлайн-записи (optional)
+     * @param  float $vk_api_id Поиск виджеты онлайн-записи по vk_api_id. Параметр работает при showBookforms&#x3D;1 (optional)
+     * @param  float $min_id Минимальный ID компании (optional)
+     * @param  float $show_deleted Включить в список удалённые компании (optional)
+     * @param  float $hide_record_type_single Не показывать салоны с индивидуальной записью (optional)
+     * @param  float $hide_record_type_activity Не показывать салоны с групповой записью (optional)
+     * @param  float $hide_record_type_mixed Не показывать салоны со смешанной записью (optional)
+     * @param  float $business_group_id Идентификатор группы бизнеса. Фильтр по группе бизнеса (optional)
+     * @param  float $business_type_id Идентификатор сферы бизнеса. Фильтр по сфере бизнеса (optional)
+     * @param  float $yandex Фильтр по синхронизации данных компании с партнерскими площадкам (optional)
+     * @param  string[] $include Включить в объект компании дополнительные данные (optional)
+     * @param  float $count Количество компаний на странице (optional)
+     * @param  float $page Номер страницы (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyGetList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function clientGetListRequest($company_id, $accept, $content_type, $authorization, $client_get_list_request = null, string $contentType = self::contentTypes['clientGetList'][0]) : \GuzzleHttp\Psr7\Request
+    public function companyGetListRequest($accept, $content_type, $authorization, $id = null, $group_id = null, $my = null, $active = null, $moderated = null, $for_booking = null, $show_groups = null, $city_id = null, $show_bookforms = null, $vk_api_id = null, $min_id = null, $show_deleted = null, $hide_record_type_single = null, $hide_record_type_activity = null, $hide_record_type_mixed = null, $business_group_id = null, $business_type_id = null, $yandex = null, $include = null, $count = null, $page = null, string $contentType = self::contentTypes['companyGetList'][0]) : \GuzzleHttp\Psr7\Request
     {
-
-        // verify the required parameter 'company_id' is set
-        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling clientGetList'
-            );
-        }
 
         // verify the required parameter 'accept' is set
         if ($accept === null || (is_array($accept) && count($accept) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $accept when calling clientGetList'
+                'Missing the required parameter $accept when calling companyGetList'
             );
         }
 
         // verify the required parameter 'content_type' is set
         if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $content_type when calling clientGetList'
+                'Missing the required parameter $content_type when calling companyGetList'
             );
         }
 
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling clientGetList'
+                'Missing the required parameter $authorization when calling companyGetList'
             );
         }
 
 
 
-        $resourcePath = '/company/{company_id}/clients/search';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        $resourcePath = '/companies';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $id,
+            'id', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $group_id,
+            'group_id', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $my,
+            'my', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $active,
+            'active', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $moderated,
+            'moderated', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $for_booking,
+            'forBooking', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_groups,
+            'show_groups', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $city_id,
+            'city_id', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_bookforms,
+            'showBookforms', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $vk_api_id,
+            'vk_api_id', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_id,
+            'min_id', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_deleted,
+            'show_deleted', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $hide_record_type_single,
+            'hide_record_type_single', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $hide_record_type_activity,
+            'hide_record_type_activity', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $hide_record_type_mixed,
+            'hide_record_type_mixed', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $business_group_id,
+            'business_group_id', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $business_type_id,
+            'business_type_id', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $yandex,
+            'yandex', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include,
+            'include', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $count,
+            'count', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            '', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
         // header params
         if ($accept !== null) {
@@ -1175,14 +1507,6 @@ class ClientApi
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
-        // path params
-        if ($company_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'company_id' . '}',
-                ObjectSerializer::toPathValue($company_id),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -1192,14 +1516,7 @@ class ClientApi
         );
 
         // for model (json/xml)
-        if (isset($client_get_list_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($client_get_list_request));
-            } else {
-                $httpBody = $client_get_list_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1238,7 +1555,7 @@ class ClientApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'POST',
+            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -1246,46 +1563,44 @@ class ClientApi
     }
 
     /**
-     * Operation clientRemove
+     * Operation companyRemove
      *
-     * Удалить клиента
+     * Удалить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $id ID клиента (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientRemove'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyRemove'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function clientRemove($company_id, $id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['clientRemove'][0]) : string
+    public function companyRemove($id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['companyRemove'][0]) : string
     {
-        list($response) = $this->clientRemoveWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, $contentType);
+        list($response) = $this->companyRemoveWithHttpInfo($id, $accept, $content_type, $authorization, $contentType);
         return $response;
     }
 
     /**
-     * Operation clientRemoveWithHttpInfo
+     * Operation companyRemoveWithHttpInfo
      *
-     * Удалить клиента
+     * Удалить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $id ID клиента (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientRemove'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyRemove'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientRemoveWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['clientRemove'][0]) : array
+    public function companyRemoveWithHttpInfo($id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['companyRemove'][0]) : array
     {
-        $request = $this->clientRemoveRequest($company_id, $id, $accept, $content_type, $authorization, $contentType);
+        $request = $this->companyRemoveRequest($id, $accept, $content_type, $authorization, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1323,7 +1638,7 @@ class ClientApi
             }
 
             switch($statusCode) {
-                case 204:
+                case 202:
                     if ('string' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -1382,7 +1697,7 @@ class ClientApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 204:
+                case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         'string',
@@ -1396,23 +1711,22 @@ class ClientApi
     }
 
     /**
-     * Operation clientRemoveAsync
+     * Operation companyRemoveAsync
      *
-     * Удалить клиента
+     * Удалить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $id ID клиента (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientRemove'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyRemove'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientRemoveAsync($company_id, $id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['clientRemove'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyRemoveAsync($id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['companyRemove'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->clientRemoveAsyncWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, $contentType)
+        return $this->companyRemoveAsyncWithHttpInfo($id, $accept, $content_type, $authorization, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1421,24 +1735,23 @@ class ClientApi
     }
 
     /**
-     * Operation clientRemoveAsyncWithHttpInfo
+     * Operation companyRemoveAsyncWithHttpInfo
      *
-     * Удалить клиента
+     * Удалить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $id ID клиента (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientRemove'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyRemove'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientRemoveAsyncWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['clientRemove'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyRemoveAsyncWithHttpInfo($id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['companyRemove'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = 'string';
-        $request = $this->clientRemoveRequest($company_id, $id, $accept, $content_type, $authorization, $contentType);
+        $request = $this->companyRemoveRequest($id, $accept, $content_type, $authorization, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1477,58 +1790,50 @@ class ClientApi
     }
 
     /**
-     * Create request for operation 'clientRemove'
+     * Create request for operation 'companyRemove'
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $id ID клиента (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientRemove'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyRemove'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function clientRemoveRequest($company_id, $id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['clientRemove'][0]) : \GuzzleHttp\Psr7\Request
+    public function companyRemoveRequest($id, $accept, $content_type, $authorization, string $contentType = self::contentTypes['companyRemove'][0]) : \GuzzleHttp\Psr7\Request
     {
-
-        // verify the required parameter 'company_id' is set
-        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling clientRemove'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling clientRemove'
+                'Missing the required parameter $id when calling companyRemove'
             );
         }
 
         // verify the required parameter 'accept' is set
         if ($accept === null || (is_array($accept) && count($accept) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $accept when calling clientRemove'
+                'Missing the required parameter $accept when calling companyRemove'
             );
         }
 
         // verify the required parameter 'content_type' is set
         if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $content_type when calling clientRemove'
+                'Missing the required parameter $content_type when calling companyRemove'
             );
         }
 
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling clientRemove'
+                'Missing the required parameter $authorization when calling companyRemove'
             );
         }
 
 
-        $resourcePath = '/client/{company_id}/{id}';
+        $resourcePath = '/company/{id}/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1549,14 +1854,6 @@ class ClientApi
             $headerParams['Authorization'] = ObjectSerializer::toHeaderValue($authorization);
         }
 
-        // path params
-        if ($company_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'company_id' . '}',
-                ObjectSerializer::toPathValue($company_id),
-                $resourcePath
-            );
-        }
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -1621,48 +1918,46 @@ class ClientApi
     }
 
     /**
-     * Operation clientUpdate
+     * Operation companyUpdate
      *
-     * Редактировать клиента
+     * Изменить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $id ID клиента (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\ClientUpdateRequest $client_update_request client_update_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientUpdate'] to see the possible values for this operation
+     * @param  map[string,object] $request_body request_body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyUpdate'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Vgrish\YclientsOpenApi\Model\ClientUpdateResponse
+     * @return \Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse
      */
-    public function clientUpdate($company_id, $id, $accept, $content_type, $authorization, $client_update_request = null, string $contentType = self::contentTypes['clientUpdate'][0]) : \Vgrish\YclientsOpenApi\Model\ClientUpdateResponse
+    public function companyUpdate($id, $accept, $content_type, $authorization, $request_body = null, string $contentType = self::contentTypes['companyUpdate'][0]) : \Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse
     {
-        list($response) = $this->clientUpdateWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, $client_update_request, $contentType);
+        list($response) = $this->companyUpdateWithHttpInfo($id, $accept, $content_type, $authorization, $request_body, $contentType);
         return $response;
     }
 
     /**
-     * Operation clientUpdateWithHttpInfo
+     * Operation companyUpdateWithHttpInfo
      *
-     * Редактировать клиента
+     * Изменить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $id ID клиента (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\ClientUpdateRequest $client_update_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientUpdate'] to see the possible values for this operation
+     * @param  map[string,object] $request_body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyUpdate'] to see the possible values for this operation
      *
      * @throws \Vgrish\YclientsOpenApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Vgrish\YclientsOpenApi\Model\ClientUpdateResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientUpdateWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, $client_update_request = null, string $contentType = self::contentTypes['clientUpdate'][0]) : array
+    public function companyUpdateWithHttpInfo($id, $accept, $content_type, $authorization, $request_body = null, string $contentType = self::contentTypes['companyUpdate'][0]) : array
     {
-        $request = $this->clientUpdateRequest($company_id, $id, $accept, $content_type, $authorization, $client_update_request, $contentType);
+        $request = $this->companyUpdateRequest($id, $accept, $content_type, $authorization, $request_body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1701,11 +1996,11 @@ class ClientApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Vgrish\YclientsOpenApi\Model\ClientUpdateResponse' === '\SplFileObject') {
+                    if ('\Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Vgrish\YclientsOpenApi\Model\ClientUpdateResponse' !== 'string') {
+                        if ('\Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1723,13 +2018,13 @@ class ClientApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\ClientUpdateResponse', []),
+                        ObjectSerializer::deserialize($content, '\Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Vgrish\YclientsOpenApi\Model\ClientUpdateResponse';
+            $returnType = '\Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1762,7 +2057,7 @@ class ClientApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Vgrish\YclientsOpenApi\Model\ClientUpdateResponse',
+                        '\Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1773,24 +2068,23 @@ class ClientApi
     }
 
     /**
-     * Operation clientUpdateAsync
+     * Operation companyUpdateAsync
      *
-     * Редактировать клиента
+     * Изменить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $id ID клиента (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\ClientUpdateRequest $client_update_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientUpdate'] to see the possible values for this operation
+     * @param  map[string,object] $request_body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientUpdateAsync($company_id, $id, $accept, $content_type, $authorization, $client_update_request = null, string $contentType = self::contentTypes['clientUpdate'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyUpdateAsync($id, $accept, $content_type, $authorization, $request_body = null, string $contentType = self::contentTypes['companyUpdate'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->clientUpdateAsyncWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, $client_update_request, $contentType)
+        return $this->companyUpdateAsyncWithHttpInfo($id, $accept, $content_type, $authorization, $request_body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1799,25 +2093,24 @@ class ClientApi
     }
 
     /**
-     * Operation clientUpdateAsyncWithHttpInfo
+     * Operation companyUpdateAsyncWithHttpInfo
      *
-     * Редактировать клиента
+     * Изменить компанию
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $id ID клиента (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\ClientUpdateRequest $client_update_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientUpdate'] to see the possible values for this operation
+     * @param  map[string,object] $request_body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientUpdateAsyncWithHttpInfo($company_id, $id, $accept, $content_type, $authorization, $client_update_request = null, string $contentType = self::contentTypes['clientUpdate'][0]) : \GuzzleHttp\Promise\PromiseInterface
+    public function companyUpdateAsyncWithHttpInfo($id, $accept, $content_type, $authorization, $request_body = null, string $contentType = self::contentTypes['companyUpdate'][0]) : \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Vgrish\YclientsOpenApi\Model\ClientUpdateResponse';
-        $request = $this->clientUpdateRequest($company_id, $id, $accept, $content_type, $authorization, $client_update_request, $contentType);
+        $returnType = '\Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse';
+        $request = $this->companyUpdateRequest($id, $accept, $content_type, $authorization, $request_body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1856,60 +2149,52 @@ class ClientApi
     }
 
     /**
-     * Create request for operation 'clientUpdate'
+     * Create request for operation 'companyUpdate'
      *
-     * @param  int $company_id ID компании (required)
-     * @param  int $id ID клиента (required)
+     * @param  int $id Идентификатор компании (required)
      * @param  string $accept e.g. application/vnd.yclients.v2+json (required)
      * @param  string $content_type application/json (required)
      * @param  string $authorization Bearer partner_token, User user_token (required)
-     * @param  \Vgrish\YclientsOpenApi\Model\ClientUpdateRequest $client_update_request (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['clientUpdate'] to see the possible values for this operation
+     * @param  map[string,object] $request_body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['companyUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function clientUpdateRequest($company_id, $id, $accept, $content_type, $authorization, $client_update_request = null, string $contentType = self::contentTypes['clientUpdate'][0]) : \GuzzleHttp\Psr7\Request
+    public function companyUpdateRequest($id, $accept, $content_type, $authorization, $request_body = null, string $contentType = self::contentTypes['companyUpdate'][0]) : \GuzzleHttp\Psr7\Request
     {
-
-        // verify the required parameter 'company_id' is set
-        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling clientUpdate'
-            );
-        }
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling clientUpdate'
+                'Missing the required parameter $id when calling companyUpdate'
             );
         }
 
         // verify the required parameter 'accept' is set
         if ($accept === null || (is_array($accept) && count($accept) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $accept when calling clientUpdate'
+                'Missing the required parameter $accept when calling companyUpdate'
             );
         }
 
         // verify the required parameter 'content_type' is set
         if ($content_type === null || (is_array($content_type) && count($content_type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $content_type when calling clientUpdate'
+                'Missing the required parameter $content_type when calling companyUpdate'
             );
         }
 
         // verify the required parameter 'authorization' is set
         if ($authorization === null || (is_array($authorization) && count($authorization) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $authorization when calling clientUpdate'
+                'Missing the required parameter $authorization when calling companyUpdate'
             );
         }
 
 
 
-        $resourcePath = '/client/{company_id}/{id}';
+        $resourcePath = '/company/{id}/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1931,14 +2216,6 @@ class ClientApi
         }
 
         // path params
-        if ($company_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'company_id' . '}',
-                ObjectSerializer::toPathValue($company_id),
-                $resourcePath
-            );
-        }
-        // path params
         if ($id !== null) {
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
@@ -1955,12 +2232,12 @@ class ClientApi
         );
 
         // for model (json/xml)
-        if (isset($client_update_request)) {
+        if (isset($request_body)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($client_update_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($request_body));
             } else {
-                $httpBody = $client_update_request;
+                $httpBody = $request_body;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

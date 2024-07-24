@@ -10,7 +10,7 @@ All URIs are relative to *https://api.yclients.com/api/v1*, except if the operat
 ## `authUser()`
 
 ```php
-authUser($accept, $content_type, $authorization, $auth_request): \Vgrish\YclientsOpenApi\Model\AuthUserResponse
+authUser($accept, $content_type, $authorization, $auth_user_request): \Vgrish\YclientsOpenApi\Model\AuthUserResponse
 ```
 
 Авторизовать пользователя
@@ -33,10 +33,10 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\AuthApi(
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}}; // string | Bearer partner_token
-$auth_request = {"login":"{{login}}","password":"{{password}}"}; // \Vgrish\YclientsOpenApi\Model\AuthRequest
+$auth_user_request = {"login":"{{login}}","password":"{{password}}"}; // \Vgrish\YclientsOpenApi\Model\AuthUserRequest
 
 try {
-    $result = $apiInstance->authUser($accept, $content_type, $authorization, $auth_request);
+    $result = $apiInstance->authUser($accept, $content_type, $authorization, $auth_user_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthApi->authUser: ', $e->getMessage(), PHP_EOL;
@@ -50,7 +50,7 @@ try {
 | **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
 | **content_type** | **string**| application/json | |
 | **authorization** | **string**| Bearer partner_token | |
-| **auth_request** | [**\Vgrish\YclientsOpenApi\Model\AuthRequest**](../Model/AuthRequest.md)|  | [optional] |
+| **auth_user_request** | [**\Vgrish\YclientsOpenApi\Model\AuthUserRequest**](../Model/AuthUserRequest.md)|  | [optional] |
 
 ### Return type
 

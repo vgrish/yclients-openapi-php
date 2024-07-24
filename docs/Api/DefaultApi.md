@@ -10,18 +10,26 @@ All URIs are relative to *https://api.yclients.com/api/v1*, except if the operat
 | [**clientGetList()**](DefaultApi.md#clientGetList) | **POST** /company/{company_id}/clients/search | Получить список клиентов |
 | [**clientRemove()**](DefaultApi.md#clientRemove) | **DELETE** /client/{company_id}/{id} | Удалить клиента |
 | [**clientUpdate()**](DefaultApi.md#clientUpdate) | **PUT** /client/{company_id}/{id} | Редактировать клиента |
-| [**financeTransactionByVisitOrRecordGet()**](DefaultApi.md#financeTransactionByVisitOrRecordGet) | **GET** /timetable/transactions/{company_id} | Получение транзакций по ID визита или записи |
-| [**financeTransactionCreate()**](DefaultApi.md#financeTransactionCreate) | **POST** /finance_transactions/{company_id} | Создание финансовой транзакции |
-| [**financeTransactionGet()**](DefaultApi.md#financeTransactionGet) | **GET** /finance_transactions/{company_id}/{transaction_id} | Получение финансовой транзакции |
-| [**financeTransactionGetList()**](DefaultApi.md#financeTransactionGetList) | **GET** /transactions/{company_id} | Получить транзакции |
-| [**financeTransactionRemove()**](DefaultApi.md#financeTransactionRemove) | **DELETE** /finance_transactions/{company_id}/{transaction_id} | Удаление транзакции |
-| [**financeTransactionUpdate()**](DefaultApi.md#financeTransactionUpdate) | **PUT** /finance_transactions/{company_id}/{transaction_id} | Обновление финансовой транзакции |
+| [**companyCreate()**](DefaultApi.md#companyCreate) | **POST** /companies | Создать компанию |
+| [**companyGet()**](DefaultApi.md#companyGet) | **GET** /company/{id}/ | Получить компанию |
+| [**companyGetList()**](DefaultApi.md#companyGetList) | **GET** /companies | Получить список компаний |
+| [**companyRemove()**](DefaultApi.md#companyRemove) | **DELETE** /company/{id}/ | Удалить компанию |
+| [**companyUpdate()**](DefaultApi.md#companyUpdate) | **PUT** /company/{id}/ | Изменить компанию |
+| [**loyaltyCardByClientIdGetList()**](DefaultApi.md#loyaltyCardByClientIdGetList) | **GET** /loyalty/client_cards/{client_id} | Получить список карт клиента по ID |
+| [**loyaltyCardByClientPhoneGetList()**](DefaultApi.md#loyaltyCardByClientPhoneGetList) | **GET** /loyalty/cards/{phone}/{chain_id}/{company_id} | Получить список карт клиента по номеру телефона |
+| [**loyaltyCardCreate()**](DefaultApi.md#loyaltyCardCreate) | **POST** /loyalty/cards/{company_id} | Выдать карту лояльности |
+| [**loyaltyCardRemove()**](DefaultApi.md#loyaltyCardRemove) | **DELETE** /loyalty/cards/{company_id}/{card_id} | Удалить карту  лояльности |
+| [**loyaltyCardTransactionCreate()**](DefaultApi.md#loyaltyCardTransactionCreate) | **POST** /company/{company_id}/loyalty/cards/{card_id}/manual_transaction | Ручное списание/пополнение карты лояльности в компании |
+| [**loyaltyCardTypeByChainIdGetList()**](DefaultApi.md#loyaltyCardTypeByChainIdGetList) | **GET** /chain/{chain_id}/loyalty/card_types | Получить список типов карт, доступных в сети |
+| [**loyaltyCardTypeByClientPhoneGetList()**](DefaultApi.md#loyaltyCardTypeByClientPhoneGetList) | **GET** /loyalty/card_types/client/{company_id}/{phone} | Получить список типов карт доступных для выдачи клиенту |
+| [**loyaltyCardTypeByCompanyIdGetList()**](DefaultApi.md#loyaltyCardTypeByCompanyIdGetList) | **GET** /loyalty/card_types/salon/{company_id} | Получить список типов карт доступных в филиале |
+| [**loyaltyTransactionGetList()**](DefaultApi.md#loyaltyTransactionGetList) | **GET** /chain/{chain_id}/loyalty/transactions | Получить список транзакций лояльности в сети |
 
 
 ## `authUser()`
 
 ```php
-authUser($accept, $content_type, $authorization, $auth_request): \Vgrish\YclientsOpenApi\Model\AuthUserResponse
+authUser($accept, $content_type, $authorization, $auth_user_request): \Vgrish\YclientsOpenApi\Model\AuthUserResponse
 ```
 
 Авторизовать пользователя
@@ -44,10 +52,10 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\DefaultApi(
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}}; // string | Bearer partner_token
-$auth_request = {"login":"{{login}}","password":"{{password}}"}; // \Vgrish\YclientsOpenApi\Model\AuthRequest
+$auth_user_request = {"login":"{{login}}","password":"{{password}}"}; // \Vgrish\YclientsOpenApi\Model\AuthUserRequest
 
 try {
-    $result = $apiInstance->authUser($accept, $content_type, $authorization, $auth_request);
+    $result = $apiInstance->authUser($accept, $content_type, $authorization, $auth_user_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->authUser: ', $e->getMessage(), PHP_EOL;
@@ -61,7 +69,7 @@ try {
 | **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
 | **content_type** | **string**| application/json | |
 | **authorization** | **string**| Bearer partner_token | |
-| **auth_request** | [**\Vgrish\YclientsOpenApi\Model\AuthRequest**](../Model/AuthRequest.md)|  | [optional] |
+| **auth_user_request** | [**\Vgrish\YclientsOpenApi\Model\AuthUserRequest**](../Model/AuthUserRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -271,7 +279,7 @@ No authorization required
 ## `clientRemove()`
 
 ```php
-clientRemove($company_id, $id, $accept, $content_type, $authorization): \Vgrish\YclientsOpenApi\Model\ClientRemoveResponse
+clientRemove($company_id, $id, $accept, $content_type, $authorization): string
 ```
 
 Удалить клиента
@@ -315,7 +323,7 @@ try {
 
 ### Return type
 
-[**\Vgrish\YclientsOpenApi\Model\ClientRemoveResponse**](../Model/ClientRemoveResponse.md)
+**string**
 
 ### Authorization
 
@@ -394,13 +402,15 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `financeTransactionByVisitOrRecordGet()`
+## `companyCreate()`
 
 ```php
-financeTransactionByVisitOrRecordGet($company_id, $accept, $content_type, $authorization, $record_id, $visit_id): \Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse
+companyCreate($accept, $content_type, $authorization, $company_create_request): \Vgrish\YclientsOpenApi\Model\CompanyCreateResponse
 ```
 
-Получение транзакций по ID визита или записи
+Создать компанию
+
+Создать новую компанию.
 
 ### Example
 
@@ -415,18 +425,16 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$company_id = 56; // int | ID компании
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
-$record_id = 0; // int | ID записи
-$visit_id = 0; // int | ID визита
+$company_create_request = {"title":"Новая компания","country_id":1,"city_id":2,"address":"Талалихина, д. 1, к. 2","site":"new-company.ru","coordinate_lat":"55.835662","coordinate_lot":"37.778218","business_type_id":1,"short_descr":"Салон красоты"}; // \Vgrish\YclientsOpenApi\Model\CompanyCreateRequest
 
 try {
-    $result = $apiInstance->financeTransactionByVisitOrRecordGet($company_id, $accept, $content_type, $authorization, $record_id, $visit_id);
+    $result = $apiInstance->companyCreate($accept, $content_type, $authorization, $company_create_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->financeTransactionByVisitOrRecordGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->companyCreate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -434,78 +442,14 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_id** | **int**| ID компании | |
 | **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
 | **content_type** | **string**| application/json | |
 | **authorization** | **string**| Bearer partner_token, User user_token | |
-| **record_id** | **int**| ID записи | [optional] |
-| **visit_id** | **int**| ID визита | [optional] |
+| **company_create_request** | [**\Vgrish\YclientsOpenApi\Model\CompanyCreateRequest**](../Model/CompanyCreateRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\Vgrish\YclientsOpenApi\Model\FinanceTransactionByVisitOrRecordGetResponse**](../Model/FinanceTransactionByVisitOrRecordGetResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `financeTransactionCreate()`
-
-```php
-financeTransactionCreate($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request): \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse
-```
-
-Создание финансовой транзакции
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Vgrish\YclientsOpenApi\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$company_id = 56; // int | ID компании
-$accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
-$content_type = 'content_type_example'; // string | application/json
-$authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
-$finance_transaction_create_request = {"expense_id":2640,"amount":100,"account_id":39105,"client_id":4240788,"supplier_id":0,"master_id":0,"comment":"Transaction comment","date":"2023-01-01 10:00:00"}; // \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest
-
-try {
-    $result = $apiInstance->financeTransactionCreate($company_id, $accept, $content_type, $authorization, $finance_transaction_create_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->financeTransactionCreate: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **company_id** | **int**| ID компании | |
-| **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
-| **content_type** | **string**| application/json | |
-| **authorization** | **string**| Bearer partner_token, User user_token | |
-| **finance_transaction_create_request** | [**\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest**](../Model/FinanceTransactionCreateRequest.md)|  | [optional] |
-
-### Return type
-
-[**\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateResponse**](../Model/FinanceTransactionCreateResponse.md)
+[**\Vgrish\YclientsOpenApi\Model\CompanyCreateResponse**](../Model/CompanyCreateResponse.md)
 
 ### Authorization
 
@@ -520,13 +464,15 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `financeTransactionGet()`
+## `companyGet()`
 
 ```php
-financeTransactionGet($company_id, $transaction_id, $accept, $content_type, $authorization): \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse
+companyGet($id, $accept, $content_type, $authorization, $my, $for_booking, $show_groups, $show_bookforms, $bookform_id): \Vgrish\YclientsOpenApi\Model\CompanyGetResponse
 ```
 
-Получение финансовой транзакции
+Получить компанию
+
+Получение данных о компании.
 
 ### Example
 
@@ -541,17 +487,21 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$company_id = 56; // int | ID компании
-$transaction_id = 56; // int | ID транзакции
+$id = {{company_id}}; // float | Идентификатор компании, информацию о которой нужно получить.
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
+$my = 1; // float | Только для авторизованного пользователя. Если нужны дополнительные данные по компании, на управление которой пользователь имеет права
+$for_booking = 1; // float | Показать дату и время ближайшего свободного сеанса в компании (ISO8601).
+$show_groups = 1; // float | Включить в объект компании список сетей в которые входит эта компания
+$show_bookforms = 1; // float | Показать виджеты онлайн-записи компании
+$bookform_id = 19203; // float | Показать адрес виджета онлайн-записи с указанным идентификатором
 
 try {
-    $result = $apiInstance->financeTransactionGet($company_id, $transaction_id, $accept, $content_type, $authorization);
+    $result = $apiInstance->companyGet($id, $accept, $content_type, $authorization, $my, $for_booking, $show_groups, $show_bookforms, $bookform_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->financeTransactionGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->companyGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -559,15 +509,19 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_id** | **int**| ID компании | |
-| **transaction_id** | **int**| ID транзакции | |
+| **id** | **float**| Идентификатор компании, информацию о которой нужно получить. | |
 | **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
 | **content_type** | **string**| application/json | |
 | **authorization** | **string**| Bearer partner_token, User user_token | |
+| **my** | **float**| Только для авторизованного пользователя. Если нужны дополнительные данные по компании, на управление которой пользователь имеет права | [optional] |
+| **for_booking** | **float**| Показать дату и время ближайшего свободного сеанса в компании (ISO8601). | [optional] |
+| **show_groups** | **float**| Включить в объект компании список сетей в которые входит эта компания | [optional] |
+| **show_bookforms** | **float**| Показать виджеты онлайн-записи компании | [optional] |
+| **bookform_id** | **float**| Показать адрес виджета онлайн-записи с указанным идентификатором | [optional] |
 
 ### Return type
 
-[**\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetResponse**](../Model/FinanceTransactionGetResponse.md)
+[**\Vgrish\YclientsOpenApi\Model\CompanyGetResponse**](../Model/CompanyGetResponse.md)
 
 ### Authorization
 
@@ -582,13 +536,15 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `financeTransactionGetList()`
+## `companyGetList()`
 
 ```php
-financeTransactionGetList($company_id, $accept, $content_type, $authorization, $page, $count, $account_id, $supplier_id, $client_id, $user_id, $master_id, $type, $real_money, $deleted, $start_date, $end_date, $balance_is, $document_id): \Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse
+companyGetList($accept, $content_type, $authorization, $id, $group_id, $my, $active, $moderated, $for_booking, $show_groups, $city_id, $show_bookforms, $vk_api_id, $min_id, $show_deleted, $hide_record_type_single, $hide_record_type_activity, $hide_record_type_mixed, $business_group_id, $business_type_id, $yandex, $include, $count, $page): \Vgrish\YclientsOpenApi\Model\CompanyGetListResponse
 ```
 
-Получить транзакции
+Получить список компаний
+
+Получить список с данными о компаниях
 
 ### Example
 
@@ -603,30 +559,36 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$company_id = 56; // int | ID компании
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
-$page = 1; // int | Номер страницы
-$count = 50; // int | Количество клиентов на странице
-$account_id = 0; // int | ID кассы
-$supplier_id = 0; // int | ID контрагента
-$client_id = 0; // int | ID клиента
-$user_id = 0; // int | ID пользователя
-$master_id = 0; // int | ID сотрудника
-$type = 0; // int | тип транзакции
-$real_money = 0; // int | транзакция реальными деньгами
-$deleted = 0; // int | была ли удалена транзакция
-$start_date = 2023-01-01; // string | дата начала периода
-$end_date = 2023-03-01; // string | дата окончания периода
-$balance_is = 0; // int | 0 - любой баланс, 1 - положительный, 2 - оттрицательный
-$document_id = 0; // int | идентификатор документа
+$id = 4564; // float | ID компании. Фильтр по идентификатору компании
+$group_id = 83; // float | ID сети компаний. Фильтр по идентификатору сети компаний _Default: 83_
+$my = 1; // float | Только для авторизованного пользователя. Если нужно компании, на управление которыми пользователь имеет права
+$active = 1; // float | Если нужно получить только компании с активной лицензией и доступным бронированием
+$moderated = 1; // float | Если нужно получить только прошедшие модерацию компании, чей контент проверен для публикации
+$for_booking = 1; // float | Показать дату и время ближайшего свободного сеанса в компании (ISO8601)
+$show_groups = 1; // float | Включить в объект компании список сетей в которые входит эта компания
+$city_id = 2; // float | Поиск по ID города ([метод получения городов](#cities))
+$show_bookforms = 1; // float | Включить в объект компании виджеты онлайн-записи
+$vk_api_id = 2; // float | Поиск виджеты онлайн-записи по vk_api_id. Параметр работает при showBookforms=1
+$min_id = 1000; // float | Минимальный ID компании
+$show_deleted = 1; // float | Включить в список удалённые компании
+$hide_record_type_single = 1; // float | Не показывать салоны с индивидуальной записью
+$hide_record_type_activity = 1; // float | Не показывать салоны с групповой записью
+$hide_record_type_mixed = 1; // float | Не показывать салоны со смешанной записью
+$business_group_id = 1; // float | Идентификатор группы бизнеса. Фильтр по группе бизнеса
+$business_type_id = 1; // float | Идентификатор сферы бизнеса. Фильтр по сфере бизнеса
+$yandex = 1; // float | Фильтр по синхронизации данных компании с партнерскими площадкам
+$include = ["staff","positions"]; // string[] | Включить в объект компании дополнительные данные
+$count = 3.4; // float | Количество компаний на странице
+$page = 3.4; // float | Номер страницы
 
 try {
-    $result = $apiInstance->financeTransactionGetList($company_id, $accept, $content_type, $authorization, $page, $count, $account_id, $supplier_id, $client_id, $user_id, $master_id, $type, $real_money, $deleted, $start_date, $end_date, $balance_is, $document_id);
+    $result = $apiInstance->companyGetList($accept, $content_type, $authorization, $id, $group_id, $my, $active, $moderated, $for_booking, $show_groups, $city_id, $show_bookforms, $vk_api_id, $min_id, $show_deleted, $hide_record_type_single, $hide_record_type_activity, $hide_record_type_mixed, $business_group_id, $business_type_id, $yandex, $include, $count, $page);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->financeTransactionGetList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->companyGetList: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -634,28 +596,34 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_id** | **int**| ID компании | |
 | **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
 | **content_type** | **string**| application/json | |
 | **authorization** | **string**| Bearer partner_token, User user_token | |
-| **page** | **int**| Номер страницы | [optional] |
-| **count** | **int**| Количество клиентов на странице | [optional] |
-| **account_id** | **int**| ID кассы | [optional] |
-| **supplier_id** | **int**| ID контрагента | [optional] |
-| **client_id** | **int**| ID клиента | [optional] |
-| **user_id** | **int**| ID пользователя | [optional] |
-| **master_id** | **int**| ID сотрудника | [optional] |
-| **type** | **int**| тип транзакции | [optional] |
-| **real_money** | **int**| транзакция реальными деньгами | [optional] |
-| **deleted** | **int**| была ли удалена транзакция | [optional] |
-| **start_date** | **string**| дата начала периода | [optional] |
-| **end_date** | **string**| дата окончания периода | [optional] |
-| **balance_is** | **int**| 0 - любой баланс, 1 - положительный, 2 - оттрицательный | [optional] |
-| **document_id** | **int**| идентификатор документа | [optional] |
+| **id** | **float**| ID компании. Фильтр по идентификатору компании | [optional] |
+| **group_id** | **float**| ID сети компаний. Фильтр по идентификатору сети компаний _Default: 83_ | [optional] |
+| **my** | **float**| Только для авторизованного пользователя. Если нужно компании, на управление которыми пользователь имеет права | [optional] |
+| **active** | **float**| Если нужно получить только компании с активной лицензией и доступным бронированием | [optional] |
+| **moderated** | **float**| Если нужно получить только прошедшие модерацию компании, чей контент проверен для публикации | [optional] |
+| **for_booking** | **float**| Показать дату и время ближайшего свободного сеанса в компании (ISO8601) | [optional] |
+| **show_groups** | **float**| Включить в объект компании список сетей в которые входит эта компания | [optional] |
+| **city_id** | **float**| Поиск по ID города ([метод получения городов](#cities)) | [optional] |
+| **show_bookforms** | **float**| Включить в объект компании виджеты онлайн-записи | [optional] |
+| **vk_api_id** | **float**| Поиск виджеты онлайн-записи по vk_api_id. Параметр работает при showBookforms&#x3D;1 | [optional] |
+| **min_id** | **float**| Минимальный ID компании | [optional] |
+| **show_deleted** | **float**| Включить в список удалённые компании | [optional] |
+| **hide_record_type_single** | **float**| Не показывать салоны с индивидуальной записью | [optional] |
+| **hide_record_type_activity** | **float**| Не показывать салоны с групповой записью | [optional] |
+| **hide_record_type_mixed** | **float**| Не показывать салоны со смешанной записью | [optional] |
+| **business_group_id** | **float**| Идентификатор группы бизнеса. Фильтр по группе бизнеса | [optional] |
+| **business_type_id** | **float**| Идентификатор сферы бизнеса. Фильтр по сфере бизнеса | [optional] |
+| **yandex** | **float**| Фильтр по синхронизации данных компании с партнерскими площадкам | [optional] |
+| **include** | [**string[]**](../Model/string.md)| Включить в объект компании дополнительные данные | [optional] |
+| **count** | **float**| Количество компаний на странице | [optional] |
+| **page** | **float**| Номер страницы | [optional] |
 
 ### Return type
 
-[**\Vgrish\YclientsOpenApi\Model\FinanceTransactionGetListResponse**](../Model/FinanceTransactionGetListResponse.md)
+[**\Vgrish\YclientsOpenApi\Model\CompanyGetListResponse**](../Model/CompanyGetListResponse.md)
 
 ### Authorization
 
@@ -670,13 +638,15 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `financeTransactionRemove()`
+## `companyRemove()`
 
 ```php
-financeTransactionRemove($company_id, $transaction_id, $accept, $content_type, $authorization): \Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse
+companyRemove($id, $accept, $content_type, $authorization): string
 ```
 
-Удаление транзакции
+Удалить компанию
+
+Удаление компании.
 
 ### Example
 
@@ -691,17 +661,16 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$company_id = 56; // int | ID компании
-$transaction_id = 56; // int | ID транзакции
+$id = 37532; // int | Идентификатор компании
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
 
 try {
-    $result = $apiInstance->financeTransactionRemove($company_id, $transaction_id, $accept, $content_type, $authorization);
+    $result = $apiInstance->companyRemove($id, $accept, $content_type, $authorization);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->financeTransactionRemove: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->companyRemove: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -709,15 +678,14 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_id** | **int**| ID компании | |
-| **transaction_id** | **int**| ID транзакции | |
+| **id** | **int**| Идентификатор компании | |
 | **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
 | **content_type** | **string**| application/json | |
 | **authorization** | **string**| Bearer partner_token, User user_token | |
 
 ### Return type
 
-[**\Vgrish\YclientsOpenApi\Model\FinanceTransactionRemoveResponse**](../Model/FinanceTransactionRemoveResponse.md)
+**string**
 
 ### Authorization
 
@@ -732,13 +700,15 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `financeTransactionUpdate()`
+## `companyUpdate()`
 
 ```php
-financeTransactionUpdate($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request): \Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse
+companyUpdate($id, $accept, $content_type, $authorization, $request_body): \Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse
 ```
 
-Обновление финансовой транзакции
+Изменить компанию
+
+Изменение данных о компании.
 
 ### Example
 
@@ -753,18 +723,17 @@ $apiInstance = new Vgrish\YclientsOpenApi\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$company_id = 56; // int | ID компании
-$transaction_id = 56; // int | ID транзакции
+$id = {{company_id}}; // int | Идентификатор компании
 $accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
 $content_type = 'content_type_example'; // string | application/json
 $authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
-$finance_transaction_create_request = new \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest(); // \Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest
+$request_body = {"title":"Новая компания","country":"Россия","city":"Москва","address":"Большой Саввинский пер., д. 4","zip":"119435","phones":["79876543210","79876543211"],"social":{"vk":"vk.com/newcompany"},"site":"new-company.ru","coordinate_lat":55.735662,"coordinate_lon":37.678218,"description":"Самая <strong>Новая компания</strong> на рынке","business_type_id":1,"short_descr":"Салон красоты"}; // map[string,object]
 
 try {
-    $result = $apiInstance->financeTransactionUpdate($company_id, $transaction_id, $accept, $content_type, $authorization, $finance_transaction_create_request);
+    $result = $apiInstance->companyUpdate($id, $accept, $content_type, $authorization, $request_body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->financeTransactionUpdate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->companyUpdate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -772,16 +741,15 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company_id** | **int**| ID компании | |
-| **transaction_id** | **int**| ID транзакции | |
+| **id** | **int**| Идентификатор компании | |
 | **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
 | **content_type** | **string**| application/json | |
 | **authorization** | **string**| Bearer partner_token, User user_token | |
-| **finance_transaction_create_request** | [**\Vgrish\YclientsOpenApi\Model\FinanceTransactionCreateRequest**](../Model/FinanceTransactionCreateRequest.md)|  | [optional] |
+| **request_body** | [**map[string,object]**](../Model/object.md)|  | [optional] |
 
 ### Return type
 
-[**\Vgrish\YclientsOpenApi\Model\FinanceTransactionUpdateResponse**](../Model/FinanceTransactionUpdateResponse.md)
+[**\Vgrish\YclientsOpenApi\Model\CompanyUpdateResponse**](../Model/CompanyUpdateResponse.md)
 
 ### Authorization
 
@@ -790,6 +758,586 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `loyaltyCardByClientIdGetList()`
+
+```php
+loyaltyCardByClientIdGetList($client_id, $accept, $content_type, $authorization): \Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientIdGetListResponse
+```
+
+Получить список карт клиента по ID
+
+Возвращает список карт клиента с программами, которые активны в данном салоне    Атрибуты в ответе на запрос полностью совпадают с методом \"Получить список выданных карт по номеру телефона\", описанным выше
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Vgrish\YclientsOpenApi\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$client_id = 56; // int | ID клиента
+$accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
+$content_type = 'content_type_example'; // string | application/json
+$authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
+
+try {
+    $result = $apiInstance->loyaltyCardByClientIdGetList($client_id, $accept, $content_type, $authorization);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->loyaltyCardByClientIdGetList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **client_id** | **int**| ID клиента | |
+| **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
+| **content_type** | **string**| application/json | |
+| **authorization** | **string**| Bearer partner_token, User user_token | |
+
+### Return type
+
+[**\Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientIdGetListResponse**](../Model/LoyaltyCardByClientIdGetListResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `loyaltyCardByClientPhoneGetList()`
+
+```php
+loyaltyCardByClientPhoneGetList($phone, $chain_id, $company_id, $accept, $content_type, $authorization): \Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientPhoneGetListResponse
+```
+
+Получить список карт клиента по номеру телефона
+
+Возвращает список карт клиента с программами, которые активны в данном салоне    | Атрибут        | Тип    | Описание|  |----------------|--------|--------------------------------------------------------------------------------------------------------------|  | id             | int    | Идентификатор карты лояльности                                                                                  |  | balance        | decimal| Баланс карты лояльности                                                                                        |  | paid_amount    | decimal| Сумма \"Оплачено\" |  | sold_amount    | decimal| Сумма \"Продано\"                                                                                        |  | visits_count   | int    | Количество визитов                                                                     |  | number         | string | Номер карты |  | type_id        | int    | Идентификатор типа карты лояльности                                                                               |  | salon_group_id | int    | Идентификатор сети, где создана карта                                                                    |  | type           | object | Объект, содержащий в себе поля \"id\" и \"title\": идентификатор типа карты и название типа карты, соотвественно  | salon_group    | object | Объект, содержащий в себе поля \"id\" и \"title\": идентификатор сети, где создан тип карты и название этой сети                                                                                        |  | programs       | array  | Массив с информацией об акциях, привязанных к карте лояльности                                                                     |  | rules          | array  | Массив с информацией о правилах, настроенных в акции |    Массив programs состоит из объектов со следующими полями:    | Атрибут         | Тип    | Описание                             |  |-----------------|--------|--------------------------------------|  | id              | int    | Идентификатор акции                  |  | title           | string | Название акции                       |  | loyalty_type_id | int    | Идентификатор типа акции             |  | item_type_id    | int    | Начисляется ли кэшбек от товаров     |  | value_unit_id   | int    | Поле \"Бонус\". Скидка % или Фикс. сумма                                     |  | group_id        | int    | Идентифкатор сети, где создана акция |  | loyalty_type    | object | Объект с информацией о акции         |      Массив rules состоит из объектов со следующими полями:    | Атрибут            | Тип    | Описание                                         |  |--------------------|--------|--------------------------------------------------|  | id                 | int    | Идентификатор правила                            |  | loyalty_program_id | int    | Идентификатор акции, к которой привязано правило |  | loyalty_type_id    | int    | Идентификатор типа акции                         |  | value              | decimal| Значение от которого сработает правило           |
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Vgrish\YclientsOpenApi\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$phone = 'phone_example'; // string | Номер телефона клиента в формате 70001234567
+$chain_id = 56; // int | ID сети
+$company_id = 56; // int | ID филиала
+$accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
+$content_type = 'content_type_example'; // string | application/json
+$authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
+
+try {
+    $result = $apiInstance->loyaltyCardByClientPhoneGetList($phone, $chain_id, $company_id, $accept, $content_type, $authorization);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->loyaltyCardByClientPhoneGetList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **phone** | **string**| Номер телефона клиента в формате 70001234567 | |
+| **chain_id** | **int**| ID сети | |
+| **company_id** | **int**| ID филиала | |
+| **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
+| **content_type** | **string**| application/json | |
+| **authorization** | **string**| Bearer partner_token, User user_token | |
+
+### Return type
+
+[**\Vgrish\YclientsOpenApi\Model\LoyaltyCardByClientPhoneGetListResponse**](../Model/LoyaltyCardByClientPhoneGetListResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `loyaltyCardCreate()`
+
+```php
+loyaltyCardCreate($company_id, $accept, $content_type, $authorization, $loyalty_card_create_request): \Vgrish\YclientsOpenApi\Model\LoyaltyCardCreateResponse
+```
+
+Выдать карту лояльности
+
+| Атрибут              | Тип    | Описание                                     |  |----------------------|--------|----------------------------------------------|  | loyalty_card_number  | number | Номер карты лояльности                       |  | loyalty_card_type_id | number | Идентификатор типа карты лояльности          |  | phone                | number | Номер телефона клиента в формате 70001234567 |
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Vgrish\YclientsOpenApi\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$company_id = {{company_id}}; // int | ID филиала
+$accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
+$content_type = 'content_type_example'; // string | application/json
+$authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
+$loyalty_card_create_request = {"loyalty_card_number":9090909,"loyalty_card_type_id":"8230","phone":79091552422}; // \Vgrish\YclientsOpenApi\Model\LoyaltyCardCreateRequest
+
+try {
+    $result = $apiInstance->loyaltyCardCreate($company_id, $accept, $content_type, $authorization, $loyalty_card_create_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->loyaltyCardCreate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| ID филиала | |
+| **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
+| **content_type** | **string**| application/json | |
+| **authorization** | **string**| Bearer partner_token, User user_token | |
+| **loyalty_card_create_request** | [**\Vgrish\YclientsOpenApi\Model\LoyaltyCardCreateRequest**](../Model/LoyaltyCardCreateRequest.md)|  | [optional] |
+
+### Return type
+
+[**\Vgrish\YclientsOpenApi\Model\LoyaltyCardCreateResponse**](../Model/LoyaltyCardCreateResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `loyaltyCardRemove()`
+
+```php
+loyaltyCardRemove($company_id, $card_id, $accept, $content_type, $authorization): object
+```
+
+Удалить карту  лояльности
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Vgrish\YclientsOpenApi\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$company_id = {{company_id}}; // int | ID филиала
+$card_id = {{client_loyalty_card_id}}; // int | ID карты лояльности
+$accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
+$content_type = 'content_type_example'; // string | application/json
+$authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
+
+try {
+    $result = $apiInstance->loyaltyCardRemove($company_id, $card_id, $accept, $content_type, $authorization);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->loyaltyCardRemove: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| ID филиала | |
+| **card_id** | **int**| ID карты лояльности | |
+| **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
+| **content_type** | **string**| application/json | |
+| **authorization** | **string**| Bearer partner_token, User user_token | |
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `loyaltyCardTransactionCreate()`
+
+```php
+loyaltyCardTransactionCreate($company_id, $card_id, $accept, $content_type, $authorization, $loyalty_transaction_create_request): \Vgrish\YclientsOpenApi\Model\LoyaltyCardTransactionCreateResponse
+```
+
+Ручное списание/пополнение карты лояльности в компании
+
+Ручное списание/пополнение карты лояльности в компании
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Vgrish\YclientsOpenApi\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$company_id = {{company_id}}; // int | Идентификатор филиала.
+$card_id = {{client_loyalty_card_id}}; // int | ID карты лояльности
+$accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
+$content_type = 'content_type_example'; // string | application/json
+$authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
+$loyalty_transaction_create_request = new \Vgrish\YclientsOpenApi\Model\LoyaltyTransactionCreateRequest(); // \Vgrish\YclientsOpenApi\Model\LoyaltyTransactionCreateRequest
+
+try {
+    $result = $apiInstance->loyaltyCardTransactionCreate($company_id, $card_id, $accept, $content_type, $authorization, $loyalty_transaction_create_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->loyaltyCardTransactionCreate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| Идентификатор филиала. | |
+| **card_id** | **int**| ID карты лояльности | |
+| **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
+| **content_type** | **string**| application/json | |
+| **authorization** | **string**| Bearer partner_token, User user_token | |
+| **loyalty_transaction_create_request** | [**\Vgrish\YclientsOpenApi\Model\LoyaltyTransactionCreateRequest**](../Model/LoyaltyTransactionCreateRequest.md)|  | [optional] |
+
+### Return type
+
+[**\Vgrish\YclientsOpenApi\Model\LoyaltyCardTransactionCreateResponse**](../Model/LoyaltyCardTransactionCreateResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `loyaltyCardTypeByChainIdGetList()`
+
+```php
+loyaltyCardTypeByChainIdGetList($chain_id, $accept, $content_type, $authorization): \Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByChainIdGetListResponse
+```
+
+Получить список типов карт, доступных в сети
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Vgrish\YclientsOpenApi\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$chain_id = {{chain_id}}; // int | Идентификатор сети
+$accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
+$content_type = 'content_type_example'; // string | application/json
+$authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
+
+try {
+    $result = $apiInstance->loyaltyCardTypeByChainIdGetList($chain_id, $accept, $content_type, $authorization);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->loyaltyCardTypeByChainIdGetList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **chain_id** | **int**| Идентификатор сети | |
+| **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
+| **content_type** | **string**| application/json | |
+| **authorization** | **string**| Bearer partner_token, User user_token | |
+
+### Return type
+
+[**\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByChainIdGetListResponse**](../Model/LoyaltyCardTypeByChainIdGetListResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `loyaltyCardTypeByClientPhoneGetList()`
+
+```php
+loyaltyCardTypeByClientPhoneGetList($company_id, $phone, $accept, $content_type, $authorization): \Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByClientPhoneGetListResponse
+```
+
+Получить список типов карт доступных для выдачи клиенту
+
+Возвращает список типов карт, которые доступны для выдачи клиенту салона.    | Атрибут        | Тип    | Описание                                                                                                     |  |----------------|--------|--------------------------------------------------------------------------------------------------------------|  | id             | int    | Идентификатор типа карты                                                                                     |  | title          | string | Название типа карты                                                                                          |  | salon_group_id | int    | Идентификатор сети, где создан тип карты                                                                     |  | salon_group    | object | Объект, содержащий в себе поля \"id\" и \"title\": идентификатор сети, где создан тип карты и название этой сети |
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Vgrish\YclientsOpenApi\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$company_id = {{company_id}}; // int | ID компании
+$phone = {{client_phone}}; // string | Номер телефона клиента
+$accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
+$content_type = 'content_type_example'; // string | application/json
+$authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
+
+try {
+    $result = $apiInstance->loyaltyCardTypeByClientPhoneGetList($company_id, $phone, $accept, $content_type, $authorization);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->loyaltyCardTypeByClientPhoneGetList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| ID компании | |
+| **phone** | **string**| Номер телефона клиента | |
+| **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
+| **content_type** | **string**| application/json | |
+| **authorization** | **string**| Bearer partner_token, User user_token | |
+
+### Return type
+
+[**\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByClientPhoneGetListResponse**](../Model/LoyaltyCardTypeByClientPhoneGetListResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `loyaltyCardTypeByCompanyIdGetList()`
+
+```php
+loyaltyCardTypeByCompanyIdGetList($company_id, $accept, $content_type, $authorization): \Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByCompanyIdGetListResponse
+```
+
+Получить список типов карт доступных в филиале
+
+Возвращает список типов карт, которые действуют для данного филиала.    Атрибуты и их описания соответсвуют методу \"Коллекция типов карт доступных клиенту\", описанному выше.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Vgrish\YclientsOpenApi\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$company_id = {{company_id}}; // int | ID компании
+$accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
+$content_type = 'content_type_example'; // string | application/json
+$authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
+
+try {
+    $result = $apiInstance->loyaltyCardTypeByCompanyIdGetList($company_id, $accept, $content_type, $authorization);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->loyaltyCardTypeByCompanyIdGetList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **company_id** | **int**| ID компании | |
+| **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
+| **content_type** | **string**| application/json | |
+| **authorization** | **string**| Bearer partner_token, User user_token | |
+
+### Return type
+
+[**\Vgrish\YclientsOpenApi\Model\LoyaltyCardTypeByCompanyIdGetListResponse**](../Model/LoyaltyCardTypeByCompanyIdGetListResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `loyaltyTransactionGetList()`
+
+```php
+loyaltyTransactionGetList($chain_id, $created_after, $created_before, $accept, $content_type, $authorization, $types, $company_ids, $visit_ids, $page, $count): \Vgrish\YclientsOpenApi\Model\LoyaltyTransactionGetListResponse
+```
+
+Получить список транзакций лояльности в сети
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Vgrish\YclientsOpenApi\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$chain_id = {{chain_id}}; // int | Идентификатор сети
+$created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Дата начала выборки в формате Y-m-d
+$created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Дата окончания выборки в формате Y-m-d
+$accept = application/vnd.yclients.v2+json; // string | e.g. application/vnd.yclients.v2+json
+$content_type = 'content_type_example'; // string | application/json
+$authorization = Bearer {{partner_token}},User {{user_token}}; // string | Bearer partner_token, User user_token
+$types = array('types_example'); // string[] | Типы транзакций лояльности, включенные в выборку: 1 - Скидка по акции, 2 - Начисление по программе лояльности, 3 - Списание с карты лояльности, 4 - Начисление по реферальной программе, 5 - Ручное пополнение, 6 - Ручное списание, 7 - Списание просроченных баллов, 8 - Списание с сертификата, 9 - Использование абонемента, 10 - Перерасчет стоимости по абонементу, 11 - Списание с личного счета
+$company_ids = array(56); // int[] | Идентификаторы филиалов транзакций лояльности, включенные в выборку
+$visit_ids = array(56); // int[] | Идентификаторы визитов транзакций лояльности, включенные в выборку
+$page = 56; // int | Страница выборки
+$count = 56; // int | Количество результатов на одной странице выборки
+
+try {
+    $result = $apiInstance->loyaltyTransactionGetList($chain_id, $created_after, $created_before, $accept, $content_type, $authorization, $types, $company_ids, $visit_ids, $page, $count);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->loyaltyTransactionGetList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **chain_id** | **int**| Идентификатор сети | |
+| **created_after** | **\DateTime**| Дата начала выборки в формате Y-m-d | |
+| **created_before** | **\DateTime**| Дата окончания выборки в формате Y-m-d | |
+| **accept** | **string**| e.g. application/vnd.yclients.v2+json | |
+| **content_type** | **string**| application/json | |
+| **authorization** | **string**| Bearer partner_token, User user_token | |
+| **types** | [**string[]**](../Model/string.md)| Типы транзакций лояльности, включенные в выборку: 1 - Скидка по акции, 2 - Начисление по программе лояльности, 3 - Списание с карты лояльности, 4 - Начисление по реферальной программе, 5 - Ручное пополнение, 6 - Ручное списание, 7 - Списание просроченных баллов, 8 - Списание с сертификата, 9 - Использование абонемента, 10 - Перерасчет стоимости по абонементу, 11 - Списание с личного счета | [optional] |
+| **company_ids** | [**int[]**](../Model/int.md)| Идентификаторы филиалов транзакций лояльности, включенные в выборку | [optional] |
+| **visit_ids** | [**int[]**](../Model/int.md)| Идентификаторы визитов транзакций лояльности, включенные в выборку | [optional] |
+| **page** | **int**| Страница выборки | [optional] |
+| **count** | **int**| Количество результатов на одной странице выборки | [optional] |
+
+### Return type
+
+[**\Vgrish\YclientsOpenApi\Model\LoyaltyTransactionGetListResponse**](../Model/LoyaltyTransactionGetListResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
