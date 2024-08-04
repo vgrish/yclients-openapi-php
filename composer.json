@@ -1,6 +1,6 @@
 {
     "name": "vgrish/yclients-openapi-php",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "yclients-openapi-php package for YCLIENTS generated based on the openapi schema",
     "keywords": [
         "yclients",
