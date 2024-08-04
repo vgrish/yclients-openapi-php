@@ -597,7 +597,7 @@ class ObjectSerializer
                 $qs .= '&';
             } else {
                 foreach ($v as $vv) {
-                    $qs .= $k;
+                    $qs .= $k.'[]';
                     $vv = is_bool($vv) ? $castBool($vv) : $vv;
                     if ($vv !== null) {
                         $qs .= '='.$encoder((string) $vv);
